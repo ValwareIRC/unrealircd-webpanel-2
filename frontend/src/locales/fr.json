@@ -1,0 +1,61 @@
+{
+  "common": {
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "add": "Ajouter",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "warning": "Avertissement",
+    "info": "Information",
+    "yes": "Oui",
+    "no": "Non",
+    "ok": "OK",
+    "close": "Fermer",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "submit": "Soumettre",
+    "reset": "Réinitialiser",
+    "confirm": "Confirmer",
+    "logout": "Déconnexion",
+    "login": "Connexion",
+    "username": "Nom d'utilisateur",
+    "password": "Mot de passe",
+    "email": "E-mail",
+    "name": "Nom",
+    "description": "Description",
+    "status": "Statut",
+    "active": "Actif",
+    "inactive": "Inactif",
+    "enabled": "Activé",
+    "disabled": "Désactivé"
+  },
+  "navigation": {
+    "dashboard": "Tableau de bord",
+    "servers": "Serveurs",
+    "users": "Utilisateurs",
+    "settings": "Paramètres",
+    "logs": "Journaux",
+    "reports": "Rapports",
+    "plugins": "Plugins"
+  },
+  "dashboard": {
+    "title": "Tableau de bord",
+    "welcome": "Bienvenue sur le Panel Web UnrealIRCd",
+    "overview": "Aperçu",
+    "statistics": "Statistiques",
+    "recentActivity": "Activité récente"
+  },
+  "auth": {
+    "loginTitle": "Connexion",
+    "loginButton": "Se connecter",
+    "logoutConfirm": "Êtes-vous sûr de vouloir vous déconnecter ?",
+    "invalidCredentials": "Nom d'utilisateur ou mot de passe invalide",
+    "sessionExpired": "Votre session a expiré. Veuillez vous reconnecter."
+  }
+}

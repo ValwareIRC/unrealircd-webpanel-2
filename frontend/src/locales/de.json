@@ -1,0 +1,61 @@
+{
+  "common": {
+    "save": "Speichern",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "add": "Hinzufügen",
+    "search": "Suchen",
+    "filter": "Filtern",
+    "loading": "Laden...",
+    "error": "Fehler",
+    "success": "Erfolg",
+    "warning": "Warnung",
+    "info": "Information",
+    "yes": "Ja",
+    "no": "Nein",
+    "ok": "OK",
+    "close": "Schließen",
+    "back": "Zurück",
+    "next": "Weiter",
+    "previous": "Zurück",
+    "submit": "Absenden",
+    "reset": "Zurücksetzen",
+    "confirm": "Bestätigen",
+    "logout": "Abmelden",
+    "login": "Anmelden",
+    "username": "Benutzername",
+    "password": "Passwort",
+    "email": "E-Mail",
+    "name": "Name",
+    "description": "Beschreibung",
+    "status": "Status",
+    "active": "Aktiv",
+    "inactive": "Inaktiv",
+    "enabled": "Aktiviert",
+    "disabled": "Deaktiviert"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "servers": "Server",
+    "users": "Benutzer",
+    "settings": "Einstellungen",
+    "logs": "Protokolle",
+    "reports": "Berichte",
+    "plugins": "Plugins"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Willkommen beim UnrealIRCd Web Panel",
+    "overview": "Übersicht",
+    "statistics": "Statistiken",
+    "recentActivity": "Kürzliche Aktivität"
+  },
+  "auth": {
+    "loginTitle": "Anmeldung",
+    "loginButton": "Anmelden",
+    "logoutConfirm": "Sind Sie sicher, dass Sie sich abmelden möchten?",
+    "invalidCredentials": "Ungültiger Benutzername oder Passwort",
+    "sessionExpired": "Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an."
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "common": {
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "add": "Ekle",
+    "search": "Ara",
+    "filter": "Filtrele",
+    "loading": "Yükleniyor...",
+    "error": "Hata",
+    "success": "Başarılı",
+    "warning": "Uyarı",
+    "info": "Bilgi",
+    "yes": "Evet",
+    "no": "Hayır",
+    "ok": "Tamam",
+    "close": "Kapat",
+    "back": "Geri",
+    "next": "İleri",
+    "previous": "Önceki",
+    "submit": "Gönder",
+    "reset": "Sıfırla",
+    "confirm": "Onayla",
+    "logout": "Çıkış",
+    "login": "Giriş",
+    "username": "Kullanıcı adı",
+    "password": "Şifre",
+    "email": "E-posta",
+    "name": "Ad",
+    "description": "Açıklama",
+    "status": "Durum",
+    "active": "Aktif",
+    "inactive": "Pasif",
+    "enabled": "Etkin",
+    "disabled": "Devre dışı"
+  },
+  "navigation": {
+    "dashboard": "Kontrol Paneli",
+    "servers": "Sunucular",
+    "users": "Kullanıcılar",
+    "settings": "Ayarlar",
+    "logs": "Günlükler",
+    "reports": "Raporlar",
+    "plugins": "Eklentiler"
+  },
+  "dashboard": {
+    "title": "Kontrol Paneli",
+    "welcome": "UnrealIRCd Web Paneline Hoş Geldiniz",
+    "overview": "Genel Bakış",
+    "statistics": "İstatistikler",
+    "recentActivity": "Son Etkinlik"
+  },
+  "auth": {
+    "loginTitle": "Giriş",
+    "loginButton": "Giriş Yap",
+    "logoutConfirm": "Çıkış yapmak istediğinizden emin misiniz?",
+    "invalidCredentials": "Geçersiz kullanıcı adı veya şifre",
+    "sessionExpired": "Oturumunuz sona erdi. Lütfen tekrar giriş yapın."
+  }
+}

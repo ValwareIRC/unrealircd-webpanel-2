@@ -1,5 +1,5 @@
 import { useNetworkStats } from '@/hooks'
-import { ThemeSwitcher, HeaderSeasonalAnimations } from '@/components/common'
+import { ThemeSwitcher, LanguageSwitcher, HeaderSeasonalAnimations } from '@/components/common'
 import { Bell, Search, Wifi, WifiOff, RefreshCw, Command } from 'lucide-react'
 import { useLayoutContext } from './Layout'
 
@@ -77,6 +77,9 @@ export function Header({ sidebarCollapsed }: HeaderProps) {
 
           {/* Theme Switcher */}
           <ThemeSwitcher />
+
+          {/* Language Switcher */}
+          <LanguageSwitcher />
 
           {/* Notifications */}
           <button className="relative p-2 rounded-lg hover:bg-[var(--bg-hover)] text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors">

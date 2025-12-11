@@ -1,0 +1,61 @@
+{
+  "common": {
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "delete": "Excluir",
+    "edit": "Editar",
+    "add": "Adicionar",
+    "search": "Pesquisar",
+    "filter": "Filtrar",
+    "loading": "Carregando...",
+    "error": "Erro",
+    "success": "Sucesso",
+    "warning": "Aviso",
+    "info": "Informação",
+    "yes": "Sim",
+    "no": "Não",
+    "ok": "OK",
+    "close": "Fechar",
+    "back": "Voltar",
+    "next": "Próximo",
+    "previous": "Anterior",
+    "submit": "Enviar",
+    "reset": "Redefinir",
+    "confirm": "Confirmar",
+    "logout": "Sair",
+    "login": "Entrar",
+    "username": "Nome de usuário",
+    "password": "Senha",
+    "email": "E-mail",
+    "name": "Nome",
+    "description": "Descrição",
+    "status": "Status",
+    "active": "Ativo",
+    "inactive": "Inativo",
+    "enabled": "Habilitado",
+    "disabled": "Desabilitado"
+  },
+  "navigation": {
+    "dashboard": "Painel",
+    "servers": "Servidores",
+    "users": "Usuários",
+    "settings": "Configurações",
+    "logs": "Logs",
+    "reports": "Relatórios",
+    "plugins": "Plugins"
+  },
+  "dashboard": {
+    "title": "Painel",
+    "welcome": "Bem-vindo ao Painel Web do UnrealIRCd",
+    "overview": "Visão Geral",
+    "statistics": "Estatísticas",
+    "recentActivity": "Atividade Recente"
+  },
+  "auth": {
+    "loginTitle": "Entrar",
+    "loginButton": "Entrar",
+    "logoutConfirm": "Tem certeza de que deseja sair?",
+    "invalidCredentials": "Nome de usuário ou senha inválidos",
+    "sessionExpired": "Sua sessão expirou. Faça login novamente."
+  }
+}

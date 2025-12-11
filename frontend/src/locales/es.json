@@ -1,0 +1,61 @@
+{
+  "common": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "add": "Agregar",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "warning": "Advertencia",
+    "info": "Información",
+    "yes": "Sí",
+    "no": "No",
+    "ok": "OK",
+    "close": "Cerrar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "submit": "Enviar",
+    "reset": "Restablecer",
+    "confirm": "Confirmar",
+    "logout": "Cerrar sesión",
+    "login": "Iniciar sesión",
+    "username": "Nombre de usuario",
+    "password": "Contraseña",
+    "email": "Correo electrónico",
+    "name": "Nombre",
+    "description": "Descripción",
+    "status": "Estado",
+    "active": "Activo",
+    "inactive": "Inactivo",
+    "enabled": "Habilitado",
+    "disabled": "Deshabilitado"
+  },
+  "navigation": {
+    "dashboard": "Panel",
+    "servers": "Servidores",
+    "users": "Usuarios",
+    "settings": "Configuraciones",
+    "logs": "Registros",
+    "reports": "Informes",
+    "plugins": "Plugins"
+  },
+  "dashboard": {
+    "title": "Panel",
+    "welcome": "Bienvenido al Panel Web de UnrealIRCd",
+    "overview": "Resumen",
+    "statistics": "Estadísticas",
+    "recentActivity": "Actividad Reciente"
+  },
+  "auth": {
+    "loginTitle": "Iniciar sesión",
+    "loginButton": "Iniciar sesión",
+    "logoutConfirm": "¿Estás seguro de que quieres cerrar sesión?",
+    "invalidCredentials": "Nombre de usuario o contraseña inválidos",
+    "sessionExpired": "Tu sesión ha expirado. Por favor inicia sesión de nuevo."
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "common": {
+    "save": "Opslaan",
+    "cancel": "Annuleren",
+    "delete": "Verwijderen",
+    "edit": "Bewerken",
+    "add": "Toevoegen",
+    "search": "Zoeken",
+    "filter": "Filteren",
+    "loading": "Laden...",
+    "error": "Fout",
+    "success": "Succes",
+    "warning": "Waarschuwing",
+    "info": "Informatie",
+    "yes": "Ja",
+    "no": "Nee",
+    "ok": "OK",
+    "close": "Sluiten",
+    "back": "Terug",
+    "next": "Volgende",
+    "previous": "Vorige",
+    "submit": "Verzenden",
+    "reset": "Resetten",
+    "confirm": "Bevestigen",
+    "logout": "Uitloggen",
+    "login": "Inloggen",
+    "username": "Gebruikersnaam",
+    "password": "Wachtwoord",
+    "email": "E-mail",
+    "name": "Naam",
+    "description": "Beschrijving",
+    "status": "Status",
+    "active": "Actief",
+    "inactive": "Inactief",
+    "enabled": "Ingeschakeld",
+    "disabled": "Uitgeschakeld"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "servers": "Servers",
+    "users": "Gebruikers",
+    "settings": "Instellingen",
+    "logs": "Logboeken",
+    "reports": "Rapporten",
+    "plugins": "Plugins"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welkom bij het UnrealIRCd Web Panel",
+    "overview": "Overzicht",
+    "statistics": "Statistieken",
+    "recentActivity": "Recente Activiteit"
+  },
+  "auth": {
+    "loginTitle": "Inloggen",
+    "loginButton": "Inloggen",
+    "logoutConfirm": "Weet je zeker dat je wilt uitloggen?",
+    "invalidCredentials": "Ongeldige gebruikersnaam of wachtwoord",
+    "sessionExpired": "Uw sessie is verlopen. Log opnieuw in."
+  }
+}
