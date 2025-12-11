@@ -1,0 +1,27 @@
+{
+  "server": {
+    "host": "0.0.0.0",
+    "port": 8080
+  },
+  "database": {
+    "driver": "sqlite",
+    "dsn": "data/webpanel.db"
+  },
+  "auth": {
+    "jwt_secret": "change-this-to-a-secure-random-string-in-production",
+    "jwt_expiry": "24h",
+    "session_duration": "168h"
+  },
+  "rpc_servers": [
+    {
+      "name": "Main Server",
+      "host": "127.0.0.1",
+      "port": 8600,
+      "rpc_user": "webpanel",
+      "rpc_password": "change-this-password",
+      "tls_verify_cert": true,
+      "is_default": true
+    }
+  ],
+  "encryption_key": "32-character-key-for-encryption!"
+}

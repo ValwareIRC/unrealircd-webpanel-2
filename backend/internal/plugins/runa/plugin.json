@@ -1,0 +1,76 @@
+{
+  "id": "runa",
+  "name": "Runa - AI Network Assistant",
+  "version": "1.7.0",
+  "author": "ValwareIRC",
+  "description": "Responsive UnrealIRCd Network Agent - An AI-powered assistant that can help you manage your IRC network using natural language",
+  "category": "management",
+  "license": "MIT",
+  "repository": "https://github.com/ValwareIRC/uwp-plugins",
+  "homepage": "https://github.com/ValwareIRC/uwp-plugins/tree/main/plugins/runa",
+  "tags": ["ai", "assistant", "chatgpt", "openai", "management", "helper", "chatbot"],
+  "min_panel_version": "2.0.0",
+  "hooks": [],
+  "nav_items": [
+    {
+      "id": "runa-assistant",
+      "label": "Runa AI",
+      "icon": "Bot",
+      "path": "/plugins/runa",
+      "category": "Tools",
+      "order": 50
+    }
+  ],
+  "dashboard_cards": [],
+  "frontend_scripts": [
+    "runa.js"
+  ],
+  "frontend_styles": [
+    "runa.css"
+  ],
+  "settings_schema": {
+    "api_provider": {
+      "type": "select",
+      "label": "AI Provider",
+      "description": "Select your AI service provider",
+      "options": ["openai", "anthropic", "ollama", "custom"],
+      "default": "openai"
+    },
+    "api_key": {
+      "type": "string",
+      "label": "API Key",
+      "description": "API key (required for OpenAI/Anthropic, optional for custom endpoints)",
+      "default": ""
+    },
+    "api_endpoint": {
+      "type": "string",
+      "label": "API Endpoint",
+      "description": "API endpoint URL (required for Ollama/Custom, e.g. https://text.pollinations.ai/openai)",
+      "default": ""
+    },
+    "model": {
+      "type": "string",
+      "label": "Model Name",
+      "description": "The model to use (e.g., gpt-4o, claude-3-sonnet, llama3)",
+      "default": "gpt-4o-mini"
+    },
+    "keyboard_shortcut": {
+      "type": "string",
+      "label": "Keyboard Shortcut",
+      "description": "Key to press with Ctrl+Shift to toggle Runa",
+      "default": "r"
+    },
+    "auto_fetch_context": {
+      "type": "boolean",
+      "label": "Auto-Fetch Context",
+      "description": "Automatically fetch network stats when starting a conversation",
+      "default": true
+    },
+    "max_history": {
+      "type": "number",
+      "label": "Max Conversation History",
+      "description": "Maximum number of messages to keep in conversation history",
+      "default": 50
+    }
+  }
+}
