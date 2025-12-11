@@ -126,6 +126,11 @@ check_dependencies() {
         missing=1
     fi
     
+    if ! command -v jq &> /dev/null; then
+        print_error "jq is not installed"
+        missing=1
+    fi
+    
     if [ $missing -eq 1 ]; then
         echo ""
         print_error "Please install missing dependencies and try again"
@@ -383,6 +388,111 @@ clean() {
     print_success "Clean complete"
 }
 
+upgrade_app() {
+    print_info "Checking for updates..."
+    
+    # Get latest release from GitHub
+    local latest_release=$(curl -s https://api.github.com/repos/ValwareIRC/unrealircd-webpanel-2/releases | jq -r '.[0].tag_name' 2>/dev/null)
+    
+    if [ -z "$latest_release" ] || [ "$latest_release" == "null" ]; then
+        print_error "Failed to fetch latest release from GitHub"
+        exit 1
+    fi
+    
+    # Get current version
+    local current_version
+    if [ -f "VERSION" ]; then
+        current_version=$(cat VERSION)
+    else
+        current_version=$(git describe --tags --abbrev=0 2>/dev/null || echo "unknown")
+    fi
+    
+    print_info "Current version: $current_version"
+    print_info "Latest version: $latest_release"
+    
+    if [ "$current_version" == "$latest_release" ]; then
+        print_success "You are already running the latest version"
+        exit 0
+    fi
+    
+    # Prompt for upgrade
+    echo "A new version is available: $latest_release"
+    read -p "Do you want to upgrade? (y/N): " -n 1 -r
+    echo
+    
+    if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+        print_info "Upgrade cancelled"
+        exit 0
+    fi
+    
+    # Create backup
+    print_info "Creating backup..."
+    local backup_file="backup-$(date +%Y%m%d-%H%M%S).zip"
+    zip -r "$backup_file" . -x "node_modules/*" "backend/vendor/*" "*.log" "data/*" "temp_upgrade/*" "upgrade.tar.gz" 2>/dev/null
+    
+    if [ $? -ne 0 ]; then
+        print_error "Failed to create backup"
+        exit 1
+    fi
+    
+    print_success "Backup created: $backup_file"
+    
+    # Download the release
+    print_info "Downloading latest release..."
+    local download_url="https://github.com/ValwareIRC/unrealircd-webpanel-2/releases/download/$latest_release/unrealircd-webpanel-$latest_release.tar.gz"
+    curl -L -o "upgrade.tar.gz" "$download_url"
+    
+    if [ $? -ne 0 ]; then
+        print_error "Failed to download release"
+        exit 1
+    fi
+    
+    # Extract to temp
+    print_info "Extracting..."
+    mkdir -p temp_upgrade
+    tar -xzf upgrade.tar.gz -C temp_upgrade --strip-components=1 2>/dev/null || tar -xzf upgrade.tar.gz -C temp_upgrade
+    
+    if [ $? -ne 0 ]; then
+        print_error "Failed to extract"
+        rm -rf temp_upgrade upgrade.tar.gz
+        exit 1
+    fi
+    
+    # Stop server if running
+    if [ -f "$PID_FILE" ]; then
+        print_info "Stopping server for upgrade..."
+        stop_server
+    fi
+    
+    # Apply upgrade: copy files, but preserve config and data
+    print_info "Applying upgrade..."
+    
+    # Copy binaries and scripts
+    cp temp_upgrade/webpanel backend/ 2>/dev/null || true
+    cp temp_upgrade/uwp . 2>/dev/null || true
+    
+    # Copy frontend
+    rm -rf frontend
+    cp -r temp_upgrade/frontend . 2>/dev/null || true
+    
+    # Copy config.example if not exists
+    if [ ! -f config.json ]; then
+        cp temp_upgrade/config.example.json config.json 2>/dev/null || true
+    fi
+    
+    # Clean up
+    rm -rf temp_upgrade upgrade.tar.gz
+    
+    # Update VERSION file
+    echo "$latest_release" > VERSION
+    
+    print_success "Upgrade completed to $latest_release"
+    
+    # Restart server
+    print_info "Restarting server..."
+    start_server
+}
+
 show_help() {
     print_header
     echo "Usage: ./uwp <command>"
@@ -398,6 +508,7 @@ show_help() {
     echo "  logs        Show recent logs (add -f to follow)"
     echo "  dev         Start development mode (both frontend & backend)"
     echo "  clean       Remove build artifacts"
+    echo "  upgrade     Check for and apply updates"
     echo "  help        Show this help message"
     echo ""
     echo "Examples:"
@@ -440,6 +551,9 @@ case "${1:-}" in
         ;;
     clean)
         clean
+        ;;
+    upgrade)
+        upgrade_app
         ;;
     help|--help|-h)
         show_help
