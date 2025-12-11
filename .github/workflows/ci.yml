@@ -69,10 +69,9 @@ jobs:
     - name: Generate version number
       id: version
       run: |
-        # Generate version based on date and commit count
-        DATE=$(date +%Y%m%d)
-        COMMIT_COUNT=$(git rev-list --count HEAD)
-        VERSION="v1.0.${COMMIT_COUNT}-beta"
+        # Generate version based on GitHub Actions run number
+        RUN_NUMBER=${{ github.run_number }}
+        VERSION="v1.0.${RUN_NUMBER}-beta"
         echo "version=$VERSION" >> $GITHUB_OUTPUT
         echo "Generated version: $VERSION"
 
@@ -120,6 +119,6 @@ jobs:
           unrealircd-webpanel-${{ steps.version.outputs.version }}.tar.gz
           unrealircd-webpanel-${{ steps.version.outputs.version }}.zip
         draft: false
-        prerelease: true
+        prerelease: false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
