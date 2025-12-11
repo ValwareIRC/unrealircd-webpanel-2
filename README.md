@@ -2,6 +2,8 @@
 
 A modern, beautiful web panel for managing UnrealIRCd servers. Built with Go backend and React frontend.
 
+ℹ️ This is a temporary repository for beta testers. When testing is complete, this repository will be moved to the official [UnrealIRCd Webpanel repository](https://github.com/unrealircd/unrealircd-webpanel)
+
 ## Features
 
 - Modern, dark-themed UI with TailwindCSS
