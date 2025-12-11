@@ -119,6 +119,6 @@ jobs:
           unrealircd-webpanel-${{ steps.version.outputs.version }}.tar.gz
           unrealircd-webpanel-${{ steps.version.outputs.version }}.zip
         draft: false
-        prerelease: false
+        prerelease: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
