@@ -212,17 +212,25 @@ start_server() {
     mkdir -p "$BACKEND_DIR/data"
     
     # Start server in background
-    nohup "./$BINARY_NAME" > "$BACKEND_DIR/data/webpanel.log" 2>&1 &
+    nohup "./$BINARY_NAME" >> "$BACKEND_DIR/data/webpanel.log" 2>&1 &
     local pid=$!
     echo $pid > "$PID_FILE"
     
-    sleep 2
+    sleep 3
     
     if ps -p "$pid" > /dev/null 2>&1; then
         print_success "Server started (PID: $pid)"
         echo ""
         echo "Web panel is now available at: http://localhost:8080"
         echo "Logs: $BACKEND_DIR/data/webpanel.log"
+        echo ""
+        
+        # Show recent startup logs including any admin user creation messages
+        if [ -f "$BACKEND_DIR/data/webpanel.log" ]; then
+            echo "Recent startup logs:"
+            tail -10 "$BACKEND_DIR/data/webpanel.log" | grep -E "(admin|password|change|Please|Created|user)" || true
+            echo ""
+        fi
     else
         print_error "Server failed to start. Check logs at $BACKEND_DIR/data/webpanel.log"
         rm -f "$PID_FILE"
