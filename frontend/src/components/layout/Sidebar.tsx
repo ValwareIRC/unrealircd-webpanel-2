@@ -131,7 +131,7 @@ interface NavCategory {
 // Organized navigation with categories
 const getNavCategories = (t: (key: string) => string): NavCategory[] => [
   {
-    name: 'Overview',
+    name: t('navigation.overview'),
     icon: Gauge,
     defaultOpen: true,
     items: [
@@ -141,7 +141,7 @@ const getNavCategories = (t: (key: string) => string): NavCategory[] => [
     ],
   },
   {
-    name: 'IRC',
+    name: t('navigation.irc'),
     icon: Hash,
     defaultOpen: true,
     items: [
@@ -153,7 +153,7 @@ const getNavCategories = (t: (key: string) => string): NavCategory[] => [
     ],
   },
   {
-    name: 'Servers',
+    name: t('navigation.servers'),
     icon: Server,
     items: [
       { name: t('navigation.serverList'), href: '/servers', icon: Server, permission: 'view_servers' },
@@ -162,7 +162,7 @@ const getNavCategories = (t: (key: string) => string): NavCategory[] => [
     ],
   },
   {
-    name: 'Bans & Filters',
+    name: t('navigation.bansFilters'),
     icon: Ban,
     items: [
       { name: t('navigation.serverBans'), href: '/bans/server', icon: ServerOff, permission: 'view_bans' },
@@ -172,7 +172,7 @@ const getNavCategories = (t: (key: string) => string): NavCategory[] => [
     ],
   },
   {
-    name: 'Tools',
+    name: t('navigation.tools'),
     icon: Cog,
     items: [
       { name: t('navigation.scheduled'), href: '/scheduled-commands', icon: Clock, permission: 'ban_users' },
@@ -183,7 +183,7 @@ const getNavCategories = (t: (key: string) => string): NavCategory[] => [
     ],
   },
   {
-    name: 'Community',
+    name: t('navigation.community'),
     icon: MessageSquare,
     items: [
       { name: 'Feedback', href: '/feedback', icon: MessageSquare },
@@ -191,8 +191,8 @@ const getNavCategories = (t: (key: string) => string): NavCategory[] => [
   },
 ]
 
-const adminNavigation: NavCategory = {
-  name: 'Admin',
+const getAdminNavigation = (t: (key: string) => string): NavCategory => ({
+  name: t('navigation.admin'),
   icon: Shield,
   items: [
     { name: 'Panel Users', href: '/settings/users', icon: Users, permission: 'manage_users' },
@@ -202,7 +202,7 @@ const adminNavigation: NavCategory = {
     { name: 'Plugins', href: '/marketplace', icon: Puzzle, permission: 'manage_settings' },
     { name: 'Settings', href: '/settings', icon: Settings, permission: 'manage_settings' },
   ],
-}
+})
 
 interface SidebarProps {
   collapsed: boolean
@@ -297,6 +297,7 @@ export function Sidebar({ collapsed, onToggle }: SidebarProps) {
   const { t } = useTranslation()
 
   const navCategories = useMemo(() => getNavCategories(t), [t])
+  const adminNavigation = useMemo(() => getAdminNavigation(t), [t])
 
   // Fetch plugin nav items
   const { data: pluginNavItems = [] } = useQuery({
