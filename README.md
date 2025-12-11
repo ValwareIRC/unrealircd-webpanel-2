@@ -303,15 +303,6 @@ rpc-user webpanel {
     match { ip *; }
     rpc-class full;
     password "your-rpc-password";
-    permissions {
-        /* Adjust permissions as needed */
-        server-ban:*;
-        server:*;
-        channel:*;
-        user:*;
-        name-ban:*;
-        spamfilter:*;
-    }
 }
 ```
 
