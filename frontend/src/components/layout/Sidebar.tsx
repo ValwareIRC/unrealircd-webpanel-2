@@ -296,7 +296,7 @@ export function Sidebar({ collapsed, onToggle }: SidebarProps) {
   const { theme } = useTheme()
   const { t } = useTranslation()
 
-  const navCategories = getNavCategories(t)
+  const navCategories = useMemo(() => getNavCategories(t), [t])
 
   // Fetch plugin nav items
   const { data: pluginNavItems = [] } = useQuery({

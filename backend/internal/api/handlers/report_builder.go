@@ -8,11 +8,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/gin-gonic/gin"
 	"github.com/ValwareIRC/unrealircd-webpanel-2/internal/api/middleware"
 	"github.com/ValwareIRC/unrealircd-webpanel-2/internal/database"
 	"github.com/ValwareIRC/unrealircd-webpanel-2/internal/rpc"
 	"github.com/ValwareIRC/unrealircd-webpanel-2/internal/utils"
+	"github.com/gin-gonic/gin"
 )
 
 // ReportConfig represents a custom report configuration

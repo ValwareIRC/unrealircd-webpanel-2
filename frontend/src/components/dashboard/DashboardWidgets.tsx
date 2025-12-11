@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { useNetworkStats, useIRCChannels, useIRCServers } from '@/hooks'
+import { useTranslation } from 'react-i18next'
 import {
   Users, Hash, Server, Shield, Clock, Wifi, TrendingUp, TrendingDown,
   Ban, FileText, Settings, ExternalLink, Activity
@@ -57,6 +58,7 @@ function formatUptime(bootTime?: string | number): string {
 
 // Stats Card Widget
 export function StatsWidget({ config, onNavigate }: WidgetProps) {
+  const { t } = useTranslation()
   const { data: stats } = useNetworkStats()
   const { data: historyData } = useQuery({
     queryKey: ['stats-history-dashboard'],
@@ -98,33 +100,33 @@ export function StatsWidget({ config, onNavigate }: WidgetProps) {
 
   const statConfig = {
     users: { 
-      title: 'Total Users', 
+      title: t('widgets.totalUsers'), 
       value: stats?.users || 0, 
-      subtitle: 'Connected to network', 
+      subtitle: t('widgets.connectedToNetwork'), 
       icon: Users, 
       color: 'accent',
       path: '/users'
     },
     channels: { 
-      title: 'Active Channels', 
+      title: t('widgets.activeChannels'), 
       value: stats?.channels || 0, 
-      subtitle: 'With users', 
+      subtitle: t('widgets.withUsers'), 
       icon: Hash, 
       color: 'green',
       path: '/channels'
     },
     servers: { 
-      title: 'Linked Servers', 
+      title: t('widgets.linkedServers'), 
       value: stats?.servers || 0, 
-      subtitle: 'In network', 
+      subtitle: t('widgets.inNetwork'), 
       icon: Server, 
       color: 'blue',
       path: '/servers'
     },
     operators: { 
-      title: 'IRC Operators', 
+      title: t('widgets.onlineOperators'), 
       value: stats?.operators || 0, 
-      subtitle: 'Online', 
+      subtitle: t('widgets.online'), 
       icon: Shield, 
       color: 'yellow',
       path: '/users?filter=operators'
@@ -167,6 +169,7 @@ export function StatsWidget({ config, onNavigate }: WidgetProps) {
 
 // Activity Chart Widget
 export function ActivityChartWidget({ onNavigate }: WidgetProps) {
+  const { t } = useTranslation()
   const { data: stats } = useNetworkStats()
   const { data: historyData } = useQuery({
     queryKey: ['stats-history-dashboard'],
@@ -197,17 +200,17 @@ export function ActivityChartWidget({ onNavigate }: WidgetProps) {
     >
       <div className="flex items-center justify-between mb-3">
         <div>
-          <h3 className="text-sm font-semibold text-[var(--text-primary)]">User Activity</h3>
-          <p className="text-xs text-[var(--text-muted)]">24-hour overview</p>
+          <h3 className="text-sm font-semibold text-[var(--text-primary)]">{t('widgets.userActivity')}</h3>
+          <p className="text-xs text-[var(--text-muted)]">{t('widgets.hourOverview')}</p>
         </div>
         <div className="flex items-center gap-3 text-xs">
           <div className="flex items-center gap-1">
             <span className="w-2 h-2 rounded-full bg-[var(--accent)]"></span>
-            <span className="text-[var(--text-muted)]">Users</span>
+            <span className="text-[var(--text-muted)]">{t('widgets.users')}</span>
           </div>
           <div className="flex items-center gap-1">
             <span className="w-2 h-2 rounded-full bg-[var(--success)]"></span>
-            <span className="text-[var(--text-muted)]">Channels</span>
+            <span className="text-[var(--text-muted)]">{t('widgets.channels')}</span>
           </div>
         </div>
       </div>
@@ -247,6 +250,7 @@ export function ActivityChartWidget({ onNavigate }: WidgetProps) {
 
 // Top Channels Widget
 export function TopChannelsWidget({ onNavigate }: WidgetProps) {
+  const { t } = useTranslation()
   const { data: channels } = useIRCChannels()
 
   const topChannels = channels
@@ -258,8 +262,8 @@ export function TopChannelsWidget({ onNavigate }: WidgetProps) {
     <div className="h-full p-4 flex flex-col">
       <div className="flex items-center justify-between mb-3">
         <div>
-          <h3 className="text-sm font-semibold text-[var(--text-primary)]">Top Channels</h3>
-          <p className="text-xs text-[var(--text-muted)]">By user count</p>
+          <h3 className="text-sm font-semibold text-[var(--text-primary)]">{t('widgets.topChannels')}</h3>
+          <p className="text-xs text-[var(--text-muted)]">{t('widgets.byUserCount')}</p>
         </div>
       </div>
       <div className="flex-1 overflow-auto space-y-2">
@@ -274,7 +278,7 @@ export function TopChannelsWidget({ onNavigate }: WidgetProps) {
             </span>
             <div className="flex-1 min-w-0">
               <p className="text-sm text-[var(--text-primary)] font-medium truncate">{channel.name}</p>
-              <p className="text-xs text-[var(--text-muted)] truncate">{channel.topic || 'No topic'}</p>
+              <p className="text-xs text-[var(--text-muted)] truncate">{channel.topic || t('widgets.noTopic')}</p>
             </div>
             <div className="flex items-center gap-1 text-[var(--text-muted)]">
               <Users size={12} />
@@ -283,7 +287,7 @@ export function TopChannelsWidget({ onNavigate }: WidgetProps) {
           </div>
         ))}
         {(!topChannels || topChannels.length === 0) && (
-          <p className="text-[var(--text-muted)] text-center py-4 text-sm">No channels</p>
+          <p className="text-[var(--text-muted)] text-center py-4 text-sm">{t('widgets.noChannels')}</p>
         )}
       </div>
     </div>
@@ -292,6 +296,7 @@ export function TopChannelsWidget({ onNavigate }: WidgetProps) {
 
 // Server Status Widget
 export function ServerStatusWidget({ onNavigate }: WidgetProps) {
+  const { t } = useTranslation()
   const { data: servers } = useIRCServers()
   const recentServers = servers?.slice(0, 5)
 
@@ -302,18 +307,18 @@ export function ServerStatusWidget({ onNavigate }: WidgetProps) {
     >
       <div className="flex items-center justify-between mb-3">
         <div>
-          <h3 className="text-sm font-semibold text-[var(--text-primary)]">Server Status</h3>
-          <p className="text-xs text-[var(--text-muted)]">Network servers</p>
+          <h3 className="text-sm font-semibold text-[var(--text-primary)]">{t('widgets.serverStatus')}</h3>
+          <p className="text-xs text-[var(--text-muted)]">{t('widgets.networkServers')}</p>
         </div>
       </div>
       <div className="flex-1 overflow-auto">
         <table className="w-full text-xs">
           <thead>
             <tr className="text-left text-[var(--text-muted)] border-b border-[var(--border-primary)]">
-              <th className="pb-2 font-medium">Server</th>
-              <th className="pb-2 font-medium">Users</th>
-              <th className="pb-2 font-medium">Uptime</th>
-              <th className="pb-2 font-medium">Status</th>
+              <th className="pb-2 font-medium">{t('widgets.server')}</th>
+              <th className="pb-2 font-medium">{t('widgets.users')}</th>
+              <th className="pb-2 font-medium">{t('widgets.uptime')}</th>
+              <th className="pb-2 font-medium">{t('widgets.status')}</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-[var(--border-primary)]">
@@ -335,14 +340,14 @@ export function ServerStatusWidget({ onNavigate }: WidgetProps) {
                 <td className="py-2">
                   <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-full text-xs font-medium bg-[var(--success)]/20 text-[var(--success)]">
                     <Wifi size={10} />
-                    OK
+                    {t('widgets.ok')}
                   </span>
                 </td>
               </tr>
             ))}
             {(!recentServers || recentServers.length === 0) && (
               <tr>
-                <td colSpan={4} className="py-4 text-center text-[var(--text-muted)]">No servers</td>
+                <td colSpan={4} className="py-4 text-center text-[var(--text-muted)]">{t('widgets.noServers')}</td>
               </tr>
             )}
           </tbody>
@@ -354,22 +359,23 @@ export function ServerStatusWidget({ onNavigate }: WidgetProps) {
 
 // Quick Links Widget
 export function QuickLinksWidget({ onNavigate }: WidgetProps) {
+  const { t } = useTranslation()
   const links = [
-    { name: 'Users', path: '/users', icon: Users, color: 'accent' },
-    { name: 'Channels', path: '/channels', icon: Hash, color: 'success' },
-    { name: 'Servers', path: '/servers', icon: Server, color: 'info' },
-    { name: 'Bans', path: '/bans/server', icon: Ban, color: 'error' },
+    { name: t('navigation.users'), path: '/users', icon: Users, color: 'accent' },
+    { name: t('navigation.channels'), path: '/channels', icon: Hash, color: 'success' },
+    { name: t('navigation.servers'), path: '/servers', icon: Server, color: 'info' },
+    { name: t('navigation.serverBans'), path: '/bans/server', icon: Ban, color: 'error' },
     { name: 'Spamfilter', path: '/bans/spamfilter', icon: Shield, color: 'warning' },
     { name: 'Logs', path: '/logs', icon: FileText, color: 'info' },
-    { name: 'Statistics', path: '/statistics', icon: Activity, color: 'accent' },
+    { name: t('navigation.statistics'), path: '/statistics', icon: Activity, color: 'accent' },
     { name: 'Settings', path: '/settings', icon: Settings, color: 'muted' },
   ]
 
   return (
     <div className="h-full p-4 flex flex-col">
       <div className="mb-3">
-        <h3 className="text-sm font-semibold text-[var(--text-primary)]">Quick Links</h3>
-        <p className="text-xs text-[var(--text-muted)]">Navigate to sections</p>
+        <h3 className="text-sm font-semibold text-[var(--text-primary)]">{t('widgets.quickLinks')}</h3>
+        <p className="text-xs text-[var(--text-muted)]">{t('widgets.navigateToSections')}</p>
       </div>
       <div className="flex-1 grid grid-cols-2 gap-2 content-start">
         {links.map((link) => {
@@ -392,6 +398,7 @@ export function QuickLinksWidget({ onNavigate }: WidgetProps) {
 
 // Network Info Widget
 export function NetworkInfoWidget({ onNavigate }: WidgetProps) {
+  const { t } = useTranslation()
   const { data: stats } = useNetworkStats()
 
   return (
@@ -400,24 +407,24 @@ export function NetworkInfoWidget({ onNavigate }: WidgetProps) {
       onClick={() => onNavigate?.('/servers')}
     >
       <div className="mb-3">
-        <h3 className="text-sm font-semibold text-[var(--text-primary)]">Network Info</h3>
-        <p className="text-xs text-[var(--text-muted)]">Connection details</p>
+        <h3 className="text-sm font-semibold text-[var(--text-primary)]">{t('widgets.networkInfo')}</h3>
+        <p className="text-xs text-[var(--text-muted)]">{t('widgets.connectionDetails')}</p>
       </div>
       <div className="flex-1 space-y-2">
         <div className="flex items-center justify-between">
-          <span className="text-xs text-[var(--text-muted)]">Users</span>
+          <span className="text-xs text-[var(--text-muted)]">{t('widgets.users')}</span>
           <span className="text-xs text-[var(--text-primary)] font-medium">{stats?.users || 0}</span>
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-xs text-[var(--text-muted)]">Channels</span>
+          <span className="text-xs text-[var(--text-muted)]">{t('widgets.channels')}</span>
           <span className="text-xs text-[var(--text-primary)] font-medium">{stats?.channels || 0}</span>
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-xs text-[var(--text-muted)]">Servers</span>
+          <span className="text-xs text-[var(--text-muted)]">{t('widgets.servers')}</span>
           <span className="text-xs text-[var(--text-primary)] font-medium">{stats?.servers || 0}</span>
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-xs text-[var(--text-muted)]">Operators</span>
+          <span className="text-xs text-[var(--text-muted)]">{t('widgets.operators')}</span>
           <span className="text-xs text-[var(--text-primary)] font-medium">{stats?.operators || 0}</span>
         </div>
       </div>
@@ -427,6 +434,7 @@ export function NetworkInfoWidget({ onNavigate }: WidgetProps) {
 
 // Recent Bans Widget
 export function RecentBansWidget({ onNavigate }: WidgetProps) {
+  const { t } = useTranslation()
   const { data: bans } = useQuery({
     queryKey: ['server-bans'],
     queryFn: async () => {
@@ -445,8 +453,8 @@ export function RecentBansWidget({ onNavigate }: WidgetProps) {
       onClick={() => onNavigate?.('/bans/server')}
     >
       <div className="mb-3">
-        <h3 className="text-sm font-semibold text-[var(--text-primary)]">Recent Bans</h3>
-        <p className="text-xs text-[var(--text-muted)]">Server bans</p>
+        <h3 className="text-sm font-semibold text-[var(--text-primary)]">{t('widgets.recentBans')}</h3>
+        <p className="text-xs text-[var(--text-muted)]">{t('widgets.serverBans')}</p>
       </div>
       <div className="flex-1 overflow-auto space-y-2">
         {recentBans?.map((ban, i) => (
@@ -456,7 +464,7 @@ export function RecentBansWidget({ onNavigate }: WidgetProps) {
           </div>
         ))}
         {(!recentBans || recentBans.length === 0) && (
-          <p className="text-[var(--text-muted)] text-center py-4 text-xs">No recent bans</p>
+          <p className="text-[var(--text-muted)] text-center py-4 text-xs">{t('widgets.noRecentBans')}</p>
         )}
       </div>
     </div>

@@ -6,10 +6,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/robfig/cron/v3"
 	"github.com/ValwareIRC/unrealircd-webpanel-2/internal/database"
 	"github.com/ValwareIRC/unrealircd-webpanel-2/internal/database/models"
 	"github.com/ValwareIRC/unrealircd-webpanel-2/internal/rpc"
+	"github.com/robfig/cron/v3"
 )
 
 var (
