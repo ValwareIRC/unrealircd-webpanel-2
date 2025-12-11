@@ -19,9 +19,104 @@ A modern, beautiful web panel for managing UnrealIRCd servers. Built with Go bac
 
 ## Prerequisites
 
-- Go 1.22 or later
-- Node.js 18 or later
-- An UnrealIRCd server with JSON-RPC enabled
+Before installing the UnrealIRCd Web Panel, ensure you have the following software installed:
+
+### Go (1.22 or later)
+
+The backend is written in Go and requires Go 1.22 or later.
+
+**Installation on Ubuntu/Debian:**
+```bash
+# Download and install Go
+wget https://go.dev/dl/go1.23.1.linux-amd64.tar.gz
+sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.23.1.linux-amd64.tar.gz
+
+# Add Go to PATH (add to ~/.bashrc or ~/.profile)
+export PATH=$PATH:/usr/local/go/bin
+echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
+source ~/.bashrc
+```
+
+**Installation on CentOS/RHEL/Fedora:**
+```bash
+# Download and install Go
+wget https://go.dev/dl/go1.23.1.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.23.1.linux-amd64.tar.gz
+
+# Add Go to PATH
+export PATH=$PATH:/usr/local/go/bin
+echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
+source ~/.bashrc
+```
+
+**Installation on macOS (using Homebrew):**
+```bash
+brew install go
+```
+
+**Installation on Windows:**
+1. Download the MSI installer from https://go.dev/dl/
+2. Run the installer and follow the prompts
+3. Restart your terminal/command prompt
+
+**Verify installation:**
+```bash
+go version
+# Should output: go version go1.23.1 linux/amd64 (or similar)
+```
+
+### Node.js (18 or later) and npm
+
+The frontend is built with Node.js, TypeScript, and Vite.
+
+**Installation on Ubuntu/Debian:**
+```bash
+# Using NodeSource repository (recommended)
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# Alternative: Using Ubuntu repository (older version)
+# sudo apt update
+# sudo apt install nodejs npm
+```
+
+**Installation on CentOS/RHEL/Fedora:**
+```bash
+# Using NodeSource repository
+curl -fsSL https://rpm.nodesource.com/setup_20.x | sudo bash -
+sudo yum install -y nodejs
+# or on newer systems:
+# sudo dnf install -y nodejs
+```
+
+**Installation on macOS (using Homebrew):**
+```bash
+brew install node
+```
+
+**Installation on Windows:**
+1. Download the installer from https://nodejs.org/
+2. Run the installer and follow the prompts
+3. Restart your terminal/command prompt
+
+**Verify installation:**
+```bash
+node --version
+# Should output: v20.x.x (or similar)
+
+npm --version
+# Should output: 10.x.x (or similar)
+```
+
+### TypeScript and Vite
+
+TypeScript and Vite are included as development dependencies and will be installed automatically when you run `npm install` in the frontend directory. No separate installation is required.
+
+### UnrealIRCd Server
+
+- An UnrealIRCd server (version 6.0.0 or later recommended) with JSON-RPC enabled
+- Network access between the web panel and your IRC server
+- Appropriate firewall rules configured
 
 ## Project Structure
 
@@ -58,8 +153,8 @@ A modern, beautiful web panel for managing UnrealIRCd servers. Built with Go bac
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/unrealircd/unrealircd-webpanel.git
-   cd unrealircd-webpanel
+   git clone https://github.com/ValwareIRC/unrealircd-webpanel-2.git
+   cd unrealircd-webpanel-2
    ```
 
 2. Create a configuration file (see Configuration section below)
