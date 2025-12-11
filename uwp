@@ -392,9 +392,9 @@ upgrade_app() {
     print_info "Checking for updates..."
     
     # Get latest release from GitHub
-    local latest_release=$(curl -s https://api.github.com/repos/ValwareIRC/unrealircd-webpanel-2/releases/latest | jq -r .tag_name 2>/dev/null)
+    local latest_release=$(curl -s https://api.github.com/repos/ValwareIRC/unrealircd-webpanel-2/releases | jq -r '.[0].tag_name' 2>/dev/null)
     
-    if [ -z "$latest_release" ]; then
+    if [ -z "$latest_release" ] || [ "$latest_release" == "null" ]; then
         print_error "Failed to fetch latest release from GitHub"
         exit 1
     fi
