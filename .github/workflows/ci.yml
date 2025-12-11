@@ -3,15 +3,18 @@ name: CI
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
+
+permissions:
+  contents: write
 
 jobs:
-  test:
+  test-and-release:
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
 
     - name: Set up Go
       uses: actions/setup-go@v4
@@ -62,3 +65,61 @@ jobs:
       run: |
         ls -la backend/webpanel
         ls -la frontend/dist/
+
+    - name: Generate version number
+      id: version
+      run: |
+        # Generate version based on date and commit count
+        DATE=$(date +%Y%m%d)
+        COMMIT_COUNT=$(git rev-list --count HEAD)
+        VERSION="v1.0.${COMMIT_COUNT}"
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
+        echo "Generated version: $VERSION"
+
+    - name: Create and push version tag
+      run: |
+        VERSION=${{ steps.version.outputs.version }}
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git tag $VERSION
+        git push origin $VERSION
+
+    - name: Create release archives
+      run: |
+        VERSION=${{ steps.version.outputs.version }}
+        # Create release directory
+        mkdir -p release
+
+        # Copy binaries and assets
+        cp backend/webpanel release/
+        cp uwp release/
+        cp -r frontend/dist release/frontend
+        cp config.example.json release/
+
+        # Create tar.gz archive
+        tar -czf unrealircd-webpanel-${VERSION}.tar.gz -C release .
+
+        # Create zip archive
+        cd release
+        zip -r ../unrealircd-webpanel-${VERSION}.zip .
+
+    - name: Create Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: ${{ steps.version.outputs.version }}
+        name: "Release ${{ steps.version.outputs.version }}"
+        body: |
+          Automatic release ${{ steps.version.outputs.version }}
+
+          This release was automatically created from commit ${{ github.sha }}.
+
+          ## Changes
+          - Automated build and release
+          - Includes latest features and fixes
+        files: |
+          unrealircd-webpanel-${{ steps.version.outputs.version }}.tar.gz
+          unrealircd-webpanel-${{ steps.version.outputs.version }}.zip
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
