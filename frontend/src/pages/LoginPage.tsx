@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/hooks'
 import { Button, Input, Alert } from '@/components/common'
+import { useTranslation } from 'react-i18next'
 import { LogIn, Shield, KeyRound } from 'lucide-react'
 import toast from 'react-hot-toast'
 
@@ -9,6 +10,7 @@ export function LoginPage() {
   const { login, verify2FA, isAuthenticated, isLoading } = useAuth()
   const location = useLocation()
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [totpCode, setTotpCode] = useState('')
@@ -46,7 +48,7 @@ export function LoginPage() {
       
       navigate(from, { replace: true })
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'Failed to login'
+      const message = err instanceof Error ? err.message : t('auth.failedLogin')
       setError(message)
     } finally {
       setIsSubmitting(false)
@@ -70,7 +72,7 @@ export function LoginPage() {
       
       navigate(from, { replace: true })
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'Invalid verification code'
+      const message = err instanceof Error ? err.message : t('auth.invalidCode')
       setError(message)
     } finally {
       setIsSubmitting(false)
@@ -89,9 +91,9 @@ export function LoginPage() {
         {/* Logo */}
         <div className="text-center mb-8">
           <img src="/unreal.png" alt="UnrealIRCd" className="w-20 h-20 mx-auto mb-4" />
-          <h1 className="text-2xl font-bold text-[var(--text-primary)]">UnrealIRCd Panel</h1>
+          <h1 className="text-2xl font-bold text-[var(--text-primary)]">{t('auth.panelTitle')}</h1>
           <p className="text-[var(--text-muted)] mt-1">
-            {requires2FA ? 'Two-factor authentication required' : 'Sign in to manage your IRC network'}
+            {requires2FA ? t('auth.twoFactorRequired') : t('auth.panelSubtitle')}
           </p>
         </div>
 
@@ -108,22 +110,22 @@ export function LoginPage() {
           {!requires2FA ? (
             <form onSubmit={handleSubmit} className="space-y-4">
               <Input
-                label="Username"
+                label={t('auth.usernameLabel')}
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                placeholder="Enter your username"
+                placeholder={t('auth.usernamePlaceholder')}
                 required
                 autoFocus
                 autoComplete="username"
               />
 
               <Input
-                label="Password"
+                label={t('auth.passwordLabel')}
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Enter your password"
+                placeholder={t('auth.passwordPlaceholder')}
                 required
                 autoComplete="current-password"
               />
@@ -134,7 +136,7 @@ export function LoginPage() {
                 isLoading={isSubmitting}
                 leftIcon={<LogIn size={18} />}
               >
-                Sign In
+                {t('auth.signInButton')}
               </Button>
             </form>
           ) : (
@@ -144,12 +146,12 @@ export function LoginPage() {
                   <Shield className="text-[var(--accent)]" size={32} />
                 </div>
                 <p className="text-sm text-[var(--text-secondary)]">
-                  Enter the 6-digit code from your authenticator app, or use a backup code.
+                  {t('auth.twoFactorDescription')}
                 </p>
               </div>
 
               <Input
-                label="Verification Code"
+                label={t('auth.verificationCodeLabel')}
                 type="text"
                 value={totpCode}
                 onChange={(e) => setTotpCode(e.target.value.replace(/\D/g, '').slice(0, 8))}
@@ -167,7 +169,7 @@ export function LoginPage() {
                   className="flex-1"
                   onClick={handleBack}
                 >
-                  Back
+                  {t('auth.backButton')}
                 </Button>
                 <Button
                   type="submit"
@@ -175,7 +177,7 @@ export function LoginPage() {
                   isLoading={isSubmitting}
                   leftIcon={<KeyRound size={18} />}
                 >
-                  Verify
+                  {t('auth.verifyButton')}
                 </Button>
               </div>
             </form>
