@@ -7,7 +7,6 @@ import (
 	"os/signal"
 	"syscall"
 
-	"github.com/gin-gonic/gin"
 	"github.com/ValwareIRC/unrealircd-webpanel-2/internal/api/routes"
 	"github.com/ValwareIRC/unrealircd-webpanel-2/internal/auth"
 	"github.com/ValwareIRC/unrealircd-webpanel-2/internal/config"
@@ -16,6 +15,7 @@ import (
 	"github.com/ValwareIRC/unrealircd-webpanel-2/internal/rpc"
 	"github.com/ValwareIRC/unrealircd-webpanel-2/internal/services/notifications"
 	"github.com/ValwareIRC/unrealircd-webpanel-2/internal/services/scheduler"
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
@@ -119,8 +119,8 @@ func checkAndCreateAdminUser(cfg *config.Config) {
 		if err != nil {
 			log.Printf("Warning: Could not create default admin user: %v", err)
 		} else {
-			log.Printf("Created default admin user: %s (password: admin123)", user.Username)
-			log.Println("Please change this password immediately!")
+			fmt.Printf("Created default admin user: %s (password: admin123)\n", user.Username)
+			fmt.Println("Please change this password immediately!")
 		}
 	}
 }
