@@ -63,7 +63,13 @@
     "bansFilters": "封禁和过滤器",
     "tools": "工具",
     "community": "社区",
-    "admin": "管理员"
+    "admin": "管理员",
+    "digest": "邮件摘要",
+    "feedback": "反馈",
+    "panelUsers": "面板用户",
+    "roles": "角色",
+    "compliance": "合规",
+    "rpcServers": "RPC 服务器"
   },
   "dashboard": {
     "title": "仪表板",
@@ -132,10 +138,8 @@
     "byUserCount": "按用户数",
     "noTopic": "无主题",
     "noChannels": "无频道",
-    "serverStatus": "服务器状态",
     "networkServers": "网络服务器",
     "server": "服务器",
-    "uptime": "运行时间",
     "status": "状态",
     "ok": "正常",
     "noServers": "无服务器",

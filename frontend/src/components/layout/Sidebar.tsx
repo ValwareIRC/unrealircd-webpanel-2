@@ -178,7 +178,7 @@ const getNavCategories = (t: (key: string) => string): NavCategory[] => [
       { name: t('navigation.scheduled'), href: '/scheduled-commands', icon: Clock, permission: 'ban_users' },
       { name: t('navigation.alertRules'), href: '/alert-rules', icon: Bell, permission: 'manage_webhooks' },
       { name: t('navigation.reports'), href: '/reports', icon: PieChart, permission: 'view_users' },
-      { name: 'Email Digest', href: '/digest', icon: Mail },
+      { name: t('navigation.digest'), href: '/digest', icon: Mail },
       { name: t('navigation.logs'), href: '/logs', icon: ScrollText, permission: 'view_logs' },
     ],
   },
@@ -186,7 +186,7 @@ const getNavCategories = (t: (key: string) => string): NavCategory[] => [
     name: t('navigation.community'),
     icon: MessageSquare,
     items: [
-      { name: 'Feedback', href: '/feedback', icon: MessageSquare },
+      { name: t('navigation.feedback'), href: '/feedback', icon: MessageSquare },
     ],
   },
 ]
@@ -195,12 +195,12 @@ const getAdminNavigation = (t: (key: string) => string): NavCategory => ({
   name: t('navigation.admin'),
   icon: Shield,
   items: [
-    { name: 'Panel Users', href: '/settings/users', icon: Users, permission: 'manage_users' },
-    { name: 'Roles', href: '/settings/roles', icon: Shield, permission: 'manage_users' },
-    { name: 'Compliance', href: '/compliance', icon: ClipboardList, permission: 'manage_users' },
-    { name: 'RPC Servers', href: '/settings/rpc', icon: Server, permission: 'manage_settings' },
-    { name: 'Plugins', href: '/marketplace', icon: Puzzle, permission: 'manage_settings' },
-    { name: 'Settings', href: '/settings', icon: Settings, permission: 'manage_settings' },
+    { name: t('navigation.panelUsers'), href: '/settings/users', icon: Users, permission: 'manage_users' },
+    { name: t('navigation.roles'), href: '/settings/roles', icon: Shield, permission: 'manage_users' },
+    { name: t('navigation.compliance'), href: '/compliance', icon: ClipboardList, permission: 'manage_users' },
+    { name: t('navigation.rpcServers'), href: '/settings/rpc', icon: Server, permission: 'manage_settings' },
+    { name: t('navigation.plugins'), href: '/marketplace', icon: Puzzle, permission: 'manage_settings' },
+    { name: t('navigation.settings'), href: '/settings', icon: Settings, permission: 'manage_settings' },
   ],
 })
 

@@ -66,7 +66,11 @@
     "marketplace": "Marketplace",
     "settings": "Settings",
     "plugins": "Plugins",
-    "feedback": "Feedback"
+    "feedback": "Feedback",
+    "panelUsers": "Panel Users",
+    "roles": "Roles",
+    "compliance": "Compliance",
+    "rpcServers": "RPC Servers"
   },
   "dashboard": {
     "title": "Dashboard",
