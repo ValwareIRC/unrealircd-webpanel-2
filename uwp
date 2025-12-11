@@ -74,7 +74,7 @@ print_logo() {
 }
 
 print_icon() {
-    echo -e "${BLUE}     ▒▒▒▒▒▒▒▒▒▒▒▒    "
+    echo -e "${BLUE}    ▒▒▒▒▒▒▒▒▒▒▒▒    "
     echo "  ▒▒▒▓▓▓▓▓▓▓▓▓▓▒▒░  "
     echo " ▒▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒ "
     echo "▒▒▓▓▓▓▒░▒▓▓▓▒▒▒▓▓▓▒░      UnrealIRCd"
