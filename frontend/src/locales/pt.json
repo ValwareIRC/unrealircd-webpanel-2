@@ -547,6 +547,51 @@
       "loadFailed": "Falha ao carregar bans de nome: {{error}}"
     }
   },
+  "serverBans": {
+    "title": "Bans do Servidor",
+    "description": "Gerenciar G-Lines, K-Lines, Z-Lines e Shuns",
+    "addButton": "Adicionar Ban",
+    "searchPlaceholder": "Pesquisar bans por máscara, razão...",
+    "table": {
+      "type": "Tipo",
+      "mask": "Máscara",
+      "reason": "Razão",
+      "setBy": "Definido por",
+      "setAt": "Definido em",
+      "expires": "Expira"
+    },
+    "addModal": {
+      "title": "Adicionar Ban do Servidor",
+      "labels": {
+        "banType": "Tipo de Ban",
+        "mask": "Máscara",
+        "reason": "Razão",
+        "duration": "Duração"
+      },
+      "options": {
+        "gline": "G-Line (Global)",
+        "kline": "K-Line (Local)",
+        "gzline": "GZ-Line (IP Global)",
+        "zline": "Z-Line (IP Local)",
+        "shun": "Shun"
+      },
+      "placeholders": {
+        "maskExample": "*@*.example.com ou 192.168.1.*",
+        "reason": "Digite a razão do ban"
+      },
+      "addButton": "Adicionar Ban"
+    },
+    "deleteModal": {
+      "title": "Remover Ban",
+      "removeButton": "Remover Ban",
+      "confirm": "Tem certeza de que deseja remover este {{type}} para {{name}}?"
+    },
+    "messages": {
+      "added": "Ban adicionado com sucesso",
+      "removed": "Ban removido",
+      "loadFailed": "Falha ao carregar bans: {{error}}"
+    }
+  },
   "commands": {
     "nav": {
       "dashboard": { "title": "Ir para Painel", "description": "Ver visão geral da rede" },
