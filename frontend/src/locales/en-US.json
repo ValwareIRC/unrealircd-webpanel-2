@@ -969,6 +969,25 @@
       "targetChannel": "Target Channel"
     }
   },
+  "webhooks": {
+    "title": "Webhooks",
+    "subtitle": "Receive log events from UnrealIRCd via webhooks",
+    "createButton": "Create Webhook",
+    "info": {
+      "paragraph1": "Webhooks allow UnrealIRCd to send log events directly to this panel. Each webhook has a unique token URL that you configure in your unrealircd.conf.",
+      "learnMore": "Learn more about UnrealIRCd log blocks"
+    },
+    "tooltips": {
+      "viewConfig": "View Configuration",
+      "viewLogs": "View Logs",
+      "disable": "Disable",
+      "enable": "Enable",
+      "regenerate": "Regenerate Token"
+    },
+    "messages": {
+      "loadFailed": "Failed to load webhooks: {{error}}"
+    }
+  },
   "channelDetail": {
     "backToChannels": "Back to Channels",
     "channelDetails": "Channel Details",

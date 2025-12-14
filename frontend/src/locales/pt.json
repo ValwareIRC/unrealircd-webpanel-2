@@ -912,6 +912,25 @@
       "applyButton": "Aplicar Modelo"
     }
   },
+  "webhooks": {
+    "title": "Webhooks",
+    "subtitle": "Receber eventos de log do UnrealIRCd via webhooks",
+    "createButton": "Criar Webhook",
+    "info": {
+      "paragraph1": "Webhooks permitem que o UnrealIRCd envie eventos de log diretamente para este painel. Cada webhook tem uma URL de token única que você configura em seu unrealircd.conf.",
+      "learnMore": "Saiba mais sobre blocos de log do UnrealIRCd"
+    },
+    "tooltips": {
+      "viewConfig": "Ver configuração",
+      "viewLogs": "Ver logs",
+      "disable": "Desabilitar",
+      "enable": "Habilitar",
+      "regenerate": "Regenerar token"
+    },
+    "messages": {
+      "loadFailed": "Falha ao carregar webhooks: {{error}}"
+    }
+  },
   "header": {
     "searchPlaceholder": "Pesquisar ou pular para...",
     "refreshStats": "Atualizar estatísticas",
