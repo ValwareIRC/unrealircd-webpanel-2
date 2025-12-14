@@ -602,6 +602,76 @@
       "setAt": "Set At",
       "expires": "Expires"
     },
+      "spamfilters": {
+        "title": "Spamfilters",
+        "subtitle": "Manage content filters and spam protection",
+        "addButton": "Add Spamfilter",
+        "searchPlaceholder": "Search spamfilters...",
+        "table": {
+          "pattern": "Pattern",
+          "type": "Type",
+          "targets": "Targets",
+          "action": "Action",
+          "hits": "Hits",
+          "setBy": "Set By"
+        },
+        "detailsTitle": "Spamfilter Details",
+        "details": {
+          "matchType": "Match Type",
+          "action": "Action",
+          "hits": "Hits",
+          "setBy": "Set By",
+          "pattern": "Pattern",
+          "targets": "Targets",
+          "reason": "Reason",
+          "noReason": "No reason specified",
+          "actionDuration": "Action Duration"
+        },
+        "addModal": {
+          "title": "Add Spamfilter",
+          "labels": {
+            "matchType": "Match Type",
+            "match": "Pattern",
+            "targets": "Targets",
+            "action": "Action",
+            "duration": "Action Duration",
+            "reason": "Reason"
+          },
+          "options": {
+            "simple": "Simple (wildcards)",
+            "regex": "Regular Expression",
+            "posix": "POSIX Regex"
+          },
+          "actionOptions": {
+            "warn": "Warn",
+            "block": "Block",
+            "kill": "Kill",
+            "gline": "G-Line",
+            "gzline": "GZ-Line",
+            "shun": "Shun",
+            "viruschan": "Virus Channel"
+          },
+          "helper": {
+            "pattern": "Pattern to match against messages",
+            "duration": "Duration for ban action (e.g., 1h, 1d, 7d)"
+          },
+          "placeholders": {
+            "reason": "Spam is not allowed"
+          },
+          "addButton": "Add Spamfilter"
+        },
+        "deleteModal": {
+          "title": "Remove Spamfilter",
+          "removeButton": "Remove Spamfilter",
+          "confirm": "Are you sure you want to remove this spamfilter?"
+        },
+        "messages": {
+          "added": "Spamfilter added successfully",
+          "removed": "Spamfilter removed",
+          "loadFailed": "Failed to load spamfilters: {{error}}",
+          "removeFailed": "Failed to remove spamfilter"
+        }
+      },
     "addModal": {
       "title": "Add Server Ban",
       "labels": {

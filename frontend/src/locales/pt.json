@@ -592,6 +592,76 @@
       "loadFailed": "Falha ao carregar bans: {{error}}"
     }
   },
+  "spamfilters": {
+    "title": "Filtros de Spam",
+    "subtitle": "Gerenciar filtros de conteúdo e proteção contra spam",
+    "addButton": "Adicionar Spamfilter",
+    "searchPlaceholder": "Pesquisar filtros de spam...",
+    "table": {
+      "pattern": "Padrão",
+      "type": "Tipo",
+      "targets": "Alvos",
+      "action": "Ação",
+      "hits": "Acertos",
+      "setBy": "Definido por"
+    },
+    "detailsTitle": "Detalhes do Spamfilter",
+    "details": {
+      "matchType": "Tipo de correspondência",
+      "action": "Ação",
+      "hits": "Acertos",
+      "setBy": "Definido por",
+      "pattern": "Padrão",
+      "targets": "Alvos",
+      "reason": "Razão",
+      "noReason": "Nenhuma razão especificada",
+      "actionDuration": "Duração da Ação"
+    },
+    "addModal": {
+      "title": "Adicionar Spamfilter",
+      "labels": {
+        "matchType": "Tipo de correspondência",
+        "match": "Padrão",
+        "targets": "Alvos",
+        "action": "Ação",
+        "duration": "Duração da Ação",
+        "reason": "Razão"
+      },
+      "options": {
+        "simple": "Simples (curingas)",
+        "regex": "Expressão Regular",
+        "posix": "Regex POSIX"
+      },
+      "actionOptions": {
+        "warn": "Avisar",
+        "block": "Bloquear",
+        "kill": "Kill",
+        "gline": "G-Line",
+        "gzline": "GZ-Line",
+        "shun": "Shun",
+        "viruschan": "Canal de Vírus"
+      },
+      "helper": {
+        "pattern": "Padrão para corresponder às mensagens",
+        "duration": "Duração para a ação de ban (ex.: 1h, 1d, 7d)"
+      },
+      "placeholders": {
+        "reason": "Spam não é permitido"
+      },
+      "addButton": "Adicionar Spamfilter"
+    },
+    "deleteModal": {
+      "title": "Remover Spamfilter",
+      "removeButton": "Remover Spamfilter",
+      "confirm": "Tem certeza de que deseja remover este spamfilter?"
+    },
+    "messages": {
+      "added": "Spamfilter adicionado com sucesso",
+      "removed": "Spamfilter removido",
+      "loadFailed": "Falha ao carregar filtros de spam: {{error}}",
+      "removeFailed": "Falha ao remover spamfilter"
+    }
+  },
   "commands": {
     "nav": {
       "dashboard": { "title": "Ir para Painel", "description": "Ver visão geral da rede" },
