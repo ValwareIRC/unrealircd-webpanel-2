@@ -320,6 +320,90 @@
     "createRule": "Criar Regra",
     "noRulesConfigured": "Nenhuma regra de alerta configurada. Crie uma para começar."
   },
+  "panelUsers": {
+    "addModal": {
+      "title": "Adicionar Usuário do Painel",
+      "createButton": "Criar Usuário"
+    },
+    "deleteModal": {
+      "title": "Excluir Usuário",
+      "confirm": "Tem certeza de que deseja excluir o usuário?"
+    }
+  },
+  "rpcServers": {
+    "title": "Servidores RPC",
+    "description": "Configure as conexões JSON-RPC do UnrealIRCd",
+    "addModal": {
+      "title": "Adicionar Servidor RPC",
+      "addButton": "Adicionar Servidor"
+    },
+    "info": {
+      "description": "Configure quais servidores JSON-RPC o painel pode conectar. Normalmente você precisa de apenas um servidor, mas múltiplos podem ser úteis para failover.",
+      "readDocs": "Leia as instruções de configuração do UnrealIRCd"
+    },
+    "default": "Padrão",
+    "status": {
+      "connected": "Conectado",
+      "disconnected": "Desconectado"
+    },
+    "empty": "Nenhum servidor RPC configurado. Adicione um para conectar ao seu servidor UnrealIRCd.",
+    "form": {
+      "name": {
+        "label": "Nome de exibição",
+        "placeholder": "ex.: Servidor Principal",
+        "helper": "Um nome curto para a lista de servidores RPC"
+      },
+      "host": {
+        "label": "Hostname ou IP",
+        "placeholder": "127.0.0.1",
+        "helper": "Use 127.0.0.1 para a mesma máquina"
+      },
+      "port": {
+        "label": "Porta",
+        "placeholder": "8600",
+        "helper": "Porta RPC do unrealircd.conf"
+      },
+      "default": {
+        "label": "Servidor padrão",
+        "helper": "Tornar este o servidor principal para conexões"
+      },
+      "tls": {
+        "label": "Verificar certificado SSL/TLS",
+        "helper": "Use apenas com nomes de host, não para 127.0.0.1"
+      },
+      "username": {
+        "label": "Nome de usuário",
+        "placeholder": "rpc_username",
+        "helper": "O nome do bloco rpc-user em unrealircd.conf"
+      },
+      "password": {
+        "label": "Senha",
+        "placeholder": "Digite a senha RPC",
+        "helper": "Deixe vazio para manter a senha existente"
+      }
+    },
+    "editModal": {
+      "title": "Editar Servidor: {{name}}"
+    },
+    "updateButton": "Salvar alterações",
+    "added": "Servidor RPC adicionado com sucesso",
+    "addFailed": "Falha ao adicionar servidor",
+    "updated": "Servidor RPC atualizado com sucesso",
+    "updateFailed": "Falha ao atualizar servidor",
+    "deleted": "Servidor RPC excluído",
+    "deleteFailed": "Falha ao excluir servidor",
+    "actions": {
+      "testConnection": "Testar conexão",
+      "use": "Usar"
+    },
+    "deleteModal": {
+      "title": "Excluir Servidor",
+      "confirm": "Tem certeza de que deseja excluir o servidor <strong>{{name}}</strong>? Esta ação não pode ser desfeita.",
+      "deleteButton": "Excluir Servidor"
+    },
+    "testSuccess": "Conexão bem-sucedida",
+    "testFailure": "Falha na conexão: {{message}}"
+  },
   "logs": {
     "title": "Visualizador de Logs",
     "subtitle": "Ver entradas de log históricas e ao vivo do UnrealIRCd (requer 6.1.1+)",
@@ -913,6 +997,11 @@
       "subtitle": "Aplicar o modelo \"{{name}}\" a um canal:",
       "applyButton": "Aplicar Modelo"
     }
+      ,
+      "createFromChannel": {
+        "title": "Criar a partir do Canal",
+        "description": "Crie um novo modelo a partir da configuração de um canal existente:"
+      }
   },
   "webhooks": {
     "title": "Webhooks",
@@ -929,6 +1018,17 @@
       "enable": "Habilitar",
       "regenerate": "Regenerar token"
     },
+    "emptyTokens": "Nenhum token de webhook configurado",
+    "tokens": {
+      "createModal": {
+        "title": "Criar Token de Webhook"
+      },
+      "deleteModal": {
+        "title": "Excluir Token de Webhook",
+        "confirm": "Tem certeza de que deseja excluir o token de webhook \"{{name}}\"?",
+        "details": "O UnrealIRCd não poderá mais enviar eventos de log para esta URL."
+      }
+    },
     "messages": {
       "loadFailed": "Falha ao carregar webhooks: {{error}}"
     }
@@ -942,6 +1042,63 @@
     "setVhostButton": "Definir Vhost",
     "modesTitle": "Definir modos de usuário: {{name}}",
     "applyModeChanges": "Aplicar alterações de modo"
+  },
+  "themeSwitcher": {
+    "title": "Configurações de Tema",
+    "tabs": {
+      "presets": "Predefinições",
+      "customize": "Personalizar"
+    },
+    "customizeIntro": "Personalize o tema atual ({{name}}) com suas próprias cores.",
+    "sections": {
+      "background": "Plano de fundo",
+      "text": "Texto"
+    },
+    "colors": {
+      "primary": "Primária",
+      "secondary": "Secundária",
+      "tertiary": "Terciária",
+      "textPrimary": "Primária",
+      "textMuted": "Atenuado",
+      "accent": "Destaque",
+      "success": "Sucesso",
+      "error": "Erro"
+    }
+  },
+  "sidebar": {
+    "logout": "Sair"
+  },
+  "userJourney": {
+    "searchModal": {
+      "title": "Pesquisar Jornada do Usuário",
+      "description": "Insira pelo menos um identificador para pesquisar a atividade do usuário:",
+      "nicknameLabel": "Apelido",
+      "nicknamePlaceholder": "Insira o apelido",
+      "ipLabel": "Endereço IP",
+      "ipPlaceholder": "Insira o endereço IP"
+    }
+  },
+  "alertRules": {
+    "noRulesConfigured": "Nenhuma regra de alerta configurada",
+    "deleteConfirm": "Excluir esta regra de alerta?",
+    "actions": {
+      "addCondition": "Adicionar condição",
+      "addWebhook": "Adicionar Webhook",
+      "addDiscord": "Adicionar Discord",
+      "addSlack": "Adicionar Slack",
+      "addLog": "Adicionar Log",
+      "test": "Testar"
+    },
+    "createModal": {
+      "title": "Criar Regra de Alerta",
+      "editTitle": "Editar Regra de Alerta"
+    },
+    "testModal": {
+      "title": "Testar Regra de Alerta",
+      "description": "Insira dados de teste para verificar se as condições correspondem:",
+      "allMatched": "✓ Todas as condições corresponderam!",
+      "someFailed": "✗ Algumas condições não corresponderam"
+    }
   },
   "header": {
     "searchPlaceholder": "Pesquisar ou pular para...",

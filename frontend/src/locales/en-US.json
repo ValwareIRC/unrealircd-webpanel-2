@@ -425,6 +425,90 @@
     "level": "Level",
     "message": "Message"
   },
+  "panelUsers": {
+    "addModal": {
+      "title": "Add Panel User",
+      "createButton": "Create User"
+    },
+    "deleteModal": {
+      "title": "Delete User",
+      "confirm": "Are you sure you want to delete the user?"
+    }
+  },
+  "rpcServers": {
+    "title": "RPC Servers",
+    "description": "Configure UnrealIRCd JSON-RPC connections",
+    "addModal": {
+      "title": "Add RPC Server",
+      "addButton": "Add Server"
+    },
+    "info": {
+      "description": "Configure which JSON-RPC server(s) the panel can connect to. You normally only need one server, but multiple servers can be useful for failover.",
+      "readDocs": "Read the UnrealIRCd setup instructions"
+    },
+    "default": "Default",
+    "status": {
+      "connected": "Connected",
+      "disconnected": "Disconnected"
+    },
+    "empty": "No RPC servers configured. Add one to connect to your UnrealIRCd server.",
+    "form": {
+      "name": {
+        "label": "Display Name",
+        "placeholder": "e.g., Main Server",
+        "helper": "A short display name for the RPC server list"
+      },
+      "host": {
+        "label": "Hostname or IP",
+        "placeholder": "127.0.0.1",
+        "helper": "Use 127.0.0.1 for the same machine"
+      },
+      "port": {
+        "label": "Port",
+        "placeholder": "8600",
+        "helper": "RPC port from unrealircd.conf"
+      },
+      "default": {
+        "label": "Default server",
+        "helper": "Make this the primary server for connections"
+      },
+      "tls": {
+        "label": "Verify SSL/TLS certificate",
+        "helper": "Only use with hostnames, not for 127.0.0.1"
+      },
+      "username": {
+        "label": "Username",
+        "placeholder": "rpc_username",
+        "helper": "The name of your rpc-user block in unrealircd.conf"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Enter RPC password",
+        "helper": "Leave empty to keep existing password"
+      }
+    },
+    "editModal": {
+      "title": "Edit Server: {{name}}"
+    },
+    "updateButton": "Save Changes",
+    "added": "RPC server added successfully",
+    "addFailed": "Failed to add server",
+    "updated": "RPC server updated successfully",
+    "updateFailed": "Failed to update server",
+    "deleted": "RPC server deleted",
+    "deleteFailed": "Failed to delete server",
+    "actions": {
+      "testConnection": "Test Connection",
+      "use": "Use"
+    },
+    "deleteModal": {
+      "title": "Delete Server",
+      "confirm": "Are you sure you want to delete the server <strong>{{name}}</strong>? This action cannot be undone.",
+      "deleteButton": "Delete Server"
+    },
+    "testSuccess": "Connection successful",
+    "testFailure": "Connection failed: {{message}}"
+  },
   "header": {
     "searchPlaceholder": "Search or jump to...",
     "refreshStats": "Refresh stats",
@@ -953,6 +1037,10 @@
       "subtitle": "Apply template \"{{name}}\" to a channel:",
       "applyButton": "Apply Template"
     },
+    "createFromChannel": {
+      "title": "Create from Channel",
+      "description": "Create a new template from an existing channel's configuration:"
+    },
     "form": {
       "name": "Name",
       "placeholders": {
@@ -986,10 +1074,82 @@
       "enable": "Enable",
       "regenerate": "Regenerate Token"
     },
+    "emptyTokens": "No webhook tokens configured",
+    "tokens": {
+      "createModal": {
+        "title": "Create Webhook Token"
+      },
+      "deleteModal": {
+        "title": "Delete Webhook Token",
+        "confirm": "Are you sure you want to delete the webhook token \"{{name}}\"?",
+        "details": "UnrealIRCd will no longer be able to send log events to this URL."
+      }
+    },
     "messages": {
       "loadFailed": "Failed to load webhooks: {{error}}"
     }
   },
+  "themeSwitcher": {
+    "title": "Theme Settings",
+    "tabs": {
+      "presets": "Presets",
+      "customize": "Customize"
+    },
+    "customizeIntro": "Customize the current theme ({{name}}) with your own colors.",
+    "sections": {
+      "background": "Background",
+      "text": "Text"
+    },
+    "colors": {
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "tertiary": "Tertiary",
+      "textPrimary": "Primary",
+      "textMuted": "Muted",
+      "accent": "Accent",
+      "accentHover": "Accent (hover)",
+      "success": "Success",
+      "error": "Error"
+    }
+    ,
+    "apply": "Apply Changes",
+    "reset": "Reset to Default"
+  },
+  "sidebar": {
+    "logout": "Logout"
+  },
+  "userJourney": {
+    "searchModal": {
+      "title": "Search User Journey",
+      "description": "Enter at least one identifier to search for user activity:",
+      "nicknameLabel": "Nickname",
+      "nicknamePlaceholder": "Enter nickname",
+      "ipLabel": "IP Address",
+      "ipPlaceholder": "Enter IP address"
+    }
+  },
+    "alertRules": {
+      "noRulesConfigured": "No alert rules configured",
+      "deleteConfirm": "Delete this alert rule?",
+      "actions": {
+        "addCondition": "Add Condition",
+        "addWebhook": "Add Webhook",
+        "addDiscord": "Add Discord",
+        "addSlack": "Add Slack",
+        "addLog": "Add Log",
+        "test": "Test"
+      },
+      "createModal": {
+        "title": "Create Alert Rule",
+        "editTitle": "Edit Alert Rule"
+      },
+      "testModal": {
+        "title": "Test Alert Rule",
+        "description": "Enter test data to check if conditions match:",
+        "allMatched": "✓ All conditions matched!",
+        "someFailed": "✗ Some conditions did not match"
+      }
+    },
   "userDetail": {
     "killTitle": "Kill User: {{name}}",
     "killButton": "Kill User",

@@ -2,10 +2,12 @@ import { useState } from 'react'
 import { useRPCServers, useAddRPCServer, useUpdateRPCServer, useDeleteRPCServer, useTestRPCServer, useSetActiveRPCServer } from '@/hooks'
 import { Button, Modal, Input, Alert, Badge } from '@/components/common'
 import { Plus, Server, Check, Wifi, WifiOff, Play, TestTube, Edit, Trash2, Info, ExternalLink } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import type { RPCServer } from '@/types'
 import toast from 'react-hot-toast'
 
 export function RPCServersPage() {
+  const { t } = useTranslation()
   const { data: servers, isLoading, error } = useRPCServers()
   const addServer = useAddRPCServer()
   const updateServer = useUpdateRPCServer()
@@ -51,9 +53,9 @@ export function RPCServersPage() {
         rpc_password: formData.rpc_password,
         tls_verify_cert: formData.tls_verify_cert,
       })
-      toast.success('Connection successful!')
+      toast.success(t('rpcServers.testSuccess'))
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'Connection failed'
+      const message = err instanceof Error ? err.message : t('rpcServers.testFailure')
       toast.error(message)
     } finally {
       setIsTesting(false)
@@ -63,11 +65,11 @@ export function RPCServersPage() {
   const handleAddServer = async () => {
     try {
       await addServer.mutateAsync(formData)
-      toast.success('RPC server added successfully')
+      toast.success(t('rpcServers.added'))
       setShowAddModal(false)
       resetForm()
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'Failed to add server'
+      const message = err instanceof Error ? err.message : t('rpcServers.addFailed')
       toast.error(message)
     }
   }
@@ -84,11 +86,11 @@ export function RPCServersPage() {
         tls_verify_cert: formData.tls_verify_cert,
         is_default: formData.is_default,
       })
-      toast.success('RPC server updated successfully')
+      toast.success(t('rpcServers.updated'))
       setShowEditModal(false)
       setSelectedServer(null)
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'Failed to update server'
+      const message = err instanceof Error ? err.message : t('rpcServers.updateFailed')
       toast.error(message)
     }
   }
@@ -97,11 +99,11 @@ export function RPCServersPage() {
     if (!selectedServer) return
     try {
       await deleteServer.mutateAsync(selectedServer.name)
-      toast.success('RPC server deleted')
+      toast.success(t('rpcServers.deleted'))
       setShowDeleteModal(false)
       setSelectedServer(null)
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'Failed to delete server'
+      const message = err instanceof Error ? err.message : t('rpcServers.deleteFailed')
       toast.error(message)
     }
   }
@@ -142,8 +144,8 @@ export function RPCServersPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[var(--text-primary)]">RPC Servers</h1>
-          <p className="text-[var(--text-muted)] mt-1">Configure UnrealIRCd JSON-RPC connections</p>
+          <h1 className="text-2xl font-bold text-[var(--text-primary)]">{t('rpcServers.title')}</h1>
+          <p className="text-[var(--text-muted)] mt-1">{t('rpcServers.description')}</p>
         </div>
         <Button
           leftIcon={<Plus size={18} />}
@@ -152,7 +154,7 @@ export function RPCServersPage() {
             setShowAddModal(true)
           }}
         >
-          Add Server
+          {t('rpcServers.addModal.addButton')}
         </Button>
       </div>
 
@@ -161,17 +163,14 @@ export function RPCServersPage() {
         <div className="flex items-start gap-3">
           <Info size={20} className="text-[var(--info)] flex-shrink-0 mt-0.5" />
           <div>
-            <p className="text-[var(--text-secondary)] text-sm">
-              Configure which JSON-RPC server(s) the panel can connect to. You normally only need one server, 
-              but multiple servers can be useful for failover.
-            </p>
-            <a 
-              href="https://www.unrealircd.org/docs/UnrealIRCd_webpanel#Configuring_UnrealIRCd" 
-              target="_blank" 
+            <p className="text-[var(--text-secondary)] text-sm">{t('rpcServers.info.description')}</p>
+            <a
+              href="https://www.unrealircd.org/docs/UnrealIRCd_webpanel#Configuring_UnrealIRCd"
+              target="_blank"
               rel="noopener noreferrer"
               className="text-[var(--accent)] hover:underline text-sm inline-flex items-center gap-1 mt-1"
             >
-              Read the UnrealIRCd setup instructions <ExternalLink size={12} />
+              {t('rpcServers.info.readDocs')} <ExternalLink size={12} />
             </a>
           </div>
         </div>
@@ -216,17 +215,17 @@ export function RPCServersPage() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center gap-1">
-                  {server.is_active && (
-                    <Badge variant="success" size="sm">
-                      <Check size={12} className="mr-1" />
-                      Active
-                    </Badge>
-                  )}
-                  {server.is_default && !server.is_active && (
-                    <Badge variant="default" size="sm">Default</Badge>
-                  )}
-                </div>
+                    <div className="flex items-center gap-1">
+                      {server.is_active && (
+                        <Badge variant="success" size="sm">
+                          <Check size={12} className="mr-1" />
+                          {t('common.active')}
+                        </Badge>
+                      )}
+                      {server.is_default && !server.is_active && (
+                        <Badge variant="default" size="sm">{t('rpcServers.default')}</Badge>
+                      )}
+                    </div>
               </div>
 
               <div className="flex items-center gap-2 mb-4">
@@ -238,7 +237,7 @@ export function RPCServersPage() {
                   }`}
                 >
                   {server.is_connected || server.connected ? <Wifi size={12} /> : <WifiOff size={12} />}
-                  {server.is_connected || server.connected ? 'Connected' : 'Disconnected'}
+                  {server.is_connected || server.connected ? t('rpcServers.status.connected') : t('rpcServers.status.disconnected')}
                 </div>
                 {server.tls_verify_cert && (
                   <div className="px-2 py-1 rounded text-xs bg-blue-500/20 text-blue-400">
@@ -266,7 +265,7 @@ export function RPCServersPage() {
                     onClick={() => handleSetActive(server.name)}
                     isLoading={setActive.isPending}
                   >
-                    Use
+                    {t('rpcServers.actions.use')}
                   </Button>
                 )}
                 <Button
@@ -293,7 +292,7 @@ export function RPCServersPage() {
         ) : (
           <div className="col-span-full">
             <Alert type="info">
-              No RPC servers configured. Add one to connect to your UnrealIRCd server.
+              {t('rpcServers.empty')}
             </Alert>
           </div>
         )}
@@ -303,7 +302,7 @@ export function RPCServersPage() {
       <Modal
         isOpen={showAddModal}
         onClose={() => setShowAddModal(false)}
-        title="Add RPC Server"
+        title={t('rpcServers.addModal.title')}
         size="lg"
         footer={
           <>
@@ -313,24 +312,24 @@ export function RPCServersPage() {
               onClick={handleTestConnection}
               isLoading={isTesting}
             >
-              Test Connection
+              {t('rpcServers.actions.testConnection')}
             </Button>
             <Button variant="secondary" onClick={() => setShowAddModal(false)}>
-              Cancel
+              {t('common.cancel')}
             </Button>
             <Button onClick={handleAddServer} isLoading={addServer.isPending}>
-              Add Server
+              {t('rpcServers.addModal.addButton')}
             </Button>
           </>
         }
       >
         <div className="space-y-4">
           <Input
-            label="Display Name"
+            label={t('rpcServers.form.name.label')}
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            placeholder="e.g., Main Server"
-            helperText="A short display name for the RPC server list"
+            placeholder={t('rpcServers.form.name.placeholder')}
+            helperText={t('rpcServers.form.name.helper')}
             required
           />
           <div className="p-3 bg-[var(--bg-tertiary)] rounded-lg">
@@ -344,27 +343,27 @@ export function RPCServersPage() {
                 className="rounded border-[var(--border-primary)] bg-[var(--bg-secondary)] text-[var(--accent)] focus:ring-[var(--accent)]"
               />
               <div>
-                <span className="text-[var(--text-primary)] font-medium">Default server</span>
-                <p className="text-[var(--text-muted)] text-xs">Make this the primary server for connections</p>
+                <span className="text-[var(--text-primary)] font-medium">{t('rpcServers.form.default.label')}</span>
+                <p className="text-[var(--text-muted)] text-xs">{t('rpcServers.form.default.helper')}</p>
               </div>
             </label>
           </div>
           <div className="grid grid-cols-2 gap-4">
             <Input
-              label="Hostname or IP"
+              label={t('rpcServers.form.host.label')}
               value={formData.host}
               onChange={(e) => setFormData({ ...formData, host: e.target.value })}
-              placeholder="127.0.0.1"
-              helperText="Use 127.0.0.1 for the same machine"
+              placeholder={t('rpcServers.form.host.placeholder')}
+              helperText={t('rpcServers.form.host.helper')}
               required
             />
             <Input
-              label="Port"
+              label={t('rpcServers.form.port.label')}
               type="number"
               value={formData.port}
               onChange={(e) => setFormData({ ...formData, port: parseInt(e.target.value) || 8600 })}
-              placeholder="8600"
-              helperText="RPC port from unrealircd.conf"
+              placeholder={t('rpcServers.form.port.placeholder')}
+              helperText={t('rpcServers.form.port.helper')}
               required
             />
           </div>
@@ -379,26 +378,26 @@ export function RPCServersPage() {
                 className="rounded border-[var(--border-primary)] bg-[var(--bg-secondary)] text-[var(--accent)] focus:ring-[var(--accent)]"
               />
               <div>
-                <span className="text-[var(--text-primary)] font-medium">Verify SSL/TLS certificate</span>
-                <p className="text-[var(--text-muted)] text-xs">Only use with hostnames, not for 127.0.0.1</p>
+                <span className="text-[var(--text-primary)] font-medium">{t('rpcServers.form.tls.label')}</span>
+                <p className="text-[var(--text-muted)] text-xs">{t('rpcServers.form.tls.helper')}</p>
               </div>
             </label>
           </div>
           <Input
-            label="Username"
+            label={t('rpcServers.form.username.label')}
             value={formData.rpc_user}
             onChange={(e) => setFormData({ ...formData, rpc_user: e.target.value })}
-            placeholder="rpc_username"
-            helperText="The name of your rpc-user block in unrealircd.conf"
+            placeholder={t('rpcServers.form.username.placeholder')}
+            helperText={t('rpcServers.form.username.helper')}
             autoComplete="new-password"
             required
           />
           <Input
-            label="Password"
+            label={t('rpcServers.form.password.label')}
             type="password"
             value={formData.rpc_password}
             onChange={(e) => setFormData({ ...formData, rpc_password: e.target.value })}
-            placeholder="Enter RPC password"
+            placeholder={t('rpcServers.form.password.placeholder')}
             autoComplete="new-password"
             required
           />
@@ -409,7 +408,7 @@ export function RPCServersPage() {
       <Modal
         isOpen={showEditModal}
         onClose={() => setShowEditModal(false)}
-        title={`Edit Server: ${selectedServer?.name}`}
+        title={t('rpcServers.editModal.title', { name: selectedServer?.name })}
         size="lg"
         footer={
           <>
@@ -419,24 +418,24 @@ export function RPCServersPage() {
               onClick={handleTestConnection}
               isLoading={isTesting}
             >
-              Test Connection
+              {t('rpcServers.actions.testConnection')}
             </Button>
             <Button variant="secondary" onClick={() => setShowEditModal(false)}>
-              Cancel
+              {t('common.cancel')}
             </Button>
             <Button onClick={handleUpdateServer} isLoading={updateServer.isPending}>
-              Save Changes
+              {t('rpcServers.updateButton')}
             </Button>
           </>
         }
       >
         <div className="space-y-4">
           <Input
-            label="Display Name"
+            label={t('rpcServers.form.name.label')}
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            placeholder="e.g., Main Server"
-            helperText="A short display name for the RPC server list"
+            placeholder={t('rpcServers.form.name.placeholder')}
+            helperText={t('rpcServers.form.name.helper')}
             required
           />
           <div className="p-3 bg-[var(--bg-tertiary)] rounded-lg">
@@ -450,27 +449,27 @@ export function RPCServersPage() {
                 className="rounded border-[var(--border-primary)] bg-[var(--bg-secondary)] text-[var(--accent)] focus:ring-[var(--accent)]"
               />
               <div>
-                <span className="text-[var(--text-primary)] font-medium">Default server</span>
-                <p className="text-[var(--text-muted)] text-xs">Make this the primary server for connections</p>
+                <span className="text-[var(--text-primary)] font-medium">{t('rpcServers.form.default.label')}</span>
+                <p className="text-[var(--text-muted)] text-xs">{t('rpcServers.form.default.helper')}</p>
               </div>
             </label>
           </div>
           <div className="grid grid-cols-2 gap-4">
             <Input
-              label="Hostname or IP"
+              label={t('rpcServers.form.host.label')}
               value={formData.host}
               onChange={(e) => setFormData({ ...formData, host: e.target.value })}
-              placeholder="127.0.0.1"
-              helperText="Use 127.0.0.1 for the same machine"
+              placeholder={t('rpcServers.form.host.placeholder')}
+              helperText={t('rpcServers.form.host.helper')}
               required
             />
             <Input
-              label="Port"
+              label={t('rpcServers.form.port.label')}
               type="number"
               value={formData.port}
               onChange={(e) => setFormData({ ...formData, port: parseInt(e.target.value) || 8600 })}
-              placeholder="8600"
-              helperText="RPC port from unrealircd.conf"
+              placeholder={t('rpcServers.form.port.placeholder')}
+              helperText={t('rpcServers.form.port.helper')}
               required
             />
           </div>
@@ -485,27 +484,27 @@ export function RPCServersPage() {
                 className="rounded border-[var(--border-primary)] bg-[var(--bg-secondary)] text-[var(--accent)] focus:ring-[var(--accent)]"
               />
               <div>
-                <span className="text-[var(--text-primary)] font-medium">Verify SSL/TLS certificate</span>
-                <p className="text-[var(--text-muted)] text-xs">Only use with hostnames, not for 127.0.0.1</p>
+                <span className="text-[var(--text-primary)] font-medium">{t('rpcServers.form.tls.label')}</span>
+                <p className="text-[var(--text-muted)] text-xs">{t('rpcServers.form.tls.helper')}</p>
               </div>
             </label>
           </div>
           <Input
-            label="Username"
+            label={t('rpcServers.form.username.label')}
             value={formData.rpc_user}
             onChange={(e) => setFormData({ ...formData, rpc_user: e.target.value })}
-            placeholder="rpc_username"
-            helperText="The name of your rpc-user block in unrealircd.conf"
+            placeholder={t('rpcServers.form.username.placeholder')}
+            helperText={t('rpcServers.form.username.helper')}
             autoComplete="new-password"
             required
           />
           <Input
-            label="Password"
+            label={t('rpcServers.form.password.label')}
             type="password"
             value={formData.rpc_password}
             onChange={(e) => setFormData({ ...formData, rpc_password: e.target.value })}
-            placeholder="Leave blank to keep current password"
-            helperText="Only fill this if you want to change the password"
+            placeholder={t('rpcServers.form.password.placeholder')}
+            helperText={t('rpcServers.form.password.helper')}
             autoComplete="new-password"
           />
         </div>
@@ -515,21 +514,20 @@ export function RPCServersPage() {
       <Modal
         isOpen={showDeleteModal}
         onClose={() => setShowDeleteModal(false)}
-        title="Delete Server"
+        title={t('rpcServers.deleteModal.title')}
         footer={
           <>
             <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>
-              Cancel
+              {t('common.cancel')}
             </Button>
             <Button variant="danger" onClick={handleDeleteServer} isLoading={deleteServer.isPending}>
-              Delete Server
+              {t('rpcServers.deleteModal.deleteButton')}
             </Button>
           </>
         }
       >
         <Alert type="error">
-          Are you sure you want to delete the server <strong>{selectedServer?.name}</strong>?
-          This action cannot be undone.
+          {t('rpcServers.deleteModal.confirm', { name: selectedServer?.name })}
         </Alert>
       </Modal>
     </div>

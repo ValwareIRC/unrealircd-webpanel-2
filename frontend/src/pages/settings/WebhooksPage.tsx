@@ -348,7 +348,7 @@ export function WebhooksPage() {
           columns={columns}
           keyField="id"
           isLoading={isLoading}
-          emptyMessage="No webhook tokens configured"
+          emptyMessage={t('webhooks.emptyTokens')}
           searchable={false}
         />
       </div>
@@ -357,7 +357,7 @@ export function WebhooksPage() {
       <Modal
         isOpen={showCreateModal}
         onClose={() => setShowCreateModal(false)}
-        title="Create Webhook Token"
+        title={t('webhooks.tokens.createModal.title')}
       >
         <div className="space-y-4">
           <div>
@@ -386,14 +386,14 @@ export function WebhooksPage() {
           </div>
           <div className="flex justify-end gap-2 pt-4">
             <Button variant="secondary" onClick={() => setShowCreateModal(false)}>
-              Cancel
+              {t('common.cancel')}
             </Button>
             <Button
               onClick={() => createMutation.mutate({ name: newName, description: newDescription })}
               disabled={!newName.trim() || createMutation.isPending}
               isLoading={createMutation.isPending}
             >
-              Create
+              {t('common.create')}
             </Button>
           </div>
         </div>
@@ -541,12 +541,13 @@ export function WebhooksPage() {
           setShowDeleteModal(false)
           setSelectedToken(null)
         }}
-        title="Delete Webhook Token"
+        title={t('webhooks.tokens.deleteModal.title')}
       >
         <div className="space-y-4">
           <Alert type="warning">
-            Are you sure you want to delete the webhook token "{selectedToken?.name}"? 
-            UnrealIRCd will no longer be able to send log events to this URL.
+            {t('webhooks.tokens.deleteModal.confirm', { name: selectedToken?.name })}
+            {` `}
+            {t('webhooks.tokens.deleteModal.details')}
           </Alert>
           <div className="flex justify-end gap-2">
             <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>

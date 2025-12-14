@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useTheme, type Theme, type ThemeColors } from '@/contexts/ThemeContext'
 import { Modal } from './Modal'
 import { Button } from './Button'
+import { useTranslation } from 'react-i18next'
 import { Palette, Check, Sparkles, Monitor, Cpu, Clock, Sun, Snowflake } from 'lucide-react'
 
 const categoryIcons = {
@@ -94,6 +95,7 @@ function ColorPicker({ label, value, onChange }: ColorPickerProps) {
 }
 
 export function ThemeSwitcher() {
+  const { t } = useTranslation()
   const { theme, setTheme, customColors, setCustomColors, availableThemes } = useTheme()
   const [isOpen, setIsOpen] = useState(false)
   const [activeTab, setActiveTab] = useState<'presets' | 'customize'>('presets')
@@ -125,7 +127,7 @@ export function ThemeSwitcher() {
       <button
         onClick={() => setIsOpen(true)}
         className="p-2 rounded-lg hover:bg-[var(--bg-hover)] text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors"
-        title="Theme Settings"
+        title={t('themeSwitcher.title')}
       >
         <Palette size={20} />
       </button>
@@ -142,13 +144,13 @@ export function ThemeSwitcher() {
             <button
               onClick={() => setActiveTab('presets')}
               className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors ${
-                activeTab === 'presets'
+                  activeTab === 'presets'
                   ? 'border-[var(--accent)] text-[var(--accent)]'
                   : 'border-transparent text-[var(--text-muted)] hover:text-[var(--text-primary)]'
               }`}
             >
               <Monitor size={16} className="inline mr-2" />
-              Presets
+              {t('themeSwitcher.tabs.presets')}
             </button>
             <button
               onClick={() => setActiveTab('customize')}
@@ -159,7 +161,7 @@ export function ThemeSwitcher() {
               }`}
             >
               <Palette size={16} className="inline mr-2" />
-              Customize
+              {t('themeSwitcher.tabs.customize')}
             </button>
           </div>
           
@@ -192,103 +194,75 @@ export function ThemeSwitcher() {
           {activeTab === 'customize' && (
             <div className="space-y-6">
               <p className="text-sm text-[var(--text-muted)]">
-                Customize the current theme ({theme.name}) with your own colors.
+                {t('themeSwitcher.customizeIntro', { name: theme.name })}
               </p>
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-h-[50vh] overflow-y-auto pr-2">
                 <div className="space-y-3">
-                  <h4 className="text-sm font-semibold text-[var(--text-secondary)]">Background</h4>
+                  <h4 className="text-sm font-semibold text-[var(--text-secondary)]">{t('themeSwitcher.sections.background')}</h4>
                   <ColorPicker
-                    label="Primary"
+                    label={t('themeSwitcher.colors.primary')}
                     value={localCustomColors.bgPrimary || currentColors.bgPrimary}
                     onChange={(v) => setLocalCustomColors({ ...localCustomColors, bgPrimary: v })}
                   />
                   <ColorPicker
-                    label="Secondary"
+                    label={t('themeSwitcher.colors.secondary')}
                     value={localCustomColors.bgSecondary || currentColors.bgSecondary}
                     onChange={(v) => setLocalCustomColors({ ...localCustomColors, bgSecondary: v })}
                   />
                   <ColorPicker
-                    label="Tertiary"
+                    label={t('themeSwitcher.colors.tertiary')}
                     value={localCustomColors.bgTertiary || currentColors.bgTertiary}
                     onChange={(v) => setLocalCustomColors({ ...localCustomColors, bgTertiary: v })}
                   />
                 </div>
-                
+
                 <div className="space-y-3">
-                  <h4 className="text-sm font-semibold text-[var(--text-secondary)]">Text</h4>
+                  <h4 className="text-sm font-semibold text-[var(--text-secondary)]">{t('themeSwitcher.sections.text')}</h4>
                   <ColorPicker
-                    label="Primary"
+                    label={t('themeSwitcher.colors.textPrimary')}
                     value={localCustomColors.textPrimary || currentColors.textPrimary}
                     onChange={(v) => setLocalCustomColors({ ...localCustomColors, textPrimary: v })}
                   />
                   <ColorPicker
-                    label="Secondary"
-                    value={localCustomColors.textSecondary || currentColors.textSecondary}
-                    onChange={(v) => setLocalCustomColors({ ...localCustomColors, textSecondary: v })}
-                  />
-                  <ColorPicker
-                    label="Muted"
+                    label={t('themeSwitcher.colors.textMuted')}
                     value={localCustomColors.textMuted || currentColors.textMuted}
                     onChange={(v) => setLocalCustomColors({ ...localCustomColors, textMuted: v })}
                   />
                 </div>
-                
+
                 <div className="space-y-3">
-                  <h4 className="text-sm font-semibold text-[var(--text-secondary)]">Accent</h4>
+                  <h4 className="text-sm font-semibold text-[var(--text-secondary)]">{t('themeSwitcher.colors.accent')}</h4>
                   <ColorPicker
-                    label="Primary"
+                    label={t('themeSwitcher.colors.accent')}
                     value={localCustomColors.accent || currentColors.accent}
                     onChange={(v) => setLocalCustomColors({ ...localCustomColors, accent: v })}
                   />
                   <ColorPicker
-                    label="Hover"
-                    value={localCustomColors.accentHover || currentColors.accentHover}
+                    label={t('themeSwitcher.colors.accentHover')}
+                    value={localCustomColors.accentHover || (currentColors as any).accentHover}
                     onChange={(v) => setLocalCustomColors({ ...localCustomColors, accentHover: v })}
                   />
                 </div>
-                
+
                 <div className="space-y-3">
-                  <h4 className="text-sm font-semibold text-[var(--text-secondary)]">Status</h4>
+                  <h4 className="text-sm font-semibold text-[var(--text-secondary)]">{t('themeSwitcher.sections.background')}</h4>
                   <ColorPicker
-                    label="Success"
+                    label={t('themeSwitcher.colors.success')}
                     value={localCustomColors.success || currentColors.success}
                     onChange={(v) => setLocalCustomColors({ ...localCustomColors, success: v })}
                   />
                   <ColorPicker
-                    label="Warning"
-                    value={localCustomColors.warning || currentColors.warning}
-                    onChange={(v) => setLocalCustomColors({ ...localCustomColors, warning: v })}
-                  />
-                  <ColorPicker
-                    label="Error"
+                    label={t('themeSwitcher.colors.error')}
                     value={localCustomColors.error || currentColors.error}
                     onChange={(v) => setLocalCustomColors({ ...localCustomColors, error: v })}
                   />
                 </div>
-                
-                <div className="space-y-3">
-                  <h4 className="text-sm font-semibold text-[var(--text-secondary)]">Borders</h4>
-                  <ColorPicker
-                    label="Primary"
-                    value={localCustomColors.borderPrimary || currentColors.borderPrimary}
-                    onChange={(v) => setLocalCustomColors({ ...localCustomColors, borderPrimary: v })}
-                  />
-                  <ColorPicker
-                    label="Accent"
-                    value={localCustomColors.borderAccent || currentColors.borderAccent}
-                    onChange={(v) => setLocalCustomColors({ ...localCustomColors, borderAccent: v })}
-                  />
-                </div>
               </div>
-              
+
               <div className="flex gap-3 pt-4 border-t border-[var(--border-primary)]">
-                <Button onClick={handleApplyCustom}>
-                  Apply Changes
-                </Button>
-                <Button variant="secondary" onClick={handleResetCustom}>
-                  Reset to Default
-                </Button>
+                <Button onClick={handleApplyCustom}>{t('themeSwitcher.apply')}</Button>
+                <Button variant="secondary" onClick={handleResetCustom}>{t('themeSwitcher.reset')}</Button>
               </div>
             </div>
           )}
