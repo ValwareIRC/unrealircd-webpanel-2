@@ -105,7 +105,7 @@
     "logoutConfirm": "Çıkış yapmak istediğinizden emin misiniz?",
     "invalidCredentials": "Geçersiz kullanıcı adı veya şifre",
     "sessionExpired": "Oturumunuz sona erdi. Lütfen tekrar giriş yapın.",
-    "panelTitle": "UnrealIRCd Panel",
+    "panelTitle": "UnrealIRCd Paneli",
     "panelSubtitle": "IRC ağınızı yönetmek için giriş yapın",
     "twoFactorRequired": "İki faktörlü kimlik doğrulama gerekli",
     "usernameLabel": "Kullanıcı adı",
@@ -125,7 +125,7 @@
     "title": "Kullanıcılar",
     "subtitle": "Ağdaki bağlı kullanıcıları yönet",
     "nickname": "Takma ad",
-    "host": "Host",
+    "host": "Sunucu",
     "ip": "__UNTRANSLATED__ (IP)",
     "channels": "Kanallar",
     "idle": "Boşta",
@@ -193,10 +193,10 @@
     "banUserButton": "Kullanıcıyı yasakla",
     "killUserWarning": "Bu, {{name}}'i ağdan zorla bağlantıyı kesecek.",
     "active": "Aktif",
-    "seconds": "{{count}}s",
-    "minutes": "{{count}}m",
-    "hours": "{{count}}h",
-    "days": "{{count}}d"
+    "seconds": "{{count}} sn",
+    "minutes": "{{count}} dk",
+    "hours": "{{count}} sa",
+    "days": "{{count}} gün"
   },
   "servers": {
     "title": "Sunucular",
@@ -226,9 +226,9 @@
     "rehashSuccess": "{{name}}'e yeniden yükleme gönderildi",
     "rehashFailed": "Sunucu yeniden yüklenemedi",
     "loadError": "Sunucular yüklenemedi: {{error}}",
-    "uptimeFormat": "{{days}}d {{hours}}h {{minutes}}m",
-    "uptimeHoursMinutes": "{{hours}}h {{minutes}}m",
-    "uptimeMinutes": "{{minutes}}m"
+    "uptimeFormat": "{{days}} gün {{hours}} saat {{minutes}} dk",
+    "uptimeHoursMinutes": "{{hours}} saat {{minutes}} dk",
+    "uptimeMinutes": "{{minutes}} dk"
   },
   "channels": {
     "title": "Kanallar",
@@ -248,7 +248,7 @@
     "channelDetails": "Kanal: {{name}}",
     "channelName": "Kanal adı",
     "members": "Üyeler",
-    "bans": "Bans",
+    "bans": "Yasaklamalar",
     "setBy": "{{user}} tarafından ayarlandı",
     "setByAt": "{{user}} tarafından {{time}} tarihinde ayarlandı",
     "banEntry": "{{name}} ({{setBy}} tarafından)",
@@ -495,7 +495,7 @@
         "O": "Operatör gerekli - Sadece IRC operatörleri katılabilir"
       }
     },
-    "bans": "Bans",
+    "bans": "Yasaklamalar",
     "invites": "__UNTRANSLATED__ (Invites)",
     "excepts": "__UNTRANSLATED__ (Excepts)",
     "users": "__UNTRANSLATED__ (users)",
