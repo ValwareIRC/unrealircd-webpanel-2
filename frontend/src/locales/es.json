@@ -161,8 +161,8 @@
     "connectedSince": "Conectado desde",
     "userModes": "Modos de usuario",
     "banType": "Tipo de baneo",
-    "gline": "G-Line (Global)",
-    "kline": "K-Line (Local)",
+    "gline": "G-Line (global)",
+    "kline": "K-Line (local)",
     "gzline": "GZ-Line (IP Global)",
     "zline": "Z-Line (IP Local)",
     "shun": "__UNTRANSLATED__ (Shun)",
@@ -226,9 +226,9 @@
     "rehashSuccess": "Recarga enviada a {{name}}",
     "rehashFailed": "Error al recargar servidor",
     "loadError": "Error al cargar servidores: {{error}}",
-    "uptimeFormat": "{{days}}d {{hours}}h {{minutes}}m",
-    "uptimeHoursMinutes": "{{hours}}h {{minutes}}m",
-    "uptimeMinutes": "{{minutes}}m"
+    "uptimeFormat": "{{days}} d {{hours}} h {{minutes}} m",
+    "uptimeHoursMinutes": "{{hours}} h {{minutes}} m",
+    "uptimeMinutes": "{{minutes}} m"
   },
   "channels": {
     "title": "Canales",
@@ -525,7 +525,7 @@
     "operators": "Operadores",
     "invisible": "Oculto",
     "total": "Total general",
-    "local": "Local",
+    "local": "Localidad",
     "globalMax": "Máximo global",
     "online": "En línea",
     "offline": "Desconectado",
