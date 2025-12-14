@@ -691,6 +691,40 @@
       "signOut": { "title": "Sair", "description": "Sair do painel" }
     }
   },
+  "savedSearches": {
+    "tooltips": {
+      "saveCurrent": "Salvar pesquisa atual",
+      "saveDisabled": "Digite uma consulta de pesquisa primeiro",
+      "view": "Ver pesquisas salvas"
+    },
+    "saveModal": {
+      "title": "Salvar Pesquisa"
+    },
+    "currentSearch": "Pesquisa atual:",
+    "emptyPlaceholder": "(vazio)",
+    "inputLabel": "Nome da Pesquisa",
+    "placeholders": {
+      "example": "ex.: TOR exit nodes, IPs suspeitos"
+    },
+    "shareWithAll": "Compartilhar com todos os usuários",
+    "listModal": {
+      "title": "Pesquisas Salvas",
+      "emptyTitle": "Nenhuma pesquisa salva ainda.",
+      "emptyDescription": "Salve sua pesquisa atual para acessá-la rapidamente depois."
+    },
+    "messages": {
+      "saved": "Pesquisa salva",
+      "deleted": "Pesquisa removida",
+      "saveFailed": "Falha ao salvar pesquisa",
+      "deleteFailed": "Falha ao remover pesquisa",
+      "applyFailed": "Falha ao aplicar pesquisa"
+    },
+    "shared": "Compartilhado",
+    "popular": "Popular",
+    "usedTimes": "Usado {{count}} vez(es)",
+    "lastUsed": "Último uso",
+    "apply": "Aplicar"
+  },
   "header": {
     "searchPlaceholder": "Pesquisar ou pular para...",
     "refreshStats": "Atualizar estatísticas",

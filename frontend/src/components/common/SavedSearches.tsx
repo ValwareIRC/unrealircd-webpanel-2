@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
+import { useTranslation } from 'react-i18next'
 import { 
   getSavedSearches, 
   createSavedSearch, 
@@ -20,6 +21,7 @@ interface SavedSearchesProps {
 }
 
 export function SavedSearches({ page, currentQuery, currentFilters, onApplySearch }: SavedSearchesProps) {
+  const { t } = useTranslation()
   const queryClient = useQueryClient()
   const [showSaveModal, setShowSaveModal] = useState(false)
   const [showListModal, setShowListModal] = useState(false)
@@ -33,15 +35,15 @@ export function SavedSearches({ page, currentQuery, currentFilters, onApplySearc
 
   const createMutation = useMutation({
     mutationFn: createSavedSearch,
-    onSuccess: () => {
+      onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['savedSearches', page] })
-      toast.success('Search saved')
+      toast.success(t('savedSearches.messages.saved'))
       setShowSaveModal(false)
       setSearchName('')
       setIsGlobal(false)
     },
     onError: (err: Error) => {
-      toast.error(err.message || 'Failed to save search')
+      toast.error(err.message || t('savedSearches.messages.saveFailed'))
     },
   })
 
@@ -49,10 +51,10 @@ export function SavedSearches({ page, currentQuery, currentFilters, onApplySearc
     mutationFn: deleteSavedSearch,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['savedSearches', page] })
-      toast.success('Search deleted')
+      toast.success(t('savedSearches.messages.deleted'))
     },
     onError: (err: Error) => {
-      toast.error(err.message || 'Failed to delete search')
+      toast.error(err.message || t('savedSearches.messages.deleteFailed'))
     },
   })
 
@@ -65,7 +67,7 @@ export function SavedSearches({ page, currentQuery, currentFilters, onApplySearc
       setShowListModal(false)
     },
     onError: (err: Error) => {
-      toast.error(err.message || 'Failed to apply search')
+      toast.error(err.message || t('savedSearches.messages.applyFailed'))
     },
   })
 
@@ -100,7 +102,7 @@ export function SavedSearches({ page, currentQuery, currentFilters, onApplySearc
         size="sm"
         onClick={() => setShowSaveModal(true)}
         disabled={!canSave}
-        title={canSave ? 'Save current search' : 'Enter a search query first'}
+        title={canSave ? t('savedSearches.tooltips.saveCurrent') : t('savedSearches.tooltips.saveDisabled')}
       >
         <BookmarkPlus size={18} />
       </Button>
@@ -111,7 +113,7 @@ export function SavedSearches({ page, currentQuery, currentFilters, onApplySearc
         size="sm"
         onClick={() => setShowListModal(true)}
         className="relative"
-        title="View saved searches"
+        title={t('savedSearches.tooltips.view')}
       >
         <Bookmark size={18} />
         {savedSearches.length > 0 && (
@@ -129,7 +131,7 @@ export function SavedSearches({ page, currentQuery, currentFilters, onApplySearc
           setSearchName('')
           setIsGlobal(false)
         }}
-        title="Save Search"
+        title={t('savedSearches.saveModal.title')}
         footer={
           <>
             <Button variant="secondary" onClick={() => {
@@ -151,15 +153,15 @@ export function SavedSearches({ page, currentQuery, currentFilters, onApplySearc
       >
         <div className="space-y-4">
           <div className="bg-[var(--bg-tertiary)] p-3 rounded-lg">
-            <div className="text-sm text-[var(--text-muted)]">Current Search:</div>
-            <div className="font-mono text-[var(--text-primary)]">{currentQuery || '(empty)'}</div>
+            <div className="text-sm text-[var(--text-muted)]">{t('savedSearches.currentSearch')}</div>
+            <div className="font-mono text-[var(--text-primary)]">{currentQuery || t('savedSearches.emptyPlaceholder')}</div>
           </div>
           
           <Input
-            label="Search Name"
+            label={t('savedSearches.inputLabel')}
             value={searchName}
             onChange={(e) => setSearchName(e.target.value)}
-            placeholder="e.g., TOR exit nodes, Suspicious IPs"
+            placeholder={t('savedSearches.placeholders.example')}
             autoFocus
           />
           
@@ -172,7 +174,7 @@ export function SavedSearches({ page, currentQuery, currentFilters, onApplySearc
             />
             <span className="text-[var(--text-secondary)]">
               <Globe size={14} className="inline mr-1" />
-              Share with all users
+              {t('savedSearches.shareWithAll')}
             </span>
           </label>
         </div>
@@ -182,14 +184,14 @@ export function SavedSearches({ page, currentQuery, currentFilters, onApplySearc
       <Modal
         isOpen={showListModal}
         onClose={() => setShowListModal(false)}
-        title="Saved Searches"
+        title={t('savedSearches.listModal.title')}
         size="lg"
       >
         {savedSearches.length === 0 ? (
           <div className="text-center py-8 text-[var(--text-muted)]">
             <Bookmark size={48} className="mx-auto mb-4 opacity-50" />
-            <p>No saved searches yet.</p>
-            <p className="text-sm">Save your current search to quickly access it later.</p>
+            <p>{t('savedSearches.listModal.emptyTitle')}</p>
+            <p className="text-sm">{t('savedSearches.listModal.emptyDescription')}</p>
           </div>
         ) : (
           <div className="space-y-2 max-h-96 overflow-y-auto">
@@ -208,13 +210,13 @@ export function SavedSearches({ page, currentQuery, currentFilters, onApplySearc
                       {search.is_global && (
                         <Badge variant="info" size="sm">
                           <Globe size={12} className="mr-1" />
-                          Shared
+                          {t('savedSearches.shared')}
                         </Badge>
                       )}
                       {search.use_count > 5 && (
                         <Badge variant="warning" size="sm">
                           <Star size={12} className="mr-1" />
-                          Popular
+                          {t('savedSearches.popular')}
                         </Badge>
                       )}
                     </div>
@@ -222,8 +224,8 @@ export function SavedSearches({ page, currentQuery, currentFilters, onApplySearc
                       {search.query || '(no query)'}
                     </div>
                     <div className="text-xs text-[var(--text-muted)] mt-1">
-                      Used {search.use_count} time{search.use_count !== 1 ? 's' : ''}
-                      {search.last_used && ` • Last used ${new Date(search.last_used).toLocaleDateString()}`}
+                      {t('savedSearches.usedTimes', { count: search.use_count })}
+                      {search.last_used && ` • ${t('savedSearches.lastUsed')}: ${new Date(search.last_used).toLocaleDateString()}`}
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
@@ -232,14 +234,14 @@ export function SavedSearches({ page, currentQuery, currentFilters, onApplySearc
                       size="sm"
                       onClick={() => handleApply(search)}
                     >
-                      Apply
+                      {t('savedSearches.apply')}
                     </Button>
                     <Button
                       variant="ghost"
                       size="sm"
                       className="text-red-400 hover:text-red-300"
                       onClick={() => deleteMutation.mutate(search.id)}
-                      title="Delete"
+                      title={t('common.delete')}
                     >
                       <Trash2 size={16} />
                     </Button>
