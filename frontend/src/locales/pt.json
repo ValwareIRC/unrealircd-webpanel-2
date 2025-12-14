@@ -866,6 +866,52 @@
       "confirm": "Tem certeza de que deseja excluir este comando agendado? Esta ação não pode ser desfeita."
     }
   },
+  "channelTemplates": {
+    "title": "Modelos de Canal",
+    "subtitle": "Salvar e aplicar configurações de canal como modelos reutilizáveis",
+    "fromChannel": "Do Canal",
+    "createButton": "Criar Modelo",
+    "empty": "Nenhum modelo de canal ainda. Crie um ou importe de um canal existente.",
+    "tooltips": {
+      "global": "Modelo global",
+      "private": "Modelo privado"
+    },
+    "labels": {
+      "modes": "Modos:",
+      "topic": "Tópico:"
+    },
+    "used": "Usado {{count}} vez(es)",
+    "by": "por",
+    "deleteConfirm": "Excluir este modelo?",
+    "form": {
+      "name": "Nome",
+      "placeholders": {
+        "name": "Nome do modelo",
+        "description": "Descrição opcional",
+        "modes": "+nts",
+        "topic": "Tópico do canal",
+        "selectChannel": "Selecione um canal..."
+      },
+      "description": "Descrição",
+      "modes": "Modos",
+      "topic": "Tópico",
+      "makeGlobal": "Tornar este modelo disponível para todos os usuários",
+      "updateButton": "Atualizar",
+      "createButton": "Criar",
+      "targetChannel": "Canal de destino"
+    },
+    "editModal": {
+      "title": "Editar Modelo"
+    },
+    "createModal": {
+      "title": "Criar a partir do Canal"
+    },
+    "applyModal": {
+      "title": "Aplicar Modelo",
+      "subtitle": "Aplicar o modelo \"{{name}}\" a um canal:",
+      "applyButton": "Aplicar Modelo"
+    }
+  },
   "header": {
     "searchPlaceholder": "Pesquisar ou pular para...",
     "refreshStats": "Atualizar estatísticas",

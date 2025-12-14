@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { FileBox, Plus, Trash2, Edit, Copy, Download, Globe, Lock } from 'lucide-react'
 import {
@@ -16,6 +17,7 @@ import { Button, Input, Modal, Badge, Select } from '@/components/common'
 import type { IRCChannel } from '@/types'
 
 export function ChannelTemplatesPage() {
+  const { t } = useTranslation()
   const queryClient = useQueryClient()
   const [showCreateModal, setShowCreateModal] = useState(false)
   const [showApplyModal, setShowApplyModal] = useState(false)
@@ -311,16 +313,16 @@ export function ChannelTemplatesPage() {
       </Modal>
 
       {/* Apply Modal */}
-      <Modal isOpen={showApplyModal} onClose={() => setShowApplyModal(false)} title="Apply Template">
+      <Modal isOpen={showApplyModal} onClose={() => setShowApplyModal(false)} title={t('channelTemplates.applyModal.title')}>
         <div className="space-y-4">
           <p className="text-sm text-[var(--text-secondary)]">
-            Apply template "{selectedTemplate?.name}" to a channel:
+            {t('channelTemplates.applyModal.subtitle', { name: selectedTemplate?.name })}
           </p>
 
           <div>
-            <label className="block text-sm font-medium text-[var(--text-secondary)] mb-1">Target Channel</label>
+            <label className="block text-sm font-medium text-[var(--text-secondary)] mb-1">{t('channelTemplates.form.targetChannel')}</label>
             <Select value={targetChannel} onChange={(e) => setTargetChannel(e.target.value)}>
-              <option value="">Select a channel...</option>
+              <option value="">{t('channelTemplates.placeholders.selectChannel')}</option>
               {channels.map((ch: IRCChannel) => (
                 <option key={ch.name} value={ch.name}>
                   {ch.name}
@@ -331,7 +333,7 @@ export function ChannelTemplatesPage() {
 
           <div className="flex justify-end gap-2 pt-4">
             <Button variant="ghost" onClick={() => setShowApplyModal(false)}>
-              Cancel
+              {t('common.cancel')}
             </Button>
             <Button
               onClick={() => {
@@ -341,7 +343,7 @@ export function ChannelTemplatesPage() {
               }}
               disabled={!targetChannel || applyMutation.isPending}
             >
-              Apply Template
+              {t('channelTemplates.applyModal.applyButton')}
             </Button>
           </div>
         </div>

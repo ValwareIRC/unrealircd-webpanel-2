@@ -908,6 +908,67 @@
       "confirm": "Are you sure you want to delete this scheduled command? This action cannot be undone."
     }
   },
+  "channelTemplates": {
+    "title": "Channel Templates",
+    "subtitle": "Save and apply channel configurations as reusable templates",
+    "fromChannel": "From Channel",
+    "createButton": "Create Template",
+    "empty": "No channel templates yet. Create one or import from an existing channel.",
+    "tooltips": {
+      "global": "Global template",
+      "private": "Private template"
+    },
+    "labels": {
+      "modes": "Modes:",
+      "topic": "Topic:"
+    },
+    "used": "Used {{count}} times",
+    "by": "by",
+    "deleteConfirm": "Delete this template?",
+    "form": {
+      "name": "Name",
+      "placeholders": {
+        "name": "Template name",
+        "description": "Optional description",
+        "modes": "+nts",
+        "topic": "Channel topic"
+      },
+      "description": "Description",
+      "modes": "Modes",
+      "topic": "Topic",
+      "makeGlobal": "Make this template available to all users",
+      "updateButton": "Update",
+      "createButton": "Create"
+    },
+    "editModal": {
+      "title": "Edit Template"
+    },
+    "createModal": {
+      "title": "Create Template"
+    },
+    "applyModal": {
+      "title": "Apply Template",
+      "subtitle": "Apply template \"{{name}}\" to a channel:",
+      "applyButton": "Apply Template"
+    },
+    "form": {
+      "name": "Name",
+      "placeholders": {
+        "name": "Template name",
+        "description": "Optional description",
+        "modes": "+nts",
+        "topic": "Channel topic",
+        "selectChannel": "Select a channel..."
+      },
+      "description": "Description",
+      "modes": "Modes",
+      "topic": "Topic",
+      "makeGlobal": "Make this template available to all users",
+      "updateButton": "Update",
+      "createButton": "Create",
+      "targetChannel": "Target Channel"
+    }
+  },
   "channelDetail": {
     "backToChannels": "Back to Channels",
     "channelDetails": "Channel Details",
