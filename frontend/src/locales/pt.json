@@ -69,7 +69,8 @@
     "panelUsers": "Usuários do Painel",
     "roles": "Funções",
     "compliance": "Conformidade",
-    "rpcServers": "Servidores RPC"
+    "rpcServers": "Servidores RPC",
+    "marketplace": "__UNTRANSLATED__ (Marketplace)"
   },
   "dashboard": {
     "title": "Painel",
@@ -315,10 +316,29 @@
     "lastSnapshot": "Último snapshot: {{timestamp}}"
   },
   "alertRules": {
-    "alertRulesPage": "Regras de Alerta",
-    "description": "Crie regras de alerta personalizadas que acionam webhooks quando eventos específicos ocorrem",
-    "createRule": "Criar Regra",
-    "noRulesConfigured": "Nenhuma regra de alerta configurada. Crie uma para começar."
+    "noRulesConfigured": "Nenhuma regra de alerta configurada",
+    "deleteConfirm": "Excluir esta regra de alerta?",
+    "actions": {
+      "addCondition": "Adicionar condição",
+      "addWebhook": "Adicionar Webhook",
+      "addDiscord": "Adicionar Discord",
+      "addSlack": "Adicionar Slack",
+      "addLog": "Adicionar Log",
+      "test": "Testar"
+    },
+    "createModal": {
+      "title": "Criar Regra de Alerta",
+      "editTitle": "Editar Regra de Alerta"
+    },
+    "testModal": {
+      "title": "Testar Regra de Alerta",
+      "description": "Insira dados de teste para verificar se as condições correspondem:",
+      "allMatched": "✓ Todas as condições corresponderam!",
+      "someFailed": "✗ Algumas condições não corresponderam"
+    },
+    "alertRulesPage": "__UNTRANSLATED__ (Alert Rules)",
+    "description": "__UNTRANSLATED__ (Create custom alert rules that trigger webhooks when specific events occur)",
+    "createRule": "__UNTRANSLATED__ (Create Rule)"
   },
   "panelUsers": {
     "addModal": {
@@ -355,12 +375,12 @@
       },
       "host": {
         "label": "Hostname ou IP",
-        "placeholder": "127.0.0.1",
+        "placeholder": "__UNTRANSLATED__ (127.0.0.1)",
         "helper": "Use 127.0.0.1 para a mesma máquina"
       },
       "port": {
         "label": "Porta",
-        "placeholder": "8600",
+        "placeholder": "__UNTRANSLATED__ (8600)",
         "helper": "Porta RPC do unrealircd.conf"
       },
       "default": {
@@ -373,7 +393,7 @@
       },
       "username": {
         "label": "Nome de usuário",
-        "placeholder": "rpc_username",
+        "placeholder": "__UNTRANSLATED__ (rpc_username)",
         "helper": "O nome do bloco rpc-user em unrealircd.conf"
       },
       "password": {
@@ -653,11 +673,11 @@
         "duration": "Duração"
       },
       "options": {
-        "gline": "G-Line (Global)",
-        "kline": "K-Line (Local)",
+        "gline": "__UNTRANSLATED__ (G-Line (Global))",
+        "kline": "__UNTRANSLATED__ (K-Line (Local))",
         "gzline": "GZ-Line (IP Global)",
         "zline": "Z-Line (IP Local)",
-        "shun": "Shun"
+        "shun": "__UNTRANSLATED__ (Shun)"
       },
       "placeholders": {
         "maskExample": "*@*.example.com ou 192.168.1.*",
@@ -674,6 +694,76 @@
       "added": "Ban adicionado com sucesso",
       "removed": "Ban removido",
       "loadFailed": "Falha ao carregar bans: {{error}}"
+    },
+    "spamfilters": {
+      "title": "__UNTRANSLATED__ (Spamfilters)",
+      "subtitle": "__UNTRANSLATED__ (Manage content filters and spam protection)",
+      "addButton": "__UNTRANSLATED__ (Add Spamfilter)",
+      "searchPlaceholder": "__UNTRANSLATED__ (Search spamfilters...)",
+      "table": {
+        "pattern": "__UNTRANSLATED__ (Pattern)",
+        "type": "__UNTRANSLATED__ (Type)",
+        "targets": "__UNTRANSLATED__ (Targets)",
+        "action": "__UNTRANSLATED__ (Action)",
+        "hits": "__UNTRANSLATED__ (Hits)",
+        "setBy": "__UNTRANSLATED__ (Set By)"
+      },
+      "detailsTitle": "__UNTRANSLATED__ (Spamfilter Details)",
+      "details": {
+        "matchType": "__UNTRANSLATED__ (Match Type)",
+        "action": "__UNTRANSLATED__ (Action)",
+        "hits": "__UNTRANSLATED__ (Hits)",
+        "setBy": "__UNTRANSLATED__ (Set By)",
+        "pattern": "__UNTRANSLATED__ (Pattern)",
+        "targets": "__UNTRANSLATED__ (Targets)",
+        "reason": "__UNTRANSLATED__ (Reason)",
+        "noReason": "__UNTRANSLATED__ (No reason specified)",
+        "actionDuration": "__UNTRANSLATED__ (Action Duration)"
+      },
+      "addModal": {
+        "title": "__UNTRANSLATED__ (Add Spamfilter)",
+        "labels": {
+          "matchType": "__UNTRANSLATED__ (Match Type)",
+          "match": "__UNTRANSLATED__ (Pattern)",
+          "targets": "__UNTRANSLATED__ (Targets)",
+          "action": "__UNTRANSLATED__ (Action)",
+          "duration": "__UNTRANSLATED__ (Action Duration)",
+          "reason": "__UNTRANSLATED__ (Reason)"
+        },
+        "options": {
+          "simple": "__UNTRANSLATED__ (Simple (wildcards))",
+          "regex": "__UNTRANSLATED__ (Regular Expression)",
+          "posix": "__UNTRANSLATED__ (POSIX Regex)"
+        },
+        "actionOptions": {
+          "warn": "__UNTRANSLATED__ (Warn)",
+          "block": "__UNTRANSLATED__ (Block)",
+          "kill": "__UNTRANSLATED__ (Kill)",
+          "gline": "__UNTRANSLATED__ (G-Line)",
+          "gzline": "__UNTRANSLATED__ (GZ-Line)",
+          "shun": "__UNTRANSLATED__ (Shun)",
+          "viruschan": "__UNTRANSLATED__ (Virus Channel)"
+        },
+        "helper": {
+          "pattern": "__UNTRANSLATED__ (Pattern to match against messages)",
+          "duration": "__UNTRANSLATED__ (Duration for ban action (e.g., 1h, 1d, 7d))"
+        },
+        "placeholders": {
+          "reason": "__UNTRANSLATED__ (Spam is not allowed)"
+        },
+        "addButton": "__UNTRANSLATED__ (Add Spamfilter)"
+      },
+      "deleteModal": {
+        "title": "__UNTRANSLATED__ (Remove Spamfilter)",
+        "removeButton": "__UNTRANSLATED__ (Remove Spamfilter)",
+        "confirm": "__UNTRANSLATED__ (Are you sure you want to remove this spamfilter?)"
+      },
+      "messages": {
+        "added": "__UNTRANSLATED__ (Spamfilter added successfully)",
+        "removed": "__UNTRANSLATED__ (Spamfilter removed)",
+        "loadFailed": "__UNTRANSLATED__ (Failed to load spamfilters: {{error}})",
+        "removeFailed": "__UNTRANSLATED__ (Failed to remove spamfilter)"
+      }
     }
   },
   "spamfilters": {
@@ -748,31 +838,88 @@
   },
   "commands": {
     "nav": {
-      "dashboard": { "title": "Ir para Painel", "description": "Ver visão geral da rede" },
-      "users": { "title": "Ir para Usuários", "description": "Ver usuários conectados" },
-      "channels": { "title": "Ir para Canais", "description": "Ver canais ativos" },
-      "servers": { "title": "Ir para Servidores", "description": "Ver servidores vinculados" },
-      "liveMap": { "title": "Ir para Mapa ao Vivo", "description": "Ver distribuição geográfica" },
-      "statistics": { "title": "Ir para Estatísticas", "description": "Ver estatísticas detalhadas" },
-      "logs": { "title": "Ir para Logs", "description": "Ver logs do sistema" },
-      "serverBans": { "title": "Ir para Bans do Servidor", "description": "Gerenciar K-Lines, G-Lines, etc." },
-      "nameBans": { "title": "Ir para Bans de Nome", "description": "Gerenciar Q-Lines" },
-      "banExceptions": { "title": "Ir para Exceções de Ban", "description": "Gerenciar E-Lines" },
-      "spamfilters": { "title": "Ir para Filtros de Spam", "description": "Gerenciar filtros de spam" },
-      "watchList": { "title": "Ir para Lista de Observação", "description": "Monitorar usuários sinalizados" },
-      "settings": { "title": "Ir para Configurações", "description": "Configurações do painel" },
-      "twoFactor": { "title": "Ir para Autenticação 2FA", "description": "Gerenciar configurações 2FA" },
-      "panelUsers": { "title": "Ir para Usuários do Painel", "description": "Gerenciar contas de usuário do painel" },
-      "webhooks": { "title": "Ir para Webhooks", "description": "Gerenciar endpoints de webhook" },
-      "smtp": { "title": "Ir para SMTP", "description": "Configurar servidor de e-mail" },
-      "notifications": { "title": "Ir para Notificações", "description": "Configurar preferências de notificação" }
+      "dashboard": {
+        "title": "Ir para Painel",
+        "description": "Ver visão geral da rede"
+      },
+      "users": {
+        "title": "Ir para Usuários",
+        "description": "Ver usuários conectados"
+      },
+      "channels": {
+        "title": "Ir para Canais",
+        "description": "Ver canais ativos"
+      },
+      "servers": {
+        "title": "Ir para Servidores",
+        "description": "Ver servidores vinculados"
+      },
+      "liveMap": {
+        "title": "Ir para Mapa ao Vivo",
+        "description": "Ver distribuição geográfica"
+      },
+      "statistics": {
+        "title": "Ir para Estatísticas",
+        "description": "Ver estatísticas detalhadas"
+      },
+      "logs": {
+        "title": "Ir para Logs",
+        "description": "Ver logs do sistema"
+      },
+      "serverBans": {
+        "title": "Ir para Bans do Servidor",
+        "description": "Gerenciar K-Lines, G-Lines, etc."
+      },
+      "nameBans": {
+        "title": "Ir para Bans de Nome",
+        "description": "Gerenciar Q-Lines"
+      },
+      "banExceptions": {
+        "title": "Ir para Exceções de Ban",
+        "description": "Gerenciar E-Lines"
+      },
+      "spamfilters": {
+        "title": "Ir para Filtros de Spam",
+        "description": "Gerenciar filtros de spam"
+      },
+      "watchList": {
+        "title": "Ir para Lista de Observação",
+        "description": "Monitorar usuários sinalizados"
+      },
+      "settings": {
+        "title": "Ir para Configurações",
+        "description": "Configurações do painel"
+      },
+      "twoFactor": {
+        "title": "Ir para Autenticação 2FA",
+        "description": "Gerenciar configurações 2FA"
+      },
+      "panelUsers": {
+        "title": "Ir para Usuários do Painel",
+        "description": "Gerenciar contas de usuário do painel"
+      },
+      "webhooks": {
+        "title": "Ir para Webhooks",
+        "description": "Gerenciar endpoints de webhook"
+      },
+      "smtp": {
+        "title": "Ir para SMTP",
+        "description": "Configurar servidor de e-mail"
+      },
+      "notifications": {
+        "title": "Ir para Notificações",
+        "description": "Configurar preferências de notificação"
+      }
     },
     "theme": {
       "switch": "Mudar para o tema {{name}}",
       "apply": "Aplicar esquema de cores {{name}}"
     },
     "action": {
-      "signOut": { "title": "Sair", "description": "Sair do painel" }
+      "signOut": {
+        "title": "Sair",
+        "description": "Sair do painel"
+      }
     }
   },
   "savedSearches": {
@@ -804,7 +951,7 @@
       "applyFailed": "Falha ao aplicar pesquisa"
     },
     "shared": "Compartilhado",
-    "popular": "Popular",
+    "popular": "__UNTRANSLATED__ (Popular)",
     "usedTimes": "Usado {{count}} vez(es)",
     "lastUsed": "Último uso",
     "apply": "Aplicar"
@@ -838,12 +985,12 @@
       "currentMatches": "Correspondências Atuais"
     },
     "labels": {
-      "nick": "Nick",
-      "ip": "IP",
-      "host": "Host",
+      "nick": "__UNTRANSLATED__ (Nick)",
+      "ip": "__UNTRANSLATED__ (IP)",
+      "host": "__UNTRANSLATED__ (Host)",
       "account": "Conta",
       "realname": "Nome Real",
-      "online": "online"
+      "online": "__UNTRANSLATED__ (online)"
     },
     "tooltips": {
       "viewMatched": "Ver usuários correspondentes"
@@ -883,7 +1030,7 @@
       "loadFailed": "Falha ao carregar comandos agendados: {{error}}"
     },
     "table": {
-      "status": "Status",
+      "status": "__UNTRANSLATED__ (Status)",
       "name": "Nome",
       "command": "Comando",
       "schedule": "Agendamento",
@@ -974,7 +1121,7 @@
       "placeholders": {
         "name": "Nome do modelo",
         "description": "Descrição opcional",
-        "modes": "+nts",
+        "modes": "__UNTRANSLATED__ (+nts)",
         "topic": "Tópico do canal",
         "selectChannel": "Selecione um canal..."
       },
@@ -996,15 +1143,14 @@
       "title": "Aplicar Modelo",
       "subtitle": "Aplicar o modelo \"{{name}}\" a um canal:",
       "applyButton": "Aplicar Modelo"
+    },
+    "createFromChannel": {
+      "title": "Criar a partir do Canal",
+      "description": "Crie um novo modelo a partir da configuração de um canal existente:"
     }
-      ,
-      "createFromChannel": {
-        "title": "Criar a partir do Canal",
-        "description": "Crie um novo modelo a partir da configuração de um canal existente:"
-      }
   },
   "webhooks": {
-    "title": "Webhooks",
+    "title": "__UNTRANSLATED__ (Webhooks)",
     "subtitle": "Receber eventos de log do UnrealIRCd via webhooks",
     "createButton": "Criar Webhook",
     "info": {
@@ -1062,8 +1208,11 @@
       "textMuted": "Atenuado",
       "accent": "Destaque",
       "success": "Sucesso",
-      "error": "Erro"
-    }
+      "error": "Erro",
+      "accentHover": "__UNTRANSLATED__ (Accent (hover))"
+    },
+    "apply": "__UNTRANSLATED__ (Apply Changes)",
+    "reset": "__UNTRANSLATED__ (Reset to Default)"
   },
   "sidebar": {
     "logout": "Sair"
@@ -1076,28 +1225,6 @@
       "nicknamePlaceholder": "Insira o apelido",
       "ipLabel": "Endereço IP",
       "ipPlaceholder": "Insira o endereço IP"
-    }
-  },
-  "alertRules": {
-    "noRulesConfigured": "Nenhuma regra de alerta configurada",
-    "deleteConfirm": "Excluir esta regra de alerta?",
-    "actions": {
-      "addCondition": "Adicionar condição",
-      "addWebhook": "Adicionar Webhook",
-      "addDiscord": "Adicionar Discord",
-      "addSlack": "Adicionar Slack",
-      "addLog": "Adicionar Log",
-      "test": "Testar"
-    },
-    "createModal": {
-      "title": "Criar Regra de Alerta",
-      "editTitle": "Editar Regra de Alerta"
-    },
-    "testModal": {
-      "title": "Testar Regra de Alerta",
-      "description": "Insira dados de teste para verificar se as condições correspondem:",
-      "allMatched": "✓ Todas as condições corresponderam!",
-      "someFailed": "✗ Algumas condições não corresponderam"
     }
   },
   "header": {

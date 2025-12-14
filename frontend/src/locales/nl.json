@@ -59,7 +59,7 @@
     "scheduled": "Geplande opdrachten",
     "alertRules": "Alarmregels",
     "overview": "Overzicht",
-    "irc": "__UNTRANSLATED__ (IRC)",
+    "irc": "IRC",
     "bansFilters": "Verbanningen en filters",
     "tools": "Hulpmiddelen",
     "community": "Gemeenschap",
@@ -69,10 +69,11 @@
     "panelUsers": "Paneelgebruikers",
     "roles": "Rollen",
     "compliance": "Naleving",
-    "rpcServers": "RPC-servers"
+    "rpcServers": "RPC-servers",
+    "marketplace": "Marktplaats"
   },
   "dashboard": {
-    "title": "__UNTRANSLATED__ (Dashboard)",
+    "title": "Overzicht",
     "welcome": "Welkom bij het UnrealIRCd Web Panel",
     "overview": "Overzicht",
     "statistics": "Statistieken",
@@ -564,5 +565,639 @@
     "recentBans": "Recente bans",
     "serverBans": "Serverbans",
     "noRecentBans": "Geen recente bans"
+  },
+  "panelUsers": {
+    "addModal": {
+      "title": "__UNTRANSLATED__ (Add Panel User)",
+      "createButton": "__UNTRANSLATED__ (Create User)"
+    },
+    "deleteModal": {
+      "title": "__UNTRANSLATED__ (Delete User)",
+      "confirm": "__UNTRANSLATED__ (Are you sure you want to delete the user?)"
+    }
+  },
+  "rpcServers": {
+    "title": "__UNTRANSLATED__ (RPC Servers)",
+    "description": "__UNTRANSLATED__ (Configure UnrealIRCd JSON-RPC connections)",
+    "addModal": {
+      "title": "__UNTRANSLATED__ (Add RPC Server)",
+      "addButton": "__UNTRANSLATED__ (Add Server)"
+    },
+    "info": {
+      "description": "__UNTRANSLATED__ (Configure which JSON-RPC server(s) the panel can connect to. You normally only need one server, but multiple servers can be useful for failover.)",
+      "readDocs": "__UNTRANSLATED__ (Read the UnrealIRCd setup instructions)"
+    },
+    "default": "__UNTRANSLATED__ (Default)",
+    "status": {
+      "connected": "__UNTRANSLATED__ (Connected)",
+      "disconnected": "__UNTRANSLATED__ (Disconnected)"
+    },
+    "empty": "__UNTRANSLATED__ (No RPC servers configured. Add one to connect to your UnrealIRCd server.)",
+    "form": {
+      "name": {
+        "label": "__UNTRANSLATED__ (Display Name)",
+        "placeholder": "__UNTRANSLATED__ (e.g., Main Server)",
+        "helper": "__UNTRANSLATED__ (A short display name for the RPC server list)"
+      },
+      "host": {
+        "label": "__UNTRANSLATED__ (Hostname or IP)",
+        "placeholder": "__UNTRANSLATED__ (127.0.0.1)",
+        "helper": "__UNTRANSLATED__ (Use 127.0.0.1 for the same machine)"
+      },
+      "port": {
+        "label": "__UNTRANSLATED__ (Port)",
+        "placeholder": "__UNTRANSLATED__ (8600)",
+        "helper": "__UNTRANSLATED__ (RPC port from unrealircd.conf)"
+      },
+      "default": {
+        "label": "__UNTRANSLATED__ (Default server)",
+        "helper": "__UNTRANSLATED__ (Make this the primary server for connections)"
+      },
+      "tls": {
+        "label": "__UNTRANSLATED__ (Verify SSL/TLS certificate)",
+        "helper": "__UNTRANSLATED__ (Only use with hostnames, not for 127.0.0.1)"
+      },
+      "username": {
+        "label": "__UNTRANSLATED__ (Username)",
+        "placeholder": "__UNTRANSLATED__ (rpc_username)",
+        "helper": "__UNTRANSLATED__ (The name of your rpc-user block in unrealircd.conf)"
+      },
+      "password": {
+        "label": "__UNTRANSLATED__ (Password)",
+        "placeholder": "__UNTRANSLATED__ (Enter RPC password)",
+        "helper": "__UNTRANSLATED__ (Leave empty to keep existing password)"
+      }
+    },
+    "editModal": {
+      "title": "__UNTRANSLATED__ (Edit Server: {{name}})"
+    },
+    "updateButton": "__UNTRANSLATED__ (Save Changes)",
+    "added": "__UNTRANSLATED__ (RPC server added successfully)",
+    "addFailed": "__UNTRANSLATED__ (Failed to add server)",
+    "updated": "__UNTRANSLATED__ (RPC server updated successfully)",
+    "updateFailed": "__UNTRANSLATED__ (Failed to update server)",
+    "deleted": "__UNTRANSLATED__ (RPC server deleted)",
+    "deleteFailed": "__UNTRANSLATED__ (Failed to delete server)",
+    "actions": {
+      "testConnection": "__UNTRANSLATED__ (Test Connection)",
+      "use": "__UNTRANSLATED__ (Use)"
+    },
+    "deleteModal": {
+      "title": "__UNTRANSLATED__ (Delete Server)",
+      "confirm": "__UNTRANSLATED__ (Are you sure you want to delete the server <strong>{{name}}</strong>? This action cannot be undone.)",
+      "deleteButton": "__UNTRANSLATED__ (Delete Server)"
+    },
+    "testSuccess": "__UNTRANSLATED__ (Connection successful)",
+    "testFailure": "__UNTRANSLATED__ (Connection failed: {{message}})"
+  },
+  "nameBans": {
+    "title": "__UNTRANSLATED__ (Name Bans)",
+    "description": "__UNTRANSLATED__ (Manage Q-Lines (reserved nicknames and channels))",
+    "addButton": "__UNTRANSLATED__ (Add Name Ban)",
+    "searchPlaceholder": "__UNTRANSLATED__ (Search name bans...)",
+    "table": {
+      "type": "__UNTRANSLATED__ (Type)",
+      "name": "__UNTRANSLATED__ (Name/Pattern)",
+      "reason": "__UNTRANSLATED__ (Reason)",
+      "setBy": "__UNTRANSLATED__ (Set By)",
+      "setAt": "__UNTRANSLATED__ (Set At)",
+      "expires": "__UNTRANSLATED__ (Expires)"
+    },
+    "addModal": {
+      "title": "__UNTRANSLATED__ (Add Name Ban)",
+      "labels": {
+        "banType": "__UNTRANSLATED__ (Ban Type)",
+        "name": "__UNTRANSLATED__ (Name/Pattern)",
+        "reason": "__UNTRANSLATED__ (Reason)",
+        "duration": "__UNTRANSLATED__ (Duration)"
+      },
+      "options": {
+        "qline": "__UNTRANSLATED__ (Q-Line (Nickname))"
+      },
+      "placeholders": {
+        "nameExample": "__UNTRANSLATED__ (e.g., Admin* or #official*)",
+        "reason": "__UNTRANSLATED__ (Enter ban reason)"
+      },
+      "help": {
+        "useWildcard": "__UNTRANSLATED__ (Use * as wildcard)"
+      },
+      "addButton": "__UNTRANSLATED__ (Add Ban)"
+    },
+    "deleteModal": {
+      "title": "__UNTRANSLATED__ (Remove Name Ban)",
+      "removeButton": "__UNTRANSLATED__ (Remove Ban)",
+      "confirm": "__UNTRANSLATED__ (Are you sure you want to remove this name ban for {{name}}?)"
+    },
+    "messages": {
+      "added": "__UNTRANSLATED__ (Name ban added successfully)",
+      "removed": "__UNTRANSLATED__ (Name ban removed)",
+      "loadFailed": "__UNTRANSLATED__ (Failed to load name bans: {{error}})"
+    }
+  },
+  "serverBans": {
+    "title": "__UNTRANSLATED__ (Server Bans)",
+    "description": "__UNTRANSLATED__ (Manage G-Lines, K-Lines, Z-Lines, and Shuns)",
+    "addButton": "__UNTRANSLATED__ (Add Ban)",
+    "searchPlaceholder": "__UNTRANSLATED__ (Search bans by mask, reason...)",
+    "table": {
+      "type": "__UNTRANSLATED__ (Type)",
+      "mask": "__UNTRANSLATED__ (Mask)",
+      "reason": "__UNTRANSLATED__ (Reason)",
+      "setBy": "__UNTRANSLATED__ (Set By)",
+      "setAt": "__UNTRANSLATED__ (Set At)",
+      "expires": "__UNTRANSLATED__ (Expires)"
+    },
+    "spamfilters": {
+      "title": "__UNTRANSLATED__ (Spamfilters)",
+      "subtitle": "__UNTRANSLATED__ (Manage content filters and spam protection)",
+      "addButton": "__UNTRANSLATED__ (Add Spamfilter)",
+      "searchPlaceholder": "__UNTRANSLATED__ (Search spamfilters...)",
+      "table": {
+        "pattern": "__UNTRANSLATED__ (Pattern)",
+        "type": "__UNTRANSLATED__ (Type)",
+        "targets": "__UNTRANSLATED__ (Targets)",
+        "action": "__UNTRANSLATED__ (Action)",
+        "hits": "__UNTRANSLATED__ (Hits)",
+        "setBy": "__UNTRANSLATED__ (Set By)"
+      },
+      "detailsTitle": "__UNTRANSLATED__ (Spamfilter Details)",
+      "details": {
+        "matchType": "__UNTRANSLATED__ (Match Type)",
+        "action": "__UNTRANSLATED__ (Action)",
+        "hits": "__UNTRANSLATED__ (Hits)",
+        "setBy": "__UNTRANSLATED__ (Set By)",
+        "pattern": "__UNTRANSLATED__ (Pattern)",
+        "targets": "__UNTRANSLATED__ (Targets)",
+        "reason": "__UNTRANSLATED__ (Reason)",
+        "noReason": "__UNTRANSLATED__ (No reason specified)",
+        "actionDuration": "__UNTRANSLATED__ (Action Duration)"
+      },
+      "addModal": {
+        "title": "__UNTRANSLATED__ (Add Spamfilter)",
+        "labels": {
+          "matchType": "__UNTRANSLATED__ (Match Type)",
+          "match": "__UNTRANSLATED__ (Pattern)",
+          "targets": "__UNTRANSLATED__ (Targets)",
+          "action": "__UNTRANSLATED__ (Action)",
+          "duration": "__UNTRANSLATED__ (Action Duration)",
+          "reason": "__UNTRANSLATED__ (Reason)"
+        },
+        "options": {
+          "simple": "__UNTRANSLATED__ (Simple (wildcards))",
+          "regex": "__UNTRANSLATED__ (Regular Expression)",
+          "posix": "__UNTRANSLATED__ (POSIX Regex)"
+        },
+        "actionOptions": {
+          "warn": "__UNTRANSLATED__ (Warn)",
+          "block": "__UNTRANSLATED__ (Block)",
+          "kill": "__UNTRANSLATED__ (Kill)",
+          "gline": "__UNTRANSLATED__ (G-Line)",
+          "gzline": "__UNTRANSLATED__ (GZ-Line)",
+          "shun": "__UNTRANSLATED__ (Shun)",
+          "viruschan": "__UNTRANSLATED__ (Virus Channel)"
+        },
+        "helper": {
+          "pattern": "__UNTRANSLATED__ (Pattern to match against messages)",
+          "duration": "__UNTRANSLATED__ (Duration for ban action (e.g., 1h, 1d, 7d))"
+        },
+        "placeholders": {
+          "reason": "__UNTRANSLATED__ (Spam is not allowed)"
+        },
+        "addButton": "__UNTRANSLATED__ (Add Spamfilter)"
+      },
+      "deleteModal": {
+        "title": "__UNTRANSLATED__ (Remove Spamfilter)",
+        "removeButton": "__UNTRANSLATED__ (Remove Spamfilter)",
+        "confirm": "__UNTRANSLATED__ (Are you sure you want to remove this spamfilter?)"
+      },
+      "messages": {
+        "added": "__UNTRANSLATED__ (Spamfilter added successfully)",
+        "removed": "__UNTRANSLATED__ (Spamfilter removed)",
+        "loadFailed": "__UNTRANSLATED__ (Failed to load spamfilters: {{error}})",
+        "removeFailed": "__UNTRANSLATED__ (Failed to remove spamfilter)"
+      }
+    },
+    "addModal": {
+      "title": "__UNTRANSLATED__ (Add Server Ban)",
+      "labels": {
+        "banType": "__UNTRANSLATED__ (Ban Type)",
+        "mask": "__UNTRANSLATED__ (Mask)",
+        "reason": "__UNTRANSLATED__ (Reason)",
+        "duration": "__UNTRANSLATED__ (Duration)"
+      },
+      "options": {
+        "gline": "__UNTRANSLATED__ (G-Line (Global))",
+        "kline": "__UNTRANSLATED__ (K-Line (Local))",
+        "gzline": "__UNTRANSLATED__ (GZ-Line (Global IP))",
+        "zline": "__UNTRANSLATED__ (Z-Line (Local IP))",
+        "shun": "__UNTRANSLATED__ (Shun)"
+      },
+      "placeholders": {
+        "maskExample": "__UNTRANSLATED__ (*@*.example.com or 192.168.1.*)",
+        "reason": "__UNTRANSLATED__ (Enter ban reason)"
+      },
+      "addButton": "__UNTRANSLATED__ (Add Ban)"
+    },
+    "deleteModal": {
+      "title": "__UNTRANSLATED__ (Remove Ban)",
+      "removeButton": "__UNTRANSLATED__ (Remove Ban)",
+      "confirm": "__UNTRANSLATED__ (Are you sure you want to remove this {{type}} for {{name}}?)"
+    },
+    "messages": {
+      "added": "__UNTRANSLATED__ (Ban added successfully)",
+      "removed": "__UNTRANSLATED__ (Ban removed)",
+      "loadFailed": "__UNTRANSLATED__ (Failed to load bans: {{error}})"
+    }
+  },
+  "commands": {
+    "nav": {
+      "dashboard": {
+        "title": "__UNTRANSLATED__ (Go to Dashboard)",
+        "description": "__UNTRANSLATED__ (View network overview)"
+      },
+      "users": {
+        "title": "__UNTRANSLATED__ (Go to Users)",
+        "description": "__UNTRANSLATED__ (View connected users)"
+      },
+      "channels": {
+        "title": "__UNTRANSLATED__ (Go to Channels)",
+        "description": "__UNTRANSLATED__ (View active channels)"
+      },
+      "servers": {
+        "title": "__UNTRANSLATED__ (Go to Servers)",
+        "description": "__UNTRANSLATED__ (View linked servers)"
+      },
+      "liveMap": {
+        "title": "__UNTRANSLATED__ (Go to Live Map)",
+        "description": "__UNTRANSLATED__ (View geographic distribution)"
+      },
+      "statistics": {
+        "title": "__UNTRANSLATED__ (Go to Statistics)",
+        "description": "__UNTRANSLATED__ (View detailed stats)"
+      },
+      "logs": {
+        "title": "__UNTRANSLATED__ (Go to Logs)",
+        "description": "__UNTRANSLATED__ (View system logs)"
+      },
+      "serverBans": {
+        "title": "__UNTRANSLATED__ (Go to Server Bans)",
+        "description": "__UNTRANSLATED__ (Manage K-Lines, G-Lines, etc.)"
+      },
+      "nameBans": {
+        "title": "__UNTRANSLATED__ (Go to Name Bans)",
+        "description": "__UNTRANSLATED__ (Manage Q-Lines)"
+      },
+      "banExceptions": {
+        "title": "__UNTRANSLATED__ (Go to Ban Exceptions)",
+        "description": "__UNTRANSLATED__ (Manage E-Lines)"
+      },
+      "spamfilters": {
+        "title": "__UNTRANSLATED__ (Go to Spamfilters)",
+        "description": "__UNTRANSLATED__ (Manage spam filters)"
+      },
+      "watchList": {
+        "title": "__UNTRANSLATED__ (Go to Watch List)",
+        "description": "__UNTRANSLATED__ (Monitor flagged users)"
+      },
+      "settings": {
+        "title": "__UNTRANSLATED__ (Go to Settings)",
+        "description": "__UNTRANSLATED__ (Panel settings)"
+      },
+      "twoFactor": {
+        "title": "__UNTRANSLATED__ (Go to Two-Factor Auth)",
+        "description": "__UNTRANSLATED__ (Manage 2FA settings)"
+      },
+      "panelUsers": {
+        "title": "__UNTRANSLATED__ (Go to Panel Users)",
+        "description": "__UNTRANSLATED__ (Manage panel user accounts)"
+      },
+      "webhooks": {
+        "title": "__UNTRANSLATED__ (Go to Webhooks)",
+        "description": "__UNTRANSLATED__ (Manage webhook endpoints)"
+      },
+      "smtp": {
+        "title": "__UNTRANSLATED__ (Go to SMTP Settings)",
+        "description": "__UNTRANSLATED__ (Configure email server)"
+      },
+      "notifications": {
+        "title": "__UNTRANSLATED__ (Go to Notifications)",
+        "description": "__UNTRANSLATED__ (Configure notification preferences)"
+      }
+    },
+    "theme": {
+      "switch": "__UNTRANSLATED__ (Switch to {{name}} Theme)",
+      "apply": "__UNTRANSLATED__ (Apply {{name}} color scheme)"
+    },
+    "action": {
+      "signOut": {
+        "title": "__UNTRANSLATED__ (Sign Out)",
+        "description": "__UNTRANSLATED__ (Log out of the panel)"
+      }
+    }
+  },
+  "savedSearches": {
+    "tooltips": {
+      "saveCurrent": "__UNTRANSLATED__ (Save current search)",
+      "saveDisabled": "__UNTRANSLATED__ (Enter a search query first)",
+      "view": "__UNTRANSLATED__ (View saved searches)"
+    },
+    "saveModal": {
+      "title": "__UNTRANSLATED__ (Save Search)"
+    },
+    "currentSearch": "__UNTRANSLATED__ (Current Search:)",
+    "emptyPlaceholder": "__UNTRANSLATED__ ((empty))",
+    "inputLabel": "__UNTRANSLATED__ (Search Name)",
+    "placeholders": {
+      "example": "__UNTRANSLATED__ (e.g., TOR exit nodes, Suspicious IPs)"
+    },
+    "shareWithAll": "__UNTRANSLATED__ (Share with all users)",
+    "listModal": {
+      "title": "__UNTRANSLATED__ (Saved Searches)",
+      "emptyTitle": "__UNTRANSLATED__ (No saved searches yet.)",
+      "emptyDescription": "__UNTRANSLATED__ (Save your current search to quickly access it later.)"
+    },
+    "messages": {
+      "saved": "__UNTRANSLATED__ (Search saved)",
+      "deleted": "__UNTRANSLATED__ (Search deleted)",
+      "saveFailed": "__UNTRANSLATED__ (Failed to save search)",
+      "deleteFailed": "__UNTRANSLATED__ (Failed to delete search)",
+      "applyFailed": "__UNTRANSLATED__ (Failed to apply search)"
+    },
+    "shared": "__UNTRANSLATED__ (Shared)",
+    "popular": "__UNTRANSLATED__ (Popular)",
+    "usedTimes": "__UNTRANSLATED__ (Used {{count}} time(s))",
+    "lastUsed": "__UNTRANSLATED__ (Last used)",
+    "apply": "__UNTRANSLATED__ (Apply)"
+  },
+  "watchList": {
+    "title": "__UNTRANSLATED__ (Watch List)",
+    "subtitle": "__UNTRANSLATED__ (Monitor users matching specific criteria)",
+    "addButton": "__UNTRANSLATED__ (Add to Watch List)",
+    "summary": {
+      "entriesLabel": "__UNTRANSLATED__ (Watch List Entries)",
+      "usersCurrentlyMatched": "__UNTRANSLATED__ (Users Currently Matched)",
+      "entriesWithActiveMatches": "__UNTRANSLATED__ (Entries with Active Matches)"
+    },
+    "alert": "__UNTRANSLATED__ ({{count}} user(s) currently match your watch list criteria. Click the expand arrow or the icon to view details.)",
+    "searchPlaceholder": "__UNTRANSLATED__ (Search by nick, IP, reason...)",
+    "emptyMessage": "__UNTRANSLATED__ (No users in watch list)",
+    "messages": {
+      "added": "__UNTRANSLATED__ (User added to watch list)",
+      "addFailed": "__UNTRANSLATED__ (Failed to add user)",
+      "updated": "__UNTRANSLATED__ (Watch list entry updated)",
+      "updateFailed": "__UNTRANSLATED__ (Failed to update entry)",
+      "removed": "__UNTRANSLATED__ (Removed from watch list)",
+      "removeFailed": "__UNTRANSLATED__ (Failed to remove entry)",
+      "loadFailed": "__UNTRANSLATED__ (Failed to load watch list: {{error}})"
+    },
+    "table": {
+      "criteria": "__UNTRANSLATED__ (Match Criteria)",
+      "reason": "__UNTRANSLATED__ (Reason)",
+      "addedBy": "__UNTRANSLATED__ (Added By)",
+      "addedAt": "__UNTRANSLATED__ (Added)",
+      "currentMatches": "__UNTRANSLATED__ (Current Matches)"
+    },
+    "labels": {
+      "nick": "__UNTRANSLATED__ (Nick)",
+      "ip": "__UNTRANSLATED__ (IP)",
+      "host": "__UNTRANSLATED__ (Host)",
+      "account": "__UNTRANSLATED__ (Account)",
+      "realname": "__UNTRANSLATED__ (Realname)",
+      "online": "__UNTRANSLATED__ (online)"
+    },
+    "tooltips": {
+      "viewMatched": "__UNTRANSLATED__ (View matched users)"
+    },
+    "addModal": {
+      "title": "__UNTRANSLATED__ (Add to Watch List)",
+      "addButton": "__UNTRANSLATED__ (Add to Watch List)"
+    },
+    "editModal": {
+      "title": "__UNTRANSLATED__ (Edit Watch List Entry)",
+      "saveButton": "__UNTRANSLATED__ (Save Changes)"
+    },
+    "deleteModal": {
+      "title": "__UNTRANSLATED__ (Remove from Watch List)",
+      "removeButton": "__UNTRANSLATED__ (Remove)",
+      "confirm": "__UNTRANSLATED__ (Are you sure you want to remove this entry from the watch list?)"
+    }
+  },
+  "scheduledCommands": {
+    "title": "__UNTRANSLATED__ (Scheduled Commands)",
+    "subtitle": "__UNTRANSLATED__ (Schedule IRC commands to run automatically)",
+    "createButton": "__UNTRANSLATED__ (Create Schedule)",
+    "searchPlaceholder": "__UNTRANSLATED__ (Search commands...)",
+    "emptyMessage": "__UNTRANSLATED__ (No scheduled commands)",
+    "never": "__UNTRANSLATED__ (Never)",
+    "next": "__UNTRANSLATED__ (Next)",
+    "messages": {
+      "created": "__UNTRANSLATED__ (Scheduled command created)",
+      "createFailed": "__UNTRANSLATED__ (Failed to create scheduled command)",
+      "updated": "__UNTRANSLATED__ (Scheduled command updated)",
+      "updateFailed": "__UNTRANSLATED__ (Failed to update scheduled command)",
+      "deleted": "__UNTRANSLATED__ (Scheduled command deleted)",
+      "deleteFailed": "__UNTRANSLATED__ (Failed to delete scheduled command)",
+      "toggleFailed": "__UNTRANSLATED__ (Failed to toggle scheduled command)",
+      "commandExecuted": "__UNTRANSLATED__ (Command executed)",
+      "runFailed": "__UNTRANSLATED__ (Failed to run command)",
+      "loadFailed": "__UNTRANSLATED__ (Failed to load scheduled commands: {{error}})"
+    },
+    "table": {
+      "status": "__UNTRANSLATED__ (Status)",
+      "name": "__UNTRANSLATED__ (Name)",
+      "command": "__UNTRANSLATED__ (Command)",
+      "schedule": "__UNTRANSLATED__ (Schedule)",
+      "lastRun": "__UNTRANSLATED__ (Last Run)",
+      "runs": "__UNTRANSLATED__ (Runs)"
+    },
+    "tooltips": {
+      "clickToDisable": "__UNTRANSLATED__ (Click to disable)",
+      "clickToEnable": "__UNTRANSLATED__ (Click to enable)",
+      "runNow": "__UNTRANSLATED__ (Run now)"
+    },
+    "labels": {
+      "active": "__UNTRANSLATED__ (Active)",
+      "paused": "__UNTRANSLATED__ (Paused)"
+    },
+    "commandTypes": {
+      "kill": "__UNTRANSLATED__ (Kill User)",
+      "gline": "__UNTRANSLATED__ (G-Line (Server Ban))",
+      "rehash": "__UNTRANSLATED__ (Rehash Server)",
+      "message": "__UNTRANSLATED__ (Send Message)"
+    },
+    "scheduleTypes": {
+      "once": "__UNTRANSLATED__ (One Time)",
+      "hourly": "__UNTRANSLATED__ (Every Hour)",
+      "daily": "__UNTRANSLATED__ (Every Day)",
+      "weekly": "__UNTRANSLATED__ (Every Week)",
+      "monthly": "__UNTRANSLATED__ (Every Month)"
+    },
+    "form": {
+      "nameLabel": "__UNTRANSLATED__ (Name *)",
+      "namePlaceholder": "__UNTRANSLATED__ (e.g., Daily cleanup, Scheduled maintenance)",
+      "descriptionLabel": "__UNTRANSLATED__ (Description)",
+      "descriptionPlaceholder": "__UNTRANSLATED__ (What does this scheduled command do?)",
+      "commandTypeLabel": "__UNTRANSLATED__ (Command Type *)",
+      "targetLabel": "__UNTRANSLATED__ (Target)",
+      "reasonLabel": "__UNTRANSLATED__ (Reason)",
+      "durationLabel": "__UNTRANSLATED__ (Duration)",
+      "messageLabel": "__UNTRANSLATED__ (Message)",
+      "scheduleLabel": "__UNTRANSLATED__ (Schedule *)",
+      "enableLabel": "__UNTRANSLATED__ (Enable this scheduled command)"
+    },
+    "placeholders": {
+      "target": {
+        "kill": "__UNTRANSLATED__ (Nickname)",
+        "gline": "__UNTRANSLATED__ (Host mask (e.g., *@*.bad.com))",
+        "rehash": "__UNTRANSLATED__ (Server name)",
+        "message": "__UNTRANSLATED__ (Channel or nick)",
+        "default": "__UNTRANSLATED__ (Target)"
+      },
+      "reason": "__UNTRANSLATED__ (Reason for the action)",
+      "duration": "__UNTRANSLATED__ (e.g., 1d, 1w, 30m)",
+      "message": "__UNTRANSLATED__ (Message to send)"
+    },
+    "createModal": {
+      "title": "__UNTRANSLATED__ (Create Scheduled Command)",
+      "createButton": "__UNTRANSLATED__ (Create Schedule)"
+    },
+    "editModal": {
+      "title": "__UNTRANSLATED__ (Edit Scheduled Command)",
+      "saveButton": "__UNTRANSLATED__ (Save Changes)"
+    },
+    "deleteModal": {
+      "title": "__UNTRANSLATED__ (Delete Scheduled Command)",
+      "confirm": "__UNTRANSLATED__ (Are you sure you want to delete this scheduled command? This action cannot be undone.)"
+    }
+  },
+  "channelTemplates": {
+    "title": "__UNTRANSLATED__ (Channel Templates)",
+    "subtitle": "__UNTRANSLATED__ (Save and apply channel configurations as reusable templates)",
+    "fromChannel": "__UNTRANSLATED__ (From Channel)",
+    "createButton": "__UNTRANSLATED__ (Create Template)",
+    "empty": "__UNTRANSLATED__ (No channel templates yet. Create one or import from an existing channel.)",
+    "tooltips": {
+      "global": "__UNTRANSLATED__ (Global template)",
+      "private": "__UNTRANSLATED__ (Private template)",
+      "applyToChannel": "__UNTRANSLATED__ (Apply to channel)",
+      "duplicate": "__UNTRANSLATED__ (Duplicate)"
+    },
+    "labels": {
+      "modes": "__UNTRANSLATED__ (Modes:)",
+      "topic": "__UNTRANSLATED__ (Topic:)"
+    },
+    "used": "__UNTRANSLATED__ (Used {{count}} times)",
+    "by": "__UNTRANSLATED__ (by)",
+    "deleteConfirm": "__UNTRANSLATED__ (Delete this template?)",
+    "form": {
+      "name": "__UNTRANSLATED__ (Name)",
+      "placeholders": {
+        "name": "__UNTRANSLATED__ (Template name)",
+        "description": "__UNTRANSLATED__ (Optional description)",
+        "modes": "__UNTRANSLATED__ (+nts)",
+        "topic": "__UNTRANSLATED__ (Channel topic)",
+        "selectChannel": "__UNTRANSLATED__ (Select a channel...)"
+      },
+      "description": "__UNTRANSLATED__ (Description)",
+      "modes": "__UNTRANSLATED__ (Modes)",
+      "topic": "__UNTRANSLATED__ (Topic)",
+      "makeGlobal": "__UNTRANSLATED__ (Make this template available to all users)",
+      "updateButton": "__UNTRANSLATED__ (Update)",
+      "createButton": "__UNTRANSLATED__ (Create)",
+      "targetChannel": "__UNTRANSLATED__ (Target Channel)"
+    },
+    "editModal": {
+      "title": "__UNTRANSLATED__ (Edit Template)"
+    },
+    "createModal": {
+      "title": "__UNTRANSLATED__ (Create Template)"
+    },
+    "applyModal": {
+      "title": "__UNTRANSLATED__ (Apply Template)",
+      "subtitle": "__UNTRANSLATED__ (Apply template \"{{name}}\" to a channel:)",
+      "applyButton": "__UNTRANSLATED__ (Apply Template)"
+    },
+    "createFromChannel": {
+      "title": "__UNTRANSLATED__ (Create from Channel)",
+      "description": "__UNTRANSLATED__ (Create a new template from an existing channel's configuration:)"
+    }
+  },
+  "webhooks": {
+    "title": "__UNTRANSLATED__ (Webhooks)",
+    "subtitle": "__UNTRANSLATED__ (Receive log events from UnrealIRCd via webhooks)",
+    "createButton": "__UNTRANSLATED__ (Create Webhook)",
+    "info": {
+      "paragraph1": "__UNTRANSLATED__ (Webhooks allow UnrealIRCd to send log events directly to this panel. Each webhook has a unique token URL that you configure in your unrealircd.conf.)",
+      "learnMore": "__UNTRANSLATED__ (Learn more about UnrealIRCd log blocks)"
+    },
+    "tooltips": {
+      "viewConfig": "__UNTRANSLATED__ (View Configuration)",
+      "viewLogs": "__UNTRANSLATED__ (View Logs)",
+      "disable": "__UNTRANSLATED__ (Disable)",
+      "enable": "__UNTRANSLATED__ (Enable)",
+      "regenerate": "__UNTRANSLATED__ (Regenerate Token)"
+    },
+    "emptyTokens": "__UNTRANSLATED__ (No webhook tokens configured)",
+    "tokens": {
+      "createModal": {
+        "title": "__UNTRANSLATED__ (Create Webhook Token)"
+      },
+      "deleteModal": {
+        "title": "__UNTRANSLATED__ (Delete Webhook Token)",
+        "confirm": "__UNTRANSLATED__ (Are you sure you want to delete the webhook token \"{{name}}\"?)",
+        "details": "__UNTRANSLATED__ (UnrealIRCd will no longer be able to send log events to this URL.)"
+      }
+    },
+    "messages": {
+      "loadFailed": "__UNTRANSLATED__ (Failed to load webhooks: {{error}})"
+    }
+  },
+  "themeSwitcher": {
+    "title": "__UNTRANSLATED__ (Theme Settings)",
+    "tabs": {
+      "presets": "__UNTRANSLATED__ (Presets)",
+      "customize": "__UNTRANSLATED__ (Customize)"
+    },
+    "customizeIntro": "__UNTRANSLATED__ (Customize the current theme ({{name}}) with your own colors.)",
+    "sections": {
+      "background": "__UNTRANSLATED__ (Background)",
+      "text": "__UNTRANSLATED__ (Text)"
+    },
+    "colors": {
+      "primary": "__UNTRANSLATED__ (Primary)",
+      "secondary": "__UNTRANSLATED__ (Secondary)",
+      "tertiary": "__UNTRANSLATED__ (Tertiary)",
+      "textPrimary": "__UNTRANSLATED__ (Primary)",
+      "textMuted": "__UNTRANSLATED__ (Muted)",
+      "accent": "__UNTRANSLATED__ (Accent)",
+      "accentHover": "__UNTRANSLATED__ (Accent (hover))",
+      "success": "__UNTRANSLATED__ (Success)",
+      "error": "__UNTRANSLATED__ (Error)"
+    },
+    "apply": "__UNTRANSLATED__ (Apply Changes)",
+    "reset": "__UNTRANSLATED__ (Reset to Default)"
+  },
+  "sidebar": {
+    "logout": "__UNTRANSLATED__ (Logout)"
+  },
+  "userJourney": {
+    "searchModal": {
+      "title": "__UNTRANSLATED__ (Search User Journey)",
+      "description": "__UNTRANSLATED__ (Enter at least one identifier to search for user activity:)",
+      "nicknameLabel": "__UNTRANSLATED__ (Nickname)",
+      "nicknamePlaceholder": "__UNTRANSLATED__ (Enter nickname)",
+      "ipLabel": "__UNTRANSLATED__ (IP Address)",
+      "ipPlaceholder": "__UNTRANSLATED__ (Enter IP address)"
+    }
+  },
+  "userDetail": {
+    "killTitle": "__UNTRANSLATED__ (Kill User: {{name}})",
+    "killButton": "__UNTRANSLATED__ (Kill User)",
+    "banTitle": "__UNTRANSLATED__ (Ban User: {{name}})",
+    "banButton": "__UNTRANSLATED__ (Ban User)",
+    "vhostTitle": "__UNTRANSLATED__ (Set Vhost: {{name}})",
+    "setVhostButton": "__UNTRANSLATED__ (Set Vhost)",
+    "modesTitle": "__UNTRANSLATED__ (Set User Modes: {{name}})",
+    "applyModeChanges": "__UNTRANSLATED__ (Apply Mode Changes)"
   }
 }

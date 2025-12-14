@@ -69,7 +69,8 @@
     "panelUsers": "面板用户",
     "roles": "角色",
     "compliance": "合规",
-    "rpcServers": "RPC 服务器"
+    "rpcServers": "RPC 服务器",
+    "marketplace": "__MISSING_ZH__ (Marketplace)"
   },
   "dashboard": {
     "title": "仪表板",
@@ -247,7 +248,7 @@
     "killUserWarning": "这将强制从网络中断开 {{name}} 的连接。",
     "active": "活跃",
     "seconds": "{{count}}秒",
-    "minutes": "{{count}}分钟", 
+    "minutes": "{{count}}分钟",
     "hours": "{{count}}小时",
     "days": "{{count}}天"
   },
@@ -368,57 +369,10 @@
     "lastSnapshot": "最后快照：{{timestamp}}"
   },
   "alertRules": {
-    "title": "警报规则",
-    "subtitle": "创建自定义警报规则，在特定事件发生时触发 webhook",
+    "alertRulesPage": "警报规则",
+    "description": "创建自定义警报规则，在特定事件发生时触发 webhook",
     "createRule": "创建规则",
-    "editRule": "编辑警报规则",
-    "createNewRule": "创建警报规则",
-    "totalRules": "总规则数",
-    "enabled": "已启用",
-    "totalTriggers": "总触发次数",
-    "last24h": "最近24小时",
-    "noRules": "未配置警报规则。创建一个开始使用。",
-    "conditions": "条件",
-    "actions": "操作",
-    "triggeredTimes": "已触发 {{count}} 次",
-    "lastTriggered": "最后：{{timestamp}}",
-    "testRule": "测试规则",
-    "disable": "禁用",
-    "enable": "启用",
-    "deleteRule": "删除此警报规则？",
-    "name": "名称",
-    "namePlaceholder": "警报规则名称",
-    "description": "描述",
-    "descriptionPlaceholder": "可选描述",
-    "eventType": "事件类型",
-    "priority": "优先级",
-    "cooldown": "冷却时间（秒）",
-    "conditionsLabel": "条件",
-    "addCondition": "添加条件",
-    "actionsLabel": "操作",
-    "addAction": "添加操作",
-    "saveRule": "保存规则",
-    "testConditions": "测试条件",
-    "runTest": "运行测试",
-    "testResults": "测试结果",
-    "allConditionsMet": "所有条件满足",
-    "someConditionsFailed": "某些条件失败",
-    "field": "字段",
-    "operator": "操作符",
-    "expected": "期望",
-    "actual": "实际",
-    "matched": "匹配",
-    "webhookUrl": "Webhook URL",
-    "webhookUrlPlaceholder": "https://example.com/webhook",
-    "discordWebhook": "Discord Webhook",
-    "slackWebhook": "Slack Webhook",
-    "logMessage": "日志消息",
-    "logMessagePlaceholder": "要记录的消息",
-    "testData": "测试数据",
-    "subsystem": "子系统",
-    "eventId": "事件ID",
-    "level": "级别",
-    "message": "消息"
+    "noRulesConfigured": "未配置警报规则。创建一个开始使用。"
   },
   "header": {
     "searchPlaceholder": "搜索或跳转到...",
@@ -609,13 +563,641 @@
     "removeTooltip": "移除",
     "setByAt": "由 {{user}} 于 {{time}} 设置"
   },
-  "alertRules": {
-    "alertRulesPage": "警报规则",
-    "description": "创建自定义警报规则，在特定事件发生时触发 webhook",
-    "createRule": "创建规则",
-    "noRulesConfigured": "未配置警报规则。创建一个开始使用。"
-  },
   "plugins": {
     "pluginPage": "插件页面"
+  },
+  "panelUsers": {
+    "addModal": {
+      "title": "__MISSING_ZH__ (Add Panel User)",
+      "createButton": "__MISSING_ZH__ (Create User)"
+    },
+    "deleteModal": {
+      "title": "__MISSING_ZH__ (Delete User)",
+      "confirm": "__MISSING_ZH__ (Are you sure you want to delete the user?)"
+    }
+  },
+  "rpcServers": {
+    "title": "__MISSING_ZH__ (RPC Servers)",
+    "description": "__MISSING_ZH__ (Configure UnrealIRCd JSON-RPC connections)",
+    "addModal": {
+      "title": "__MISSING_ZH__ (Add RPC Server)",
+      "addButton": "__MISSING_ZH__ (Add Server)"
+    },
+    "info": {
+      "description": "__MISSING_ZH__ (Configure which JSON-RPC server(s) the panel can connect to. You normally only need one server, but multiple servers can be useful for failover.)",
+      "readDocs": "__MISSING_ZH__ (Read the UnrealIRCd setup instructions)"
+    },
+    "default": "__MISSING_ZH__ (Default)",
+    "status": {
+      "connected": "__MISSING_ZH__ (Connected)",
+      "disconnected": "__MISSING_ZH__ (Disconnected)"
+    },
+    "empty": "__MISSING_ZH__ (No RPC servers configured. Add one to connect to your UnrealIRCd server.)",
+    "form": {
+      "name": {
+        "label": "__MISSING_ZH__ (Display Name)",
+        "placeholder": "__MISSING_ZH__ (e.g., Main Server)",
+        "helper": "__MISSING_ZH__ (A short display name for the RPC server list)"
+      },
+      "host": {
+        "label": "__MISSING_ZH__ (Hostname or IP)",
+        "placeholder": "__MISSING_ZH__ (127.0.0.1)",
+        "helper": "__MISSING_ZH__ (Use 127.0.0.1 for the same machine)"
+      },
+      "port": {
+        "label": "__MISSING_ZH__ (Port)",
+        "placeholder": "__MISSING_ZH__ (8600)",
+        "helper": "__MISSING_ZH__ (RPC port from unrealircd.conf)"
+      },
+      "default": {
+        "label": "__MISSING_ZH__ (Default server)",
+        "helper": "__MISSING_ZH__ (Make this the primary server for connections)"
+      },
+      "tls": {
+        "label": "__MISSING_ZH__ (Verify SSL/TLS certificate)",
+        "helper": "__MISSING_ZH__ (Only use with hostnames, not for 127.0.0.1)"
+      },
+      "username": {
+        "label": "__MISSING_ZH__ (Username)",
+        "placeholder": "__MISSING_ZH__ (rpc_username)",
+        "helper": "__MISSING_ZH__ (The name of your rpc-user block in unrealircd.conf)"
+      },
+      "password": {
+        "label": "__MISSING_ZH__ (Password)",
+        "placeholder": "__MISSING_ZH__ (Enter RPC password)",
+        "helper": "__MISSING_ZH__ (Leave empty to keep existing password)"
+      }
+    },
+    "editModal": {
+      "title": "__MISSING_ZH__ (Edit Server: {{name}})"
+    },
+    "updateButton": "__MISSING_ZH__ (Save Changes)",
+    "added": "__MISSING_ZH__ (RPC server added successfully)",
+    "addFailed": "__MISSING_ZH__ (Failed to add server)",
+    "updated": "__MISSING_ZH__ (RPC server updated successfully)",
+    "updateFailed": "__MISSING_ZH__ (Failed to update server)",
+    "deleted": "__MISSING_ZH__ (RPC server deleted)",
+    "deleteFailed": "__MISSING_ZH__ (Failed to delete server)",
+    "actions": {
+      "testConnection": "__MISSING_ZH__ (Test Connection)",
+      "use": "__MISSING_ZH__ (Use)"
+    },
+    "deleteModal": {
+      "title": "__MISSING_ZH__ (Delete Server)",
+      "confirm": "__MISSING_ZH__ (Are you sure you want to delete the server <strong>{{name}}</strong>? This action cannot be undone.)",
+      "deleteButton": "__MISSING_ZH__ (Delete Server)"
+    },
+    "testSuccess": "__MISSING_ZH__ (Connection successful)",
+    "testFailure": "__MISSING_ZH__ (Connection failed: {{message}})"
+  },
+  "nameBans": {
+    "title": "__MISSING_ZH__ (Name Bans)",
+    "description": "__MISSING_ZH__ (Manage Q-Lines (reserved nicknames and channels))",
+    "addButton": "__MISSING_ZH__ (Add Name Ban)",
+    "searchPlaceholder": "__MISSING_ZH__ (Search name bans...)",
+    "table": {
+      "type": "__MISSING_ZH__ (Type)",
+      "name": "__MISSING_ZH__ (Name/Pattern)",
+      "reason": "__MISSING_ZH__ (Reason)",
+      "setBy": "__MISSING_ZH__ (Set By)",
+      "setAt": "__MISSING_ZH__ (Set At)",
+      "expires": "__MISSING_ZH__ (Expires)"
+    },
+    "addModal": {
+      "title": "__MISSING_ZH__ (Add Name Ban)",
+      "labels": {
+        "banType": "__MISSING_ZH__ (Ban Type)",
+        "name": "__MISSING_ZH__ (Name/Pattern)",
+        "reason": "__MISSING_ZH__ (Reason)",
+        "duration": "__MISSING_ZH__ (Duration)"
+      },
+      "options": {
+        "qline": "__MISSING_ZH__ (Q-Line (Nickname))"
+      },
+      "placeholders": {
+        "nameExample": "__MISSING_ZH__ (e.g., Admin* or #official*)",
+        "reason": "__MISSING_ZH__ (Enter ban reason)"
+      },
+      "help": {
+        "useWildcard": "__MISSING_ZH__ (Use * as wildcard)"
+      },
+      "addButton": "__MISSING_ZH__ (Add Ban)"
+    },
+    "deleteModal": {
+      "title": "__MISSING_ZH__ (Remove Name Ban)",
+      "removeButton": "__MISSING_ZH__ (Remove Ban)",
+      "confirm": "__MISSING_ZH__ (Are you sure you want to remove this name ban for {{name}}?)"
+    },
+    "messages": {
+      "added": "__MISSING_ZH__ (Name ban added successfully)",
+      "removed": "__MISSING_ZH__ (Name ban removed)",
+      "loadFailed": "__MISSING_ZH__ (Failed to load name bans: {{error}})"
+    }
+  },
+  "serverBans": {
+    "title": "__MISSING_ZH__ (Server Bans)",
+    "description": "__MISSING_ZH__ (Manage G-Lines, K-Lines, Z-Lines, and Shuns)",
+    "addButton": "__MISSING_ZH__ (Add Ban)",
+    "searchPlaceholder": "__MISSING_ZH__ (Search bans by mask, reason...)",
+    "table": {
+      "type": "__MISSING_ZH__ (Type)",
+      "mask": "__MISSING_ZH__ (Mask)",
+      "reason": "__MISSING_ZH__ (Reason)",
+      "setBy": "__MISSING_ZH__ (Set By)",
+      "setAt": "__MISSING_ZH__ (Set At)",
+      "expires": "__MISSING_ZH__ (Expires)"
+    },
+    "spamfilters": {
+      "title": "__MISSING_ZH__ (Spamfilters)",
+      "subtitle": "__MISSING_ZH__ (Manage content filters and spam protection)",
+      "addButton": "__MISSING_ZH__ (Add Spamfilter)",
+      "searchPlaceholder": "__MISSING_ZH__ (Search spamfilters...)",
+      "table": {
+        "pattern": "__MISSING_ZH__ (Pattern)",
+        "type": "__MISSING_ZH__ (Type)",
+        "targets": "__MISSING_ZH__ (Targets)",
+        "action": "__MISSING_ZH__ (Action)",
+        "hits": "__MISSING_ZH__ (Hits)",
+        "setBy": "__MISSING_ZH__ (Set By)"
+      },
+      "detailsTitle": "__MISSING_ZH__ (Spamfilter Details)",
+      "details": {
+        "matchType": "__MISSING_ZH__ (Match Type)",
+        "action": "__MISSING_ZH__ (Action)",
+        "hits": "__MISSING_ZH__ (Hits)",
+        "setBy": "__MISSING_ZH__ (Set By)",
+        "pattern": "__MISSING_ZH__ (Pattern)",
+        "targets": "__MISSING_ZH__ (Targets)",
+        "reason": "__MISSING_ZH__ (Reason)",
+        "noReason": "__MISSING_ZH__ (No reason specified)",
+        "actionDuration": "__MISSING_ZH__ (Action Duration)"
+      },
+      "addModal": {
+        "title": "__MISSING_ZH__ (Add Spamfilter)",
+        "labels": {
+          "matchType": "__MISSING_ZH__ (Match Type)",
+          "match": "__MISSING_ZH__ (Pattern)",
+          "targets": "__MISSING_ZH__ (Targets)",
+          "action": "__MISSING_ZH__ (Action)",
+          "duration": "__MISSING_ZH__ (Action Duration)",
+          "reason": "__MISSING_ZH__ (Reason)"
+        },
+        "options": {
+          "simple": "__MISSING_ZH__ (Simple (wildcards))",
+          "regex": "__MISSING_ZH__ (Regular Expression)",
+          "posix": "__MISSING_ZH__ (POSIX Regex)"
+        },
+        "actionOptions": {
+          "warn": "__MISSING_ZH__ (Warn)",
+          "block": "__MISSING_ZH__ (Block)",
+          "kill": "__MISSING_ZH__ (Kill)",
+          "gline": "__MISSING_ZH__ (G-Line)",
+          "gzline": "__MISSING_ZH__ (GZ-Line)",
+          "shun": "__MISSING_ZH__ (Shun)",
+          "viruschan": "__MISSING_ZH__ (Virus Channel)"
+        },
+        "helper": {
+          "pattern": "__MISSING_ZH__ (Pattern to match against messages)",
+          "duration": "__MISSING_ZH__ (Duration for ban action (e.g., 1h, 1d, 7d))"
+        },
+        "placeholders": {
+          "reason": "__MISSING_ZH__ (Spam is not allowed)"
+        },
+        "addButton": "__MISSING_ZH__ (Add Spamfilter)"
+      },
+      "deleteModal": {
+        "title": "__MISSING_ZH__ (Remove Spamfilter)",
+        "removeButton": "__MISSING_ZH__ (Remove Spamfilter)",
+        "confirm": "__MISSING_ZH__ (Are you sure you want to remove this spamfilter?)"
+      },
+      "messages": {
+        "added": "__MISSING_ZH__ (Spamfilter added successfully)",
+        "removed": "__MISSING_ZH__ (Spamfilter removed)",
+        "loadFailed": "__MISSING_ZH__ (Failed to load spamfilters: {{error}})",
+        "removeFailed": "__MISSING_ZH__ (Failed to remove spamfilter)"
+      }
+    },
+    "addModal": {
+      "title": "__MISSING_ZH__ (Add Server Ban)",
+      "labels": {
+        "banType": "__MISSING_ZH__ (Ban Type)",
+        "mask": "__MISSING_ZH__ (Mask)",
+        "reason": "__MISSING_ZH__ (Reason)",
+        "duration": "__MISSING_ZH__ (Duration)"
+      },
+      "options": {
+        "gline": "__MISSING_ZH__ (G-Line (Global))",
+        "kline": "__MISSING_ZH__ (K-Line (Local))",
+        "gzline": "__MISSING_ZH__ (GZ-Line (Global IP))",
+        "zline": "__MISSING_ZH__ (Z-Line (Local IP))",
+        "shun": "__MISSING_ZH__ (Shun)"
+      },
+      "placeholders": {
+        "maskExample": "__MISSING_ZH__ (*@*.example.com or 192.168.1.*)",
+        "reason": "__MISSING_ZH__ (Enter ban reason)"
+      },
+      "addButton": "__MISSING_ZH__ (Add Ban)"
+    },
+    "deleteModal": {
+      "title": "__MISSING_ZH__ (Remove Ban)",
+      "removeButton": "__MISSING_ZH__ (Remove Ban)",
+      "confirm": "__MISSING_ZH__ (Are you sure you want to remove this {{type}} for {{name}}?)"
+    },
+    "messages": {
+      "added": "__MISSING_ZH__ (Ban added successfully)",
+      "removed": "__MISSING_ZH__ (Ban removed)",
+      "loadFailed": "__MISSING_ZH__ (Failed to load bans: {{error}})"
+    }
+  },
+  "commands": {
+    "nav": {
+      "dashboard": {
+        "title": "__MISSING_ZH__ (Go to Dashboard)",
+        "description": "__MISSING_ZH__ (View network overview)"
+      },
+      "users": {
+        "title": "__MISSING_ZH__ (Go to Users)",
+        "description": "__MISSING_ZH__ (View connected users)"
+      },
+      "channels": {
+        "title": "__MISSING_ZH__ (Go to Channels)",
+        "description": "__MISSING_ZH__ (View active channels)"
+      },
+      "servers": {
+        "title": "__MISSING_ZH__ (Go to Servers)",
+        "description": "__MISSING_ZH__ (View linked servers)"
+      },
+      "liveMap": {
+        "title": "__MISSING_ZH__ (Go to Live Map)",
+        "description": "__MISSING_ZH__ (View geographic distribution)"
+      },
+      "statistics": {
+        "title": "__MISSING_ZH__ (Go to Statistics)",
+        "description": "__MISSING_ZH__ (View detailed stats)"
+      },
+      "logs": {
+        "title": "__MISSING_ZH__ (Go to Logs)",
+        "description": "__MISSING_ZH__ (View system logs)"
+      },
+      "serverBans": {
+        "title": "__MISSING_ZH__ (Go to Server Bans)",
+        "description": "__MISSING_ZH__ (Manage K-Lines, G-Lines, etc.)"
+      },
+      "nameBans": {
+        "title": "__MISSING_ZH__ (Go to Name Bans)",
+        "description": "__MISSING_ZH__ (Manage Q-Lines)"
+      },
+      "banExceptions": {
+        "title": "__MISSING_ZH__ (Go to Ban Exceptions)",
+        "description": "__MISSING_ZH__ (Manage E-Lines)"
+      },
+      "spamfilters": {
+        "title": "__MISSING_ZH__ (Go to Spamfilters)",
+        "description": "__MISSING_ZH__ (Manage spam filters)"
+      },
+      "watchList": {
+        "title": "__MISSING_ZH__ (Go to Watch List)",
+        "description": "__MISSING_ZH__ (Monitor flagged users)"
+      },
+      "settings": {
+        "title": "__MISSING_ZH__ (Go to Settings)",
+        "description": "__MISSING_ZH__ (Panel settings)"
+      },
+      "twoFactor": {
+        "title": "__MISSING_ZH__ (Go to Two-Factor Auth)",
+        "description": "__MISSING_ZH__ (Manage 2FA settings)"
+      },
+      "panelUsers": {
+        "title": "__MISSING_ZH__ (Go to Panel Users)",
+        "description": "__MISSING_ZH__ (Manage panel user accounts)"
+      },
+      "webhooks": {
+        "title": "__MISSING_ZH__ (Go to Webhooks)",
+        "description": "__MISSING_ZH__ (Manage webhook endpoints)"
+      },
+      "smtp": {
+        "title": "__MISSING_ZH__ (Go to SMTP Settings)",
+        "description": "__MISSING_ZH__ (Configure email server)"
+      },
+      "notifications": {
+        "title": "__MISSING_ZH__ (Go to Notifications)",
+        "description": "__MISSING_ZH__ (Configure notification preferences)"
+      }
+    },
+    "theme": {
+      "switch": "__MISSING_ZH__ (Switch to {{name}} Theme)",
+      "apply": "__MISSING_ZH__ (Apply {{name}} color scheme)"
+    },
+    "action": {
+      "signOut": {
+        "title": "__MISSING_ZH__ (Sign Out)",
+        "description": "__MISSING_ZH__ (Log out of the panel)"
+      }
+    }
+  },
+  "savedSearches": {
+    "tooltips": {
+      "saveCurrent": "__MISSING_ZH__ (Save current search)",
+      "saveDisabled": "__MISSING_ZH__ (Enter a search query first)",
+      "view": "__MISSING_ZH__ (View saved searches)"
+    },
+    "saveModal": {
+      "title": "__MISSING_ZH__ (Save Search)"
+    },
+    "currentSearch": "__MISSING_ZH__ (Current Search:)",
+    "emptyPlaceholder": "__MISSING_ZH__ ((empty))",
+    "inputLabel": "__MISSING_ZH__ (Search Name)",
+    "placeholders": {
+      "example": "__MISSING_ZH__ (e.g., TOR exit nodes, Suspicious IPs)"
+    },
+    "shareWithAll": "__MISSING_ZH__ (Share with all users)",
+    "listModal": {
+      "title": "__MISSING_ZH__ (Saved Searches)",
+      "emptyTitle": "__MISSING_ZH__ (No saved searches yet.)",
+      "emptyDescription": "__MISSING_ZH__ (Save your current search to quickly access it later.)"
+    },
+    "messages": {
+      "saved": "__MISSING_ZH__ (Search saved)",
+      "deleted": "__MISSING_ZH__ (Search deleted)",
+      "saveFailed": "__MISSING_ZH__ (Failed to save search)",
+      "deleteFailed": "__MISSING_ZH__ (Failed to delete search)",
+      "applyFailed": "__MISSING_ZH__ (Failed to apply search)"
+    },
+    "shared": "__MISSING_ZH__ (Shared)",
+    "popular": "__MISSING_ZH__ (Popular)",
+    "usedTimes": "__MISSING_ZH__ (Used {{count}} time(s))",
+    "lastUsed": "__MISSING_ZH__ (Last used)",
+    "apply": "__MISSING_ZH__ (Apply)"
+  },
+  "watchList": {
+    "title": "__MISSING_ZH__ (Watch List)",
+    "subtitle": "__MISSING_ZH__ (Monitor users matching specific criteria)",
+    "addButton": "__MISSING_ZH__ (Add to Watch List)",
+    "summary": {
+      "entriesLabel": "__MISSING_ZH__ (Watch List Entries)",
+      "usersCurrentlyMatched": "__MISSING_ZH__ (Users Currently Matched)",
+      "entriesWithActiveMatches": "__MISSING_ZH__ (Entries with Active Matches)"
+    },
+    "alert": "__MISSING_ZH__ ({{count}} user(s) currently match your watch list criteria. Click the expand arrow or the icon to view details.)",
+    "searchPlaceholder": "__MISSING_ZH__ (Search by nick, IP, reason...)",
+    "emptyMessage": "__MISSING_ZH__ (No users in watch list)",
+    "messages": {
+      "added": "__MISSING_ZH__ (User added to watch list)",
+      "addFailed": "__MISSING_ZH__ (Failed to add user)",
+      "updated": "__MISSING_ZH__ (Watch list entry updated)",
+      "updateFailed": "__MISSING_ZH__ (Failed to update entry)",
+      "removed": "__MISSING_ZH__ (Removed from watch list)",
+      "removeFailed": "__MISSING_ZH__ (Failed to remove entry)",
+      "loadFailed": "__MISSING_ZH__ (Failed to load watch list: {{error}})"
+    },
+    "table": {
+      "criteria": "__MISSING_ZH__ (Match Criteria)",
+      "reason": "__MISSING_ZH__ (Reason)",
+      "addedBy": "__MISSING_ZH__ (Added By)",
+      "addedAt": "__MISSING_ZH__ (Added)",
+      "currentMatches": "__MISSING_ZH__ (Current Matches)"
+    },
+    "labels": {
+      "nick": "__MISSING_ZH__ (Nick)",
+      "ip": "__MISSING_ZH__ (IP)",
+      "host": "__MISSING_ZH__ (Host)",
+      "account": "__MISSING_ZH__ (Account)",
+      "realname": "__MISSING_ZH__ (Realname)",
+      "online": "__MISSING_ZH__ (online)"
+    },
+    "tooltips": {
+      "viewMatched": "__MISSING_ZH__ (View matched users)"
+    },
+    "addModal": {
+      "title": "__MISSING_ZH__ (Add to Watch List)",
+      "addButton": "__MISSING_ZH__ (Add to Watch List)"
+    },
+    "editModal": {
+      "title": "__MISSING_ZH__ (Edit Watch List Entry)",
+      "saveButton": "__MISSING_ZH__ (Save Changes)"
+    },
+    "deleteModal": {
+      "title": "__MISSING_ZH__ (Remove from Watch List)",
+      "removeButton": "__MISSING_ZH__ (Remove)",
+      "confirm": "__MISSING_ZH__ (Are you sure you want to remove this entry from the watch list?)"
+    }
+  },
+  "scheduledCommands": {
+    "title": "__MISSING_ZH__ (Scheduled Commands)",
+    "subtitle": "__MISSING_ZH__ (Schedule IRC commands to run automatically)",
+    "createButton": "__MISSING_ZH__ (Create Schedule)",
+    "searchPlaceholder": "__MISSING_ZH__ (Search commands...)",
+    "emptyMessage": "__MISSING_ZH__ (No scheduled commands)",
+    "never": "__MISSING_ZH__ (Never)",
+    "next": "__MISSING_ZH__ (Next)",
+    "messages": {
+      "created": "__MISSING_ZH__ (Scheduled command created)",
+      "createFailed": "__MISSING_ZH__ (Failed to create scheduled command)",
+      "updated": "__MISSING_ZH__ (Scheduled command updated)",
+      "updateFailed": "__MISSING_ZH__ (Failed to update scheduled command)",
+      "deleted": "__MISSING_ZH__ (Scheduled command deleted)",
+      "deleteFailed": "__MISSING_ZH__ (Failed to delete scheduled command)",
+      "toggleFailed": "__MISSING_ZH__ (Failed to toggle scheduled command)",
+      "commandExecuted": "__MISSING_ZH__ (Command executed)",
+      "runFailed": "__MISSING_ZH__ (Failed to run command)",
+      "loadFailed": "__MISSING_ZH__ (Failed to load scheduled commands: {{error}})"
+    },
+    "table": {
+      "status": "__MISSING_ZH__ (Status)",
+      "name": "__MISSING_ZH__ (Name)",
+      "command": "__MISSING_ZH__ (Command)",
+      "schedule": "__MISSING_ZH__ (Schedule)",
+      "lastRun": "__MISSING_ZH__ (Last Run)",
+      "runs": "__MISSING_ZH__ (Runs)"
+    },
+    "tooltips": {
+      "clickToDisable": "__MISSING_ZH__ (Click to disable)",
+      "clickToEnable": "__MISSING_ZH__ (Click to enable)",
+      "runNow": "__MISSING_ZH__ (Run now)"
+    },
+    "labels": {
+      "active": "__MISSING_ZH__ (Active)",
+      "paused": "__MISSING_ZH__ (Paused)"
+    },
+    "commandTypes": {
+      "kill": "__MISSING_ZH__ (Kill User)",
+      "gline": "__MISSING_ZH__ (G-Line (Server Ban))",
+      "rehash": "__MISSING_ZH__ (Rehash Server)",
+      "message": "__MISSING_ZH__ (Send Message)"
+    },
+    "scheduleTypes": {
+      "once": "__MISSING_ZH__ (One Time)",
+      "hourly": "__MISSING_ZH__ (Every Hour)",
+      "daily": "__MISSING_ZH__ (Every Day)",
+      "weekly": "__MISSING_ZH__ (Every Week)",
+      "monthly": "__MISSING_ZH__ (Every Month)"
+    },
+    "form": {
+      "nameLabel": "__MISSING_ZH__ (Name *)",
+      "namePlaceholder": "__MISSING_ZH__ (e.g., Daily cleanup, Scheduled maintenance)",
+      "descriptionLabel": "__MISSING_ZH__ (Description)",
+      "descriptionPlaceholder": "__MISSING_ZH__ (What does this scheduled command do?)",
+      "commandTypeLabel": "__MISSING_ZH__ (Command Type *)",
+      "targetLabel": "__MISSING_ZH__ (Target)",
+      "reasonLabel": "__MISSING_ZH__ (Reason)",
+      "durationLabel": "__MISSING_ZH__ (Duration)",
+      "messageLabel": "__MISSING_ZH__ (Message)",
+      "scheduleLabel": "__MISSING_ZH__ (Schedule *)",
+      "enableLabel": "__MISSING_ZH__ (Enable this scheduled command)"
+    },
+    "placeholders": {
+      "target": {
+        "kill": "__MISSING_ZH__ (Nickname)",
+        "gline": "__MISSING_ZH__ (Host mask (e.g., *@*.bad.com))",
+        "rehash": "__MISSING_ZH__ (Server name)",
+        "message": "__MISSING_ZH__ (Channel or nick)",
+        "default": "__MISSING_ZH__ (Target)"
+      },
+      "reason": "__MISSING_ZH__ (Reason for the action)",
+      "duration": "__MISSING_ZH__ (e.g., 1d, 1w, 30m)",
+      "message": "__MISSING_ZH__ (Message to send)"
+    },
+    "createModal": {
+      "title": "__MISSING_ZH__ (Create Scheduled Command)",
+      "createButton": "__MISSING_ZH__ (Create Schedule)"
+    },
+    "editModal": {
+      "title": "__MISSING_ZH__ (Edit Scheduled Command)",
+      "saveButton": "__MISSING_ZH__ (Save Changes)"
+    },
+    "deleteModal": {
+      "title": "__MISSING_ZH__ (Delete Scheduled Command)",
+      "confirm": "__MISSING_ZH__ (Are you sure you want to delete this scheduled command? This action cannot be undone.)"
+    }
+  },
+  "channelTemplates": {
+    "title": "__MISSING_ZH__ (Channel Templates)",
+    "subtitle": "__MISSING_ZH__ (Save and apply channel configurations as reusable templates)",
+    "fromChannel": "__MISSING_ZH__ (From Channel)",
+    "createButton": "__MISSING_ZH__ (Create Template)",
+    "empty": "__MISSING_ZH__ (No channel templates yet. Create one or import from an existing channel.)",
+    "tooltips": {
+      "global": "__MISSING_ZH__ (Global template)",
+      "private": "__MISSING_ZH__ (Private template)",
+      "applyToChannel": "__MISSING_ZH__ (Apply to channel)",
+      "duplicate": "__MISSING_ZH__ (Duplicate)"
+    },
+    "labels": {
+      "modes": "__MISSING_ZH__ (Modes:)",
+      "topic": "__MISSING_ZH__ (Topic:)"
+    },
+    "used": "__MISSING_ZH__ (Used {{count}} times)",
+    "by": "__MISSING_ZH__ (by)",
+    "deleteConfirm": "__MISSING_ZH__ (Delete this template?)",
+    "form": {
+      "name": "__MISSING_ZH__ (Name)",
+      "placeholders": {
+        "name": "__MISSING_ZH__ (Template name)",
+        "description": "__MISSING_ZH__ (Optional description)",
+        "modes": "__MISSING_ZH__ (+nts)",
+        "topic": "__MISSING_ZH__ (Channel topic)",
+        "selectChannel": "__MISSING_ZH__ (Select a channel...)"
+      },
+      "description": "__MISSING_ZH__ (Description)",
+      "modes": "__MISSING_ZH__ (Modes)",
+      "topic": "__MISSING_ZH__ (Topic)",
+      "makeGlobal": "__MISSING_ZH__ (Make this template available to all users)",
+      "updateButton": "__MISSING_ZH__ (Update)",
+      "createButton": "__MISSING_ZH__ (Create)",
+      "targetChannel": "__MISSING_ZH__ (Target Channel)"
+    },
+    "editModal": {
+      "title": "__MISSING_ZH__ (Edit Template)"
+    },
+    "createModal": {
+      "title": "__MISSING_ZH__ (Create Template)"
+    },
+    "applyModal": {
+      "title": "__MISSING_ZH__ (Apply Template)",
+      "subtitle": "__MISSING_ZH__ (Apply template \"{{name}}\" to a channel:)",
+      "applyButton": "__MISSING_ZH__ (Apply Template)"
+    },
+    "createFromChannel": {
+      "title": "__MISSING_ZH__ (Create from Channel)",
+      "description": "__MISSING_ZH__ (Create a new template from an existing channel's configuration:)"
+    }
+  },
+  "webhooks": {
+    "title": "__MISSING_ZH__ (Webhooks)",
+    "subtitle": "__MISSING_ZH__ (Receive log events from UnrealIRCd via webhooks)",
+    "createButton": "__MISSING_ZH__ (Create Webhook)",
+    "info": {
+      "paragraph1": "__MISSING_ZH__ (Webhooks allow UnrealIRCd to send log events directly to this panel. Each webhook has a unique token URL that you configure in your unrealircd.conf.)",
+      "learnMore": "__MISSING_ZH__ (Learn more about UnrealIRCd log blocks)"
+    },
+    "tooltips": {
+      "viewConfig": "__MISSING_ZH__ (View Configuration)",
+      "viewLogs": "__MISSING_ZH__ (View Logs)",
+      "disable": "__MISSING_ZH__ (Disable)",
+      "enable": "__MISSING_ZH__ (Enable)",
+      "regenerate": "__MISSING_ZH__ (Regenerate Token)"
+    },
+    "emptyTokens": "__MISSING_ZH__ (No webhook tokens configured)",
+    "tokens": {
+      "createModal": {
+        "title": "__MISSING_ZH__ (Create Webhook Token)"
+      },
+      "deleteModal": {
+        "title": "__MISSING_ZH__ (Delete Webhook Token)",
+        "confirm": "__MISSING_ZH__ (Are you sure you want to delete the webhook token \"{{name}}\"?)",
+        "details": "__MISSING_ZH__ (UnrealIRCd will no longer be able to send log events to this URL.)"
+      }
+    },
+    "messages": {
+      "loadFailed": "__MISSING_ZH__ (Failed to load webhooks: {{error}})"
+    }
+  },
+  "themeSwitcher": {
+    "title": "__MISSING_ZH__ (Theme Settings)",
+    "tabs": {
+      "presets": "__MISSING_ZH__ (Presets)",
+      "customize": "__MISSING_ZH__ (Customize)"
+    },
+    "customizeIntro": "__MISSING_ZH__ (Customize the current theme ({{name}}) with your own colors.)",
+    "sections": {
+      "background": "__MISSING_ZH__ (Background)",
+      "text": "__MISSING_ZH__ (Text)"
+    },
+    "colors": {
+      "primary": "__MISSING_ZH__ (Primary)",
+      "secondary": "__MISSING_ZH__ (Secondary)",
+      "tertiary": "__MISSING_ZH__ (Tertiary)",
+      "textPrimary": "__MISSING_ZH__ (Primary)",
+      "textMuted": "__MISSING_ZH__ (Muted)",
+      "accent": "__MISSING_ZH__ (Accent)",
+      "accentHover": "__MISSING_ZH__ (Accent (hover))",
+      "success": "__MISSING_ZH__ (Success)",
+      "error": "__MISSING_ZH__ (Error)"
+    },
+    "apply": "__MISSING_ZH__ (Apply Changes)",
+    "reset": "__MISSING_ZH__ (Reset to Default)"
+  },
+  "sidebar": {
+    "logout": "__MISSING_ZH__ (Logout)"
+  },
+  "userJourney": {
+    "searchModal": {
+      "title": "__MISSING_ZH__ (Search User Journey)",
+      "description": "__MISSING_ZH__ (Enter at least one identifier to search for user activity:)",
+      "nicknameLabel": "__MISSING_ZH__ (Nickname)",
+      "nicknamePlaceholder": "__MISSING_ZH__ (Enter nickname)",
+      "ipLabel": "__MISSING_ZH__ (IP Address)",
+      "ipPlaceholder": "__MISSING_ZH__ (Enter IP address)"
+    }
+  },
+  "userDetail": {
+    "killTitle": "__MISSING_ZH__ (Kill User: {{name}})",
+    "killButton": "__MISSING_ZH__ (Kill User)",
+    "banTitle": "__MISSING_ZH__ (Ban User: {{name}})",
+    "banButton": "__MISSING_ZH__ (Ban User)",
+    "vhostTitle": "__MISSING_ZH__ (Set Vhost: {{name}})",
+    "setVhostButton": "__MISSING_ZH__ (Set Vhost)",
+    "modesTitle": "__MISSING_ZH__ (Set User Modes: {{name}})",
+    "applyModeChanges": "__MISSING_ZH__ (Apply Mode Changes)"
   }
 }
