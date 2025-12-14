@@ -545,6 +545,79 @@
     "loadError": "Failed to load exceptions: {{error}}",
     "confirmRemove": "Are you sure you want to remove the exception for {{mask}}? Users matching this mask will no longer be exempt from bans."
   },
+  "nameBans": {
+    "title": "Name Bans",
+    "description": "Manage Q-Lines (reserved nicknames and channels)",
+    "addButton": "Add Name Ban",
+    "searchPlaceholder": "Search name bans...",
+    "table": {
+      "type": "Type",
+      "name": "Name/Pattern",
+      "reason": "Reason",
+      "setBy": "Set By",
+      "setAt": "Set At",
+      "expires": "Expires"
+    },
+    "addModal": {
+      "title": "Add Name Ban",
+      "labels": {
+        "banType": "Ban Type",
+        "name": "Name/Pattern",
+        "reason": "Reason",
+        "duration": "Duration"
+      },
+      "options": {
+        "qline": "Q-Line (Nickname)"
+      },
+      "placeholders": {
+        "nameExample": "e.g., Admin* or #official*",
+        "reason": "Enter ban reason"
+      },
+      "help": {
+        "useWildcard": "Use * as wildcard"
+      },
+      "addButton": "Add Ban"
+    },
+    "deleteModal": {
+      "title": "Remove Name Ban",
+      "removeButton": "Remove Ban",
+      "confirm": "Are you sure you want to remove this name ban for {{name}}?"
+    },
+    "messages": {
+      "added": "Name ban added successfully",
+      "removed": "Name ban removed",
+      "loadFailed": "Failed to load name bans: {{error}}"
+    }
+  },
+  "commands": {
+    "nav": {
+      "dashboard": { "title": "Go to Dashboard", "description": "View network overview" },
+      "users": { "title": "Go to Users", "description": "View connected users" },
+      "channels": { "title": "Go to Channels", "description": "View active channels" },
+      "servers": { "title": "Go to Servers", "description": "View linked servers" },
+      "liveMap": { "title": "Go to Live Map", "description": "View geographic distribution" },
+      "statistics": { "title": "Go to Statistics", "description": "View detailed stats" },
+      "logs": { "title": "Go to Logs", "description": "View system logs" },
+      "serverBans": { "title": "Go to Server Bans", "description": "Manage K-Lines, G-Lines, etc." },
+      "nameBans": { "title": "Go to Name Bans", "description": "Manage Q-Lines" },
+      "banExceptions": { "title": "Go to Ban Exceptions", "description": "Manage E-Lines" },
+      "spamfilters": { "title": "Go to Spamfilters", "description": "Manage spam filters" },
+      "watchList": { "title": "Go to Watch List", "description": "Monitor flagged users" },
+      "settings": { "title": "Go to Settings", "description": "Panel settings" },
+      "twoFactor": { "title": "Go to Two-Factor Auth", "description": "Manage 2FA settings" },
+      "panelUsers": { "title": "Go to Panel Users", "description": "Manage panel user accounts" },
+      "webhooks": { "title": "Go to Webhooks", "description": "Manage webhook endpoints" },
+      "smtp": { "title": "Go to SMTP Settings", "description": "Configure email server" },
+      "notifications": { "title": "Go to Notifications", "description": "Configure notification preferences" }
+    },
+    "theme": {
+      "switch": "Switch to {{name}} Theme",
+      "apply": "Apply {{name}} color scheme"
+    },
+    "action": {
+      "signOut": { "title": "Sign Out", "description": "Log out of the panel" }
+    }
+  },
   "channelDetail": {
     "backToChannels": "Back to Channels",
     "channelDetails": "Channel Details",

@@ -503,6 +503,79 @@
   "plugins": {
     "pluginPage": "Página do Plugin"
   },
+  "nameBans": {
+    "title": "Bans de Nome",
+    "description": "Gerenciar Q-Lines (apelidos e canais reservados)",
+    "addButton": "Adicionar Ban de Nome",
+    "searchPlaceholder": "Pesquisar bans de nome...",
+    "table": {
+      "type": "Tipo",
+      "name": "Nome/Padrão",
+      "reason": "Razão",
+      "setBy": "Definido por",
+      "setAt": "Definido em",
+      "expires": "Expira"
+    },
+    "addModal": {
+      "title": "Adicionar Ban de Nome",
+      "labels": {
+        "banType": "Tipo de Ban",
+        "name": "Nome/Padrão",
+        "reason": "Razão",
+        "duration": "Duração"
+      },
+      "options": {
+        "qline": "Q-Line (Apelido)"
+      },
+      "placeholders": {
+        "nameExample": "ex.: Admin* ou #official*",
+        "reason": "Digite a razão do ban"
+      },
+      "help": {
+        "useWildcard": "Use * como curinga"
+      },
+      "addButton": "Adicionar Ban"
+    },
+    "deleteModal": {
+      "title": "Remover Ban de Nome",
+      "removeButton": "Remover Ban",
+      "confirm": "Tem certeza de que deseja remover este ban de nome para {{name}}?"
+    },
+    "messages": {
+      "added": "Ban de nome adicionado com sucesso",
+      "removed": "Ban de nome removido",
+      "loadFailed": "Falha ao carregar bans de nome: {{error}}"
+    }
+  },
+  "commands": {
+    "nav": {
+      "dashboard": { "title": "Ir para Painel", "description": "Ver visão geral da rede" },
+      "users": { "title": "Ir para Usuários", "description": "Ver usuários conectados" },
+      "channels": { "title": "Ir para Canais", "description": "Ver canais ativos" },
+      "servers": { "title": "Ir para Servidores", "description": "Ver servidores vinculados" },
+      "liveMap": { "title": "Ir para Mapa ao Vivo", "description": "Ver distribuição geográfica" },
+      "statistics": { "title": "Ir para Estatísticas", "description": "Ver estatísticas detalhadas" },
+      "logs": { "title": "Ir para Logs", "description": "Ver logs do sistema" },
+      "serverBans": { "title": "Ir para Bans do Servidor", "description": "Gerenciar K-Lines, G-Lines, etc." },
+      "nameBans": { "title": "Ir para Bans de Nome", "description": "Gerenciar Q-Lines" },
+      "banExceptions": { "title": "Ir para Exceções de Ban", "description": "Gerenciar E-Lines" },
+      "spamfilters": { "title": "Ir para Filtros de Spam", "description": "Gerenciar filtros de spam" },
+      "watchList": { "title": "Ir para Lista de Observação", "description": "Monitorar usuários sinalizados" },
+      "settings": { "title": "Ir para Configurações", "description": "Configurações do painel" },
+      "twoFactor": { "title": "Ir para Autenticação 2FA", "description": "Gerenciar configurações 2FA" },
+      "panelUsers": { "title": "Ir para Usuários do Painel", "description": "Gerenciar contas de usuário do painel" },
+      "webhooks": { "title": "Ir para Webhooks", "description": "Gerenciar endpoints de webhook" },
+      "smtp": { "title": "Ir para SMTP", "description": "Configurar servidor de e-mail" },
+      "notifications": { "title": "Ir para Notificações", "description": "Configurar preferências de notificação" }
+    },
+    "theme": {
+      "switch": "Mudar para o tema {{name}}",
+      "apply": "Aplicar esquema de cores {{name}}"
+    },
+    "action": {
+      "signOut": { "title": "Sair", "description": "Sair do painel" }
+    }
+  },
   "header": {
     "searchPlaceholder": "Pesquisar ou pular para...",
     "refreshStats": "Atualizar estatísticas",
