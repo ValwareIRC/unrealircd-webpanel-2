@@ -916,7 +916,9 @@
     "empty": "No channel templates yet. Create one or import from an existing channel.",
     "tooltips": {
       "global": "Global template",
-      "private": "Private template"
+      "private": "Private template",
+      "applyToChannel": "Apply to channel",
+      "duplicate": "Duplicate"
     },
     "labels": {
       "modes": "Modes:",
@@ -987,6 +989,16 @@
     "messages": {
       "loadFailed": "Failed to load webhooks: {{error}}"
     }
+  },
+  "userDetail": {
+    "killTitle": "Kill User: {{name}}",
+    "killButton": "Kill User",
+    "banTitle": "Ban User: {{name}}",
+    "banButton": "Ban User",
+    "vhostTitle": "Set Vhost: {{name}}",
+    "setVhostButton": "Set Vhost",
+    "modesTitle": "Set User Modes: {{name}}",
+    "applyModeChanges": "Apply Mode Changes"
   },
   "channelDetail": {
     "backToChannels": "Back to Channels",

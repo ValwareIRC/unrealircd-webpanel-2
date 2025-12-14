@@ -874,7 +874,9 @@
     "empty": "Nenhum modelo de canal ainda. Crie um ou importe de um canal existente.",
     "tooltips": {
       "global": "Modelo global",
-      "private": "Modelo privado"
+      "private": "Modelo privado",
+      "applyToChannel": "Aplicar ao canal",
+      "duplicate": "Duplicar"
     },
     "labels": {
       "modes": "Modos:",
@@ -930,6 +932,16 @@
     "messages": {
       "loadFailed": "Falha ao carregar webhooks: {{error}}"
     }
+  },
+  "userDetail": {
+    "killTitle": "Remover usuário: {{name}}",
+    "killButton": "Remover usuário",
+    "banTitle": "Banir usuário: {{name}}",
+    "banButton": "Banir usuário",
+    "vhostTitle": "Definir Vhost: {{name}}",
+    "setVhostButton": "Definir Vhost",
+    "modesTitle": "Definir modos de usuário: {{name}}",
+    "applyModeChanges": "Aplicar alterações de modo"
   },
   "header": {
     "searchPlaceholder": "Pesquisar ou pular para...",

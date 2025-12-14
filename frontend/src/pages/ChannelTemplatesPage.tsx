@@ -222,24 +222,24 @@ export function ChannelTemplatesPage() {
                   Used {template.use_count} times • by {template.created_by_username}
                 </span>
                 <div className="flex items-center gap-1">
-                  <Button variant="ghost" size="sm" onClick={() => openApplyModal(template)} title="Apply to channel">
+                  <Button variant="ghost" size="sm" onClick={() => openApplyModal(template)} title={t('channelTemplates.tooltips.applyToChannel')}>
                     <Download size={14} />
                   </Button>
-                  <Button variant="ghost" size="sm" onClick={() => duplicateTemplate(template)} title="Duplicate">
+                  <Button variant="ghost" size="sm" onClick={() => duplicateTemplate(template)} title={t('channelTemplates.tooltips.duplicate')}>
                     <Copy size={14} />
                   </Button>
-                  <Button variant="ghost" size="sm" onClick={() => openEditModal(template)} title="Edit">
+                  <Button variant="ghost" size="sm" onClick={() => openEditModal(template)} title={t('common.edit')}>
                     <Edit size={14} />
                   </Button>
                   <Button
                     variant="ghost"
                     size="sm"
                     onClick={() => {
-                      if (confirm('Delete this template?')) {
+                      if (confirm(t('channelTemplates.deleteConfirm'))) {
                         deleteMutation.mutate(template.id)
                       }
                     }}
-                    title="Delete"
+                    title={t('common.delete')}
                   >
                     <Trash2 size={14} className="text-red-500" />
                   </Button>

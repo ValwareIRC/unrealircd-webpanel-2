@@ -1,6 +1,7 @@
 import { useState, useMemo } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
+import { useTranslation } from 'react-i18next'
 import {
   ArrowLeft,
   User,
@@ -57,6 +58,7 @@ export default function UserDetailPage() {
   const { nick } = useParams<{ nick: string }>()
   const navigate = useNavigate()
   const queryClient = useQueryClient()
+  const { t } = useTranslation()
 
   const [showKillModal, setShowKillModal] = useState(false)
   const [showBanModal, setShowBanModal] = useState(false)
@@ -396,13 +398,13 @@ export default function UserDetailPage() {
         title={`Kill User: ${user.name}`}
         footer={
           <>
-            <Button variant="secondary" onClick={() => setShowKillModal(false)}>Cancel</Button>
+            <Button variant="secondary" onClick={() => setShowKillModal(false)}>{t('common.cancel')}</Button>
             <Button
               variant="danger"
               onClick={() => killMutation.mutate({ nick: user.name, reason: killReason })}
               isLoading={killMutation.isPending}
             >
-              Kill User
+              {t('userDetail.killButton')}
             </Button>
           </>
         }
@@ -427,13 +429,13 @@ export default function UserDetailPage() {
         title={`Ban User: ${user.name}`}
         footer={
           <>
-            <Button variant="secondary" onClick={() => setShowBanModal(false)}>Cancel</Button>
+            <Button variant="secondary" onClick={() => setShowBanModal(false)}>{t('common.cancel')}</Button>
             <Button
               variant="danger"
               onClick={() => banMutation.mutate({ nick: user.name, ...banData })}
               isLoading={banMutation.isPending}
             >
-              Ban User
+              {t('userDetail.banButton')}
             </Button>
           </>
         }
@@ -478,12 +480,12 @@ export default function UserDetailPage() {
         title={`Set Vhost: ${user.name}`}
         footer={
           <>
-            <Button variant="secondary" onClick={() => setShowVhostModal(false)}>Cancel</Button>
+            <Button variant="secondary" onClick={() => setShowVhostModal(false)}>{t('common.cancel')}</Button>
             <Button
               onClick={() => vhostMutation.mutate({ nick: user.name, vhost })}
               isLoading={vhostMutation.isPending}
             >
-              Set Vhost
+              {t('userDetail.setVhostButton')}
             </Button>
           </>
         }
@@ -505,13 +507,13 @@ export default function UserDetailPage() {
         size="lg"
         footer={
           <>
-            <Button variant="secondary" onClick={() => setShowModeModal(false)}>Cancel</Button>
+            <Button variant="secondary" onClick={() => setShowModeModal(false)}>{t('common.cancel')}</Button>
             <Button
               onClick={() => modeMutation.mutate({ nick: user.name, modes: modeData.modes, params: modeData.params || undefined })}
               isLoading={modeMutation.isPending}
               disabled={!modeData.modes}
             >
-              Apply Mode Changes
+              {t('userDetail.applyModeChanges')}
             </Button>
           </>
         }
