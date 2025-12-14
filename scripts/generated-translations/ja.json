@@ -1,6 +1,6 @@
 {
   "common.info": "情報",
-  "common.ok": "OK",
+  "common.ok": "確認",
   "common.name": "名前",
   "common.status": "ステータス",
   "navigation.dashboard": "ダッシュボード",
@@ -93,7 +93,7 @@
   "widgets.networkServers": "ネットワークサーバー",
   "widgets.server": "サーバー",
   "widgets.status": "ステータス",
-  "widgets.ok": "OK",
+  "widgets.ok": "確認",
   "widgets.noServers": "サーバーがありません",
   "widgets.hourOverview": "24時間の概要",
   "widgets.quickLinks": "クイックリンク",

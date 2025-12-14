@@ -129,7 +129,7 @@
     "ip": "__UNTRANSLATED__ (IP)",
     "channels": "Kanäle",
     "idle": "Leerlauf",
-    "server": "Server",
+    "server": "Servername",
     "ircOp": "IRC-Op",
     "tls": "__UNTRANSLATED__ (TLS)",
     "hidden": "Versteckt",
@@ -201,7 +201,7 @@
   "servers": {
     "title": "Server",
     "subtitle": "Verbundene Server im Netzwerk anzeigen",
-    "server": "Server",
+    "server": "Servername",
     "users": "Benutzer",
     "description": "Beschreibung",
     "noDescription": "Keine Beschreibung",
@@ -338,7 +338,7 @@
     "tableHeaders": {
       "time": "Zeit",
       "level": "Ebene",
-      "subsystem": "Subsystem",
+      "subsystem": "Subsystem-Bereich",
       "event": "Ereignis",
       "message": "Nachricht"
     },
@@ -353,7 +353,7 @@
     "categories": {
       "all": "Alle Plugins",
       "security": "Sicherheit",
-      "integration": "Integration",
+      "integration": "Integrationen",
       "monitoring": "Überwachung",
       "management": "Verwaltung",
       "utilities": "Dienstprogramme",
@@ -552,7 +552,7 @@
     "noTopic": "Kein Thema",
     "noChannels": "Keine Kanäle",
     "networkServers": "Netzwerkserver",
-    "server": "Server",
+    "server": "Servername",
     "status": "Betriebszustand",
     "ok": "Bestätigen",
     "noServers": "Keine Server",
