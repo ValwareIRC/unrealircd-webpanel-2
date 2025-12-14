@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import {
   getScheduledCommands,
@@ -30,6 +31,7 @@ const SCHEDULE_TYPES = [
 ]
 
 export function ScheduledCommandsPage() {
+  const { t } = useTranslation()
   const queryClient = useQueryClient()
   const { data: commands, isLoading, error } = useQuery({
     queryKey: ['scheduledCommands'],
@@ -54,41 +56,41 @@ export function ScheduledCommandsPage() {
 
   const createMutation = useMutation({
     mutationFn: createScheduledCommand,
-    onSuccess: () => {
+      onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['scheduledCommands'] })
-      toast.success('Scheduled command created')
+      toast.success(t('scheduledCommands.messages.created'))
       setShowAddModal(false)
       resetForm()
     },
     onError: (err: Error) => {
-      toast.error(err.message || 'Failed to create scheduled command')
+      toast.error(err.message || t('scheduledCommands.messages.createFailed'))
     },
   })
 
   const updateMutation = useMutation({
     mutationFn: ({ id, data }: { id: number; data: ScheduledCommandRequest }) =>
       updateScheduledCommand(id, data),
-    onSuccess: () => {
+      onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['scheduledCommands'] })
-      toast.success('Scheduled command updated')
+      toast.success(t('scheduledCommands.messages.updated'))
       setShowEditModal(false)
       resetForm()
     },
     onError: (err: Error) => {
-      toast.error(err.message || 'Failed to update scheduled command')
+      toast.error(err.message || t('scheduledCommands.messages.updateFailed'))
     },
   })
 
   const deleteMutation = useMutation({
     mutationFn: deleteScheduledCommand,
-    onSuccess: () => {
+      onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['scheduledCommands'] })
-      toast.success('Scheduled command deleted')
+      toast.success(t('scheduledCommands.messages.deleted'))
       setShowDeleteModal(false)
       setSelectedCommand(null)
     },
     onError: (err: Error) => {
-      toast.error(err.message || 'Failed to delete scheduled command')
+      toast.error(err.message || t('scheduledCommands.messages.deleteFailed'))
     },
   })
 
@@ -98,7 +100,7 @@ export function ScheduledCommandsPage() {
       queryClient.invalidateQueries({ queryKey: ['scheduledCommands'] })
     },
     onError: (err: Error) => {
-      toast.error(err.message || 'Failed to toggle scheduled command')
+      toast.error(err.message || t('scheduledCommands.messages.toggleFailed'))
     },
   })
 
@@ -106,10 +108,10 @@ export function ScheduledCommandsPage() {
     mutationFn: runScheduledCommandNow,
     onSuccess: (data) => {
       queryClient.invalidateQueries({ queryKey: ['scheduledCommands'] })
-      toast.success(data.result || 'Command executed')
+      toast.success(data.result || t('scheduledCommands.messages.commandExecuted'))
     },
     onError: (err: Error) => {
-      toast.error(err.message || 'Failed to run command')
+      toast.error(err.message || t('scheduledCommands.messages.runFailed'))
     },
   })
 
@@ -168,25 +170,25 @@ export function ScheduledCommandsPage() {
   const columns = [
     {
       key: 'status',
-      header: 'Status',
+      header: t('scheduledCommands.table.status'),
       render: (cmd: ScheduledCommand) => (
         <div className="flex items-center gap-2">
           <button
             onClick={() => toggleMutation.mutate(cmd.id)}
             className={`p-1 rounded ${cmd.is_enabled ? 'text-green-400' : 'text-gray-500'}`}
-            title={cmd.is_enabled ? 'Click to disable' : 'Click to enable'}
+            title={cmd.is_enabled ? t('scheduledCommands.tooltips.clickToDisable') : t('scheduledCommands.tooltips.clickToEnable')}
           >
             {cmd.is_enabled ? <Play size={18} /> : <Pause size={18} />}
           </button>
           <Badge variant={cmd.is_enabled ? 'success' : 'default'}>
-            {cmd.is_enabled ? 'Active' : 'Paused'}
+            {cmd.is_enabled ? t('scheduledCommands.labels.active') : t('scheduledCommands.labels.paused')}
           </Badge>
         </div>
       ),
     },
     {
       key: 'name',
-      header: 'Name',
+      header: t('scheduledCommands.table.name'),
       sortable: true,
       render: (cmd: ScheduledCommand) => (
         <div>
@@ -199,10 +201,10 @@ export function ScheduledCommandsPage() {
     },
     {
       key: 'command',
-      header: 'Command',
+      header: t('scheduledCommands.table.command'),
       render: (cmd: ScheduledCommand) => (
         <div>
-          <Badge variant="info">{cmd.command}</Badge>
+          <Badge variant="info">{t(`scheduledCommands.commandTypes.${cmd.command}`)}</Badge>
           {cmd.target && (
             <span className="ml-2 text-[var(--text-secondary)] font-mono text-sm">
               {cmd.target}
@@ -213,15 +215,15 @@ export function ScheduledCommandsPage() {
     },
     {
       key: 'schedule',
-      header: 'Schedule',
+      header: t('scheduledCommands.table.schedule'),
       render: (cmd: ScheduledCommand) => (
         <div>
           <div className="text-[var(--text-primary)]">
-            {SCHEDULE_TYPES.find(s => s.value === cmd.schedule)?.label || cmd.schedule}
+            {t(`scheduledCommands.scheduleTypes.${cmd.schedule}`) || cmd.schedule}
           </div>
           {cmd.next_run && (
             <div className="text-xs text-[var(--text-muted)]">
-              Next: {new Date(cmd.next_run).toLocaleString()}
+              {t('scheduledCommands.next')}: {new Date(cmd.next_run).toLocaleString()}
             </div>
           )}
         </div>
@@ -229,7 +231,7 @@ export function ScheduledCommandsPage() {
     },
     {
       key: 'last_run',
-      header: 'Last Run',
+      header: t('scheduledCommands.table.lastRun'),
       render: (cmd: ScheduledCommand) => (
         <div>
           {cmd.last_run ? (
@@ -244,7 +246,7 @@ export function ScheduledCommandsPage() {
               )}
             </>
           ) : (
-            <span className="text-[var(--text-muted)] text-sm">Never</span>
+            <span className="text-[var(--text-muted)] text-sm">{t('scheduledCommands.never')}</span>
           )}
         </div>
       ),
@@ -260,8 +262,8 @@ export function ScheduledCommandsPage() {
 
   if (error) {
     return (
-      <Alert type="error">
-        Failed to load scheduled commands: {error instanceof Error ? error.message : 'Unknown error'}
+        <Alert type="error">
+        {t('scheduledCommands.messages.loadFailed', { error: error instanceof Error ? error.message : 'Unknown error' })}
       </Alert>
     )
   }
@@ -272,14 +274,14 @@ export function ScheduledCommandsPage() {
         <div>
           <h1 className="text-2xl font-bold text-[var(--text-primary)] flex items-center gap-2">
             <Clock size={28} />
-            Scheduled Commands
+            {t('scheduledCommands.title')}
           </h1>
           <p className="text-[var(--text-muted)] mt-1">
-            Schedule IRC commands to run automatically
+            {t('scheduledCommands.subtitle')}
           </p>
         </div>
         <Button leftIcon={<Plus size={18} />} onClick={() => setShowAddModal(true)}>
-          Create Schedule
+          {t('scheduledCommands.createButton')}
         </Button>
       </div>
 
@@ -288,15 +290,15 @@ export function ScheduledCommandsPage() {
         columns={columns}
         keyField="id"
         isLoading={isLoading}
-        searchPlaceholder="Search commands..."
-        emptyMessage="No scheduled commands"
+        searchPlaceholder={t('scheduledCommands.searchPlaceholder')}
+        emptyMessage={t('scheduledCommands.emptyMessage')}
         actions={(cmd) => (
           <>
             <Button
               variant="ghost"
               size="sm"
               onClick={() => runNowMutation.mutate(cmd.id)}
-              title="Run now"
+              title={t('scheduledCommands.tooltips.runNow')}
               disabled={runNowMutation.isPending}
             >
               <PlayCircle size={16} />
@@ -305,7 +307,7 @@ export function ScheduledCommandsPage() {
               variant="ghost"
               size="sm"
               onClick={() => openEditModal(cmd)}
-              title="Edit"
+              title={t('common.edit')}
             >
               <Edit2 size={16} />
             </Button>
@@ -317,7 +319,7 @@ export function ScheduledCommandsPage() {
                 setSelectedCommand(cmd)
                 setShowDeleteModal(true)
               }}
-              title="Delete"
+              title={t('common.delete')}
             >
               <Trash2 size={16} />
             </Button>
@@ -333,7 +335,7 @@ export function ScheduledCommandsPage() {
           setShowEditModal(false)
           resetForm()
         }}
-        title={selectedCommand ? 'Edit Scheduled Command' : 'Create Scheduled Command'}
+        title={selectedCommand ? t('scheduledCommands.editModal.title') : t('scheduledCommands.createModal.title')}
         size="lg"
         footer={
           <>
@@ -345,14 +347,14 @@ export function ScheduledCommandsPage() {
                 resetForm()
               }}
             >
-              Cancel
+              {t('common.cancel')}
             </Button>
             <Button
               onClick={handleSubmit}
               isLoading={createMutation.isPending || updateMutation.isPending}
               disabled={!formData.name || !formData.command}
             >
-              {selectedCommand ? 'Save Changes' : 'Create Schedule'}
+              {selectedCommand ? t('scheduledCommands.editModal.saveButton') : t('scheduledCommands.createModal.createButton')}
             </Button>
           </>
         }
@@ -367,7 +369,7 @@ export function ScheduledCommandsPage() {
           setShowDeleteModal(false)
           setSelectedCommand(null)
         }}
-        title="Delete Scheduled Command"
+        title={t('scheduledCommands.deleteModal.title')}
         footer={
           <>
             <Button
@@ -377,20 +379,20 @@ export function ScheduledCommandsPage() {
                 setSelectedCommand(null)
               }}
             >
-              Cancel
+              {t('common.cancel')}
             </Button>
             <Button
               variant="danger"
               onClick={() => selectedCommand && deleteMutation.mutate(selectedCommand.id)}
               isLoading={deleteMutation.isPending}
             >
-              Delete
+              {t('common.delete')}
             </Button>
           </>
         }
       >
         <Alert type="warning">
-          Are you sure you want to delete this scheduled command? This action cannot be undone.
+          {t('scheduledCommands.deleteModal.confirm')}
         </Alert>
       </Modal>
     </div>
@@ -404,44 +406,45 @@ function ScheduledCommandForm({
   formData: ScheduledCommandRequest
   setFormData: (data: ScheduledCommandRequest) => void
 }) {
+  const { t } = useTranslation()
   return (
     <div className="space-y-4">
       <Input
-        label="Name *"
+        label={t('scheduledCommands.form.nameLabel')}
         value={formData.name}
         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-        placeholder="e.g., Daily cleanup, Scheduled maintenance"
+        placeholder={t('scheduledCommands.form.namePlaceholder')}
       />
 
       <Input
-        label="Description"
+        label={t('scheduledCommands.form.descriptionLabel')}
         value={formData.description}
         onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-        placeholder="What does this scheduled command do?"
+        placeholder={t('scheduledCommands.form.descriptionPlaceholder')}
       />
 
       <div className="grid grid-cols-2 gap-4">
         <Select
-          label="Command Type *"
+          label={t('scheduledCommands.form.commandTypeLabel')}
           value={formData.command}
           onChange={(e) => setFormData({ ...formData, command: e.target.value })}
         >
           {COMMAND_TYPES.map((opt) => (
             <option key={opt.value} value={opt.value}>
-              {opt.label}
+              {t(`scheduledCommands.commandTypes.${opt.value}`)}
             </option>
           ))}
         </Select>
 
         <Input
-          label="Target"
+          label={t('scheduledCommands.form.targetLabel')}
           value={formData.target}
           onChange={(e) => setFormData({ ...formData, target: e.target.value })}
           placeholder={
-            formData.command === 'kill' ? 'Nickname' :
-            formData.command === 'gline' ? 'Host mask (e.g., *@*.bad.com)' :
-            formData.command === 'rehash' ? 'Server name' :
-            formData.command === 'message' ? 'Channel or nick' : 'Target'
+            formData.command === 'kill' ? t('scheduledCommands.placeholders.target.kill') :
+            formData.command === 'gline' ? t('scheduledCommands.placeholders.target.gline') :
+            formData.command === 'rehash' ? t('scheduledCommands.placeholders.target.rehash') :
+            formData.command === 'message' ? t('scheduledCommands.placeholders.target.message') : t('scheduledCommands.placeholders.target.default')
           }
         />
       </div>
@@ -449,7 +452,7 @@ function ScheduledCommandForm({
       {/* Command-specific parameters */}
       {(formData.command === 'kill' || formData.command === 'gline') && (
         <Input
-          label="Reason"
+          label={t('scheduledCommands.form.reasonLabel')}
           value={(formData.params as Record<string, string>)?.reason || ''}
           onChange={(e) =>
             setFormData({
@@ -457,13 +460,13 @@ function ScheduledCommandForm({
               params: { ...formData.params, reason: e.target.value },
             })
           }
-          placeholder="Reason for the action"
+          placeholder={t('scheduledCommands.placeholders.reason')}
         />
       )}
 
       {formData.command === 'gline' && (
         <Input
-          label="Duration"
+          label={t('scheduledCommands.form.durationLabel')}
           value={(formData.params as Record<string, string>)?.duration || '1d'}
           onChange={(e) =>
             setFormData({
@@ -471,13 +474,13 @@ function ScheduledCommandForm({
               params: { ...formData.params, duration: e.target.value },
             })
           }
-          placeholder="e.g., 1d, 1w, 30m"
+          placeholder={t('scheduledCommands.placeholders.duration')}
         />
       )}
 
       {formData.command === 'message' && (
         <Input
-          label="Message"
+          label={t('scheduledCommands.form.messageLabel')}
           value={(formData.params as Record<string, string>)?.message || ''}
           onChange={(e) =>
             setFormData({
@@ -485,19 +488,19 @@ function ScheduledCommandForm({
               params: { ...formData.params, message: e.target.value },
             })
           }
-          placeholder="Message to send"
+          placeholder={t('scheduledCommands.placeholders.message')}
         />
       )}
 
       <div className="grid grid-cols-2 gap-4">
         <Select
-          label="Schedule *"
+          label={t('scheduledCommands.form.scheduleLabel')}
           value={formData.schedule}
           onChange={(e) => setFormData({ ...formData, schedule: e.target.value })}
         >
           {SCHEDULE_TYPES.map((opt) => (
             <option key={opt.value} value={opt.value}>
-              {opt.label}
+              {t(`scheduledCommands.scheduleTypes.${opt.value}`)}
             </option>
           ))}
         </Select>
@@ -517,14 +520,14 @@ function ScheduledCommandForm({
         )}
       </div>
 
-      <label className="flex items-center gap-2 cursor-pointer">
+        <label className="flex items-center gap-2 cursor-pointer">
         <input
           type="checkbox"
           checked={formData.is_enabled}
           onChange={(e) => setFormData({ ...formData, is_enabled: e.target.checked })}
           className="w-4 h-4 rounded border-[var(--border-color)] bg-[var(--bg-tertiary)] checked:bg-[var(--accent-color)]"
         />
-        <span className="text-[var(--text-secondary)]">Enable this scheduled command</span>
+        <span className="text-[var(--text-secondary)]">{t('scheduledCommands.form.enableLabel')}</span>
       </label>
     </div>
   )

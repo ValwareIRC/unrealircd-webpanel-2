@@ -778,6 +778,94 @@
       "confirm": "Tem certeza de que deseja remover esta entrada da lista de observação?"
     }
   },
+  "scheduledCommands": {
+    "title": "Comandos Agendados",
+    "subtitle": "Agendar comandos IRC para serem executados automaticamente",
+    "createButton": "Criar Agendamento",
+    "searchPlaceholder": "Pesquisar comandos...",
+    "emptyMessage": "Nenhum comando agendado",
+    "never": "Nunca",
+    "next": "Próxima",
+    "messages": {
+      "created": "Comando agendado criado",
+      "createFailed": "Falha ao criar comando agendado",
+      "updated": "Comando agendado atualizado",
+      "updateFailed": "Falha ao atualizar comando agendado",
+      "deleted": "Comando agendado removido",
+      "deleteFailed": "Falha ao remover comando agendado",
+      "toggleFailed": "Falha ao alternar comando agendado",
+      "commandExecuted": "Comando executado",
+      "runFailed": "Falha ao executar comando",
+      "loadFailed": "Falha ao carregar comandos agendados: {{error}}"
+    },
+    "table": {
+      "status": "Status",
+      "name": "Nome",
+      "command": "Comando",
+      "schedule": "Agendamento",
+      "lastRun": "Última Execução",
+      "runs": "Execuções"
+    },
+    "tooltips": {
+      "clickToDisable": "Clique para desabilitar",
+      "clickToEnable": "Clique para habilitar",
+      "runNow": "Executar agora"
+    },
+    "labels": {
+      "active": "Ativo",
+      "paused": "Pausado"
+    },
+    "commandTypes": {
+      "kill": "Remover usuário",
+      "gline": "G-Line (Banimento de servidor)",
+      "rehash": "Recarregar servidor",
+      "message": "Enviar mensagem"
+    },
+    "scheduleTypes": {
+      "once": "Uma vez",
+      "hourly": "A cada hora",
+      "daily": "Diariamente",
+      "weekly": "Semanalmente",
+      "monthly": "Mensalmente"
+    },
+    "form": {
+      "nameLabel": "Nome *",
+      "namePlaceholder": "ex.: limpeza diária, manutenção agendada",
+      "descriptionLabel": "Descrição",
+      "descriptionPlaceholder": "O que este comando agendado faz?",
+      "commandTypeLabel": "Tipo de Comando *",
+      "targetLabel": "Alvo",
+      "reasonLabel": "Razão",
+      "durationLabel": "Duração",
+      "messageLabel": "Mensagem",
+      "scheduleLabel": "Agendamento *",
+      "enableLabel": "Habilitar este comando agendado"
+    },
+    "placeholders": {
+      "target": {
+        "kill": "Apelido",
+        "gline": "Máscara de host (ex.: *@*.bad.com)",
+        "rehash": "Nome do servidor",
+        "message": "Canal ou apelido",
+        "default": "Alvo"
+      },
+      "reason": "Razão para a ação",
+      "duration": "ex.: 1d, 1w, 30m",
+      "message": "Mensagem a ser enviada"
+    },
+    "createModal": {
+      "title": "Criar Comando Agendado",
+      "createButton": "Criar Agendamento"
+    },
+    "editModal": {
+      "title": "Editar Comando Agendado",
+      "saveButton": "Salvar Alterações"
+    },
+    "deleteModal": {
+      "title": "Excluir Comando Agendado",
+      "confirm": "Tem certeza de que deseja excluir este comando agendado? Esta ação não pode ser desfeita."
+    }
+  },
   "header": {
     "searchPlaceholder": "Pesquisar ou pular para...",
     "refreshStats": "Atualizar estatísticas",
