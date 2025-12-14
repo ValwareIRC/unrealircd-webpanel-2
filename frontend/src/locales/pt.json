@@ -725,6 +725,59 @@
     "lastUsed": "Último uso",
     "apply": "Aplicar"
   },
+  "watchList": {
+    "title": "Lista de Observação",
+    "subtitle": "Monitorar usuários que correspondem a critérios específicos",
+    "addButton": "Adicionar à Lista de Observação",
+    "summary": {
+      "entriesLabel": "Entradas da Lista de Observação",
+      "usersCurrentlyMatched": "Usuários Correspondentes Atualmente",
+      "entriesWithActiveMatches": "Entradas com Correspondências Ativas"
+    },
+    "alert": "{{count}} usuário(s) atualmente correspondem aos critérios da sua lista de observação. Clique na seta de expansão ou no ícone para ver detalhes.",
+    "searchPlaceholder": "Pesquisar por nick, IP, razão...",
+    "emptyMessage": "Nenhum usuário na lista de observação",
+    "messages": {
+      "added": "Usuário adicionado à lista de observação",
+      "addFailed": "Falha ao adicionar usuário",
+      "updated": "Entrada da lista de observação atualizada",
+      "updateFailed": "Falha ao atualizar entrada",
+      "removed": "Removido da lista de observação",
+      "removeFailed": "Falha ao remover entrada",
+      "loadFailed": "Falha ao carregar a lista de observação: {{error}}"
+    },
+    "table": {
+      "criteria": "Critérios de Correspondência",
+      "reason": "Razão",
+      "addedBy": "Adicionado por",
+      "addedAt": "Adicionado",
+      "currentMatches": "Correspondências Atuais"
+    },
+    "labels": {
+      "nick": "Nick",
+      "ip": "IP",
+      "host": "Host",
+      "account": "Conta",
+      "realname": "Nome Real",
+      "online": "online"
+    },
+    "tooltips": {
+      "viewMatched": "Ver usuários correspondentes"
+    },
+    "addModal": {
+      "title": "Adicionar à Lista de Observação",
+      "addButton": "Adicionar à Lista de Observação"
+    },
+    "editModal": {
+      "title": "Editar Entrada da Lista de Observação",
+      "saveButton": "Salvar Alterações"
+    },
+    "deleteModal": {
+      "title": "Remover da Lista de Observação",
+      "removeButton": "Remover",
+      "confirm": "Tem certeza de que deseja remover esta entrada da lista de observação?"
+    }
+  },
   "header": {
     "searchPlaceholder": "Pesquisar ou pular para...",
     "refreshStats": "Atualizar estatísticas",

@@ -767,6 +767,59 @@
     "lastUsed": "Last used",
     "apply": "Apply"
   },
+  "watchList": {
+    "title": "Watch List",
+    "subtitle": "Monitor users matching specific criteria",
+    "addButton": "Add to Watch List",
+    "summary": {
+      "entriesLabel": "Watch List Entries",
+      "usersCurrentlyMatched": "Users Currently Matched",
+      "entriesWithActiveMatches": "Entries with Active Matches"
+    },
+    "alert": "{{count}} user(s) currently match your watch list criteria. Click the expand arrow or the icon to view details.",
+    "searchPlaceholder": "Search by nick, IP, reason...",
+    "emptyMessage": "No users in watch list",
+    "messages": {
+      "added": "User added to watch list",
+      "addFailed": "Failed to add user",
+      "updated": "Watch list entry updated",
+      "updateFailed": "Failed to update entry",
+      "removed": "Removed from watch list",
+      "removeFailed": "Failed to remove entry",
+      "loadFailed": "Failed to load watch list: {{error}}"
+    },
+    "table": {
+      "criteria": "Match Criteria",
+      "reason": "Reason",
+      "addedBy": "Added By",
+      "addedAt": "Added",
+      "currentMatches": "Current Matches"
+    },
+    "labels": {
+      "nick": "Nick",
+      "ip": "IP",
+      "host": "Host",
+      "account": "Account",
+      "realname": "Realname",
+      "online": "online"
+    },
+    "tooltips": {
+      "viewMatched": "View matched users"
+    },
+    "addModal": {
+      "title": "Add to Watch List",
+      "addButton": "Add to Watch List"
+    },
+    "editModal": {
+      "title": "Edit Watch List Entry",
+      "saveButton": "Save Changes"
+    },
+    "deleteModal": {
+      "title": "Remove from Watch List",
+      "removeButton": "Remove",
+      "confirm": "Are you sure you want to remove this entry from the watch list?"
+    }
+  },
   "channelDetail": {
     "backToChannels": "Back to Channels",
     "channelDetails": "Channel Details",
