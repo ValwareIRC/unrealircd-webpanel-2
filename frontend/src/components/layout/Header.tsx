@@ -2,6 +2,7 @@ import { useNetworkStats } from '@/hooks'
 import { ThemeSwitcher, LanguageSwitcher, HeaderSeasonalAnimations } from '@/components/common'
 import { Bell, Search, Wifi, WifiOff, RefreshCw, Command } from 'lucide-react'
 import { useLayoutContext } from './Layout'
+import { useTranslation } from 'react-i18next'
 
 interface HeaderProps {
   sidebarCollapsed: boolean
@@ -10,6 +11,7 @@ interface HeaderProps {
 export function Header({ sidebarCollapsed }: HeaderProps) {
   const { data: stats, isLoading, refetch, isRefetching } = useNetworkStats()
   const { openCommandPalette } = useLayoutContext()
+  const { t } = useTranslation()
 
   const isConnected = stats && !isLoading
 
@@ -28,7 +30,7 @@ export function Header({ sidebarCollapsed }: HeaderProps) {
             className="w-full flex items-center gap-3 px-4 py-2 bg-[var(--bg-tertiary)] border border-[var(--border-primary)] rounded-lg text-[var(--text-muted)] hover:border-[var(--border-secondary)] hover:text-[var(--text-secondary)] transition-all text-left"
           >
             <Search size={18} />
-            <span className="flex-1">Search or jump to...</span>
+            <span className="flex-1">{t('header.searchPlaceholder')}</span>
             <kbd className="hidden sm:flex items-center gap-1 px-2 py-0.5 text-xs bg-[var(--bg-secondary)] rounded border border-[var(--border-primary)]">
               <Command size={12} />
               <span>K</span>
@@ -44,7 +46,7 @@ export function Header({ sidebarCollapsed }: HeaderProps) {
               onClick={() => refetch()}
               disabled={isRefetching}
               className="p-2 rounded-lg hover:bg-[var(--bg-hover)] text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors disabled:opacity-50"
-              title="Refresh stats"
+              title={t('header.refreshStats')}
             >
               <RefreshCw size={18} className={isRefetching ? 'animate-spin' : ''} />
             </button>
@@ -56,7 +58,7 @@ export function Header({ sidebarCollapsed }: HeaderProps) {
               }`}
             >
               {isConnected ? <Wifi size={14} /> : <WifiOff size={14} />}
-              <span>{isConnected ? 'Connected' : 'Disconnected'}</span>
+              <span>{isConnected ? t('header.connected') : t('header.disconnected')}</span>
             </div>
           </div>
 
@@ -64,13 +66,13 @@ export function Header({ sidebarCollapsed }: HeaderProps) {
           {stats && (
             <div className="hidden md:flex items-center gap-4 text-sm">
               <div className="text-[var(--text-muted)]">
-                <span className="text-[var(--text-primary)] font-medium">{stats.users}</span> users
+                <span className="text-[var(--text-primary)] font-medium">{stats.users}</span> {t('header.users')}
               </div>
               <div className="text-[var(--text-muted)]">
-                <span className="text-[var(--text-primary)] font-medium">{stats.channels}</span> channels
+                <span className="text-[var(--text-primary)] font-medium">{stats.channels}</span> {t('header.channels')}
               </div>
               <div className="text-[var(--text-muted)]">
-                <span className="text-[var(--text-primary)] font-medium">{stats.servers}</span> servers
+                <span className="text-[var(--text-primary)] font-medium">{stats.servers}</span> {t('header.servers')}
               </div>
             </div>
           )}

@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import { useQuery } from '@tanstack/react-query'
+import { useTranslation } from 'react-i18next'
 import {
   AreaChart,
   Area,
@@ -118,6 +119,7 @@ const formatBytes = (bytes: number) => {
 }
 
 export default function StatisticsPage() {
+  const { t } = useTranslation()
   const { data, isLoading, error, refetch, isFetching } = useQuery({
     queryKey: ['stats-history'],
     queryFn: async (): Promise<StatsHistoryResponse> => {
@@ -173,15 +175,15 @@ export default function StatisticsPage() {
     if (!latestSnapshot) return []
     const bans = latestSnapshot.server_ban
     return [
-      { name: 'G-Lines', value: bans.gline, color: COLORS[0] },
-      { name: 'K-Lines', value: bans.kline, color: COLORS[1] },
-      { name: 'Z-Lines', value: bans.zline, color: COLORS[2] },
-      { name: 'GZ-Lines', value: bans.gzline, color: COLORS[3] },
-      { name: 'Shuns', value: bans.shun, color: COLORS[4] },
-      { name: 'Spamfilters', value: bans.spamfilter, color: COLORS[5] },
-      { name: 'Q-Lines', value: bans.qline, color: COLORS[6] },
+      { name: t('statistics.gLines'), value: bans.gline, color: COLORS[0] },
+      { name: t('statistics.kLines'), value: bans.kline, color: COLORS[1] },
+      { name: t('statistics.zLines'), value: bans.zline, color: COLORS[2] },
+      { name: t('statistics.gzLines'), value: bans.gzline, color: COLORS[3] },
+      { name: t('statistics.shuns'), value: bans.shun, color: COLORS[4] },
+      { name: t('statistics.spamfilters'), value: bans.spamfilter, color: COLORS[5] },
+      { name: t('statistics.qLines'), value: bans.qline, color: COLORS[6] },
     ].filter(item => item.value > 0)
-  }, [latestSnapshot])
+  }, [latestSnapshot, t])
 
   // User type distribution for pie chart
   const userDistribution = useMemo(() => {
@@ -189,11 +191,11 @@ export default function StatisticsPage() {
     const users = latestSnapshot.users
     const regularUsers = users.total - users.operators - users.invisible
     return [
-      { name: 'Regular Users', value: Math.max(0, regularUsers), color: COLORS[0] },
-      { name: 'Operators', value: users.operators, color: COLORS[1] },
-      { name: 'Invisible', value: users.invisible, color: COLORS[2] },
+      { name: t('statistics.regularUsers'), value: Math.max(0, regularUsers), color: COLORS[0] },
+      { name: t('statistics.operators'), value: users.operators, color: COLORS[1] },
+      { name: t('statistics.invisible'), value: users.invisible, color: COLORS[2] },
     ].filter(item => item.value > 0)
-  }, [latestSnapshot])
+  }, [latestSnapshot, t])
 
   // Connection stats for bar chart
   const connectionStats = useMemo(() => {
@@ -213,8 +215,8 @@ export default function StatisticsPage() {
     return (
       <div className="space-y-6">
         <div>
-          <h1 className="text-2xl font-bold text-[var(--text-primary)]">Statistics</h1>
-          <p className="text-[var(--text-muted)] mt-1">Historical network statistics</p>
+          <h1 className="text-2xl font-bold text-[var(--text-primary)]">{t('statistics.title')}</h1>
+          <p className="text-[var(--text-muted)] mt-1">{t('statistics.subtitle')}</p>
         </div>
         <Alert type="error">
           Failed to load statistics: {error instanceof Error ? error.message : 'Unknown error'}
@@ -230,9 +232,9 @@ export default function StatisticsPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[var(--text-primary)]">Statistics</h1>
+          <h1 className="text-2xl font-bold text-[var(--text-primary)]">{t('statistics.title')}</h1>
           <p className="text-[var(--text-muted)] mt-1">
-            Historical network statistics
+            {t('statistics.subtitle')}
             {data && (
               <span className="ml-2 text-sm">
                 ({data.count} snapshots, {Math.round(data.snapshot_interval_seconds / 60)} min intervals)
@@ -259,28 +261,28 @@ export default function StatisticsPage() {
           {/* Summary Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <SummaryCard
-              title="Current Users"
+              title={t('statistics.currentUsers')}
               value={latestSnapshot?.users.total || 0}
               subtitle={`Peak: ${latestSnapshot?.users.global_max || 0}`}
               icon={Users}
               color="accent"
             />
             <SummaryCard
-              title="Channels"
+              title={t('statistics.channels')}
               value={latestSnapshot?.channels.total || 0}
               subtitle="Active channels"
               icon={Hash}
               color="green"
             />
             <SummaryCard
-              title="Servers"
+              title={t('statistics.servers')}
               value={latestSnapshot?.servers.total || 0}
               subtitle={`${latestSnapshot?.servers.ulined || 0} U-Lined`}
               icon={Server}
               color="blue"
             />
             <SummaryCard
-              title="Active Bans"
+              title={t('statistics.activeBans')}
               value={latestSnapshot?.server_ban.total || 0}
               subtitle="All ban types"
               icon={Shield}
@@ -294,8 +296,8 @@ export default function StatisticsPage() {
               <div className="flex items-center gap-3">
                 <Activity size={20} className="text-[var(--accent)]" />
                 <div>
-                  <h3 className="text-lg font-semibold text-[var(--text-primary)]">User Activity</h3>
-                  <p className="text-sm text-[var(--text-muted)]">Users and channels over time</p>
+                  <h3 className="text-lg font-semibold text-[var(--text-primary)]">{t('statistics.userActivity')}</h3>
+                  <p className="text-sm text-[var(--text-muted)]">{t('statistics.userActivityDesc')}</p>
                 </div>
               </div>
               <div className="flex items-center gap-4 text-sm">
@@ -374,8 +376,8 @@ export default function StatisticsPage() {
               <div className="flex items-center gap-3 mb-6">
                 <Shield size={20} className="text-[var(--error)]" />
                 <div>
-                  <h3 className="text-lg font-semibold text-[var(--text-primary)]">Ban Distribution</h3>
-                  <p className="text-sm text-[var(--text-muted)]">Breakdown by ban type</p>
+                  <h3 className="text-lg font-semibold text-[var(--text-primary)]">{t('statistics.banDistribution')}</h3>
+                  <p className="text-sm text-[var(--text-muted)]">{t('statistics.banDistributionDesc')}</p>
                 </div>
               </div>
               <div className="h-64">
@@ -408,7 +410,7 @@ export default function StatisticsPage() {
                   </ResponsiveContainer>
                 ) : (
                   <div className="h-full flex items-center justify-center text-[var(--text-muted)]">
-                    No active bans
+                    {t('statistics.noActiveBans')}
                   </div>
                 )}
               </div>
@@ -432,8 +434,8 @@ export default function StatisticsPage() {
               <div className="flex items-center gap-3 mb-6">
                 <Users size={20} className="text-[var(--accent)]" />
                 <div>
-                  <h3 className="text-lg font-semibold text-[var(--text-primary)]">User Distribution</h3>
-                  <p className="text-sm text-[var(--text-muted)]">Breakdown by user type</p>
+                  <h3 className="text-lg font-semibold text-[var(--text-primary)]">{t('statistics.userDistribution')}</h3>
+                  <p className="text-sm text-[var(--text-muted)]">{t('statistics.userDistributionDesc')}</p>
                 </div>
               </div>
               <div className="h-64">
@@ -466,7 +468,7 @@ export default function StatisticsPage() {
                   </ResponsiveContainer>
                 ) : (
                   <div className="h-full flex items-center justify-center text-[var(--text-muted)]">
-                    No users connected
+                    {t('statistics.noUsersConnected')}
                   </div>
                 )}
               </div>
@@ -491,8 +493,8 @@ export default function StatisticsPage() {
             <div className="flex items-center gap-3 mb-6">
               <TrendingUp size={20} className="text-[var(--success)]" />
               <div>
-                <h3 className="text-lg font-semibold text-[var(--text-primary)]">Connection Statistics</h3>
-                <p className="text-sm text-[var(--text-muted)]">Authentication and connection metrics</p>
+                <h3 className="text-lg font-semibold text-[var(--text-primary)]">{t('statistics.connectionStatistics')}</h3>
+                <p className="text-sm text-[var(--text-muted)]">{t('statistics.connectionStatisticsDesc')}</p>
               </div>
             </div>
             <div className="h-64">
@@ -523,8 +525,8 @@ export default function StatisticsPage() {
             <div className="flex items-center gap-3 mb-6">
               <Activity size={20} className="text-[var(--info)]" />
               <div>
-                <h3 className="text-lg font-semibold text-[var(--text-primary)]">Network Traffic</h3>
-                <p className="text-sm text-[var(--text-muted)]">Data transfer over time</p>
+                <h3 className="text-lg font-semibold text-[var(--text-primary)]">{t('statistics.networkTraffic')}</h3>
+                <p className="text-sm text-[var(--text-muted)]">{t('statistics.networkTrafficDesc')}</p>
               </div>
             </div>
             <div className="h-64">
@@ -553,7 +555,7 @@ export default function StatisticsPage() {
                     stroke="var(--accent)"
                     strokeWidth={2}
                     dot={false}
-                    name="Bytes Received"
+                    name={t('statistics.bytesReceived')}
                   />
                   <Line
                     type="monotone"
@@ -561,7 +563,7 @@ export default function StatisticsPage() {
                     stroke="var(--success)"
                     strokeWidth={2}
                     dot={false}
-                    name="Bytes Sent"
+                    name={t('statistics.bytesSent')}
                   />
                 </LineChart>
               </ResponsiveContainer>
@@ -573,8 +575,8 @@ export default function StatisticsPage() {
             <div className="flex items-center gap-3 mb-6">
               <Shield size={20} className="text-[var(--warning)]" />
               <div>
-                <h3 className="text-lg font-semibold text-[var(--text-primary)]">Ban History</h3>
-                <p className="text-sm text-[var(--text-muted)]">Ban counts over time</p>
+                <h3 className="text-lg font-semibold text-[var(--text-primary)]">{t('statistics.banHistory')}</h3>
+                <p className="text-sm text-[var(--text-muted)]">{t('statistics.banHistoryDesc')}</p>
               </div>
             </div>
             <div className="h-64">
@@ -592,10 +594,10 @@ export default function StatisticsPage() {
                     labelFormatter={(_, payload) => payload?.[0]?.payload?.fullTime || ''}
                   />
                   <Legend />
-                  <Line type="monotone" dataKey="glines" stroke={COLORS[0]} strokeWidth={2} dot={false} name="G-Lines" />
-                  <Line type="monotone" dataKey="klines" stroke={COLORS[1]} strokeWidth={2} dot={false} name="K-Lines" />
-                  <Line type="monotone" dataKey="shuns" stroke={COLORS[4]} strokeWidth={2} dot={false} name="Shuns" />
-                  <Line type="monotone" dataKey="spamfilters" stroke={COLORS[5]} strokeWidth={2} dot={false} name="Spamfilters" />
+                  <Line type="monotone" dataKey="glines" stroke={COLORS[0]} strokeWidth={2} dot={false} name={t('statistics.gLines')} />
+                  <Line type="monotone" dataKey="klines" stroke={COLORS[1]} strokeWidth={2} dot={false} name={t('statistics.kLines')} />
+                  <Line type="monotone" dataKey="shuns" stroke={COLORS[4]} strokeWidth={2} dot={false} name={t('statistics.shuns')} />
+                  <Line type="monotone" dataKey="spamfilters" stroke={COLORS[5]} strokeWidth={2} dot={false} name={t('statistics.spamfilters')} />
                 </LineChart>
               </ResponsiveContainer>
             </div>
@@ -606,8 +608,8 @@ export default function StatisticsPage() {
             <div className="flex items-center gap-3 mb-6">
               <Server size={20} className="text-[var(--info)]" />
               <div>
-                <h3 className="text-lg font-semibold text-[var(--text-primary)]">Server Statistics</h3>
-                <p className="text-sm text-[var(--text-muted)]">Server counts over time</p>
+                <h3 className="text-lg font-semibold text-[var(--text-primary)]">{t('statistics.serverStatistics')}</h3>
+                <p className="text-sm text-[var(--text-muted)]">{t('statistics.serverStatisticsDesc')}</p>
               </div>
             </div>
             <div className="h-64">
@@ -637,7 +639,7 @@ export default function StatisticsPage() {
                     stroke="var(--info)"
                     fill="url(#serverGradient)"
                     strokeWidth={2}
-                    name="Total Servers"
+                    name={t('statistics.totalServers')}
                   />
                   <Line
                     type="monotone"
@@ -645,7 +647,7 @@ export default function StatisticsPage() {
                     stroke="var(--warning)"
                     strokeWidth={2}
                     dot={false}
-                    name="U-Lined Servers"
+                    name={t('statistics.uLinedServers')}
                   />
                 </AreaChart>
               </ResponsiveContainer>
@@ -657,12 +659,15 @@ export default function StatisticsPage() {
             <div className="flex items-center gap-2 text-sm text-[var(--text-muted)]">
               <Clock size={14} />
               <span>
-                Showing {data?.count || 0} of {data?.max_available || 0} available snapshots
-                (max history: {data?.history_size || 0})
+                {t('statistics.showingSnapshots', {
+                  count: data?.count || 0,
+                  max: data?.max_available || 0,
+                  history: data?.history_size || 0
+                })}
               </span>
               {latestSnapshot && (
                 <span className="ml-auto">
-                  Last snapshot: {new Date(latestSnapshot.timestamp).toLocaleString()}
+                  {t('statistics.lastSnapshot', { timestamp: new Date(latestSnapshot.timestamp).toLocaleString() })}
                 </span>
               )}
             </div>

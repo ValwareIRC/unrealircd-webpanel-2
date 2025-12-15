@@ -14,16 +14,7 @@ import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid';
 import marketplaceService, { MarketplacePlugin, InstalledPlugin } from '../services/marketplaceService';
 import { Button, Badge, LoadingSpinner } from '@/components/common';
 import { formatDistanceToNow } from 'date-fns';
-
-const CATEGORY_LABELS: Record<string, string> = {
-  all: 'All Plugins',
-  security: 'Security',
-  integration: 'Integration',
-  monitoring: 'Monitoring',
-  management: 'Management',
-  utilities: 'Utilities',
-  appearance: 'Appearance',
-};
+import { useTranslation } from 'react-i18next';
 
 const CATEGORY_COLORS: Record<string, string> = {
   security: 'bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300',
@@ -36,6 +27,17 @@ const CATEGORY_COLORS: Record<string, string> = {
 
 const MarketplacePage: React.FC = () => {
   const queryClient = useQueryClient();
+  const { t } = useTranslation()
+  
+  const CATEGORY_LABELS: Record<string, string> = {
+    all: t('marketplace.categories.all'),
+    security: t('marketplace.categories.security'),
+    integration: t('marketplace.categories.integration'),
+    monitoring: t('marketplace.categories.monitoring'),
+    management: t('marketplace.categories.management'),
+    utilities: t('marketplace.categories.utilities'),
+    appearance: t('marketplace.categories.appearance'),
+  };
   const [activeTab, setActiveTab] = useState<'marketplace' | 'installed'>('marketplace');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
@@ -132,11 +134,11 @@ const MarketplacePage: React.FC = () => {
             </div>
             <div>
               <h3 className="font-semibold text-gray-900 dark:text-white">{plugin.name}</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400">by {plugin.author}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">{t('marketplace.byAuthor', { author: plugin.author })}</p>
             </div>
           </div>
           {plugin.installed && (
-            <Badge variant="success">Installed</Badge>
+            <Badge variant="success">{t('marketplace.installed')}</Badge>
           )}
         </div>
 
@@ -147,7 +149,7 @@ const MarketplacePage: React.FC = () => {
         <div className="flex items-center gap-4 mb-4 text-sm">
           <div className="flex items-center gap-1">
             {renderStars(plugin.rating)}
-            <span className="ml-1 text-gray-500">({plugin.rating_count})</span>
+            <span className="ml-1 text-gray-500">{t('marketplace.rating', { count: plugin.rating_count })}</span>
           </div>
           <div className="text-gray-500">
             <ArrowDownTrayIcon className="w-4 h-4 inline mr-1" />
@@ -171,7 +173,7 @@ const MarketplacePage: React.FC = () => {
 
         <div className="flex items-center justify-between pt-3 border-t border-gray-200 dark:border-gray-700">
           <div className="text-xs text-gray-500">
-            v{plugin.version} • Updated {formatDistanceToNow(new Date(plugin.last_updated))} ago
+            v{plugin.version} • {t('marketplace.updatedAgo', { time: formatDistanceToNow(new Date(plugin.last_updated)) })}
           </div>
           <div className="flex gap-2">
             {plugin.installed ? (
@@ -202,7 +204,7 @@ const MarketplacePage: React.FC = () => {
                 onClick={() => installMutation.mutate(plugin.id)}
                 disabled={installMutation.isPending}
               >
-                Install
+                {t('marketplace.install')}
               </Button>
             )}
           </div>
@@ -220,13 +222,13 @@ const MarketplacePage: React.FC = () => {
         <div>
           <div className="flex items-center gap-2">
             <h4 className="font-medium text-gray-900 dark:text-white">{plugin.name}</h4>
-            <span className="text-xs text-gray-500">v{plugin.version}</span>
+            <span className="text-xs text-gray-500">{t('marketplace.version', { version: plugin.version })}</span>
             {plugin.update_available && (
-              <Badge variant="warning">Update to {plugin.new_version}</Badge>
+              <Badge variant="warning">{t('marketplace.updateTo', { version: plugin.new_version })}</Badge>
             )}
           </div>
           <p className="text-sm text-gray-500 dark:text-gray-400">
-            by {plugin.author} • Installed {formatDistanceToNow(new Date(plugin.installed_at))} ago
+            {t('marketplace.byAuthor', { author: plugin.author })} • {t('marketplace.installedAgo', { time: formatDistanceToNow(new Date(plugin.installed_at)) })}
           </p>
         </div>
       </div>
@@ -254,7 +256,7 @@ const MarketplacePage: React.FC = () => {
             disabled={updateMutation.isPending}
           >
             <ArrowPathIcon className="w-4 h-4 mr-1" />
-            Update
+            {t('marketplace.update')}
           </Button>
         )}
 
@@ -305,7 +307,7 @@ const MarketplacePage: React.FC = () => {
                 : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400'
             }`}
           >
-            Browse Marketplace
+            {t('marketplace.tabs.browse')}
           </button>
           <button
             onClick={() => setActiveTab('installed')}
@@ -315,7 +317,7 @@ const MarketplacePage: React.FC = () => {
                 : 'border-transparent text-gray-500 hover:text-gray-700 dark:text-gray-400'
             }`}
           >
-            Installed
+            {t('marketplace.tabs.installed')}
             {installedPlugins && (
               <span className="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-2 py-0.5 rounded-full text-xs">
                 {installedPlugins.length}
@@ -335,7 +337,7 @@ const MarketplacePage: React.FC = () => {
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search plugins..."
+                placeholder={t('marketplace.searchPlaceholder')}
                 autoComplete="off"
                 className="w-full pl-10 pr-4 py-2 border rounded-lg dark:bg-gray-800 dark:border-gray-600 focus:ring-2 focus:ring-indigo-500"
               />
@@ -397,7 +399,7 @@ const MarketplacePage: React.FC = () => {
                       <p className="text-2xl font-bold text-gray-900 dark:text-white">
                         {installedPlugins.filter((p) => p.enabled).length}
                       </p>
-                      <p className="text-sm text-gray-500">Active Plugins</p>
+                      <p className="text-sm text-gray-500">{t('marketplace.activePlugins')}</p>
                     </div>
                   </div>
                 </div>
@@ -410,7 +412,7 @@ const MarketplacePage: React.FC = () => {
                       <p className="text-2xl font-bold text-gray-900 dark:text-white">
                         {installedPlugins.filter((p) => p.update_available).length}
                       </p>
-                      <p className="text-sm text-gray-500">Updates Available</p>
+                      <p className="text-sm text-gray-500">{t('marketplace.updatesAvailable')}</p>
                     </div>
                   </div>
                 </div>
@@ -423,7 +425,7 @@ const MarketplacePage: React.FC = () => {
                       <p className="text-2xl font-bold text-gray-900 dark:text-white">
                         {installedPlugins.filter((p) => !p.enabled).length}
                       </p>
-                      <p className="text-sm text-gray-500">Disabled</p>
+                      <p className="text-sm text-gray-500">{t('marketplace.disabled')}</p>
                     </div>
                   </div>
                 </div>
@@ -439,10 +441,10 @@ const MarketplacePage: React.FC = () => {
           ) : (
             <div className="text-center py-12">
               <PuzzlePieceIcon className="w-12 h-12 mx-auto text-gray-400" />
-              <p className="mt-2 text-gray-500">No plugins installed</p>
-              <p className="text-sm text-gray-400 mb-4">Browse the marketplace to find plugins</p>
+              <p className="mt-2 text-gray-500">{t('marketplace.noPlugins')}</p>
+              <p className="text-sm text-gray-400 mb-4">{t('marketplace.browseToFind')}</p>
               <Button variant="primary" onClick={() => setActiveTab('marketplace')}>
-                Browse Marketplace
+                {t('marketplace.tabs.browse')}
               </Button>
             </div>
           )}

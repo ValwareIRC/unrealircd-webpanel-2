@@ -1,0 +1,1502 @@
+[
+  {
+    "key": "statistics.gLines",
+    "en": "G-Lines",
+    "current": "__UNTRANSLATED__ (G-Lines)"
+  },
+  {
+    "key": "statistics.kLines",
+    "en": "K-Lines",
+    "current": "__UNTRANSLATED__ (K-Lines)"
+  },
+  {
+    "key": "statistics.zLines",
+    "en": "Z-Lines",
+    "current": "__UNTRANSLATED__ (Z-Lines)"
+  },
+  {
+    "key": "statistics.gzLines",
+    "en": "GZ-Lines",
+    "current": "__UNTRANSLATED__ (GZ-Lines)"
+  },
+  {
+    "key": "statistics.shuns",
+    "en": "Shuns",
+    "current": "__UNTRANSLATED__ (Shuns)"
+  },
+  {
+    "key": "statistics.qLines",
+    "en": "Q-Lines",
+    "current": "__UNTRANSLATED__ (Q-Lines)"
+  },
+  {
+    "key": "banExceptions.maskPlaceholder",
+    "en": "*@*.trusted.example.com",
+    "current": "__UNTRANSLATED__ (*@*.trusted.example.com)"
+  },
+  {
+    "key": "banExceptions.gline",
+    "en": "G-Line",
+    "current": "__UNTRANSLATED__ (G-Line)"
+  },
+  {
+    "key": "banExceptions.kline",
+    "en": "K-Line",
+    "current": "__UNTRANSLATED__ (K-Line)"
+  },
+  {
+    "key": "banExceptions.gzline",
+    "en": "GZ-Line",
+    "current": "__UNTRANSLATED__ (GZ-Line)"
+  },
+  {
+    "key": "banExceptions.zline",
+    "en": "Z-Line",
+    "current": "__UNTRANSLATED__ (Z-Line)"
+  },
+  {
+    "key": "banExceptions.shun",
+    "en": "Shun",
+    "current": "__UNTRANSLATED__ (Shun)"
+  },
+  {
+    "key": "channelDetail.invites",
+    "en": "Invites",
+    "current": "__UNTRANSLATED__ (Invites)"
+  },
+  {
+    "key": "channelDetail.excepts",
+    "en": "Excepts",
+    "current": "__UNTRANSLATED__ (Excepts)"
+  },
+  {
+    "key": "channelDetail.users",
+    "en": "users",
+    "current": "__UNTRANSLATED__ (users)"
+  },
+  {
+    "key": "channelDetail.backToChannels",
+    "en": "Back to Channels",
+    "current": "__UNTRANSLATED__ (Back to Channels)"
+  },
+  {
+    "key": "channelDetail.channelDetails",
+    "en": "Channel Details",
+    "current": "__UNTRANSLATED__ (Channel Details)"
+  },
+  {
+    "key": "channelDetail.refresh",
+    "en": "Refresh",
+    "current": "__UNTRANSLATED__ (Refresh)"
+  },
+  {
+    "key": "channelDetail.setTopic",
+    "en": "Set Topic",
+    "current": "__UNTRANSLATED__ (Set Topic)"
+  },
+  {
+    "key": "channelDetail.setMode",
+    "en": "Set Mode",
+    "current": "__UNTRANSLATED__ (Set Mode)"
+  },
+  {
+    "key": "channelDetail.topic",
+    "en": "Topic",
+    "current": "__UNTRANSLATED__ (Topic)"
+  },
+  {
+    "key": "channelDetail.noTopicSet",
+    "en": "No topic set",
+    "current": "__UNTRANSLATED__ (No topic set)"
+  },
+  {
+    "key": "channelDetail.setBy",
+    "en": "Set by",
+    "current": "__UNTRANSLATED__ (Set by)"
+  },
+  {
+    "key": "channelDetail.userList",
+    "en": "User List",
+    "current": "__UNTRANSLATED__ (User List)"
+  },
+  {
+    "key": "channelDetail.noUsersInChannel",
+    "en": "No users in channel",
+    "current": "__UNTRANSLATED__ (No users in channel)"
+  },
+  {
+    "key": "channelDetail.channelSettings",
+    "en": "Channel Settings",
+    "current": "__UNTRANSLATED__ (Channel Settings)"
+  },
+  {
+    "key": "channelDetail.settingsModes",
+    "en": "Settings / Modes",
+    "current": "__UNTRANSLATED__ (Settings / Modes)"
+  },
+  {
+    "key": "channelDetail.currentModes",
+    "en": "Current modes:",
+    "current": "__UNTRANSLATED__ (Current modes:)"
+  },
+  {
+    "key": "channelDetail.defaultModesOnly",
+    "en": "Default modes only",
+    "current": "__UNTRANSLATED__ (Default modes only)"
+  },
+  {
+    "key": "channelDetail.channelInfo",
+    "en": "Channel Info",
+    "current": "__UNTRANSLATED__ (Channel Info)"
+  },
+  {
+    "key": "channelDetail.created",
+    "en": "Created:",
+    "current": "__UNTRANSLATED__ (Created:)"
+  },
+  {
+    "key": "channelDetail.unknown",
+    "en": "Unknown",
+    "current": "__UNTRANSLATED__ (Unknown)"
+  },
+  {
+    "key": "channelDetail.addBan",
+    "en": "Add Ban",
+    "current": "__UNTRANSLATED__ (Add Ban)"
+  },
+  {
+    "key": "channelDetail.maskRequired",
+    "en": "Please enter a mask",
+    "current": "__UNTRANSLATED__ (Please enter a mask)"
+  },
+  {
+    "key": "channelDetail.noBansSet",
+    "en": "No bans set",
+    "current": "__UNTRANSLATED__ (No bans set)"
+  },
+  {
+    "key": "channelDetail.addInvite",
+    "en": "Add Invite",
+    "current": "__UNTRANSLATED__ (Add Invite)"
+  },
+  {
+    "key": "channelDetail.noInviteExceptionsSet",
+    "en": "No invite exceptions set",
+    "current": "__UNTRANSLATED__ (No invite exceptions set)"
+  },
+  {
+    "key": "channelDetail.addException",
+    "en": "Add Exception",
+    "current": "__UNTRANSLATED__ (Add Exception)"
+  },
+  {
+    "key": "channelDetail.noBanExceptionsSet",
+    "en": "No ban exceptions set",
+    "current": "__UNTRANSLATED__ (No ban exceptions set)"
+  },
+  {
+    "key": "channelDetail.setTopicTitle",
+    "en": "Set Topic: {{channel}}",
+    "current": "__UNTRANSLATED__ (Set Topic: {{channel}})"
+  },
+  {
+    "key": "channelDetail.setChannelModesTitle",
+    "en": "Set Channel Modes: {{channel}}",
+    "current": "__UNTRANSLATED__ (Set Channel Modes: {{channel}})"
+  },
+  {
+    "key": "channelDetail.kickUserTitle",
+    "en": "Kick User from {{channel}}",
+    "current": "__UNTRANSLATED__ (Kick User from {{channel}})"
+  },
+  {
+    "key": "channelDetail.addChannelBanTitle",
+    "en": "Add Channel Ban",
+    "current": "__UNTRANSLATED__ (Add Channel Ban)"
+  },
+  {
+    "key": "channelDetail.addInviteExceptionTitle",
+    "en": "Add Invite Exception",
+    "current": "__UNTRANSLATED__ (Add Invite Exception)"
+  },
+  {
+    "key": "channelDetail.addBanExceptionTitle",
+    "en": "Add Ban Exception",
+    "current": "__UNTRANSLATED__ (Add Ban Exception)"
+  },
+  {
+    "key": "channelDetail.applyModeChanges",
+    "en": "Apply Mode Changes",
+    "current": "__UNTRANSLATED__ (Apply Mode Changes)"
+  },
+  {
+    "key": "channelDetail.currentModesLabel",
+    "en": "Current modes",
+    "current": "__UNTRANSLATED__ (Current modes)"
+  },
+  {
+    "key": "channelDetail.enterModesManually",
+    "en": "Or enter modes manually:",
+    "current": "__UNTRANSLATED__ (Or enter modes manually:)"
+  },
+  {
+    "key": "channelDetail.parameters",
+    "en": "Parameters",
+    "current": "__UNTRANSLATED__ (Parameters)"
+  },
+  {
+    "key": "channelDetail.kickUser",
+    "en": "Kick User",
+    "current": "__UNTRANSLATED__ (Kick User)"
+  },
+  {
+    "key": "channelDetail.nickname",
+    "en": "Nickname",
+    "current": "__UNTRANSLATED__ (Nickname)"
+  },
+  {
+    "key": "channelDetail.enterNicknameToKick",
+    "en": "Enter nickname to kick",
+    "current": "__UNTRANSLATED__ (Enter nickname to kick)"
+  },
+  {
+    "key": "channelDetail.reasonOptional",
+    "en": "Reason (optional)",
+    "current": "__UNTRANSLATED__ (Reason (optional))"
+  },
+  {
+    "key": "channelDetail.enterKickReason",
+    "en": "Enter kick reason",
+    "current": "__UNTRANSLATED__ (Enter kick reason)"
+  },
+  {
+    "key": "channelDetail.mask",
+    "en": "Mask",
+    "current": "__UNTRANSLATED__ (Mask)"
+  },
+  {
+    "key": "channelDetail.nickUserHostOrExtended",
+    "en": "nick!user@host or extended ban",
+    "current": "__UNTRANSLATED__ (nick!user@host or extended ban)"
+  },
+  {
+    "key": "channelDetail.useExtendedBans",
+    "en": "Use extended bans like ~account:name or ~country:XX",
+    "current": "__UNTRANSLATED__ (Use extended bans like ~account:name or ~country:XX)"
+  },
+  {
+    "key": "channelDetail.durationMinutesOptional",
+    "en": "Duration (minutes, optional)",
+    "current": "__UNTRANSLATED__ (Duration (minutes, optional))"
+  },
+  {
+    "key": "channelDetail.leaveEmptyForPermanent",
+    "en": "Leave empty for permanent",
+    "current": "__UNTRANSLATED__ (Leave empty for permanent)"
+  },
+  {
+    "key": "channelDetail.topicUpdated",
+    "en": "Topic updated",
+    "current": "__UNTRANSLATED__ (Topic updated)"
+  },
+  {
+    "key": "channelDetail.modeChanged",
+    "en": "Mode changed",
+    "current": "__UNTRANSLATED__ (Mode changed)"
+  },
+  {
+    "key": "channelDetail.banRemoved",
+    "en": "Ban removed",
+    "current": "__UNTRANSLATED__ (Ban removed)"
+  },
+  {
+    "key": "channelDetail.inviteRemoved",
+    "en": "Invite removed",
+    "current": "__UNTRANSLATED__ (Invite removed)"
+  },
+  {
+    "key": "channelDetail.exceptionRemoved",
+    "en": "Exception removed",
+    "current": "__UNTRANSLATED__ (Exception removed)"
+  },
+  {
+    "key": "channelDetail.mutedFor30Min",
+    "en": "Muted {{user}} for 30 minutes",
+    "current": "__UNTRANSLATED__ (Muted {{user}} for 30 minutes)"
+  },
+  {
+    "key": "channelDetail.bannedFor30Min",
+    "en": "Banned {{user}} for 30 minutes",
+    "current": "__UNTRANSLATED__ (Banned {{user}} for 30 minutes)"
+  },
+  {
+    "key": "channelDetail.failedToMute",
+    "en": "Failed to mute user",
+    "current": "__UNTRANSLATED__ (Failed to mute user)"
+  },
+  {
+    "key": "channelDetail.failedToBan",
+    "en": "Failed to ban user",
+    "current": "__UNTRANSLATED__ (Failed to ban user)"
+  },
+  {
+    "key": "channelDetail.failedToRemoveBan",
+    "en": "Failed to remove ban",
+    "current": "__UNTRANSLATED__ (Failed to remove ban)"
+  },
+  {
+    "key": "channelDetail.failedToRemoveInvite",
+    "en": "Failed to remove invite",
+    "current": "__UNTRANSLATED__ (Failed to remove invite)"
+  },
+  {
+    "key": "channelDetail.failedToRemoveException",
+    "en": "Failed to remove exception",
+    "current": "__UNTRANSLATED__ (Failed to remove exception)"
+  },
+  {
+    "key": "channelDetail.failedToLoadChannel",
+    "en": "Failed to load channel: {{error}}",
+    "current": "__UNTRANSLATED__ (Failed to load channel: {{error}})"
+  },
+  {
+    "key": "channelDetail.channelNotFound",
+    "en": "Channel not found",
+    "current": "__UNTRANSLATED__ (Channel not found)"
+  },
+  {
+    "key": "channelDetail.muteTooltip",
+    "en": "Mute (30 min)",
+    "current": "__UNTRANSLATED__ (Mute (30 min))"
+  },
+  {
+    "key": "channelDetail.kickTooltip",
+    "en": "Kick",
+    "current": "__UNTRANSLATED__ (Kick)"
+  },
+  {
+    "key": "channelDetail.banTooltip",
+    "en": "Ban (30 min)",
+    "current": "__UNTRANSLATED__ (Ban (30 min))"
+  },
+  {
+    "key": "channelDetail.removeTooltip",
+    "en": "Remove",
+    "current": "__UNTRANSLATED__ (Remove)"
+  },
+  {
+    "key": "channelDetail.setByAt",
+    "en": "Set by {{user}} at {{time}}",
+    "current": "__UNTRANSLATED__ (Set by {{user}} at {{time}})"
+  },
+  {
+    "key": "nameBans.title",
+    "en": "Name Bans",
+    "current": "__UNTRANSLATED__ (Name Bans)"
+  },
+  {
+    "key": "nameBans.description",
+    "en": "Manage Q-Lines (reserved nicknames and channels)",
+    "current": "__UNTRANSLATED__ (Manage Q-Lines (reserved nicknames and channels))"
+  },
+  {
+    "key": "nameBans.addButton",
+    "en": "Add Name Ban",
+    "current": "__UNTRANSLATED__ (Add Name Ban)"
+  },
+  {
+    "key": "nameBans.searchPlaceholder",
+    "en": "Search name bans...",
+    "current": "__UNTRANSLATED__ (Search name bans...)"
+  },
+  {
+    "key": "nameBans.table.type",
+    "en": "Type",
+    "current": "__UNTRANSLATED__ (Type)"
+  },
+  {
+    "key": "nameBans.table.name",
+    "en": "Name/Pattern",
+    "current": "__UNTRANSLATED__ (Name/Pattern)"
+  },
+  {
+    "key": "nameBans.table.reason",
+    "en": "Reason",
+    "current": "__UNTRANSLATED__ (Reason)"
+  },
+  {
+    "key": "nameBans.table.setBy",
+    "en": "Set By",
+    "current": "__UNTRANSLATED__ (Set By)"
+  },
+  {
+    "key": "nameBans.table.setAt",
+    "en": "Set At",
+    "current": "__UNTRANSLATED__ (Set At)"
+  },
+  {
+    "key": "nameBans.table.expires",
+    "en": "Expires",
+    "current": "__UNTRANSLATED__ (Expires)"
+  },
+  {
+    "key": "nameBans.addModal.title",
+    "en": "Add Name Ban",
+    "current": "__UNTRANSLATED__ (Add Name Ban)"
+  },
+  {
+    "key": "nameBans.addModal.labels.banType",
+    "en": "Ban Type",
+    "current": "__UNTRANSLATED__ (Ban Type)"
+  },
+  {
+    "key": "nameBans.addModal.labels.name",
+    "en": "Name/Pattern",
+    "current": "__UNTRANSLATED__ (Name/Pattern)"
+  },
+  {
+    "key": "nameBans.addModal.labels.reason",
+    "en": "Reason",
+    "current": "__UNTRANSLATED__ (Reason)"
+  },
+  {
+    "key": "nameBans.addModal.labels.duration",
+    "en": "Duration",
+    "current": "__UNTRANSLATED__ (Duration)"
+  },
+  {
+    "key": "nameBans.addModal.options.qline",
+    "en": "Q-Line (Nickname)",
+    "current": "__UNTRANSLATED__ (Q-Line (Nickname))"
+  },
+  {
+    "key": "nameBans.addModal.placeholders.nameExample",
+    "en": "e.g., Admin* or #official*",
+    "current": "__UNTRANSLATED__ (e.g., Admin* or #official*)"
+  },
+  {
+    "key": "nameBans.addModal.placeholders.reason",
+    "en": "Enter ban reason",
+    "current": "__UNTRANSLATED__ (Enter ban reason)"
+  },
+  {
+    "key": "nameBans.addModal.help.useWildcard",
+    "en": "Use * as wildcard",
+    "current": "__UNTRANSLATED__ (Use * as wildcard)"
+  },
+  {
+    "key": "nameBans.addModal.addButton",
+    "en": "Add Ban",
+    "current": "__UNTRANSLATED__ (Add Ban)"
+  },
+  {
+    "key": "nameBans.deleteModal.title",
+    "en": "Remove Name Ban",
+    "current": "__UNTRANSLATED__ (Remove Name Ban)"
+  },
+  {
+    "key": "nameBans.deleteModal.removeButton",
+    "en": "Remove Ban",
+    "current": "__UNTRANSLATED__ (Remove Ban)"
+  },
+  {
+    "key": "nameBans.deleteModal.confirm",
+    "en": "Are you sure you want to remove this name ban for {{name}}?",
+    "current": "__UNTRANSLATED__ (Are you sure you want to remove this name ban for {{name}}?)"
+  },
+  {
+    "key": "nameBans.messages.added",
+    "en": "Name ban added successfully",
+    "current": "__UNTRANSLATED__ (Name ban added successfully)"
+  },
+  {
+    "key": "nameBans.messages.removed",
+    "en": "Name ban removed",
+    "current": "__UNTRANSLATED__ (Name ban removed)"
+  },
+  {
+    "key": "nameBans.messages.loadFailed",
+    "en": "Failed to load name bans: {{error}}",
+    "current": "__UNTRANSLATED__ (Failed to load name bans: {{error}})"
+  },
+  {
+    "key": "serverBans.title",
+    "en": "Server Bans",
+    "current": "__UNTRANSLATED__ (Server Bans)"
+  },
+  {
+    "key": "serverBans.description",
+    "en": "Manage G-Lines, K-Lines, Z-Lines, and Shuns",
+    "current": "__UNTRANSLATED__ (Manage G-Lines, K-Lines, Z-Lines, and Shuns)"
+  },
+  {
+    "key": "serverBans.addButton",
+    "en": "Add Ban",
+    "current": "__UNTRANSLATED__ (Add Ban)"
+  },
+  {
+    "key": "serverBans.searchPlaceholder",
+    "en": "Search bans by mask, reason...",
+    "current": "__UNTRANSLATED__ (Search bans by mask, reason...)"
+  },
+  {
+    "key": "serverBans.table.type",
+    "en": "Type",
+    "current": "__UNTRANSLATED__ (Type)"
+  },
+  {
+    "key": "serverBans.table.mask",
+    "en": "Mask",
+    "current": "__UNTRANSLATED__ (Mask)"
+  },
+  {
+    "key": "serverBans.table.reason",
+    "en": "Reason",
+    "current": "__UNTRANSLATED__ (Reason)"
+  },
+  {
+    "key": "serverBans.table.setBy",
+    "en": "Set By",
+    "current": "__UNTRANSLATED__ (Set By)"
+  },
+  {
+    "key": "serverBans.table.setAt",
+    "en": "Set At",
+    "current": "__UNTRANSLATED__ (Set At)"
+  },
+  {
+    "key": "serverBans.table.expires",
+    "en": "Expires",
+    "current": "__UNTRANSLATED__ (Expires)"
+  },
+  {
+    "key": "serverBans.addModal.title",
+    "en": "Add Server Ban",
+    "current": "__UNTRANSLATED__ (Add Server Ban)"
+  },
+  {
+    "key": "serverBans.addModal.labels.banType",
+    "en": "Ban Type",
+    "current": "__UNTRANSLATED__ (Ban Type)"
+  },
+  {
+    "key": "serverBans.addModal.labels.mask",
+    "en": "Mask",
+    "current": "__UNTRANSLATED__ (Mask)"
+  },
+  {
+    "key": "serverBans.addModal.labels.reason",
+    "en": "Reason",
+    "current": "__UNTRANSLATED__ (Reason)"
+  },
+  {
+    "key": "serverBans.addModal.labels.duration",
+    "en": "Duration",
+    "current": "__UNTRANSLATED__ (Duration)"
+  },
+  {
+    "key": "serverBans.addModal.options.gline",
+    "en": "G-Line (Global)",
+    "current": "__UNTRANSLATED__ (G-Line (Global))"
+  },
+  {
+    "key": "serverBans.addModal.options.kline",
+    "en": "K-Line (Local)",
+    "current": "__UNTRANSLATED__ (K-Line (Local))"
+  },
+  {
+    "key": "serverBans.addModal.options.gzline",
+    "en": "GZ-Line (Global IP)",
+    "current": "__UNTRANSLATED__ (GZ-Line (Global IP))"
+  },
+  {
+    "key": "serverBans.addModal.options.zline",
+    "en": "Z-Line (Local IP)",
+    "current": "__UNTRANSLATED__ (Z-Line (Local IP))"
+  },
+  {
+    "key": "serverBans.addModal.options.shun",
+    "en": "Shun",
+    "current": "__UNTRANSLATED__ (Shun)"
+  },
+  {
+    "key": "serverBans.addModal.placeholders.maskExample",
+    "en": "*@*.example.com or 192.168.1.*",
+    "current": "__UNTRANSLATED__ (*@*.example.com or 192.168.1.*)"
+  },
+  {
+    "key": "serverBans.addModal.placeholders.reason",
+    "en": "Enter ban reason",
+    "current": "__UNTRANSLATED__ (Enter ban reason)"
+  },
+  {
+    "key": "serverBans.addModal.addButton",
+    "en": "Add Ban",
+    "current": "__UNTRANSLATED__ (Add Ban)"
+  },
+  {
+    "key": "serverBans.deleteModal.title",
+    "en": "Remove Ban",
+    "current": "__UNTRANSLATED__ (Remove Ban)"
+  },
+  {
+    "key": "serverBans.deleteModal.removeButton",
+    "en": "Remove Ban",
+    "current": "__UNTRANSLATED__ (Remove Ban)"
+  },
+  {
+    "key": "serverBans.deleteModal.confirm",
+    "en": "Are you sure you want to remove this {{type}} for {{name}}?",
+    "current": "__UNTRANSLATED__ (Are you sure you want to remove this {{type}} for {{name}}?)"
+  },
+  {
+    "key": "serverBans.messages.added",
+    "en": "Ban added successfully",
+    "current": "__UNTRANSLATED__ (Ban added successfully)"
+  },
+  {
+    "key": "serverBans.messages.removed",
+    "en": "Ban removed",
+    "current": "__UNTRANSLATED__ (Ban removed)"
+  },
+  {
+    "key": "serverBans.messages.loadFailed",
+    "en": "Failed to load bans: {{error}}",
+    "current": "__UNTRANSLATED__ (Failed to load bans: {{error}})"
+  },
+  {
+    "key": "commands.nav.dashboard.title",
+    "en": "Go to Dashboard",
+    "current": "__UNTRANSLATED__ (Go to Dashboard)"
+  },
+  {
+    "key": "commands.nav.dashboard.description",
+    "en": "View network overview",
+    "current": "__UNTRANSLATED__ (View network overview)"
+  },
+  {
+    "key": "commands.nav.users.title",
+    "en": "Go to Users",
+    "current": "__UNTRANSLATED__ (Go to Users)"
+  },
+  {
+    "key": "commands.nav.users.description",
+    "en": "View connected users",
+    "current": "__UNTRANSLATED__ (View connected users)"
+  },
+  {
+    "key": "commands.nav.channels.title",
+    "en": "Go to Channels",
+    "current": "__UNTRANSLATED__ (Go to Channels)"
+  },
+  {
+    "key": "commands.nav.channels.description",
+    "en": "View active channels",
+    "current": "__UNTRANSLATED__ (View active channels)"
+  },
+  {
+    "key": "commands.nav.servers.title",
+    "en": "Go to Servers",
+    "current": "__UNTRANSLATED__ (Go to Servers)"
+  },
+  {
+    "key": "commands.nav.servers.description",
+    "en": "View linked servers",
+    "current": "__UNTRANSLATED__ (View linked servers)"
+  },
+  {
+    "key": "commands.nav.liveMap.title",
+    "en": "Go to Live Map",
+    "current": "__UNTRANSLATED__ (Go to Live Map)"
+  },
+  {
+    "key": "commands.nav.liveMap.description",
+    "en": "View geographic distribution",
+    "current": "__UNTRANSLATED__ (View geographic distribution)"
+  },
+  {
+    "key": "commands.nav.statistics.title",
+    "en": "Go to Statistics",
+    "current": "__UNTRANSLATED__ (Go to Statistics)"
+  },
+  {
+    "key": "commands.nav.statistics.description",
+    "en": "View detailed stats",
+    "current": "__UNTRANSLATED__ (View detailed stats)"
+  },
+  {
+    "key": "commands.nav.logs.title",
+    "en": "Go to Logs",
+    "current": "__UNTRANSLATED__ (Go to Logs)"
+  },
+  {
+    "key": "commands.nav.logs.description",
+    "en": "View system logs",
+    "current": "__UNTRANSLATED__ (View system logs)"
+  },
+  {
+    "key": "commands.nav.serverBans.title",
+    "en": "Go to Server Bans",
+    "current": "__UNTRANSLATED__ (Go to Server Bans)"
+  },
+  {
+    "key": "commands.nav.serverBans.description",
+    "en": "Manage K-Lines, G-Lines, etc.",
+    "current": "__UNTRANSLATED__ (Manage K-Lines, G-Lines, etc.)"
+  },
+  {
+    "key": "commands.nav.nameBans.title",
+    "en": "Go to Name Bans",
+    "current": "__UNTRANSLATED__ (Go to Name Bans)"
+  },
+  {
+    "key": "commands.nav.nameBans.description",
+    "en": "Manage Q-Lines",
+    "current": "__UNTRANSLATED__ (Manage Q-Lines)"
+  },
+  {
+    "key": "commands.nav.banExceptions.title",
+    "en": "Go to Ban Exceptions",
+    "current": "__UNTRANSLATED__ (Go to Ban Exceptions)"
+  },
+  {
+    "key": "commands.nav.banExceptions.description",
+    "en": "Manage E-Lines",
+    "current": "__UNTRANSLATED__ (Manage E-Lines)"
+  },
+  {
+    "key": "commands.nav.spamfilters.title",
+    "en": "Go to Spamfilters",
+    "current": "__UNTRANSLATED__ (Go to Spamfilters)"
+  },
+  {
+    "key": "commands.nav.spamfilters.description",
+    "en": "Manage spam filters",
+    "current": "__UNTRANSLATED__ (Manage spam filters)"
+  },
+  {
+    "key": "commands.nav.watchList.title",
+    "en": "Go to Watch List",
+    "current": "__UNTRANSLATED__ (Go to Watch List)"
+  },
+  {
+    "key": "commands.nav.watchList.description",
+    "en": "Monitor flagged users",
+    "current": "__UNTRANSLATED__ (Monitor flagged users)"
+  },
+  {
+    "key": "commands.nav.settings.title",
+    "en": "Go to Settings",
+    "current": "__UNTRANSLATED__ (Go to Settings)"
+  },
+  {
+    "key": "commands.nav.settings.description",
+    "en": "Panel settings",
+    "current": "__UNTRANSLATED__ (Panel settings)"
+  },
+  {
+    "key": "commands.nav.twoFactor.title",
+    "en": "Go to Two-Factor Auth",
+    "current": "__UNTRANSLATED__ (Go to Two-Factor Auth)"
+  },
+  {
+    "key": "commands.nav.twoFactor.description",
+    "en": "Manage 2FA settings",
+    "current": "__UNTRANSLATED__ (Manage 2FA settings)"
+  },
+  {
+    "key": "commands.nav.panelUsers.title",
+    "en": "Go to Panel Users",
+    "current": "__UNTRANSLATED__ (Go to Panel Users)"
+  },
+  {
+    "key": "commands.nav.panelUsers.description",
+    "en": "Manage panel user accounts",
+    "current": "__UNTRANSLATED__ (Manage panel user accounts)"
+  },
+  {
+    "key": "commands.nav.webhooks.title",
+    "en": "Go to Webhooks",
+    "current": "__UNTRANSLATED__ (Go to Webhooks)"
+  },
+  {
+    "key": "commands.nav.webhooks.description",
+    "en": "Manage webhook endpoints",
+    "current": "__UNTRANSLATED__ (Manage webhook endpoints)"
+  },
+  {
+    "key": "commands.nav.smtp.title",
+    "en": "Go to SMTP Settings",
+    "current": "__UNTRANSLATED__ (Go to SMTP Settings)"
+  },
+  {
+    "key": "commands.nav.smtp.description",
+    "en": "Configure email server",
+    "current": "__UNTRANSLATED__ (Configure email server)"
+  },
+  {
+    "key": "commands.nav.notifications.title",
+    "en": "Go to Notifications",
+    "current": "__UNTRANSLATED__ (Go to Notifications)"
+  },
+  {
+    "key": "commands.nav.notifications.description",
+    "en": "Configure notification preferences",
+    "current": "__UNTRANSLATED__ (Configure notification preferences)"
+  },
+  {
+    "key": "commands.theme.switch",
+    "en": "Switch to {{name}} Theme",
+    "current": "__UNTRANSLATED__ (Switch to {{name}} Theme)"
+  },
+  {
+    "key": "commands.theme.apply",
+    "en": "Apply {{name}} color scheme",
+    "current": "__UNTRANSLATED__ (Apply {{name}} color scheme)"
+  },
+  {
+    "key": "commands.action.signOut.title",
+    "en": "Sign Out",
+    "current": "__UNTRANSLATED__ (Sign Out)"
+  },
+  {
+    "key": "commands.action.signOut.description",
+    "en": "Log out of the panel",
+    "current": "__UNTRANSLATED__ (Log out of the panel)"
+  },
+  {
+    "key": "scheduledCommands.title",
+    "en": "Scheduled Commands",
+    "current": "__UNTRANSLATED__ (Scheduled Commands)"
+  },
+  {
+    "key": "scheduledCommands.subtitle",
+    "en": "Schedule IRC commands to run automatically",
+    "current": "__UNTRANSLATED__ (Schedule IRC commands to run automatically)"
+  },
+  {
+    "key": "scheduledCommands.createButton",
+    "en": "Create Schedule",
+    "current": "__UNTRANSLATED__ (Create Schedule)"
+  },
+  {
+    "key": "scheduledCommands.searchPlaceholder",
+    "en": "Search commands...",
+    "current": "__UNTRANSLATED__ (Search commands...)"
+  },
+  {
+    "key": "scheduledCommands.emptyMessage",
+    "en": "No scheduled commands",
+    "current": "__UNTRANSLATED__ (No scheduled commands)"
+  },
+  {
+    "key": "scheduledCommands.never",
+    "en": "Never",
+    "current": "__UNTRANSLATED__ (Never)"
+  },
+  {
+    "key": "scheduledCommands.next",
+    "en": "Next",
+    "current": "__UNTRANSLATED__ (Next)"
+  },
+  {
+    "key": "scheduledCommands.messages.created",
+    "en": "Scheduled command created",
+    "current": "__UNTRANSLATED__ (Scheduled command created)"
+  },
+  {
+    "key": "scheduledCommands.messages.createFailed",
+    "en": "Failed to create scheduled command",
+    "current": "__UNTRANSLATED__ (Failed to create scheduled command)"
+  },
+  {
+    "key": "scheduledCommands.messages.updated",
+    "en": "Scheduled command updated",
+    "current": "__UNTRANSLATED__ (Scheduled command updated)"
+  },
+  {
+    "key": "scheduledCommands.messages.updateFailed",
+    "en": "Failed to update scheduled command",
+    "current": "__UNTRANSLATED__ (Failed to update scheduled command)"
+  },
+  {
+    "key": "scheduledCommands.messages.deleted",
+    "en": "Scheduled command deleted",
+    "current": "__UNTRANSLATED__ (Scheduled command deleted)"
+  },
+  {
+    "key": "scheduledCommands.messages.deleteFailed",
+    "en": "Failed to delete scheduled command",
+    "current": "__UNTRANSLATED__ (Failed to delete scheduled command)"
+  },
+  {
+    "key": "scheduledCommands.messages.toggleFailed",
+    "en": "Failed to toggle scheduled command",
+    "current": "__UNTRANSLATED__ (Failed to toggle scheduled command)"
+  },
+  {
+    "key": "scheduledCommands.messages.commandExecuted",
+    "en": "Command executed",
+    "current": "__UNTRANSLATED__ (Command executed)"
+  },
+  {
+    "key": "scheduledCommands.messages.runFailed",
+    "en": "Failed to run command",
+    "current": "__UNTRANSLATED__ (Failed to run command)"
+  },
+  {
+    "key": "scheduledCommands.messages.loadFailed",
+    "en": "Failed to load scheduled commands: {{error}}",
+    "current": "__UNTRANSLATED__ (Failed to load scheduled commands: {{error}})"
+  },
+  {
+    "key": "scheduledCommands.table.status",
+    "en": "Status",
+    "current": "__UNTRANSLATED__ (Status)"
+  },
+  {
+    "key": "scheduledCommands.table.name",
+    "en": "Name",
+    "current": "__UNTRANSLATED__ (Name)"
+  },
+  {
+    "key": "scheduledCommands.table.command",
+    "en": "Command",
+    "current": "__UNTRANSLATED__ (Command)"
+  },
+  {
+    "key": "scheduledCommands.table.schedule",
+    "en": "Schedule",
+    "current": "__UNTRANSLATED__ (Schedule)"
+  },
+  {
+    "key": "scheduledCommands.table.lastRun",
+    "en": "Last Run",
+    "current": "__UNTRANSLATED__ (Last Run)"
+  },
+  {
+    "key": "scheduledCommands.table.runs",
+    "en": "Runs",
+    "current": "__UNTRANSLATED__ (Runs)"
+  },
+  {
+    "key": "scheduledCommands.tooltips.clickToDisable",
+    "en": "Click to disable",
+    "current": "__UNTRANSLATED__ (Click to disable)"
+  },
+  {
+    "key": "scheduledCommands.tooltips.clickToEnable",
+    "en": "Click to enable",
+    "current": "__UNTRANSLATED__ (Click to enable)"
+  },
+  {
+    "key": "scheduledCommands.tooltips.runNow",
+    "en": "Run now",
+    "current": "__UNTRANSLATED__ (Run now)"
+  },
+  {
+    "key": "scheduledCommands.labels.active",
+    "en": "Active",
+    "current": "__UNTRANSLATED__ (Active)"
+  },
+  {
+    "key": "scheduledCommands.labels.paused",
+    "en": "Paused",
+    "current": "__UNTRANSLATED__ (Paused)"
+  },
+  {
+    "key": "scheduledCommands.commandTypes.kill",
+    "en": "Kill User",
+    "current": "__UNTRANSLATED__ (Kill User)"
+  },
+  {
+    "key": "scheduledCommands.commandTypes.gline",
+    "en": "G-Line (Server Ban)",
+    "current": "__UNTRANSLATED__ (G-Line (Server Ban))"
+  },
+  {
+    "key": "scheduledCommands.commandTypes.rehash",
+    "en": "Rehash Server",
+    "current": "__UNTRANSLATED__ (Rehash Server)"
+  },
+  {
+    "key": "scheduledCommands.commandTypes.message",
+    "en": "Send Message",
+    "current": "__UNTRANSLATED__ (Send Message)"
+  },
+  {
+    "key": "scheduledCommands.scheduleTypes.once",
+    "en": "One Time",
+    "current": "__UNTRANSLATED__ (One Time)"
+  },
+  {
+    "key": "scheduledCommands.scheduleTypes.hourly",
+    "en": "Every Hour",
+    "current": "__UNTRANSLATED__ (Every Hour)"
+  },
+  {
+    "key": "scheduledCommands.scheduleTypes.daily",
+    "en": "Every Day",
+    "current": "__UNTRANSLATED__ (Every Day)"
+  },
+  {
+    "key": "scheduledCommands.scheduleTypes.weekly",
+    "en": "Every Week",
+    "current": "__UNTRANSLATED__ (Every Week)"
+  },
+  {
+    "key": "scheduledCommands.scheduleTypes.monthly",
+    "en": "Every Month",
+    "current": "__UNTRANSLATED__ (Every Month)"
+  },
+  {
+    "key": "scheduledCommands.form.nameLabel",
+    "en": "Name *",
+    "current": "__UNTRANSLATED__ (Name *)"
+  },
+  {
+    "key": "scheduledCommands.form.namePlaceholder",
+    "en": "e.g., Daily cleanup, Scheduled maintenance",
+    "current": "__UNTRANSLATED__ (e.g., Daily cleanup, Scheduled maintenance)"
+  },
+  {
+    "key": "scheduledCommands.form.descriptionLabel",
+    "en": "Description",
+    "current": "__UNTRANSLATED__ (Description)"
+  },
+  {
+    "key": "scheduledCommands.form.descriptionPlaceholder",
+    "en": "What does this scheduled command do?",
+    "current": "__UNTRANSLATED__ (What does this scheduled command do?)"
+  },
+  {
+    "key": "scheduledCommands.form.commandTypeLabel",
+    "en": "Command Type *",
+    "current": "__UNTRANSLATED__ (Command Type *)"
+  },
+  {
+    "key": "scheduledCommands.form.targetLabel",
+    "en": "Target",
+    "current": "__UNTRANSLATED__ (Target)"
+  },
+  {
+    "key": "scheduledCommands.form.reasonLabel",
+    "en": "Reason",
+    "current": "__UNTRANSLATED__ (Reason)"
+  },
+  {
+    "key": "scheduledCommands.form.durationLabel",
+    "en": "Duration",
+    "current": "__UNTRANSLATED__ (Duration)"
+  },
+  {
+    "key": "scheduledCommands.form.messageLabel",
+    "en": "Message",
+    "current": "__UNTRANSLATED__ (Message)"
+  },
+  {
+    "key": "scheduledCommands.form.scheduleLabel",
+    "en": "Schedule *",
+    "current": "__UNTRANSLATED__ (Schedule *)"
+  },
+  {
+    "key": "scheduledCommands.form.enableLabel",
+    "en": "Enable this scheduled command",
+    "current": "__UNTRANSLATED__ (Enable this scheduled command)"
+  },
+  {
+    "key": "scheduledCommands.placeholders.target.kill",
+    "en": "Nickname",
+    "current": "__UNTRANSLATED__ (Nickname)"
+  },
+  {
+    "key": "scheduledCommands.placeholders.target.gline",
+    "en": "Host mask (e.g., *@*.bad.com)",
+    "current": "__UNTRANSLATED__ (Host mask (e.g., *@*.bad.com))"
+  },
+  {
+    "key": "scheduledCommands.placeholders.target.rehash",
+    "en": "Server name",
+    "current": "__UNTRANSLATED__ (Server name)"
+  },
+  {
+    "key": "scheduledCommands.placeholders.target.message",
+    "en": "Channel or nick",
+    "current": "__UNTRANSLATED__ (Channel or nick)"
+  },
+  {
+    "key": "scheduledCommands.placeholders.target.default",
+    "en": "Target",
+    "current": "__UNTRANSLATED__ (Target)"
+  },
+  {
+    "key": "scheduledCommands.placeholders.reason",
+    "en": "Reason for the action",
+    "current": "__UNTRANSLATED__ (Reason for the action)"
+  },
+  {
+    "key": "scheduledCommands.placeholders.duration",
+    "en": "e.g., 1d, 1w, 30m",
+    "current": "__UNTRANSLATED__ (e.g., 1d, 1w, 30m)"
+  },
+  {
+    "key": "scheduledCommands.placeholders.message",
+    "en": "Message to send",
+    "current": "__UNTRANSLATED__ (Message to send)"
+  },
+  {
+    "key": "scheduledCommands.createModal.title",
+    "en": "Create Scheduled Command",
+    "current": "__UNTRANSLATED__ (Create Scheduled Command)"
+  },
+  {
+    "key": "scheduledCommands.createModal.createButton",
+    "en": "Create Schedule",
+    "current": "__UNTRANSLATED__ (Create Schedule)"
+  },
+  {
+    "key": "scheduledCommands.editModal.title",
+    "en": "Edit Scheduled Command",
+    "current": "__UNTRANSLATED__ (Edit Scheduled Command)"
+  },
+  {
+    "key": "scheduledCommands.editModal.saveButton",
+    "en": "Save Changes",
+    "current": "__UNTRANSLATED__ (Save Changes)"
+  },
+  {
+    "key": "scheduledCommands.deleteModal.title",
+    "en": "Delete Scheduled Command",
+    "current": "__UNTRANSLATED__ (Delete Scheduled Command)"
+  },
+  {
+    "key": "scheduledCommands.deleteModal.confirm",
+    "en": "Are you sure you want to delete this scheduled command? This action cannot be undone.",
+    "current": "__UNTRANSLATED__ (Are you sure you want to delete this scheduled command? This action cannot be undone.)"
+  },
+  {
+    "key": "channelTemplates.title",
+    "en": "Channel Templates",
+    "current": "__UNTRANSLATED__ (Channel Templates)"
+  },
+  {
+    "key": "channelTemplates.subtitle",
+    "en": "Save and apply channel configurations as reusable templates",
+    "current": "__UNTRANSLATED__ (Save and apply channel configurations as reusable templates)"
+  },
+  {
+    "key": "channelTemplates.fromChannel",
+    "en": "From Channel",
+    "current": "__UNTRANSLATED__ (From Channel)"
+  },
+  {
+    "key": "channelTemplates.createButton",
+    "en": "Create Template",
+    "current": "__UNTRANSLATED__ (Create Template)"
+  },
+  {
+    "key": "channelTemplates.empty",
+    "en": "No channel templates yet. Create one or import from an existing channel.",
+    "current": "__UNTRANSLATED__ (No channel templates yet. Create one or import from an existing channel.)"
+  },
+  {
+    "key": "channelTemplates.tooltips.global",
+    "en": "Global template",
+    "current": "__UNTRANSLATED__ (Global template)"
+  },
+  {
+    "key": "channelTemplates.tooltips.private",
+    "en": "Private template",
+    "current": "__UNTRANSLATED__ (Private template)"
+  },
+  {
+    "key": "channelTemplates.tooltips.applyToChannel",
+    "en": "Apply to channel",
+    "current": "__UNTRANSLATED__ (Apply to channel)"
+  },
+  {
+    "key": "channelTemplates.tooltips.duplicate",
+    "en": "Duplicate",
+    "current": "__UNTRANSLATED__ (Duplicate)"
+  },
+  {
+    "key": "channelTemplates.labels.modes",
+    "en": "Modes:",
+    "current": "__UNTRANSLATED__ (Modes:)"
+  },
+  {
+    "key": "channelTemplates.labels.topic",
+    "en": "Topic:",
+    "current": "__UNTRANSLATED__ (Topic:)"
+  },
+  {
+    "key": "channelTemplates.used",
+    "en": "Used {{count}} times",
+    "current": "__UNTRANSLATED__ (Used {{count}} times)"
+  },
+  {
+    "key": "channelTemplates.by",
+    "en": "by",
+    "current": "__UNTRANSLATED__ (by)"
+  },
+  {
+    "key": "channelTemplates.deleteConfirm",
+    "en": "Delete this template?",
+    "current": "__UNTRANSLATED__ (Delete this template?)"
+  },
+  {
+    "key": "channelTemplates.form.name",
+    "en": "Name",
+    "current": "__UNTRANSLATED__ (Name)"
+  },
+  {
+    "key": "channelTemplates.form.placeholders.name",
+    "en": "Template name",
+    "current": "__UNTRANSLATED__ (Template name)"
+  },
+  {
+    "key": "channelTemplates.form.placeholders.description",
+    "en": "Optional description",
+    "current": "__UNTRANSLATED__ (Optional description)"
+  },
+  {
+    "key": "channelTemplates.form.placeholders.modes",
+    "en": "+nts",
+    "current": "__UNTRANSLATED__ (+nts)"
+  },
+  {
+    "key": "channelTemplates.form.placeholders.topic",
+    "en": "Channel topic",
+    "current": "__UNTRANSLATED__ (Channel topic)"
+  },
+  {
+    "key": "channelTemplates.form.placeholders.selectChannel",
+    "en": "Select a channel...",
+    "current": "__UNTRANSLATED__ (Select a channel...)"
+  },
+  {
+    "key": "channelTemplates.form.description",
+    "en": "Description",
+    "current": "__UNTRANSLATED__ (Description)"
+  },
+  {
+    "key": "channelTemplates.form.modes",
+    "en": "Modes",
+    "current": "__UNTRANSLATED__ (Modes)"
+  },
+  {
+    "key": "channelTemplates.form.topic",
+    "en": "Topic",
+    "current": "__UNTRANSLATED__ (Topic)"
+  },
+  {
+    "key": "channelTemplates.form.makeGlobal",
+    "en": "Make this template available to all users",
+    "current": "__UNTRANSLATED__ (Make this template available to all users)"
+  },
+  {
+    "key": "channelTemplates.form.updateButton",
+    "en": "Update",
+    "current": "__UNTRANSLATED__ (Update)"
+  },
+  {
+    "key": "channelTemplates.form.createButton",
+    "en": "Create",
+    "current": "__UNTRANSLATED__ (Create)"
+  },
+  {
+    "key": "channelTemplates.form.targetChannel",
+    "en": "Target Channel",
+    "current": "__UNTRANSLATED__ (Target Channel)"
+  },
+  {
+    "key": "channelTemplates.editModal.title",
+    "en": "Edit Template",
+    "current": "__UNTRANSLATED__ (Edit Template)"
+  },
+  {
+    "key": "channelTemplates.createModal.title",
+    "en": "Create Template",
+    "current": "__UNTRANSLATED__ (Create Template)"
+  },
+  {
+    "key": "channelTemplates.applyModal.title",
+    "en": "Apply Template",
+    "current": "__UNTRANSLATED__ (Apply Template)"
+  },
+  {
+    "key": "channelTemplates.applyModal.subtitle",
+    "en": "Apply template \"{{name}}\" to a channel:",
+    "current": "__UNTRANSLATED__ (Apply template \"{{name}}\" to a channel:)"
+  },
+  {
+    "key": "channelTemplates.applyModal.applyButton",
+    "en": "Apply Template",
+    "current": "__UNTRANSLATED__ (Apply Template)"
+  },
+  {
+    "key": "channelTemplates.createFromChannel.title",
+    "en": "Create from Channel",
+    "current": "__UNTRANSLATED__ (Create from Channel)"
+  },
+  {
+    "key": "channelTemplates.createFromChannel.description",
+    "en": "Create a new template from an existing channel's configuration:",
+    "current": "__UNTRANSLATED__ (Create a new template from an existing channel's configuration:)"
+  },
+  {
+    "key": "webhooks.title",
+    "en": "Webhooks",
+    "current": "__UNTRANSLATED__ (Webhooks)"
+  },
+  {
+    "key": "webhooks.subtitle",
+    "en": "Receive log events from UnrealIRCd via webhooks",
+    "current": "__UNTRANSLATED__ (Receive log events from UnrealIRCd via webhooks)"
+  },
+  {
+    "key": "webhooks.createButton",
+    "en": "Create Webhook",
+    "current": "__UNTRANSLATED__ (Create Webhook)"
+  },
+  {
+    "key": "webhooks.info.paragraph1",
+    "en": "Webhooks allow UnrealIRCd to send log events directly to this panel. Each webhook has a unique token URL that you configure in your unrealircd.conf.",
+    "current": "__UNTRANSLATED__ (Webhooks allow UnrealIRCd to send log events directly to this panel. Each webhook has a unique token URL that you configure in your unrealircd.conf.)"
+  },
+  {
+    "key": "webhooks.info.learnMore",
+    "en": "Learn more about UnrealIRCd log blocks",
+    "current": "__UNTRANSLATED__ (Learn more about UnrealIRCd log blocks)"
+  },
+  {
+    "key": "webhooks.tooltips.viewConfig",
+    "en": "View Configuration",
+    "current": "__UNTRANSLATED__ (View Configuration)"
+  },
+  {
+    "key": "webhooks.tooltips.viewLogs",
+    "en": "View Logs",
+    "current": "__UNTRANSLATED__ (View Logs)"
+  },
+  {
+    "key": "webhooks.tooltips.disable",
+    "en": "Disable",
+    "current": "__UNTRANSLATED__ (Disable)"
+  },
+  {
+    "key": "webhooks.tooltips.enable",
+    "en": "Enable",
+    "current": "__UNTRANSLATED__ (Enable)"
+  },
+  {
+    "key": "webhooks.tooltips.regenerate",
+    "en": "Regenerate Token",
+    "current": "__UNTRANSLATED__ (Regenerate Token)"
+  },
+  {
+    "key": "webhooks.emptyTokens",
+    "en": "No webhook tokens configured",
+    "current": "__UNTRANSLATED__ (No webhook tokens configured)"
+  },
+  {
+    "key": "webhooks.tokens.createModal.title",
+    "en": "Create Webhook Token",
+    "current": "__UNTRANSLATED__ (Create Webhook Token)"
+  },
+  {
+    "key": "webhooks.tokens.deleteModal.title",
+    "en": "Delete Webhook Token",
+    "current": "__UNTRANSLATED__ (Delete Webhook Token)"
+  },
+  {
+    "key": "webhooks.tokens.deleteModal.confirm",
+    "en": "Are you sure you want to delete the webhook token \"{{name}}\"?",
+    "current": "__UNTRANSLATED__ (Are you sure you want to delete the webhook token \"{{name}}\"?)"
+  },
+  {
+    "key": "webhooks.tokens.deleteModal.details",
+    "en": "UnrealIRCd will no longer be able to send log events to this URL.",
+    "current": "__UNTRANSLATED__ (UnrealIRCd will no longer be able to send log events to this URL.)"
+  },
+  {
+    "key": "webhooks.messages.loadFailed",
+    "en": "Failed to load webhooks: {{error}}",
+    "current": "__UNTRANSLATED__ (Failed to load webhooks: {{error}})"
+  },
+  {
+    "key": "sidebar.logout",
+    "en": "Logout",
+    "current": "__UNTRANSLATED__ (Logout)"
+  },
+  {
+    "key": "userJourney.searchModal.title",
+    "en": "Search User Journey",
+    "current": "__UNTRANSLATED__ (Search User Journey)"
+  },
+  {
+    "key": "userJourney.searchModal.description",
+    "en": "Enter at least one identifier to search for user activity:",
+    "current": "__UNTRANSLATED__ (Enter at least one identifier to search for user activity:)"
+  },
+  {
+    "key": "userJourney.searchModal.nicknameLabel",
+    "en": "Nickname",
+    "current": "__UNTRANSLATED__ (Nickname)"
+  },
+  {
+    "key": "userJourney.searchModal.nicknamePlaceholder",
+    "en": "Enter nickname",
+    "current": "__UNTRANSLATED__ (Enter nickname)"
+  },
+  {
+    "key": "userJourney.searchModal.ipLabel",
+    "en": "IP Address",
+    "current": "__UNTRANSLATED__ (IP Address)"
+  },
+  {
+    "key": "userJourney.searchModal.ipPlaceholder",
+    "en": "Enter IP address",
+    "current": "__UNTRANSLATED__ (Enter IP address)"
+  },
+  {
+    "key": "userDetail.killTitle",
+    "en": "Kill User: {{name}}",
+    "current": "__UNTRANSLATED__ (Kill User: {{name}})"
+  },
+  {
+    "key": "userDetail.killButton",
+    "en": "Kill User",
+    "current": "__UNTRANSLATED__ (Kill User)"
+  },
+  {
+    "key": "userDetail.banTitle",
+    "en": "Ban User: {{name}}",
+    "current": "__UNTRANSLATED__ (Ban User: {{name}})"
+  },
+  {
+    "key": "userDetail.banButton",
+    "en": "Ban User",
+    "current": "__UNTRANSLATED__ (Ban User)"
+  },
+  {
+    "key": "userDetail.vhostTitle",
+    "en": "Set Vhost: {{name}}",
+    "current": "__UNTRANSLATED__ (Set Vhost: {{name}})"
+  },
+  {
+    "key": "userDetail.setVhostButton",
+    "en": "Set Vhost",
+    "current": "__UNTRANSLATED__ (Set Vhost)"
+  },
+  {
+    "key": "userDetail.modesTitle",
+    "en": "Set User Modes: {{name}}",
+    "current": "__UNTRANSLATED__ (Set User Modes: {{name}})"
+  },
+  {
+    "key": "userDetail.applyModeChanges",
+    "en": "Apply Mode Changes",
+    "current": "__UNTRANSLATED__ (Apply Mode Changes)"
+  }
+]

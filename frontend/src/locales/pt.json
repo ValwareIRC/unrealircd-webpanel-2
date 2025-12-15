@@ -59,7 +59,8 @@
     "scheduled": "Comandos Agendados",
     "alertRules": "Regras de Alerta",
     "overview": "Visão Geral",
-    "irc": "__UNTRANSLATED__ (IRC)",
+    "irc": "IRC",
+    "marketplace": "Marketplace",
     "bansFilters": "Bans e Filtros",
     "tools": "Ferramentas",
     "community": "Comunidade",
@@ -69,8 +70,7 @@
     "panelUsers": "Usuários do Painel",
     "roles": "Funções",
     "compliance": "Conformidade",
-    "rpcServers": "Servidores RPC",
-    "marketplace": "__UNTRANSLATED__ (Marketplace)"
+    "rpcServers": "Servidores RPC"
   },
   "dashboard": {
     "title": "Painel",
@@ -127,12 +127,12 @@
     "subtitle": "Gerenciar usuários conectados na rede",
     "nickname": "Apelido",
     "host": "Nome do host",
-    "ip": "__UNTRANSLATED__ (IP)",
+    "ip": "IP",
     "channels": "Canais",
     "idle": "Ocioso",
     "server": "Servidor",
     "ircOp": "IRC-Op",
-    "tls": "__UNTRANSLATED__ (TLS)",
+    "tls": "TLS",
     "hidden": "Oculto",
     "unknown": "Desconhecido",
     "searchPlaceholder": "Buscar usuários por apelido, host, IP...",
@@ -166,7 +166,7 @@
     "kline": "K-Line (local)",
     "gzline": "GZ-Line (IP Global)",
     "zline": "Z-Line (IP Local)",
-    "shun": "__UNTRANSLATED__ (Shun)",
+    "shun": "Shun",
     "reason": "Razão",
     "enterBanReason": "Digite a razão do ban",
     "duration": "Duração",
@@ -298,13 +298,13 @@
     "bytesSent": "Bytes Enviados",
     "banHistory": "Histórico de Bans",
     "banHistoryDesc": "Contagem de bans ao longo do tempo",
-    "gLines": "__UNTRANSLATED__ (G-Lines)",
-    "kLines": "__UNTRANSLATED__ (K-Lines)",
-    "zLines": "__UNTRANSLATED__ (Z-Lines)",
-    "gzLines": "__UNTRANSLATED__ (GZ-Lines)",
-    "shuns": "__UNTRANSLATED__ (Shuns)",
+    "gLines": "G-Lines",
+    "kLines": "K-Lines",
+    "zLines": "Z-Lines",
+    "gzLines": "GZ-Lines",
+    "shuns": "Shuns",
     "spamfilters": "Filtros de Spam",
-    "qLines": "__UNTRANSLATED__ (Q-Lines)",
+    "qLines": "Q-Lines",
     "regularUsers": "Usuários Regulares",
     "operators": "Operadores",
     "invisible": "Invisível",
@@ -336,9 +336,9 @@
       "allMatched": "✓ Todas as condições corresponderam!",
       "someFailed": "✗ Algumas condições não corresponderam"
     },
-    "alertRulesPage": "__UNTRANSLATED__ (Alert Rules)",
-    "description": "__UNTRANSLATED__ (Create custom alert rules that trigger webhooks when specific events occur)",
-    "createRule": "__UNTRANSLATED__ (Create Rule)"
+    "alertRulesPage": "Regras de Alerta",
+    "description": "Crie regras de alerta personalizadas que acionam webhooks quando eventos específicos ocorrem",
+    "createRule": "Criar Regra"
   },
   "panelUsers": {
     "addModal": {
@@ -375,12 +375,12 @@
       },
       "host": {
         "label": "Hostname ou IP",
-        "placeholder": "__UNTRANSLATED__ (127.0.0.1)",
+        "placeholder": "127.0.0.1",
         "helper": "Use 127.0.0.1 para a mesma máquina"
       },
       "port": {
         "label": "Porta",
-        "placeholder": "__UNTRANSLATED__ (8600)",
+        "placeholder": "8600",
         "helper": "Porta RPC do unrealircd.conf"
       },
       "default": {
@@ -393,7 +393,7 @@
       },
       "username": {
         "label": "Nome de usuário",
-        "placeholder": "__UNTRANSLATED__ (rpc_username)",
+        "placeholder": "rpc_username",
         "helper": "O nome do bloco rpc-user em unrealircd.conf"
       },
       "password": {
@@ -482,8 +482,8 @@
     "noPlugins": "Nenhum plugin instalado",
     "browseToFind": "Navegue no mercado para encontrar plugins",
     "operationSuccess": "✓ Operação concluída com sucesso",
-    "rating": "__UNTRANSLATED__ (({{count}}))",
-    "version": "__UNTRANSLATED__ (v{{version}})"
+    "rating": "({{count}})",
+    "version": "v{{version}}"
   },
   "livemap": {
     "title": "Mapa de Usuários ao Vivo",
@@ -516,16 +516,16 @@
     "searchPlaceholder": "Pesquisar exceções...",
     "addModalTitle": "Adicionar Exceção de Ban",
     "removeModalTitle": "Remover Exceção",
-    "maskPlaceholder": "__UNTRANSLATED__ (*@*.trusted.example.com)",
+    "maskPlaceholder": "*@*.trusted.example.com",
     "maskHelperText": "Máscara usuário@host para isentar de bans",
     "exceptionFor": "Exceção Para",
     "reasonOptional": "Razão (opcional)",
     "reasonPlaceholder": "Rede confiável",
-    "gline": "__UNTRANSLATED__ (G-Line)",
-    "kline": "__UNTRANSLATED__ (K-Line)",
-    "gzline": "__UNTRANSLATED__ (GZ-Line)",
-    "zline": "__UNTRANSLATED__ (Z-Line)",
-    "shun": "__UNTRANSLATED__ (Shun)",
+    "gline": "G-Line",
+    "kline": "K-Line",
+    "gzline": "GZ-Line",
+    "zline": "Z-Line",
+    "shun": "Shun",
     "allTypes": "Todos os Tipos",
     "addSuccess": "Exceção adicionada com sucesso",
     "removeSuccess": "Exceção removida com sucesso",
@@ -673,11 +673,11 @@
         "duration": "Duração"
       },
       "options": {
-        "gline": "__UNTRANSLATED__ (G-Line (Global))",
-        "kline": "__UNTRANSLATED__ (K-Line (Local))",
+        "gline": "G-Line (Global)",
+        "kline": "K-Line (Local)",
         "gzline": "GZ-Line (IP Global)",
         "zline": "Z-Line (IP Local)",
-        "shun": "__UNTRANSLATED__ (Shun)"
+        "shun": "Shun"
       },
       "placeholders": {
         "maskExample": "*@*.example.com ou 192.168.1.*",
@@ -696,73 +696,73 @@
       "loadFailed": "Falha ao carregar bans: {{error}}"
     },
     "spamfilters": {
-      "title": "__UNTRANSLATED__ (Spamfilters)",
-      "subtitle": "__UNTRANSLATED__ (Manage content filters and spam protection)",
-      "addButton": "__UNTRANSLATED__ (Add Spamfilter)",
-      "searchPlaceholder": "__UNTRANSLATED__ (Search spamfilters...)",
+      "title": "Filtros de Spam",
+      "subtitle": "Gerencie filtros de conteúdo e proteção contra spam",
+      "addButton": "Adicionar Filtro de Spam",
+      "searchPlaceholder": "Pesquisar filtros de spam...",
       "table": {
-        "pattern": "__UNTRANSLATED__ (Pattern)",
-        "type": "__UNTRANSLATED__ (Type)",
-        "targets": "__UNTRANSLATED__ (Targets)",
-        "action": "__UNTRANSLATED__ (Action)",
-        "hits": "__UNTRANSLATED__ (Hits)",
-        "setBy": "__UNTRANSLATED__ (Set By)"
+        "pattern": "Padrão",
+        "type": "Tipo",
+        "targets": "Alvos",
+        "action": "Ação",
+        "hits": "Acertos",
+        "setBy": "Definido por"
       },
-      "detailsTitle": "__UNTRANSLATED__ (Spamfilter Details)",
+      "detailsTitle": "Detalhes do Filtro de Spam",
       "details": {
-        "matchType": "__UNTRANSLATED__ (Match Type)",
-        "action": "__UNTRANSLATED__ (Action)",
-        "hits": "__UNTRANSLATED__ (Hits)",
-        "setBy": "__UNTRANSLATED__ (Set By)",
-        "pattern": "__UNTRANSLATED__ (Pattern)",
-        "targets": "__UNTRANSLATED__ (Targets)",
-        "reason": "__UNTRANSLATED__ (Reason)",
-        "noReason": "__UNTRANSLATED__ (No reason specified)",
-        "actionDuration": "__UNTRANSLATED__ (Action Duration)"
+        "matchType": "Tipo de correspondência",
+        "action": "Ação",
+        "hits": "Acertos",
+        "setBy": "Definido por",
+        "pattern": "Padrão",
+        "targets": "Alvos",
+        "reason": "Razão",
+        "noReason": "Nenhuma razão especificada",
+        "actionDuration": "Duração da Ação"
       },
       "addModal": {
-        "title": "__UNTRANSLATED__ (Add Spamfilter)",
+        "title": "Adicionar Filtro de Spam",
         "labels": {
-          "matchType": "__UNTRANSLATED__ (Match Type)",
-          "match": "__UNTRANSLATED__ (Pattern)",
-          "targets": "__UNTRANSLATED__ (Targets)",
-          "action": "__UNTRANSLATED__ (Action)",
-          "duration": "__UNTRANSLATED__ (Action Duration)",
-          "reason": "__UNTRANSLATED__ (Reason)"
+          "matchType": "Tipo de Correspondência",
+          "match": "Padrão",
+          "targets": "Alvos",
+          "action": "Ação",
+          "duration": "Duração",
+          "reason": "Razão"
         },
         "options": {
-          "simple": "__UNTRANSLATED__ (Simple (wildcards))",
-          "regex": "__UNTRANSLATED__ (Regular Expression)",
-          "posix": "__UNTRANSLATED__ (POSIX Regex)"
+          "simple": "Simples (curingas)",
+          "regex": "Expressão Regular",
+          "posix": "Regex POSIX"
         },
         "actionOptions": {
-          "warn": "__UNTRANSLATED__ (Warn)",
-          "block": "__UNTRANSLATED__ (Block)",
-          "kill": "__UNTRANSLATED__ (Kill)",
-          "gline": "__UNTRANSLATED__ (G-Line)",
-          "gzline": "__UNTRANSLATED__ (GZ-Line)",
-          "shun": "__UNTRANSLATED__ (Shun)",
-          "viruschan": "__UNTRANSLATED__ (Virus Channel)"
+          "warn": "Avisar",
+          "block": "Bloquear",
+          "kill": "Kill",
+          "gline": "G-Line",
+          "gzline": "GZ-Line",
+          "shun": "Shun",
+          "viruschan": "Canal de Vírus"
         },
         "helper": {
-          "pattern": "__UNTRANSLATED__ (Pattern to match against messages)",
-          "duration": "__UNTRANSLATED__ (Duration for ban action (e.g., 1h, 1d, 7d))"
+          "pattern": "Padrão para corresponder às mensagens",
+          "duration": "Duração para a ação (ex.: 1h, 1d, 7d)"
         },
         "placeholders": {
-          "reason": "__UNTRANSLATED__ (Spam is not allowed)"
+          "reason": "Spam não é permitido"
         },
-        "addButton": "__UNTRANSLATED__ (Add Spamfilter)"
+        "addButton": "Adicionar Filtro de Spam"
       },
       "deleteModal": {
-        "title": "__UNTRANSLATED__ (Remove Spamfilter)",
-        "removeButton": "__UNTRANSLATED__ (Remove Spamfilter)",
-        "confirm": "__UNTRANSLATED__ (Are you sure you want to remove this spamfilter?)"
+        "title": "Remover Filtro de Spam",
+        "removeButton": "Remover Filtro de Spam",
+        "confirm": "Tem certeza de que deseja remover este filtro de spam?"
       },
       "messages": {
-        "added": "__UNTRANSLATED__ (Spamfilter added successfully)",
-        "removed": "__UNTRANSLATED__ (Spamfilter removed)",
-        "loadFailed": "__UNTRANSLATED__ (Failed to load spamfilters: {{error}})",
-        "removeFailed": "__UNTRANSLATED__ (Failed to remove spamfilter)"
+        "added": "Filtro de spam adicionado com sucesso",
+        "removed": "Filtro de spam removido",
+        "loadFailed": "Falha ao carregar filtros de spam: {{error}}",
+        "removeFailed": "Falha ao remover filtro de spam"
       }
     }
   },
@@ -951,7 +951,7 @@
       "applyFailed": "Falha ao aplicar pesquisa"
     },
     "shared": "Compartilhado",
-    "popular": "__UNTRANSLATED__ (Popular)",
+    "popular": "Popular",
     "usedTimes": "Usado {{count}} vez(es)",
     "lastUsed": "Último uso",
     "apply": "Aplicar"
@@ -985,12 +985,12 @@
       "currentMatches": "Correspondências Atuais"
     },
     "labels": {
-      "nick": "__UNTRANSLATED__ (Nick)",
-      "ip": "__UNTRANSLATED__ (IP)",
-      "host": "__UNTRANSLATED__ (Host)",
+      "nick": "Nick",
+      "ip": "IP",
+      "host": "Host",
       "account": "Conta",
       "realname": "Nome Real",
-      "online": "__UNTRANSLATED__ (online)"
+      "online": "online"
     },
     "tooltips": {
       "viewMatched": "Ver usuários correspondentes"
@@ -1030,7 +1030,7 @@
       "loadFailed": "Falha ao carregar comandos agendados: {{error}}"
     },
     "table": {
-      "status": "__UNTRANSLATED__ (Status)",
+      "status": "Status",
       "name": "Nome",
       "command": "Comando",
       "schedule": "Agendamento",
@@ -1121,7 +1121,7 @@
       "placeholders": {
         "name": "Nome do modelo",
         "description": "Descrição opcional",
-        "modes": "__UNTRANSLATED__ (+nts)",
+        "modes": "+nts",
         "topic": "Tópico do canal",
         "selectChannel": "Selecione um canal..."
       },
@@ -1150,7 +1150,7 @@
     }
   },
   "webhooks": {
-    "title": "__UNTRANSLATED__ (Webhooks)",
+    "title": "Webhooks",
     "subtitle": "Receber eventos de log do UnrealIRCd via webhooks",
     "createButton": "Criar Webhook",
     "info": {
@@ -1209,10 +1209,10 @@
       "accent": "Destaque",
       "success": "Sucesso",
       "error": "Erro",
-      "accentHover": "__UNTRANSLATED__ (Accent (hover))"
+      "accentHover": "Acento (hover)"
     },
-    "apply": "__UNTRANSLATED__ (Apply Changes)",
-    "reset": "__UNTRANSLATED__ (Reset to Default)"
+    "apply": "Aplicar Alterações",
+    "reset": "Restaurar Padrão"
   },
   "sidebar": {
     "logout": "Sair"

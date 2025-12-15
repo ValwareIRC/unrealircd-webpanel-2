@@ -52,15 +52,15 @@ function ensureAllKeys(baseFlat, fallbackFlat, targetFlat, localeName) {
   const updated = Object.assign({}, targetFlat);
   for (const key of Object.keys(baseFlat)) {
     if (!(key in updated)) {
-      let source = 'en-US';
       if (key in fallbackFlat) {
         updated[key] = fallbackFlat[key];
+        missingKeys.push({ key, source: 'en-US' });
       } else {
-        // fallback to base (zh.json) if en-US doesn't have it (rare)
-        updated[key] = baseFlat[key];
-        source = 'zh';
+        // Do NOT fallback to zh.json anymore; report as missing so translators can add the key.
+        // We'll set a placeholder to make missing keys obvious in UI.
+        updated[key] = `__MISSING_EN__ (${baseFlat[key]})`;
+        missingKeys.push({ key, source: 'MISSING_EN' });
       }
-      missingKeys.push({ key, source });
     }
   }
   return { updated, missingKeys };

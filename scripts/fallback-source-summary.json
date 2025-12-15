@@ -1,0 +1,62 @@
+{
+  "de.json": {
+    "total": 915,
+    "fromEn": 12,
+    "fromZh": 0,
+    "others": 903
+  },
+  "en-GB.json": {
+    "total": 915,
+    "fromEn": 912,
+    "fromZh": 0,
+    "others": 3
+  },
+  "en-US.json": {
+    "total": 915,
+    "fromEn": 915,
+    "fromZh": 0,
+    "others": 0
+  },
+  "es.json": {
+    "total": 915,
+    "fromEn": 1,
+    "fromZh": 0,
+    "others": 914
+  },
+  "fr.json": {
+    "total": 915,
+    "fromEn": 1,
+    "fromZh": 0,
+    "others": 914
+  },
+  "ja.json": {
+    "total": 915,
+    "fromEn": 1,
+    "fromZh": 11,
+    "others": 903
+  },
+  "nl.json": {
+    "total": 915,
+    "fromEn": 1,
+    "fromZh": 0,
+    "others": 914
+  },
+  "pl.json": {
+    "total": 915,
+    "fromEn": 1,
+    "fromZh": 0,
+    "others": 914
+  },
+  "pt.json": {
+    "total": 861,
+    "fromEn": 16,
+    "fromZh": 0,
+    "others": 845
+  },
+  "tr.json": {
+    "total": 915,
+    "fromEn": 1,
+    "fromZh": 0,
+    "others": 914
+  }
+}

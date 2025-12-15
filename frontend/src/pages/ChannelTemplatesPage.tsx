@@ -191,9 +191,9 @@ export function ChannelTemplatesPage() {
                 </div>
                 <div className="flex items-center gap-1">
                   {template.is_global ? (
-                    <span title="Global template"><Globe size={14} className="text-[var(--accent)]" /></span>
+                    <span title={t('channelTemplates.tooltips.global')}><Globe size={14} className="text-[var(--accent)]" /></span>
                   ) : (
-                    <span title="Private template"><Lock size={14} className="text-[var(--text-secondary)]" /></span>
+                    <span title={t('channelTemplates.tooltips.private')}><Lock size={14} className="text-[var(--text-secondary)]" /></span>
                   )}
                 </div>
               </div>
@@ -350,10 +350,10 @@ export function ChannelTemplatesPage() {
       </Modal>
 
       {/* From Channel Modal */}
-      <Modal isOpen={showFromChannelModal} onClose={() => setShowFromChannelModal(false)} title="Create from Channel">
+      <Modal isOpen={showFromChannelModal} onClose={() => setShowFromChannelModal(false)} title={t('channelTemplates.createFromChannel.title')}>
         <div className="space-y-4">
           <p className="text-sm text-[var(--text-secondary)]">
-            Create a new template from an existing channel's configuration:
+            {t('channelTemplates.createFromChannel.description')}
           </p>
 
           <div>

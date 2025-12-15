@@ -471,7 +471,7 @@ export function Sidebar({ collapsed, onToggle }: SidebarProps) {
               <button
                 onClick={logout}
                 className="p-2 rounded-lg hover:bg-[var(--bg-hover)] text-[var(--text-muted)] hover:text-[var(--error)] transition-colors"
-                title="Logout"
+                title={t('sidebar.logout')}
               >
                 <LogOut size={18} />
               </button>

@@ -224,15 +224,15 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
     ]
 
     // Theme commands
-    availableThemes.forEach(t => {
+    availableThemes.forEach((themeItem) => {
       items.push({
-        id: `theme-${t.id}`,
-        title: t('commands.theme.switch', { name: t.name }),
-        description: t('commands.theme.apply', { name: t.name }),
-        icon: t.colors.bgPrimary.includes('0a0') || t.colors.bgPrimary.includes('000') ? <Moon size={18} /> : <Sun size={18} />,
-        action: () => setTheme(t.id),
+        id: `theme-${themeItem.id}`,
+        title: t('commands.theme.switch', { name: themeItem.name }),
+        description: t('commands.theme.apply', { name: themeItem.name }),
+        icon: themeItem.colors.bgPrimary.includes('0a0') || themeItem.colors.bgPrimary.includes('000') ? <Moon size={18} /> : <Sun size={18} />,
+        action: () => setTheme(themeItem.id),
         category: 'settings',
-        keywords: ['theme', 'color', 'dark', 'light', t.name.toLowerCase()]
+        keywords: ['theme', 'color', 'dark', 'light', themeItem.name.toLowerCase()]
       })
     })
 
