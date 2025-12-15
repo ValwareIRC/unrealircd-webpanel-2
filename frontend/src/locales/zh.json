@@ -1,0 +1,1203 @@
+{
+  "common": {
+    "save": "保存",
+    "cancel": "取消",
+    "delete": "删除",
+    "edit": "编辑",
+    "add": "添加",
+    "search": "搜索",
+    "filter": "筛选",
+    "loading": "加载中...",
+    "error": "错误",
+    "success": "成功",
+    "warning": "警告",
+    "info": "信息",
+    "yes": "是",
+    "no": "否",
+    "ok": "确定",
+    "close": "关闭",
+    "back": "返回",
+    "next": "下一步",
+    "previous": "上一步",
+    "submit": "提交",
+    "reset": "重置",
+    "confirm": "确认",
+    "logout": "登出",
+    "login": "登录",
+    "username": "用户名",
+    "password": "密码",
+    "email": "邮箱",
+    "name": "名称",
+    "description": "描述",
+    "status": "状态",
+    "active": "活跃",
+    "inactive": "不活跃",
+    "enabled": "启用",
+    "disabled": "禁用"
+  },
+  "navigation": {
+    "dashboard": "仪表板",
+    "statistics": "统计",
+    "liveMap": "实时地图",
+    "users": "用户",
+    "userJourney": "用户旅程",
+    "channels": "频道",
+    "templates": "模板",
+    "watchList": "监视列表",
+    "serverList": "服务器列表",
+    "topology": "拓扑",
+    "tlsStatistics": "TLS 统计",
+    "serverBans": "服务器封禁",
+    "servers": "服务器",
+    "settings": "设置",
+    "logs": "日志",
+    "reports": "报告",
+    "plugins": "插件",
+    "nameBans": "名称封禁",
+    "exceptions": "例外",
+    "spamfilters": "垃圾邮件过滤器",
+    "scheduled": "定时命令",
+    "alertRules": "警报规则",
+    "overview": "概览",
+    "irc": "IRC",
+    "bansFilters": "封禁和过滤器",
+    "tools": "工具",
+    "community": "社区",
+    "admin": "管理员",
+    "digest": "邮件摘要",
+    "feedback": "反馈",
+    "panelUsers": "面板用户",
+    "roles": "角色",
+    "compliance": "合规",
+    "rpcServers": "RPC 服务器",
+    "marketplace": "Marketplace"
+  },
+  "dashboard": {
+    "title": "仪表板",
+    "welcome": "欢迎使用 UnrealIRCd Web Panel",
+    "overview": "概览",
+    "statistics": "统计",
+    "recentActivity": "最近活动",
+    "editLayout": "编辑布局",
+    "addWidget": "添加小部件",
+    "saveLayout": "保存布局",
+    "resetLayout": "重置布局",
+    "cancel": "取消",
+    "save": "保存",
+    "saving": "保存中...",
+    "customize": "自定义",
+    "loading": "加载中...",
+    "error": "加载仪表板时出错",
+    "noWidgets": "没有可用的小部件",
+    "widgetConfig": "小部件配置",
+    "configureWidget": "配置小部件",
+    "widgetType": "小部件类型",
+    "description": "描述",
+    "configure": "配置",
+    "remove": "移除",
+    "dragToReorder": "拖拽重新排序小部件",
+    "editModeHint": "编辑模式：拖拽重新定位，拖拽边缘调整大小。点击 X 移除小部件。",
+    "resetConfirm": "重置仪表板到默认布局？这无法撤销。",
+    "pageDescription": "您的 IRC 网络概览"
+  },
+  "widgets": {
+    "networkStats": "网络统计",
+    "topUsers": "热门用户",
+    "recentChannels": "最近频道",
+    "serverStatus": "服务器状态",
+    "uptime": "运行时间",
+    "version": "版本",
+    "users": "用户",
+    "channels": "频道",
+    "servers": "服务器",
+    "operators": "操作员",
+    "invisible": "隐身",
+    "total": "总计",
+    "local": "本地",
+    "globalMax": "全局最大",
+    "online": "在线",
+    "offline": "离线",
+    "connecting": "连接中",
+    "unknown": "未知",
+    "viewAll": "查看全部",
+    "noData": "无数据",
+    "loading": "加载中...",
+    "error": "加载数据时出错",
+    "statsHistory": "统计历史",
+    "last24Hours": "过去24小时",
+    "userActivity": "用户活动",
+    "channelActivity": "频道活动",
+    "serverActivity": "服务器活动",
+    "totalUsers": "总用户数",
+    "connectedToNetwork": "已连接到网络",
+    "activeChannels": "活跃频道",
+    "withUsers": "有用户",
+    "linkedServers": "链接服务器",
+    "inNetwork": "在网络中",
+    "onlineOperators": "在线 IRC 操作员",
+    "topChannels": "热门频道",
+    "byUserCount": "按用户数",
+    "noTopic": "无主题",
+    "noChannels": "无频道",
+    "networkServers": "网络服务器",
+    "server": "服务器",
+    "status": "状态",
+    "ok": "正常",
+    "noServers": "无服务器",
+    "hourOverview": "24小时概览",
+    "quickLinks": "快速链接",
+    "navigateToSections": "导航到各个部分",
+    "networkInfo": "网络信息",
+    "connectionDetails": "连接详情",
+    "recentBans": "最近封禁",
+    "serverBans": "服务器封禁",
+    "noRecentBans": "无最近封禁"
+  },
+  "auth": {
+    "loginTitle": "登录",
+    "loginButton": "登录",
+    "logoutConfirm": "您确定要登出吗？",
+    "invalidCredentials": "无效的用户名或密码",
+    "sessionExpired": "您的会话已过期。请重新登录。",
+    "panelTitle": "UnrealIRCd 面板",
+    "panelSubtitle": "登录以管理您的 IRC 网络",
+    "twoFactorRequired": "需要双因素认证",
+    "usernameLabel": "用户名",
+    "usernamePlaceholder": "输入您的用户名",
+    "passwordLabel": "密码",
+    "passwordPlaceholder": "输入您的密码",
+    "signInButton": "登录",
+    "twoFactorDescription": "从您的认证器应用输入6位代码，或使用备份代码。",
+    "verificationCodeLabel": "验证码",
+    "verificationCodePlaceholder": "输入验证码",
+    "verifyButton": "验证",
+    "backButton": "返回",
+    "failedLogin": "登录失败",
+    "invalidCode": "无效的验证码"
+  },
+  "users": {
+    "title": "用户",
+    "subtitle": "管理网络上的连接用户",
+    "nickname": "昵称",
+    "host": "主机",
+    "ip": "IP",
+    "channels": "频道",
+    "idle": "空闲",
+    "server": "服务器",
+    "ircOp": "IRC 操作员",
+    "tls": "TLS",
+    "hidden": "隐藏",
+    "unknown": "未知",
+    "searchPlaceholder": "按昵称、主机、IP 搜索用户...",
+    "viewDetails": "查看详情",
+    "clearSelection": "清除选择",
+    "killAll": "全部杀死",
+    "banAll": "全部封禁",
+    "selectedUsers": "已选择 {{count}} 个用户",
+    "userDetails": "用户：{{name}}",
+    "killSuccess": "已杀死 {{name}}",
+    "killFailed": "杀死用户失败",
+    "banSuccess": "已封禁 {{name}}",
+    "banFailed": "封禁用户失败",
+    "vhostSuccess": "为 {{name}} 设置虚拟主机",
+    "vhostFailed": "设置虚拟主机失败",
+    "bulkBanSuccess": "成功封禁 {{count}} 个用户",
+    "bulkBanPartial": "封禁 {{success}} 个用户，{{failed}} 个失败",
+    "loadError": "加载用户失败：{{error}}",
+    "username": "用户名",
+    "realName": "真实姓名",
+    "hostname": "主机名",
+    "ipAddress": "IP 地址",
+    "virtualHost": "虚拟主机",
+    "vhostPlaceholder": "例如：user.mynetwork.org",
+    "vhostHelperText": "留空以移除当前虚拟主机",
+    "none": "无",
+    "connectedSince": "连接时间",
+    "userModes": "用户模式",
+    "banType": "封禁类型",
+    "gline": "G-Line (全局)",
+    "kline": "K-Line (本地)",
+    "gzline": "GZ-Line (全局IP)",
+    "zline": "Z-Line (本地IP)",
+    "shun": "Shun",
+    "reason": "原因",
+    "enterBanReason": "输入封禁原因",
+    "duration": "持续时间",
+    "oneHour": "1 小时",
+    "sixHours": "6 小时",
+    "oneDay": "1 天",
+    "sevenDays": "7 天",
+    "thirtyDays": "30 天",
+    "permanent": "永久",
+    "setVhost": "设置虚拟主机",
+    "setVhostTitle": "设置虚拟主机：{{name}}",
+    "cancel": "取消",
+    "enterKillReason": "输入杀死原因",
+    "banUsersTitle": "封禁 {{count}} 个用户",
+    "banningProgress": "正在封禁... ({{current}}/{{total}})",
+    "banUsersButton": "封禁 {{count}} 个用户",
+    "bulkBanWarning": "这将从网络中封禁 {{count}} 个用户。",
+    "killUsersTitle": "杀死 {{count}} 个用户",
+    "killingProgress": "正在杀死... ({{current}}/{{total}})",
+    "killUsersButton": "杀死 {{count}} 个用户",
+    "bulkKillWarning": "这将强制从网络中断开 {{count}} 个用户的连接。",
+    "killUserTitle": "杀死用户：{{name}}",
+    "killUserButton": "杀死用户",
+    "banUserTitle": "封禁用户：{{name}}",
+    "banUserButton": "封禁用户",
+    "killUserWarning": "这将强制从网络中断开 {{name}} 的连接。",
+    "active": "活跃",
+    "seconds": "{{count}}秒",
+    "minutes": "{{count}}分钟",
+    "hours": "{{count}}小时",
+    "days": "{{count}}天"
+  },
+  "servers": {
+    "title": "服务器",
+    "subtitle": "查看网络中的链接服务器",
+    "server": "服务器",
+    "users": "用户",
+    "description": "描述",
+    "noDescription": "无描述",
+    "version": "版本",
+    "unknown": "未知",
+    "uptime": "运行时间",
+    "searchPlaceholder": "搜索服务器...",
+    "viewDetails": "查看详情",
+    "rehash": "重新加载配置",
+    "serverDetails": "服务器：{{name}}",
+    "serverName": "服务器名称",
+    "serverFeatures": "服务器特性",
+    "software": "软件",
+    "protocol": "协议",
+    "nickLength": "昵称长度",
+    "channelModes": "频道模式",
+    "uLineServer": "这是 U-Line 服务器（服务服务器）",
+    "rehashTitle": "重新加载配置：{{name}}",
+    "cancel": "取消",
+    "rehashServer": "重新加载服务器配置",
+    "rehashWarning": "这将导致 {{name}} 重新加载其配置。您确定要继续吗？",
+    "rehashSuccess": "重新加载配置已发送到 {{name}}",
+    "rehashFailed": "重新加载服务器配置失败",
+    "loadError": "加载服务器失败：{{error}}",
+    "uptimeFormat": "{{days}}天 {{hours}}小时 {{minutes}}分钟",
+    "uptimeHoursMinutes": "{{hours}}小时 {{minutes}}分钟",
+    "uptimeMinutes": "{{minutes}}分钟"
+  },
+  "channels": {
+    "title": "频道",
+    "subtitle": "管理网络上的频道",
+    "channel": "频道",
+    "users": "用户",
+    "topic": "主题",
+    "noTopicSet": "未设置主题",
+    "modes": "模式",
+    "created": "创建时间",
+    "unknown": "未知",
+    "searchPlaceholder": "按名称、主题搜索频道...",
+    "viewDetails": "查看详情",
+    "setTopic": "设置主题",
+    "setMode": "设置模式",
+    "kickUser": "踢出用户",
+    "channelDetails": "频道：{{name}}",
+    "channelName": "频道名称",
+    "members": "成员",
+    "bans": "封禁",
+    "setBy": "由 {{user}} 设置",
+    "setByAt": "由 {{user}} 于 {{time}} 设置",
+    "banEntry": "{{name}} 由 {{setBy}}",
+    "setTopicTitle": "设置主题：{{name}}",
+    "cancel": "取消",
+    "enterNewTopic": "输入新的频道主题",
+    "setModeTitle": "设置模式：{{name}}",
+    "modePlaceholder": "例如：+nt 或 -o",
+    "parametersOptional": "参数（可选）",
+    "parametersPlaceholder": "例如：昵称",
+    "parametersHelper": "需要参数的模式的参数",
+    "currentModes": "当前模式：",
+    "kickUserTitle": "从 {{name}} 踢出用户",
+    "nickname": "昵称",
+    "enterNickname": "输入要踢出的昵称",
+    "reasonOptional": "原因（可选）",
+    "enterKickReason": "输入踢出原因",
+    "topicUpdated": "主题已更新",
+    "topicUpdateFailed": "设置主题失败",
+    "modeChanged": "模式已更改",
+    "modeChangeFailed": "设置模式失败",
+    "userKicked": "已从 {{channel}} 踢出 {{nick}}",
+    "kickFailed": "踢出用户失败",
+    "loadError": "加载频道失败：{{error}}"
+  },
+  "statistics": {
+    "title": "统计",
+    "subtitle": "历史网络统计",
+    "currentUsers": "当前用户",
+    "channels": "频道",
+    "servers": "服务器",
+    "activeBans": "活跃封禁",
+    "userActivity": "用户活动",
+    "userActivityDesc": "用户数量随时间变化",
+    "banDistribution": "封禁分布",
+    "banDistributionDesc": "按封禁类型细分",
+    "noActiveBans": "无活跃封禁",
+    "userDistribution": "用户分布",
+    "userDistributionDesc": "按用户类型细分",
+    "noUsersConnected": "无用户连接",
+    "connectionStatistics": "连接统计",
+    "connectionStatisticsDesc": "认证和连接指标",
+    "networkTraffic": "网络流量",
+    "networkTrafficDesc": "数据传输随时间变化",
+    "bytesReceived": "接收字节",
+    "bytesSent": "发送字节",
+    "banHistory": "封禁历史",
+    "banHistoryDesc": "封禁数量随时间变化",
+    "gLines": "G-Lines",
+    "kLines": "K-Lines",
+    "zLines": "Z-Lines",
+    "gzLines": "GZ-Lines",
+    "shuns": "Shuns",
+    "spamfilters": "垃圾邮件过滤器",
+    "qLines": "Q-Lines",
+    "regularUsers": "普通用户",
+    "operators": "操作员",
+    "invisible": "隐形",
+    "serverStatistics": "服务器统计",
+    "serverStatisticsDesc": "服务器数量随时间变化",
+    "totalServers": "总服务器数",
+    "uLinedServers": "U-Lined 服务器",
+    "showingSnapshots": "显示 {{count}} 个，共 {{max}} 个可用快照（最大历史：{{history}}）",
+    "lastSnapshot": "最后快照：{{timestamp}}"
+  },
+  "alertRules": {
+    "alertRulesPage": "警报规则",
+    "description": "创建自定义警报规则，在特定事件发生时触发 webhook",
+    "createRule": "创建规则",
+    "noRulesConfigured": "未配置警报规则。创建一个开始使用。"
+  },
+  "header": {
+    "searchPlaceholder": "搜索或跳转到...",
+    "refreshStats": "刷新统计",
+    "connected": "已连接",
+    "disconnected": "已断开",
+    "users": "用户",
+    "channels": "频道",
+    "servers": "服务器"
+  },
+  "logs": {
+    "title": "日志查看器",
+    "subtitle": "查看来自UnrealIRCd的历史和实时日志条目（需要6.1.1+）",
+    "startLive": "开始实时",
+    "stopLive": "停止实时",
+    "level": "级别：",
+    "subsystem": "子系统：",
+    "searchPlaceholder": "搜索日志...",
+    "autoScroll": "自动滚动：",
+    "on": "开",
+    "off": "关",
+    "all": "全部",
+    "entries": "条目",
+    "live": "实时",
+    "noEntries": "未找到日志条目",
+    "tableHeaders": {
+      "time": "时间",
+      "level": "级别",
+      "subsystem": "子系统",
+      "event": "事件",
+      "message": "消息"
+    },
+    "modal": {
+      "title": "日志条目详情",
+      "rawJson": "原始JSON"
+    }
+  },
+  "marketplace": {
+    "title": "插件市场",
+    "subtitle": "发现并安装插件以扩展您的UnrealIRCd Web Panel",
+    "categories": {
+      "all": "所有插件",
+      "security": "安全",
+      "integration": "集成",
+      "monitoring": "监控",
+      "management": "管理",
+      "utilities": "工具",
+      "appearance": "外观"
+    },
+    "tabs": {
+      "browse": "浏览市场",
+      "installed": "已安装"
+    },
+    "searchPlaceholder": "搜索插件...",
+    "installed": "已安装",
+    "install": "安装",
+    "uninstall": "卸载",
+    "update": "更新",
+    "updateTo": "更新到 {{version}}",
+    "byAuthor": "由 {{author}}",
+    "installedAgo": "安装于 {{time}} 前",
+    "updatedAgo": "更新于 {{time}} 前",
+    "activePlugins": "活跃插件",
+    "updatesAvailable": "可用更新",
+    "disabled": "已禁用",
+    "noPlugins": "未安装插件",
+    "browseToFind": "浏览市场以查找插件",
+    "operationSuccess": "✓ 操作成功完成",
+    "rating": "({{count}})",
+    "version": "v{{version}}"
+  },
+  "livemap": {
+    "title": "实时用户地图",
+    "subtitle": "世界各地IRC用户的实时可视化",
+    "users": "用户",
+    "countries": "国家",
+    "loadingGlobe": "加载地球...",
+    "controls": {
+      "drag": "🖱️ 拖拽旋转",
+      "zoom": "🔍 滚动缩放"
+    },
+    "topCountries": "热门国家",
+    "noGeoData": "无地理位置数据可用",
+    "moreCountries": "+{{count}} 更多国家",
+    "user": "用户",
+    "usersPlural": "用户"
+  },
+  "banExceptions": {
+    "title": "封禁例外",
+    "subtitle": "管理 E-Lines（封禁例外）",
+    "addException": "添加例外",
+    "mask": "掩码",
+    "exceptionTypes": "例外类型",
+    "reason": "原因",
+    "setBy": "设置者",
+    "setAt": "设置时间",
+    "all": "全部",
+    "noReason": "无原因",
+    "unknown": "未知",
+    "searchPlaceholder": "搜索例外...",
+    "addModalTitle": "添加封禁例外",
+    "removeModalTitle": "移除例外",
+    "maskPlaceholder": "*@*.trusted.example.com",
+    "maskHelperText": "免除封禁的用户@主机掩码",
+    "exceptionFor": "例外针对",
+    "reasonOptional": "原因（可选）",
+    "reasonPlaceholder": "可信网络",
+    "gline": "G-Line",
+    "kline": "K-Line",
+    "gzline": "GZ-Line",
+    "zline": "Z-Line",
+    "shun": "Shun",
+    "allTypes": "所有类型",
+    "addSuccess": "例外添加成功",
+    "removeSuccess": "例外删除成功",
+    "removeException": "删除例外",
+    "addFailed": "添加例外失败",
+    "removeFailed": "移除例外失败",
+    "loadError": "加载例外失败：{{error}}",
+    "confirmRemove": "确定要移除 {{mask}} 的例外吗？匹配此掩码的用户将不再免除封禁。"
+  },
+  "channelDetail": {
+    "backToChannels": "返回频道列表",
+    "channelDetails": "频道详情",
+    "users": "用户",
+    "refresh": "刷新",
+    "setTopic": "设置主题",
+    "setMode": "设置模式",
+    "topic": "主题",
+    "noTopicSet": "未设置主题",
+    "setBy": "设置者",
+    "userList": "用户列表",
+    "noUsersInChannel": "频道中没有用户",
+    "channelSettings": "频道设置",
+    "settingsModes": "设置 / 模式",
+    "bans": "封禁",
+    "invites": "邀请",
+    "excepts": "例外",
+    "currentModes": "当前模式：",
+    "defaultModesOnly": "仅默认模式",
+    "channelInfo": "频道信息",
+    "created": "创建时间：",
+    "unknown": "未知",
+    "addBan": "添加封禁",
+    "maskRequired": "请输入掩码",
+    "noBansSet": "未设置封禁",
+    "addInvite": "添加邀请",
+    "noInviteExceptionsSet": "未设置邀请例外",
+    "addException": "添加例外",
+    "noBanExceptionsSet": "未设置封禁例外",
+    "setTopicTitle": "设置主题：{{channel}}",
+    "setChannelModesTitle": "设置频道模式：{{channel}}",
+    "kickUserTitle": "从 {{channel}} 踢出用户",
+    "addChannelBanTitle": "添加频道封禁",
+    "addInviteExceptionTitle": "添加邀请例外",
+    "addBanExceptionTitle": "添加封禁例外",
+    "applyModeChanges": "应用模式更改",
+    "currentModesLabel": "当前模式",
+    "enterModesManually": "或手动输入模式：",
+    "parameters": "参数",
+    "kickUser": "踢出用户",
+    "nickname": "昵称",
+    "enterNicknameToKick": "输入要踢出的昵称",
+    "reasonOptional": "原因（可选）",
+    "enterKickReason": "输入踢出原因",
+    "mask": "掩码",
+    "nickUserHostOrExtended": "nick!user@host 或扩展封禁",
+    "useExtendedBans": "使用扩展封禁，如 ~account:name 或 ~country:XX",
+    "durationMinutesOptional": "持续时间（分钟，可选）",
+    "leaveEmptyForPermanent": "留空为永久",
+    "topicUpdated": "主题已更新",
+    "modeChanged": "模式已更改",
+    "banRemoved": "封禁已移除",
+    "inviteRemoved": "邀请已移除",
+    "exceptionRemoved": "例外已移除",
+    "mutedFor30Min": "已将 {{user}} 静音 30 分钟",
+    "bannedFor30Min": "已将 {{user}} 封禁 30 分钟",
+    "failedToMute": "静音用户失败",
+    "failedToBan": "封禁用户失败",
+    "failedToRemoveBan": "移除封禁失败",
+    "failedToRemoveInvite": "移除邀请失败",
+    "failedToRemoveException": "移除例外失败",
+    "failedToLoadChannel": "加载频道失败：{{error}}",
+    "channelNotFound": "频道未找到",
+    "muteTooltip": "静音（30分钟）",
+    "kickTooltip": "踢出",
+    "banTooltip": "封禁（30分钟）",
+    "removeTooltip": "移除",
+    "setByAt": "由 {{user}} 于 {{time}} 设置"
+  },
+  "plugins": {
+    "pluginPage": "插件页面"
+  },
+  "panelUsers": {
+    "addModal": {
+      "title": "Add Panel User",
+      "createButton": "Create User"
+    },
+    "deleteModal": {
+      "title": "Delete User",
+      "confirm": "Are you sure you want to delete the user?"
+    }
+  },
+  "rpcServers": {
+    "title": "RPC Servers",
+    "description": "Configure UnrealIRCd JSON-RPC connections",
+    "addModal": {
+      "title": "Add RPC Server",
+      "addButton": "Add Server"
+    },
+    "info": {
+      "description": "Configure which JSON-RPC server(s the panel can connect to. You normally only need one server, but multiple servers can be useful for failover.)",
+      "readDocs": "Read the UnrealIRCd setup instructions"
+    },
+    "default": "Default",
+    "status": {
+      "connected": "Connected",
+      "disconnected": "Disconnected"
+    },
+    "empty": "No RPC servers configured. Add one to connect to your UnrealIRCd server.",
+    "form": {
+      "name": {
+        "label": "Display Name",
+        "placeholder": "e.g., Main Server",
+        "helper": "A short display name for the RPC server list"
+      },
+      "host": {
+        "label": "Hostname or IP",
+        "placeholder": "127.0.0.1",
+        "helper": "Use 127.0.0.1 for the same machine"
+      },
+      "port": {
+        "label": "Port",
+        "placeholder": "8600",
+        "helper": "RPC port from unrealircd.conf"
+      },
+      "default": {
+        "label": "Default server",
+        "helper": "Make this the primary server for connections"
+      },
+      "tls": {
+        "label": "Verify SSL/TLS certificate",
+        "helper": "Only use with hostnames, not for 127.0.0.1"
+      },
+      "username": {
+        "label": "Username",
+        "placeholder": "rpc_username",
+        "helper": "The name of your rpc-user block in unrealircd.conf"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Enter RPC password",
+        "helper": "Leave empty to keep existing password"
+      }
+    },
+    "editModal": {
+      "title": "Edit Server: {{name}}"
+    },
+    "updateButton": "Save Changes",
+    "added": "RPC server added successfully",
+    "addFailed": "Failed to add server",
+    "updated": "RPC server updated successfully",
+    "updateFailed": "Failed to update server",
+    "deleted": "RPC server deleted",
+    "deleteFailed": "Failed to delete server",
+    "actions": {
+      "testConnection": "Test Connection",
+      "use": "Use"
+    },
+    "deleteModal": {
+      "title": "Delete Server",
+      "confirm": "Are you sure you want to delete the server <strong>{{name}}</strong>? This action cannot be undone.",
+      "deleteButton": "Delete Server"
+    },
+    "testSuccess": "Connection successful",
+    "testFailure": "Connection failed: {{message}}"
+  },
+  "nameBans": {
+    "title": "Name Bans",
+    "description": "Manage Q-Lines (reserved nicknames and channels)",
+    "addButton": "Add Name Ban",
+    "searchPlaceholder": "Search name bans...",
+    "table": {
+      "type": "Type",
+      "name": "Name/Pattern",
+      "reason": "Reason",
+      "setBy": "Set By",
+      "setAt": "Set At",
+      "expires": "Expires"
+    },
+    "addModal": {
+      "title": "Add Name Ban",
+      "labels": {
+        "banType": "Ban Type",
+        "name": "Name/Pattern",
+        "reason": "Reason",
+        "duration": "Duration"
+      },
+      "options": {
+        "qline": "Q-Line (Nickname)"
+      },
+      "placeholders": {
+        "nameExample": "e.g., Admin* or #official*",
+        "reason": "Enter ban reason"
+      },
+      "help": {
+        "useWildcard": "Use * as wildcard"
+      },
+      "addButton": "Add Ban"
+    },
+    "deleteModal": {
+      "title": "Remove Name Ban",
+      "removeButton": "Remove Ban",
+      "confirm": "Are you sure you want to remove this name ban for {{name}}?"
+    },
+    "messages": {
+      "added": "Name ban added successfully",
+      "removed": "Name ban removed",
+      "loadFailed": "Failed to load name bans: {{error}}"
+    }
+  },
+  "serverBans": {
+    "title": "Server Bans",
+    "description": "Manage G-Lines, K-Lines, Z-Lines, and Shuns",
+    "addButton": "Add Ban",
+    "searchPlaceholder": "Search bans by mask, reason...",
+    "table": {
+      "type": "Type",
+      "mask": "Mask",
+      "reason": "Reason",
+      "setBy": "Set By",
+      "setAt": "Set At",
+      "expires": "Expires"
+    },
+    "spamfilters": {
+      "title": "Spamfilters",
+      "subtitle": "Manage content filters and spam protection",
+      "addButton": "Add Spamfilter",
+      "searchPlaceholder": "Search spamfilters...",
+      "table": {
+        "pattern": "Pattern",
+        "type": "Type",
+        "targets": "Targets",
+        "action": "Action",
+        "hits": "Hits",
+        "setBy": "Set By"
+      },
+      "detailsTitle": "Spamfilter Details",
+      "details": {
+        "matchType": "Match Type",
+        "action": "Action",
+        "hits": "Hits",
+        "setBy": "Set By",
+        "pattern": "Pattern",
+        "targets": "Targets",
+        "reason": "Reason",
+        "noReason": "No reason specified",
+        "actionDuration": "Action Duration"
+      },
+      "addModal": {
+        "title": "Add Spamfilter",
+        "labels": {
+          "matchType": "Match Type",
+          "match": "Pattern",
+          "targets": "Targets",
+          "action": "Action",
+          "duration": "Action Duration",
+          "reason": "Reason"
+        },
+        "options": {
+          "simple": "Simple (wildcards)",
+          "regex": "Regular Expression",
+          "posix": "POSIX Regex"
+        },
+        "actionOptions": {
+          "warn": "Warn",
+          "block": "Block",
+          "kill": "Kill",
+          "gline": "G-Line",
+          "gzline": "GZ-Line",
+          "shun": "Shun",
+          "viruschan": "Virus Channel"
+        },
+        "helper": {
+          "pattern": "Pattern to match against messages",
+          "duration": "Duration for ban action (e.g., 1h, 1d, 7d)"
+        },
+        "placeholders": {
+          "reason": "Spam is not allowed"
+        },
+        "addButton": "Add Spamfilter"
+      },
+      "deleteModal": {
+        "title": "Remove Spamfilter",
+        "removeButton": "Remove Spamfilter",
+        "confirm": "Are you sure you want to remove this spamfilter?"
+      },
+      "messages": {
+        "added": "Spamfilter added successfully",
+        "removed": "Spamfilter removed",
+        "loadFailed": "Failed to load spamfilters: {{error}}",
+        "removeFailed": "Failed to remove spamfilter"
+      }
+    },
+    "addModal": {
+      "title": "Add Server Ban",
+      "labels": {
+        "banType": "Ban Type",
+        "mask": "Mask",
+        "reason": "Reason",
+        "duration": "Duration"
+      },
+      "options": {
+        "gline": "G-Line (Global)",
+        "kline": "K-Line (Local)",
+        "gzline": "GZ-Line (Global IP)",
+        "zline": "Z-Line (Local IP)",
+        "shun": "Shun"
+      },
+      "placeholders": {
+        "maskExample": "*@*.example.com or 192.168.1.*",
+        "reason": "Enter ban reason"
+      },
+      "addButton": "Add Ban"
+    },
+    "deleteModal": {
+      "title": "Remove Ban",
+      "removeButton": "Remove Ban",
+      "confirm": "Are you sure you want to remove this {{type}} for {{name}}?"
+    },
+    "messages": {
+      "added": "Ban added successfully",
+      "removed": "Ban removed",
+      "loadFailed": "Failed to load bans: {{error}}"
+    }
+  },
+  "commands": {
+    "nav": {
+      "dashboard": {
+        "title": "Go to Dashboard",
+        "description": "View network overview"
+      },
+      "users": {
+        "title": "Go to Users",
+        "description": "View connected users"
+      },
+      "channels": {
+        "title": "Go to Channels",
+        "description": "View active channels"
+      },
+      "servers": {
+        "title": "Go to Servers",
+        "description": "View linked servers"
+      },
+      "liveMap": {
+        "title": "Go to Live Map",
+        "description": "View geographic distribution"
+      },
+      "statistics": {
+        "title": "Go to Statistics",
+        "description": "View detailed stats"
+      },
+      "logs": {
+        "title": "Go to Logs",
+        "description": "View system logs"
+      },
+      "serverBans": {
+        "title": "Go to Server Bans",
+        "description": "Manage K-Lines, G-Lines, etc."
+      },
+      "nameBans": {
+        "title": "Go to Name Bans",
+        "description": "Manage Q-Lines"
+      },
+      "banExceptions": {
+        "title": "Go to Ban Exceptions",
+        "description": "Manage E-Lines"
+      },
+      "spamfilters": {
+        "title": "Go to Spamfilters",
+        "description": "Manage spam filters"
+      },
+      "watchList": {
+        "title": "Go to Watch List",
+        "description": "Monitor flagged users"
+      },
+      "settings": {
+        "title": "Go to Settings",
+        "description": "Panel settings"
+      },
+      "twoFactor": {
+        "title": "Go to Two-Factor Auth",
+        "description": "Manage 2FA settings"
+      },
+      "panelUsers": {
+        "title": "Go to Panel Users",
+        "description": "Manage panel user accounts"
+      },
+      "webhooks": {
+        "title": "Go to Webhooks",
+        "description": "Manage webhook endpoints"
+      },
+      "smtp": {
+        "title": "Go to SMTP Settings",
+        "description": "Configure email server"
+      },
+      "notifications": {
+        "title": "Go to Notifications",
+        "description": "Configure notification preferences"
+      }
+    },
+    "theme": {
+      "switch": "Switch to {{name}} Theme",
+      "apply": "Apply {{name}} color scheme"
+    },
+    "action": {
+      "signOut": {
+        "title": "Sign Out",
+        "description": "Log out of the panel"
+      }
+    }
+  },
+  "savedSearches": {
+    "tooltips": {
+      "saveCurrent": "Save current search",
+      "saveDisabled": "Enter a search query first",
+      "view": "View saved searches"
+    },
+    "saveModal": {
+      "title": "Save Search"
+    },
+    "currentSearch": "Current Search:",
+    "emptyPlaceholder": "(empty)",
+    "inputLabel": "Search Name",
+    "placeholders": {
+      "example": "e.g., TOR exit nodes, Suspicious IPs"
+    },
+    "shareWithAll": "Share with all users",
+    "listModal": {
+      "title": "Saved Searches",
+      "emptyTitle": "No saved searches yet.",
+      "emptyDescription": "Save your current search to quickly access it later."
+    },
+    "messages": {
+      "saved": "Search saved",
+      "deleted": "Search deleted",
+      "saveFailed": "Failed to save search",
+      "deleteFailed": "Failed to delete search",
+      "applyFailed": "Failed to apply search"
+    },
+    "shared": "Shared",
+    "popular": "Popular",
+    "usedTimes": "Used {{count}} time(s)",
+    "lastUsed": "Last used",
+    "apply": "Apply"
+  },
+  "watchList": {
+    "title": "Watch List",
+    "subtitle": "Monitor users matching specific criteria",
+    "addButton": "Add to Watch List",
+    "summary": {
+      "entriesLabel": "Watch List Entries",
+      "usersCurrentlyMatched": "Users Currently Matched",
+      "entriesWithActiveMatches": "Entries with Active Matches"
+    },
+    "alert": "{{count}} user(s currently match your watch list criteria. Click the expand arrow or the icon to view details.)",
+    "searchPlaceholder": "Search by nick, IP, reason...",
+    "emptyMessage": "No users in watch list",
+    "messages": {
+      "added": "User added to watch list",
+      "addFailed": "Failed to add user",
+      "updated": "Watch list entry updated",
+      "updateFailed": "Failed to update entry",
+      "removed": "Removed from watch list",
+      "removeFailed": "Failed to remove entry",
+      "loadFailed": "Failed to load watch list: {{error}}"
+    },
+    "table": {
+      "criteria": "Match Criteria",
+      "reason": "Reason",
+      "addedBy": "Added By",
+      "addedAt": "Added",
+      "currentMatches": "Current Matches"
+    },
+    "labels": {
+      "nick": "Nick",
+      "ip": "IP",
+      "host": "Host",
+      "account": "Account",
+      "realname": "Realname",
+      "online": "online"
+    },
+    "tooltips": {
+      "viewMatched": "View matched users"
+    },
+    "addModal": {
+      "title": "Add to Watch List",
+      "addButton": "Add to Watch List"
+    },
+    "editModal": {
+      "title": "Edit Watch List Entry",
+      "saveButton": "Save Changes"
+    },
+    "deleteModal": {
+      "title": "Remove from Watch List",
+      "removeButton": "Remove",
+      "confirm": "Are you sure you want to remove this entry from the watch list?"
+    }
+  },
+  "scheduledCommands": {
+    "title": "Scheduled Commands",
+    "subtitle": "Schedule IRC commands to run automatically",
+    "createButton": "Create Schedule",
+    "searchPlaceholder": "Search commands...",
+    "emptyMessage": "No scheduled commands",
+    "never": "Never",
+    "next": "Next",
+    "messages": {
+      "created": "Scheduled command created",
+      "createFailed": "Failed to create scheduled command",
+      "updated": "Scheduled command updated",
+      "updateFailed": "Failed to update scheduled command",
+      "deleted": "Scheduled command deleted",
+      "deleteFailed": "Failed to delete scheduled command",
+      "toggleFailed": "Failed to toggle scheduled command",
+      "commandExecuted": "Command executed",
+      "runFailed": "Failed to run command",
+      "loadFailed": "Failed to load scheduled commands: {{error}}"
+    },
+    "table": {
+      "status": "Status",
+      "name": "Name",
+      "command": "Command",
+      "schedule": "Schedule",
+      "lastRun": "Last Run",
+      "runs": "Runs"
+    },
+    "tooltips": {
+      "clickToDisable": "Click to disable",
+      "clickToEnable": "Click to enable",
+      "runNow": "Run now"
+    },
+    "labels": {
+      "active": "Active",
+      "paused": "Paused"
+    },
+    "commandTypes": {
+      "kill": "Kill User",
+      "gline": "G-Line (Server Ban)",
+      "rehash": "Rehash Server",
+      "message": "Send Message"
+    },
+    "scheduleTypes": {
+      "once": "One Time",
+      "hourly": "Every Hour",
+      "daily": "Every Day",
+      "weekly": "Every Week",
+      "monthly": "Every Month"
+    },
+    "form": {
+      "nameLabel": "Name *",
+      "namePlaceholder": "e.g., Daily cleanup, Scheduled maintenance",
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "What does this scheduled command do?",
+      "commandTypeLabel": "Command Type *",
+      "targetLabel": "Target",
+      "reasonLabel": "Reason",
+      "durationLabel": "Duration",
+      "messageLabel": "Message",
+      "scheduleLabel": "Schedule *",
+      "enableLabel": "Enable this scheduled command"
+    },
+    "placeholders": {
+      "target": {
+        "kill": "Nickname",
+        "gline": "Host mask (e.g., *@*.bad.com)",
+        "rehash": "Server name",
+        "message": "Channel or nick",
+        "default": "Target"
+      },
+      "reason": "Reason for the action",
+      "duration": "e.g., 1d, 1w, 30m",
+      "message": "Message to send"
+    },
+    "createModal": {
+      "title": "Create Scheduled Command",
+      "createButton": "Create Schedule"
+    },
+    "editModal": {
+      "title": "Edit Scheduled Command",
+      "saveButton": "Save Changes"
+    },
+    "deleteModal": {
+      "title": "Delete Scheduled Command",
+      "confirm": "Are you sure you want to delete this scheduled command? This action cannot be undone."
+    }
+  },
+  "channelTemplates": {
+    "title": "Channel Templates",
+    "subtitle": "Save and apply channel configurations as reusable templates",
+    "fromChannel": "From Channel",
+    "createButton": "Create Template",
+    "empty": "No channel templates yet. Create one or import from an existing channel.",
+    "tooltips": {
+      "global": "Global template",
+      "private": "Private template",
+      "applyToChannel": "Apply to channel",
+      "duplicate": "Duplicate"
+    },
+    "labels": {
+      "modes": "Modes:",
+      "topic": "Topic:"
+    },
+    "used": "Used {{count}} times",
+    "by": "by",
+    "deleteConfirm": "Delete this template?",
+    "form": {
+      "name": "Name",
+      "placeholders": {
+        "name": "Template name",
+        "description": "Optional description",
+        "modes": "+nts",
+        "topic": "Channel topic",
+        "selectChannel": "Select a channel..."
+      },
+      "description": "Description",
+      "modes": "Modes",
+      "topic": "Topic",
+      "makeGlobal": "Make this template available to all users",
+      "updateButton": "Update",
+      "createButton": "Create",
+      "targetChannel": "Target Channel"
+    },
+    "editModal": {
+      "title": "Edit Template"
+    },
+    "createModal": {
+      "title": "Create Template"
+    },
+    "applyModal": {
+      "title": "Apply Template",
+      "subtitle": "Apply template \"{{name}}\" to a channel:",
+      "applyButton": "Apply Template"
+    },
+    "createFromChannel": {
+      "title": "Create from Channel",
+      "description": "Create a new template from an existing channel's configuration:"
+    }
+  },
+  "webhooks": {
+    "title": "Webhooks",
+    "subtitle": "Receive log events from UnrealIRCd via webhooks",
+    "createButton": "Create Webhook",
+    "info": {
+      "paragraph1": "Webhooks allow UnrealIRCd to send log events directly to this panel. Each webhook has a unique token URL that you configure in your unrealircd.conf.",
+      "learnMore": "Learn more about UnrealIRCd log blocks"
+    },
+    "tooltips": {
+      "viewConfig": "View Configuration",
+      "viewLogs": "View Logs",
+      "disable": "Disable",
+      "enable": "Enable",
+      "regenerate": "Regenerate Token"
+    },
+    "emptyTokens": "No webhook tokens configured",
+    "tokens": {
+      "createModal": {
+        "title": "Create Webhook Token"
+      },
+      "deleteModal": {
+        "title": "Delete Webhook Token",
+        "confirm": "Are you sure you want to delete the webhook token \"{{name}}\"?",
+        "details": "UnrealIRCd will no longer be able to send log events to this URL."
+      }
+    },
+    "messages": {
+      "loadFailed": "Failed to load webhooks: {{error}}"
+    }
+  },
+  "themeSwitcher": {
+    "title": "Theme Settings",
+    "tabs": {
+      "presets": "Presets",
+      "customize": "Customize"
+    },
+    "customizeIntro": "Customize the current theme ({{name}} with your own colors.)",
+    "sections": {
+      "background": "Background",
+      "text": "Text"
+    },
+    "colors": {
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "tertiary": "Tertiary",
+      "textPrimary": "Primary",
+      "textMuted": "Muted",
+      "accent": "Accent",
+      "accentHover": "Accent (hover)",
+      "success": "Success",
+      "error": "Error"
+    },
+    "apply": "Apply Changes",
+    "reset": "Reset to Default"
+  },
+  "sidebar": {
+    "logout": "Logout"
+  },
+  "userJourney": {
+    "searchModal": {
+      "title": "Search User Journey",
+      "description": "Enter at least one identifier to search for user activity:",
+      "nicknameLabel": "Nickname",
+      "nicknamePlaceholder": "Enter nickname",
+      "ipLabel": "IP Address",
+      "ipPlaceholder": "Enter IP address"
+    }
+  },
+  "userDetail": {
+    "killTitle": "Kill User: {{name}}",
+    "killButton": "Kill User",
+    "banTitle": "Ban User: {{name}}",
+    "banButton": "Ban User",
+    "vhostTitle": "Set Vhost: {{name}}",
+    "setVhostButton": "Set Vhost",
+    "modesTitle": "Set User Modes: {{name}}",
+    "applyModeChanges": "Apply Mode Changes"
+  }
+}

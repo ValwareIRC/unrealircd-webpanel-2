@@ -1,11 +1,11 @@
 package routes
 
 import (
-	"github.com/gin-contrib/cors"
-	"github.com/gin-gonic/gin"
 	"github.com/ValwareIRC/unrealircd-webpanel-2/internal/api/handlers"
 	"github.com/ValwareIRC/unrealircd-webpanel-2/internal/api/middleware"
 	"github.com/ValwareIRC/unrealircd-webpanel-2/internal/database/models"
+	"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
 )
 
 // SetupRoutes configures all API routes

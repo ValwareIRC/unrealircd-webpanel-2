@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { Alert, Button, Badge, Modal, DataTable } from '@/components/common'
+import { useTranslation } from 'react-i18next'
 import { 
   Webhook, 
   Plus, 
@@ -22,6 +23,7 @@ import api from '@/services/api'
 import type { WebhookToken, WebhookConfigResponse, WebhookLog } from '@/types'
 
 export function WebhooksPage() {
+  const { t } = useTranslation()
   const queryClient = useQueryClient()
   const [showCreateModal, setShowCreateModal] = useState(false)
   const [showConfigModal, setShowConfigModal] = useState(false)
@@ -242,7 +244,7 @@ export function WebhooksPage() {
             variant="ghost"
             size="sm"
             onClick={() => handleShowConfig(token)}
-            title="View Configuration"
+            title={t('webhooks.tooltips.viewConfig')}
           >
             <Settings size={14} />
           </Button>
@@ -253,7 +255,7 @@ export function WebhooksPage() {
               setSelectedToken(token)
               setShowLogsModal(true)
             }}
-            title="View Logs"
+            title={t('webhooks.tooltips.viewLogs')}
           >
             <Activity size={14} />
           </Button>
@@ -261,7 +263,7 @@ export function WebhooksPage() {
             variant="ghost"
             size="sm"
             onClick={() => toggleEnabledMutation.mutate({ id: token.id, enabled: !token.enabled })}
-            title={token.enabled ? 'Disable' : 'Enable'}
+            title={token.enabled ? t('webhooks.tooltips.disable') : t('webhooks.tooltips.enable')}
           >
             {token.enabled ? <EyeOff size={14} /> : <Eye size={14} />}
           </Button>
@@ -269,7 +271,7 @@ export function WebhooksPage() {
             variant="ghost"
             size="sm"
             onClick={() => regenerateMutation.mutate(token.id)}
-            title="Regenerate Token"
+            title={t('webhooks.tooltips.regenerate')}
           >
             <RefreshCw size={14} />
           </Button>
@@ -280,7 +282,7 @@ export function WebhooksPage() {
               setSelectedToken(token)
               setShowDeleteModal(true)
             }}
-            title="Delete"
+            title={t('common.delete')}
             className="text-[var(--error)] hover:text-[var(--error)]"
           >
             <Trash2 size={14} />
@@ -294,7 +296,7 @@ export function WebhooksPage() {
     return (
       <div className="space-y-6">
         <Alert type="error">
-          Failed to load webhooks: {error instanceof Error ? error.message : 'Unknown error'}
+          {t('webhooks.messages.loadFailed', { error: error instanceof Error ? error.message : 'Unknown error' })}
         </Alert>
       </div>
     )
@@ -312,24 +314,20 @@ export function WebhooksPage() {
             <ArrowLeft size={20} className="text-[var(--text-muted)]" />
           </Link>
           <div>
-            <h1 className="text-2xl font-bold text-[var(--text-primary)]">Webhooks</h1>
-            <p className="text-[var(--text-muted)] mt-1">
-              Receive log events from UnrealIRCd via webhooks
-            </p>
+            <h1 className="text-2xl font-bold text-[var(--text-primary)]">{t('webhooks.title')}</h1>
+            <p className="text-[var(--text-muted)] mt-1">{t('webhooks.subtitle')}</p>
           </div>
         </div>
         <Button onClick={() => setShowCreateModal(true)}>
           <Plus size={16} className="mr-2" />
-          Create Webhook
+          {t('webhooks.createButton')}
         </Button>
       </div>
 
       {/* Info Box */}
       <Alert type="info">
         <div className="space-y-2">
-          <p>
-            Webhooks allow UnrealIRCd to send log events directly to this panel. Each webhook has a unique token URL that you configure in your <code className="bg-[var(--bg-tertiary)] px-1 rounded">unrealircd.conf</code>.
-          </p>
+          <p>{t('webhooks.info.paragraph1')}</p>
           <p className="text-sm">
             <a 
               href="https://www.unrealircd.org/docs/Log_block" 
@@ -337,7 +335,7 @@ export function WebhooksPage() {
               rel="noopener noreferrer"
               className="text-[var(--accent)] hover:underline inline-flex items-center gap-1"
             >
-              Learn more about UnrealIRCd log blocks <ExternalLink size={12} />
+              {t('webhooks.info.learnMore')} <ExternalLink size={12} />
             </a>
           </p>
         </div>
@@ -350,7 +348,7 @@ export function WebhooksPage() {
           columns={columns}
           keyField="id"
           isLoading={isLoading}
-          emptyMessage="No webhook tokens configured"
+          emptyMessage={t('webhooks.emptyTokens')}
           searchable={false}
         />
       </div>
@@ -359,7 +357,7 @@ export function WebhooksPage() {
       <Modal
         isOpen={showCreateModal}
         onClose={() => setShowCreateModal(false)}
-        title="Create Webhook Token"
+        title={t('webhooks.tokens.createModal.title')}
       >
         <div className="space-y-4">
           <div>
@@ -388,14 +386,14 @@ export function WebhooksPage() {
           </div>
           <div className="flex justify-end gap-2 pt-4">
             <Button variant="secondary" onClick={() => setShowCreateModal(false)}>
-              Cancel
+              {t('common.cancel')}
             </Button>
             <Button
               onClick={() => createMutation.mutate({ name: newName, description: newDescription })}
               disabled={!newName.trim() || createMutation.isPending}
               isLoading={createMutation.isPending}
             >
-              Create
+              {t('common.create')}
             </Button>
           </div>
         </div>
@@ -543,12 +541,13 @@ export function WebhooksPage() {
           setShowDeleteModal(false)
           setSelectedToken(null)
         }}
-        title="Delete Webhook Token"
+        title={t('webhooks.tokens.deleteModal.title')}
       >
         <div className="space-y-4">
           <Alert type="warning">
-            Are you sure you want to delete the webhook token "{selectedToken?.name}"? 
-            UnrealIRCd will no longer be able to send log events to this URL.
+            {t('webhooks.tokens.deleteModal.confirm', { name: selectedToken?.name })}
+            {` `}
+            {t('webhooks.tokens.deleteModal.details')}
           </Alert>
           <div className="flex justify-end gap-2">
             <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>

@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { Puzzle, ArrowLeft, Settings, ExternalLink } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import marketplaceService, { PluginNavItem } from '@/services/marketplaceService'
 
 interface InstalledPlugin {
@@ -16,6 +17,7 @@ interface InstalledPlugin {
 
 export default function PluginPage() {
   const { '*': pluginPath } = useParams()
+  const { t } = useTranslation()
 
   // Fetch plugin nav items to find the current plugin
   const { data: navItems = [] } = useQuery<PluginNavItem[]>({
@@ -56,7 +58,7 @@ export default function PluginPage() {
             </div>
             <div>
               <h1 className="text-2xl font-bold text-[var(--text-primary)]">
-                {currentNavItem?.label || 'Plugin Page'}
+                {currentNavItem?.label || t('plugins.pluginPage')}
               </h1>
               {plugin && (
                 <p className="text-sm text-[var(--text-muted)]">
@@ -99,7 +101,7 @@ export default function PluginPage() {
           </div>
           
           <h2 className="text-xl font-semibold text-[var(--text-primary)] mb-2">
-            {currentNavItem?.label || 'Plugin Page'}
+            {currentNavItem?.label || t('plugins.pluginPage')}
           </h2>
           
           {plugin ? (
@@ -131,7 +133,7 @@ export default function PluginPage() {
                           ? 'bg-green-500/10 text-green-500' 
                           : 'bg-red-500/10 text-red-500'
                       }`}>
-                        {plugin.enabled ? 'Enabled' : 'Disabled'}
+                        {plugin.enabled ? t('common.enabled') : t('common.disabled')}
                       </span>
                     </dd>
                   </div>

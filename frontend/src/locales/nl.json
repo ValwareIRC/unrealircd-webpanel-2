@@ -1,0 +1,1203 @@
+{
+  "common": {
+    "save": "Opslaan",
+    "cancel": "Annuleren",
+    "delete": "Verwijderen",
+    "edit": "Bewerken",
+    "add": "Toevoegen",
+    "search": "Zoeken",
+    "filter": "Filteren",
+    "loading": "Laden...",
+    "error": "Fout",
+    "success": "Succes",
+    "warning": "Waarschuwing",
+    "info": "Informatie",
+    "yes": "Ja",
+    "no": "Nee",
+    "ok": "Bevestigen",
+    "close": "Sluiten",
+    "back": "Terug",
+    "next": "Volgende",
+    "previous": "Vorige",
+    "submit": "Verzenden",
+    "reset": "Resetten",
+    "confirm": "Bevestigen",
+    "logout": "Uitloggen",
+    "login": "Inloggen",
+    "username": "Gebruikersnaam",
+    "password": "Wachtwoord",
+    "email": "E-mail",
+    "name": "Beeldnaam",
+    "description": "Beschrijving",
+    "status": "Toestand",
+    "active": "Actief",
+    "inactive": "Inactief",
+    "enabled": "Ingeschakeld",
+    "disabled": "Uitgeschakeld"
+  },
+  "navigation": {
+    "dashboard": "Overzicht",
+    "servers": "Servers",
+    "users": "Gebruikers",
+    "settings": "Instellingen",
+    "logs": "Logboeken",
+    "reports": "Rapporten",
+    "plugins": "Uitbreidingen",
+    "statistics": "Statistieken",
+    "liveMap": "Live-kaart",
+    "userJourney": "Gebruikersreis",
+    "channels": "Kanalen",
+    "templates": "Sjablonen",
+    "watchList": "Waarschuwingslijst",
+    "serverList": "Serverlijst",
+    "topology": "Topologie",
+    "tlsStatistics": "TLS-statistieken",
+    "serverBans": "Server-bans",
+    "nameBans": "Naam-bans",
+    "exceptions": "Uitzonderingen",
+    "spamfilters": "Spambeheer",
+    "scheduled": "Geplande opdrachten",
+    "alertRules": "Alarmregels",
+    "overview": "Overzicht",
+    "irc": "IRC",
+    "bansFilters": "Verbanningen en filters",
+    "tools": "Hulpmiddelen",
+    "community": "Gemeenschap",
+    "admin": "Beheer",
+    "digest": "Samenvatting",
+    "feedback": "Terugkoppeling",
+    "panelUsers": "Paneelgebruikers",
+    "roles": "Rollen",
+    "compliance": "Naleving",
+    "rpcServers": "RPC-servers",
+    "marketplace": "Marktplaats"
+  },
+  "dashboard": {
+    "title": "Overzicht",
+    "welcome": "Welkom bij het UnrealIRCd Web Panel",
+    "overview": "Overzicht",
+    "statistics": "Statistieken",
+    "recentActivity": "Recente Activiteit",
+    "editLayout": "Lay-out bewerken",
+    "addWidget": "Widget toevoegen",
+    "saveLayout": "Lay-out opslaan",
+    "resetLayout": "Lay-out herstellen",
+    "cancel": "Annuleren",
+    "save": "Opslaan",
+    "saving": "Opslaan...",
+    "customize": "Aanpassen",
+    "loading": "Laden...",
+    "error": "Fout bij het laden van het dashboard",
+    "noWidgets": "Geen widgets beschikbaar",
+    "widgetConfig": "Widget-configuratie",
+    "configureWidget": "Widget configureren",
+    "widgetType": "Widget-type",
+    "description": "Beschrijving",
+    "configure": "Configureren",
+    "remove": "Verwijderen",
+    "dragToReorder": "Sleep om widgets te herschikken",
+    "editModeHint": "Bewerkingsmodus: sleep widgets om ze te verplaatsen, sleep randen om te schalen. Klik op X om een widget te verwijderen.",
+    "resetConfirm": "Dashboard terugzetten naar standaardindeling? Dit kan niet ongedaan worden gemaakt.",
+    "pageDescription": "Overzicht van uw IRC-netwerk"
+  },
+  "auth": {
+    "loginTitle": "Inloggen",
+    "loginButton": "Inloggen",
+    "logoutConfirm": "Weet je zeker dat je wilt uitloggen?",
+    "invalidCredentials": "Ongeldige gebruikersnaam of wachtwoord",
+    "sessionExpired": "Uw sessie is verlopen. Log opnieuw in.",
+    "panelTitle": "UnrealIRCd-paneel",
+    "panelSubtitle": "Log in om uw IRC-netwerk te beheren",
+    "twoFactorRequired": "Tweefactorauthenticatie vereist",
+    "usernameLabel": "Gebruikersnaam",
+    "usernamePlaceholder": "Voer uw gebruikersnaam in",
+    "passwordLabel": "Wachtwoord",
+    "passwordPlaceholder": "Voer uw wachtwoord in",
+    "signInButton": "Inloggen",
+    "twoFactorDescription": "Voer de 6-cijferige code van uw authenticator-app in of gebruik een back-upcode.",
+    "verificationCodeLabel": "Verificatiecode",
+    "verificationCodePlaceholder": "Voer verificatiecode in",
+    "verifyButton": "Verifiëren",
+    "backButton": "Terug",
+    "failedLogin": "Aanmelden mislukt",
+    "invalidCode": "Ongeldige verificatiecode"
+  },
+  "users": {
+    "title": "Gebruikers",
+    "subtitle": "Beheer verbonden gebruikers op het netwerk",
+    "nickname": "Bijnaam",
+    "host": "Hostnaam",
+    "ip": "IP",
+    "channels": "Kanalen",
+    "idle": "Inactief",
+    "server": "Server",
+    "ircOp": "IRC-Op",
+    "tls": "TLS",
+    "hidden": "Verborgen",
+    "unknown": "Onbekend",
+    "searchPlaceholder": "Zoek gebruikers op bijnaam, host, IP...",
+    "viewDetails": "Bekijk details",
+    "clearSelection": "Selectie wissen",
+    "killAll": "Allen doden",
+    "banAll": "Allen verbannen",
+    "selectedUsers": "{{count}} gebruiker{{count !== 1 ? 's' : ''}} geselecteerd",
+    "userDetails": "Gebruiker: {{name}}",
+    "killSuccess": "{{name}} gedood",
+    "killFailed": "Gebruiker doden mislukt",
+    "banSuccess": "{{name}} verbannen",
+    "banFailed": "Gebruiker verbannen mislukt",
+    "vhostSuccess": "Vhost ingesteld voor {{name}}",
+    "vhostFailed": "Vhost instellen mislukt",
+    "bulkBanSuccess": "{{count}} gebruikers succesvol verbannen",
+    "bulkBanPartial": "{{success}} gebruikers verbannen, {{failed}} mislukt",
+    "loadError": "Gebruikers laden mislukt: {{error}}",
+    "username": "Gebruikersnaam",
+    "realName": "Echte naam",
+    "hostname": "Hostnaam",
+    "ipAddress": "IP-adres",
+    "virtualHost": "Virtuele host",
+    "vhostPlaceholder": "bijv. gebruiker.mijnnetwerk.org",
+    "vhostHelperText": "Laat leeg om de huidige vhost te verwijderen",
+    "none": "Geen",
+    "connectedSince": "Verbonden sinds",
+    "userModes": "Gebruikersmodi",
+    "banType": "Verbanningstype",
+    "gline": "G-Line (Globaal)",
+    "kline": "K-Line (Lokaal)",
+    "gzline": "GZ-Line (Globaal IP)",
+    "zline": "Z-Line (Lokaal IP)",
+    "shun": "Shun",
+    "reason": "Reden",
+    "enterBanReason": "Voer verbanningsreden in",
+    "duration": "Duur",
+    "oneHour": "1 uur",
+    "sixHours": "6 uur",
+    "oneDay": "1 dag",
+    "sevenDays": "7 dagen",
+    "thirtyDays": "30 dagen",
+    "permanent": "Permanent",
+    "setVhost": "Vhost instellen",
+    "setVhostTitle": "Vhost instellen: {{name}}",
+    "cancel": "Annuleren",
+    "enterKillReason": "Voer kill-reden in",
+    "banUsersTitle": "{{count}} gebruikers verbannen",
+    "banningProgress": "Verbannen... ({{current}}/{{total}})",
+    "banUsersButton": "{{count}} gebruikers verbannen",
+    "bulkBanWarning": "Dit zal {{count}} gebruiker{{count !== 1 ? 's' : ''}} van het netwerk verbannen.",
+    "killUsersTitle": "{{count}} gebruikers doden",
+    "killingProgress": "Doden... ({{current}}/{{total}})",
+    "killUsersButton": "{{count}} gebruikers doden",
+    "bulkKillWarning": "Dit zal {{count}} gebruiker{{count !== 1 ? 's' : ''}} geforceerd van het netwerk disconnecten.",
+    "killUserTitle": "Gebruiker doden: {{name}}",
+    "killUserButton": "Gebruiker doden",
+    "banUserTitle": "Gebruiker verbannen: {{name}}",
+    "banUserButton": "Gebruiker verbannen",
+    "killUserWarning": "Dit zal {{name}} geforceerd van het netwerk disconnecten.",
+    "active": "Actief",
+    "seconds": "{{count}} s",
+    "minutes": "{{count}} min",
+    "hours": "{{count}} u",
+    "days": "{{count}} d"
+  },
+  "servers": {
+    "title": "Sunucular",
+    "subtitle": "Bekijk gekoppelde servers in het netwerk",
+    "server": "Server",
+    "users": "Gebruikers",
+    "description": "Beschrijving",
+    "noDescription": "Geen beschrijving",
+    "version": "Versie",
+    "unknown": "Onbekend",
+    "uptime": "Uptime",
+    "searchPlaceholder": "Zoek servers...",
+    "viewDetails": "Bekijk details",
+    "rehash": "Herladen",
+    "serverDetails": "Server: {{name}}",
+    "serverName": "Servernaam",
+    "serverFeatures": "Serverfuncties",
+    "software": "Serversoftware",
+    "protocol": "Protocol",
+    "nickLength": "Bijnaamlengte",
+    "channelModes": "Kanaalmodi",
+    "uLineServer": "Dit is een U-Line server (services server)",
+    "rehashTitle": "Herladen: {{name}}",
+    "cancel": "Annuleren",
+    "rehashServer": "Server herladen",
+    "rehashWarning": "Dit zal ervoor zorgen dat {{name}} zijn configuratie herlaadt. Weet je zeker dat je wilt doorgaan?",
+    "rehashSuccess": "Herladen verzonden naar {{name}}",
+    "rehashFailed": "Server herladen mislukt",
+    "loadError": "Servers laden mislukt: {{error}}",
+    "uptimeFormat": "{{days}} d {{hours}} u {{minutes}} m",
+    "uptimeHoursMinutes": "{{hours}} u {{minutes}} m",
+    "uptimeMinutes": "{{minutes}} m"
+  },
+  "channels": {
+    "title": "Kanalen",
+    "subtitle": "Beheer kanalen op het netwerk",
+    "channel": "Kanaal",
+    "users": "Gebruikers",
+    "topic": "Onderwerp",
+    "noTopicSet": "Geen onderwerp ingesteld",
+    "modes": "Modi",
+    "created": "Gemaakt",
+    "unknown": "Onbekend",
+    "searchPlaceholder": "Zoek kanalen op naam, onderwerp...",
+    "viewDetails": "Bekijk details",
+    "setTopic": "Onderwerp instellen",
+    "setMode": "Modus instellen",
+    "kickUser": "Gebruiker kicken",
+    "channelDetails": "Kanaal: {{name}}",
+    "channelName": "Kanaalnaam",
+    "members": "Leden",
+    "bans": "Verbanningen",
+    "setBy": "Ingesteld door {{user}}",
+    "setByAt": "Ingesteld door {{user}} om {{time}}",
+    "banEntry": "{{name}} door {{setBy}}",
+    "setTopicTitle": "Onderwerp instellen: {{name}}",
+    "cancel": "Annuleren",
+    "enterNewTopic": "Voer nieuw kanaalonderwerp in",
+    "setModeTitle": "Modus instellen: {{name}}",
+    "modePlaceholder": "bijv. +nt of -o",
+    "parametersOptional": "Parameters (optioneel)",
+    "parametersPlaceholder": "bijv. bijnaam",
+    "parametersHelper": "Parameters voor modi die ze nodig hebben",
+    "currentModes": "Huidige modi:",
+    "kickUserTitle": "Gebruiker kicken uit {{name}}",
+    "nickname": "Bijnaam",
+    "enterNickname": "Voer te kicken bijnaam in",
+    "reasonOptional": "Reden (optioneel)",
+    "enterKickReason": "Voer kick-reden in",
+    "topicUpdated": "Onderwerp bijgewerkt",
+    "topicUpdateFailed": "Onderwerp instellen mislukt",
+    "modeChanged": "Modus gewijzigd",
+    "modeChangeFailed": "Modus instellen mislukt",
+    "userKicked": "{{nick}} gekickt uit {{channel}}",
+    "kickFailed": "Gebruiker kicken mislukt",
+    "loadError": "Kanalen laden mislukt: {{error}}"
+  },
+  "statistics": {
+    "title": "Statistieken",
+    "subtitle": "Historische netwerkstatistieken",
+    "currentUsers": "Huidige Gebruikers",
+    "channels": "Kanalen",
+    "servers": "Servers",
+    "activeBans": "Actieve Verbanningen",
+    "userActivity": "Gebruikersactiviteit",
+    "userActivityDesc": "Gebruikersaantallen in de tijd",
+    "banDistribution": "Verbanningsverdeling",
+    "banDistributionDesc": "Uitsplitsing per verbanningstype",
+    "noActiveBans": "Geen actieve verbanningen",
+    "userDistribution": "Gebruikersverdeling",
+    "userDistributionDesc": "Uitsplitsing per gebruikerstype",
+    "noUsersConnected": "Geen gebruikers verbonden",
+    "connectionStatistics": "Verbindingsstatistieken",
+    "connectionStatisticsDesc": "Authenticatie- en verbindingsmetrieken",
+    "networkTraffic": "Netwerkverkeer",
+    "networkTrafficDesc": "Dataoverdracht in de tijd",
+    "bytesReceived": "Ontvangen Bytes",
+    "bytesSent": "Verzonden Bytes",
+    "banHistory": "Verbanningsgeschiedenis",
+    "banHistoryDesc": "Verbanningsaantallen in de tijd",
+    "gLines": "G-Lines",
+    "kLines": "K-Lines",
+    "zLines": "Z-Lines",
+    "gzLines": "GZ-Lines",
+    "shuns": "Shuns",
+    "spamfilters": "Spamfilters",
+    "qLines": "Q-Lines",
+    "regularUsers": "Normale Gebruikers",
+    "operators": "Operatoren",
+    "invisible": "Onzichtbare",
+    "serverStatistics": "Serverstatistieken",
+    "serverStatisticsDesc": "Serveraantallen in de tijd",
+    "totalServers": "Totaal Servers",
+    "uLinedServers": "U-Lined servers",
+    "showingSnapshots": "{{count}} van {{max}} beschikbare snapshots tonen (max geschiedenis: {{history}})",
+    "lastSnapshot": "Laatste snapshot: {{timestamp}}"
+  },
+  "alertRules": {
+    "alertRulesPage": "Waarschuwingsregels",
+    "description": "Maak aangepaste waarschuwingsregels die webhooks activeren wanneer specifieke gebeurtenissen plaatsvinden",
+    "createRule": "Regel Maken",
+    "noRulesConfigured": "Geen waarschuwingsregels geconfigureerd. Maak er een aan om te beginnen."
+  },
+  "logs": {
+    "title": "Logviewer",
+    "subtitle": "Bekijk historische en live log entries van UnrealIRCd (vereist 6.1.1+)",
+    "startLive": "Live starten",
+    "stopLive": "Live stoppen",
+    "level": "Niveau:",
+    "subsystem": "Sub-systeem:",
+    "searchPlaceholder": "Zoek logs...",
+    "autoScroll": "Automatisch scrollen:",
+    "on": "Aan",
+    "off": "Uit",
+    "all": "Alle",
+    "entries": "inzendingen",
+    "live": "LIVE",
+    "noEntries": "Geen log entries gevonden",
+    "tableHeaders": {
+      "time": "Tijd",
+      "level": "Niveau",
+      "subsystem": "Sub-systeem",
+      "event": "Gebeurtenis",
+      "message": "Bericht"
+    },
+    "modal": {
+      "title": "Details van logvermelding",
+      "rawJson": "Ruwe JSON"
+    }
+  },
+  "marketplace": {
+    "title": "Plugin Marketplace",
+    "subtitle": "Ontdek en installeer plugins om uw UnrealIRCd Web Panel uit te breiden",
+    "categories": {
+      "all": "Alle Plugins",
+      "security": "Beveiliging",
+      "integration": "Integratie",
+      "monitoring": "Bewaking",
+      "management": "Beheer",
+      "utilities": "Hulpprogramma's",
+      "appearance": "Uiterlijk"
+    },
+    "tabs": {
+      "browse": "Marketplace Bladeren",
+      "installed": "Geïnstalleerd"
+    },
+    "searchPlaceholder": "Plugins zoeken...",
+    "installed": "Geïnstalleerd",
+    "install": "Installeren",
+    "uninstall": "Verwijderen",
+    "update": "Bijwerken",
+    "updateTo": "Bijwerken naar {{version}}",
+    "byAuthor": "door {{author}}",
+    "installedAgo": "{{time}} geleden geïnstalleerd",
+    "updatedAgo": "{{time}} geleden bijgewerkt",
+    "activePlugins": "Actieve Plugins",
+    "updatesAvailable": "Beschikbare Updates",
+    "disabled": "Uitgeschakeld",
+    "noPlugins": "Geen plugins geïnstalleerd",
+    "browseToFind": "Blader door de marketplace om plugins te vinden",
+    "operationSuccess": "✓ Bewerking succesvol voltooid",
+    "rating": "({{count}})",
+    "version": "v{{version}}"
+  },
+  "livemap": {
+    "title": "Live Gebruikerskaart",
+    "subtitle": "Realtime visualisatie van IRC-gebruikers wereldwijd",
+    "users": "gebruikers",
+    "countries": "landen",
+    "loadingGlobe": "Globe laden...",
+    "controls": {
+      "drag": "🖱️ Slepen om te draaien",
+      "zoom": "🔍 Scrollen om te zoomen"
+    },
+    "topCountries": "Toplanden",
+    "noGeoData": "Geen geo-locatiegegevens beschikbaar",
+    "moreCountries": "+{{count}} meer landen",
+    "user": "gebruiker",
+    "usersPlural": "gebruikers"
+  },
+  "banExceptions": {
+    "title": "Verbanningsuitzonderingen",
+    "subtitle": "E-Lines beheren (verbanningsuitzonderingen)",
+    "addException": "Uitzondering Toevoegen",
+    "mask": "Masker",
+    "exceptionTypes": "Uitzonderingstypen",
+    "reason": "Reden",
+    "setBy": "Ingesteld Door",
+    "setAt": "Ingesteld Op",
+    "all": "Alle",
+    "noReason": "Geen reden",
+    "unknown": "Onbekend",
+    "searchPlaceholder": "Uitzonderingen zoeken...",
+    "addModalTitle": "Verbanningsuitzondering Toevoegen",
+    "removeModalTitle": "Uitzondering Verwijderen",
+    "maskPlaceholder": "*@*.trusted.example.com",
+    "maskHelperText": "Gebruiker@host masker om uit te zonderen van verbanningen",
+    "exceptionFor": "Uitzondering Voor",
+    "reasonOptional": "Reden (optioneel)",
+    "reasonPlaceholder": "Vertrouwd netwerk",
+    "gline": "G-Line",
+    "kline": "K-Line",
+    "gzline": "GZ-Line",
+    "zline": "Z-Line",
+    "shun": "Shun",
+    "allTypes": "Alle Typen",
+    "addSuccess": "Uitzondering succesvol toegevoegd",
+    "removeSuccess": "Uitzondering succesvol verwijderd",
+    "removeException": "Uitzondering Verwijderen",
+    "addFailed": "Uitzondering toevoegen mislukt",
+    "removeFailed": "Uitzondering verwijderen mislukt",
+    "loadError": "Uitzonderingen laden mislukt: {{error}}",
+    "confirmRemove": "Weet je zeker dat je de uitzondering voor {{mask}} wilt verwijderen? Gebruikers die overeenkomen met dit masker zullen niet langer uitgezonderd zijn van verbanningen."
+  },
+  "channelDetail": {
+    "backToChannels": "Terug naar Kanalen",
+    "channelDetails": "Kanaaldetails",
+    "users": "gebruikers",
+    "refresh": "Vernieuwen",
+    "setTopic": "Topic Instellen",
+    "setMode": "Modus Instellen",
+    "topic": "Onderwerp",
+    "noTopicSet": "Geen topic ingesteld",
+    "setBy": "Ingesteld door",
+    "userList": "Gebruikerslijst",
+    "noUsersInChannel": "Geen gebruikers in kanaal",
+    "channelSettings": "Kanaalinstellingen",
+    "settingsModes": "Instellingen / Modi",
+    "bans": "Verbanningen",
+    "invites": "Uitnodigingen",
+    "excepts": "Uitzonderingen",
+    "currentModes": "Huidige modi:",
+    "defaultModesOnly": "Alleen standaardmodi",
+    "channelInfo": "Kanaalinformatie",
+    "created": "Gemaakt:",
+    "unknown": "Onbekend",
+    "addBan": "Verbanning Toevoegen",
+    "maskRequired": "Voer een masker in",
+    "noBansSet": "Geen verbanningen ingesteld",
+    "addInvite": "Uitnodiging Toevoegen",
+    "noInviteExceptionsSet": "Geen uitnodigingsuitzonderingen ingesteld",
+    "addException": "Uitzondering Toevoegen",
+    "noBanExceptionsSet": "Geen verbanningsuitzonderingen ingesteld",
+    "setTopicTitle": "Topic instellen: {{channel}}",
+    "setChannelModesTitle": "Kanaalmodi instellen: {{channel}}",
+    "kickUserTitle": "Gebruiker uit {{channel}} kicken",
+    "addChannelBanTitle": "Kanaalverbanning Toevoegen",
+    "addInviteExceptionTitle": "Uitnodigingsuitzondering Toevoegen",
+    "addBanExceptionTitle": "Verbanningsuitzondering Toevoegen",
+    "applyModeChanges": "Moduswijzigingen Toepassen",
+    "currentModesLabel": "Huidige modi",
+    "enterModesManually": "Of modi handmatig invoeren:",
+    "parameters": "Parameters",
+    "kickUser": "Gebruiker Kicken",
+    "nickname": "Bijnaam",
+    "enterNicknameToKick": "Bijnaam om te kicken invoeren",
+    "reasonOptional": "Reden (optioneel)",
+    "enterKickReason": "Kick-reden invoeren",
+    "mask": "Masker",
+    "nickUserHostOrExtended": "nick!user@host of uitgebreide verbanning",
+    "useExtendedBans": "Gebruik uitgebreide verbanningen zoals ~account:name of ~country:XX",
+    "durationMinutesOptional": "Duur (minuten, optioneel)",
+    "leaveEmptyForPermanent": "Leeg laten voor permanent",
+    "topicUpdated": "Topic bijgewerkt",
+    "modeChanged": "Modus gewijzigd",
+    "banRemoved": "Verbanning verwijderd",
+    "inviteRemoved": "Uitnodiging verwijderd",
+    "exceptionRemoved": "Uitzondering verwijderd",
+    "mutedFor30Min": "{{user}} gedempt voor 30 minuten",
+    "bannedFor30Min": "{{user}} verbannen voor 30 minuten",
+    "failedToMute": "Gebruiker dempen mislukt",
+    "failedToBan": "Gebruiker verbannen mislukt",
+    "failedToRemoveBan": "Verbanning verwijderen mislukt",
+    "failedToRemoveInvite": "Uitnodiging verwijderen mislukt",
+    "failedToRemoveException": "Uitzondering verwijderen mislukt",
+    "failedToLoadChannel": "Kanaal laden mislukt: {{error}}",
+    "channelNotFound": "Kanaal niet gevonden",
+    "muteTooltip": "Dempen (30 min)",
+    "kickTooltip": "Kicken",
+    "banTooltip": "Verbannen (30 min)",
+    "removeTooltip": "Verwijderen",
+    "setByAt": "Ingesteld door {{user}} om {{time}}"
+  },
+  "header": {
+    "searchPlaceholder": "Zoeken of springen naar...",
+    "refreshStats": "Statistieken vernieuwen",
+    "connected": "Verbonden",
+    "disconnected": "Niet verbonden",
+    "users": "gebruikers",
+    "channels": "kanalen",
+    "servers": "servers"
+  },
+  "plugins": {
+    "pluginPage": "Plugin Pagina"
+  },
+  "widgets": {
+    "networkStats": "Netwerkstatistieken",
+    "topUsers": "Topgebruikers",
+    "recentChannels": "Recente kanalen",
+    "serverStatus": "Serverstatus",
+    "uptime": "Beschikbaarheid",
+    "version": "Versienummer",
+    "users": "Gebruikers",
+    "channels": "Kanalen",
+    "servers": "Netwerkservers",
+    "operators": "Operatoren",
+    "invisible": "Onzichtbaar",
+    "total": "Totaal",
+    "local": "Lokaal",
+    "globalMax": "Globale max",
+    "online": "Verbonden",
+    "offline": "Verbroken",
+    "connecting": "Verbinden",
+    "unknown": "Onbekend",
+    "viewAll": "Alles bekijken",
+    "noData": "Geen gegevens beschikbaar",
+    "loading": "Laden...",
+    "error": "Fout bij het laden van gegevens",
+    "statsHistory": "Statistiekgeschiedenis",
+    "last24Hours": "Laatste 24 uur",
+    "userActivity": "Gebruikersactiviteit",
+    "channelActivity": "Kanaalactiviteit",
+    "serverActivity": "Serveractiviteit",
+    "totalUsers": "Totaal aantal gebruikers",
+    "connectedToNetwork": "Verbonden met netwerk",
+    "activeChannels": "Actieve kanalen",
+    "withUsers": "Met gebruikers",
+    "linkedServers": "Gekoppelde servers",
+    "inNetwork": "In het netwerk",
+    "onlineOperators": "Online IRC-operators",
+    "topChannels": "Topkanalen",
+    "byUserCount": "Op aantal gebruikers",
+    "noTopic": "Geen onderwerp",
+    "noChannels": "Geen kanalen",
+    "networkServers": "Netwerkservers",
+    "server": "Servernaam",
+    "status": "Toestand",
+    "ok": "Bevestigen",
+    "noServers": "Geen servers",
+    "hourOverview": "24-uurs overzicht",
+    "quickLinks": "Snelle links",
+    "navigateToSections": "Navigeer naar secties",
+    "networkInfo": "Netwerkinformatie",
+    "connectionDetails": "Verbindingsdetails",
+    "recentBans": "Recente bans",
+    "serverBans": "Serverbans",
+    "noRecentBans": "Geen recente bans"
+  },
+  "panelUsers": {
+    "addModal": {
+      "title": "Add Panel User",
+      "createButton": "Create User"
+    },
+    "deleteModal": {
+      "title": "Delete User",
+      "confirm": "Are you sure you want to delete the user?"
+    }
+  },
+  "rpcServers": {
+    "title": "RPC-servers",
+    "description": "Configureer UnrealIRCd JSON-RPC-verbindingen",
+    "addModal": {
+      "title": "RPC-server toevoegen",
+      "addButton": "Add Server"
+    },
+    "info": {
+      "description": "Configure which JSON-RPC server(s) the panel can connect to. You normally only need one server, but multiple servers can be useful for failover.",
+      "readDocs": "Read the UnrealIRCd setup instructions"
+    },
+    "default": "Standaard",
+    "status": {
+      "connected": "Verbonden",
+      "disconnected": "Verbroken"
+    },
+    "empty": "No RPC servers configured. Add one to connect to your UnrealIRCd server.",
+    "form": {
+      "name": {
+        "label": "Weergavenaam",
+        "placeholder": "e.g., Main Server",
+        "helper": "A short display name for the RPC server list"
+      },
+      "host": {
+        "label": "Hostnaam of IP",
+        "placeholder": "127.0.0.1",
+        "helper": "Use 127.0.0.1 for the same machine"
+      },
+      "port": {
+        "label": "Poort",
+        "placeholder": "8600",
+        "helper": "RPC port from unrealircd.conf"
+      },
+      "default": {
+        "label": "Default server",
+        "helper": "Make this the primary server for connections"
+      },
+      "tls": {
+        "label": "Verify SSL/TLS certificate",
+        "helper": "Only use with hostnames, not for 127.0.0.1"
+      },
+      "username": {
+        "label": "Username",
+        "placeholder": "rpc_username",
+        "helper": "The name of your rpc-user block in unrealircd.conf"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Enter RPC password",
+        "helper": "Leave empty to keep existing password"
+      }
+    },
+    "editModal": {
+      "title": "Edit Server: {{name}}"
+    },
+    "updateButton": "Save Changes",
+    "added": "RPC server added successfully",
+    "addFailed": "Failed to add server",
+    "updated": "RPC server updated successfully",
+    "updateFailed": "Failed to update server",
+    "deleted": "RPC server deleted",
+    "deleteFailed": "Failed to delete server",
+    "actions": {
+      "testConnection": "Verbinding testen",
+      "use": "Use"
+    },
+    "deleteModal": {
+      "title": "Delete Server",
+      "confirm": "Are you sure you want to delete the server <strong>{{name}}</strong>? This action cannot be undone.",
+      "deleteButton": "Delete Server"
+    },
+    "testSuccess": "Verbinding geslaagd",
+    "testFailure": "Verbinding mislukt: {{message}}"
+  },
+  "nameBans": {
+    "title": "Naamverbanningen",
+    "description": "Beheer Q-Lines (gereserveerde aliassen en kanalen)",
+    "addButton": "Naamverbanning toevoegen",
+    "searchPlaceholder": "Zoek naamverbanningen...",
+    "table": {
+      "type": "Type",
+      "name": "Naam/Patroon",
+      "reason": "Reason",
+      "setBy": "Set By",
+      "setAt": "Set At",
+      "expires": "Expires"
+    },
+    "addModal": {
+      "title": "Naamverbanning toevoegen",
+      "labels": {
+        "banType": "Ban Type",
+        "name": "Naam/Patroon",
+        "reason": "Reason",
+        "duration": "Duration"
+      },
+      "options": {
+        "qline": "Q-Line (Nickname)"
+      },
+      "placeholders": {
+        "nameExample": "e.g., Admin* or #official*",
+        "reason": "Enter ban reason"
+      },
+      "help": {
+        "useWildcard": "Gebruik * als joker"
+      },
+      "addButton": "Verbanning toevoegen"
+    },
+    "deleteModal": {
+      "title": "Remove Name Ban",
+      "removeButton": "Remove Ban",
+      "confirm": "Are you sure you want to remove this name ban for {{name}}?"
+    },
+    "messages": {
+      "added": "Name ban added successfully",
+      "removed": "Name ban removed",
+      "loadFailed": "Failed to load name bans: {{error}}"
+    }
+  },
+  "serverBans": {
+    "title": "Serververbanningen",
+    "description": "Beheer G-Lines, K-Lines, Z-Lines en Shuns",
+    "addButton": "Verbanning toevoegen",
+    "searchPlaceholder": "Search bans by mask, reason...",
+    "table": {
+      "type": "Type",
+      "mask": "Masker",
+      "reason": "Reason",
+      "setBy": "Set By",
+      "setAt": "Set At",
+      "expires": "Expires"
+    },
+    "spamfilters": {
+      "title": "Spamfilters",
+      "subtitle": "Manage content filters and spam protection",
+      "addButton": "Add Spamfilter",
+      "searchPlaceholder": "Search spamfilters...",
+      "table": {
+        "pattern": "Pattern",
+        "type": "Type",
+        "targets": "Targets",
+        "action": "Action",
+        "hits": "Hits",
+        "setBy": "Set By"
+      },
+      "detailsTitle": "Spamfilter Details",
+      "details": {
+        "matchType": "Match Type",
+        "action": "Action",
+        "hits": "Hits",
+        "setBy": "Set By",
+        "pattern": "Pattern",
+        "targets": "Targets",
+        "reason": "Reason",
+        "noReason": "No reason specified",
+        "actionDuration": "Action Duration"
+      },
+      "addModal": {
+        "title": "Add Spamfilter",
+        "labels": {
+          "matchType": "Match Type",
+          "match": "Pattern",
+          "targets": "Targets",
+          "action": "Action",
+          "duration": "Action Duration",
+          "reason": "Reason"
+        },
+        "options": {
+          "simple": "Simple (wildcards)",
+          "regex": "Regular Expression",
+          "posix": "POSIX Regex"
+        },
+        "actionOptions": {
+          "warn": "Warn",
+          "block": "Block",
+          "kill": "Kill",
+          "gline": "G-Line",
+          "gzline": "GZ-Line",
+          "shun": "Shun",
+          "viruschan": "Virus Channel"
+        },
+        "helper": {
+          "pattern": "Pattern to match against messages",
+          "duration": "Duration for ban action (e.g., 1h, 1d, 7d)"
+        },
+        "placeholders": {
+          "reason": "Spam is not allowed"
+        },
+        "addButton": "Add Spamfilter"
+      },
+      "deleteModal": {
+        "title": "Remove Spamfilter",
+        "removeButton": "Remove Spamfilter",
+        "confirm": "Are you sure you want to remove this spamfilter?"
+      },
+      "messages": {
+        "added": "Spamfilter added successfully",
+        "removed": "Spamfilter removed",
+        "loadFailed": "Failed to load spamfilters: {{error}}",
+        "removeFailed": "Failed to remove spamfilter"
+      }
+    },
+    "addModal": {
+      "title": "Add Server Ban",
+      "labels": {
+        "banType": "Ban Type",
+        "mask": "Masker",
+        "reason": "Reason",
+        "duration": "Duration"
+      },
+      "options": {
+        "gline": "G-Line (Globaal)",
+        "kline": "K-Line (Lokaal)",
+        "gzline": "GZ-Line (Globale IP)",
+        "zline": "Z-Line (Lokale IP)",
+        "shun": "Shun"
+      },
+      "placeholders": {
+        "maskExample": "*@*.example.com or 192.168.1.*",
+        "reason": "Enter ban reason"
+      },
+      "addButton": "Verbanning toevoegen"
+    },
+    "deleteModal": {
+      "title": "Remove Ban",
+      "removeButton": "Remove Ban",
+      "confirm": "Weet u zeker dat u deze {{type}} voor {{name}} wilt verwijderen?"
+    },
+    "messages": {
+      "added": "Verbanning succesvol toegevoegd",
+      "removed": "Verbanning verwijderd",
+      "loadFailed": "Failed to load bans: {{error}}"
+    }
+  },
+  "commands": {
+    "nav": {
+      "dashboard": {
+        "title": "Ga naar Dashboard",
+        "description": "Bekijk netwerkoverzicht"
+      },
+      "users": {
+        "title": "Ga naar Gebruikers",
+        "description": "Bekijk verbonden gebruikers"
+      },
+      "channels": {
+        "title": "Ga naar Kanalen",
+        "description": "Bekijk actieve kanalen"
+      },
+      "servers": {
+        "title": "Ga naar Servers",
+        "description": "Bekijk gekoppelde servers"
+      },
+      "liveMap": {
+        "title": "Ga naar Live-kaart",
+        "description": "Bekijk geografische verdeling"
+      },
+      "statistics": {
+        "title": "Ga naar Statistieken",
+        "description": "Bekijk gedetailleerde statistieken"
+      },
+      "logs": {
+        "title": "Ga naar Logboeken",
+        "description": "Bekijk systeemlogboeken"
+      },
+      "serverBans": {
+        "title": "Go to Server Bans",
+        "description": "Manage K-Lines, G-Lines, etc."
+      },
+      "nameBans": {
+        "title": "Go to Name Bans",
+        "description": "Manage Q-Lines"
+      },
+      "banExceptions": {
+        "title": "Go to Ban Exceptions",
+        "description": "Manage E-Lines"
+      },
+      "spamfilters": {
+        "title": "Go to Spamfilters",
+        "description": "Manage spam filters"
+      },
+      "watchList": {
+        "title": "Go to Watch List",
+        "description": "Monitor flagged users"
+      },
+      "settings": {
+        "title": "Go to Settings",
+        "description": "Panel settings"
+      },
+      "twoFactor": {
+        "title": "Go to Two-Factor Auth",
+        "description": "Manage 2FA settings"
+      },
+      "panelUsers": {
+        "title": "Go to Panel Users",
+        "description": "Manage panel user accounts"
+      },
+      "webhooks": {
+        "title": "Go to Webhooks",
+        "description": "Manage webhook endpoints"
+      },
+      "smtp": {
+        "title": "Go to SMTP Settings",
+        "description": "Configure email server"
+      },
+      "notifications": {
+        "title": "Go to Notifications",
+        "description": "Configure notification preferences"
+      }
+    },
+    "theme": {
+      "switch": "Switch to {{name}} Theme",
+      "apply": "Apply {{name}} color scheme"
+    },
+    "action": {
+      "signOut": {
+        "title": "Uitloggen",
+        "description": "Uitloggen van het paneel"
+      }
+    }
+  },
+  "savedSearches": {
+    "tooltips": {
+      "saveCurrent": "Huidige zoekopdracht opslaan",
+      "saveDisabled": "Voer eerst een zoekopdracht in",
+      "view": "View saved searches"
+    },
+    "saveModal": {
+      "title": "Save Search"
+    },
+    "currentSearch": "Huidige zoekopdracht:",
+    "emptyPlaceholder": "(empty)",
+    "inputLabel": "Search Name",
+    "placeholders": {
+      "example": "e.g., TOR exit nodes, Suspicious IPs"
+    },
+    "shareWithAll": "Delen met alle gebruikers",
+    "listModal": {
+      "title": "Opgeslagen zoekopdrachten",
+      "emptyTitle": "Nog geen opgeslagen zoekopdrachten.",
+      "emptyDescription": "Save your current search to quickly access it later."
+    },
+    "messages": {
+      "saved": "Search saved",
+      "deleted": "Search deleted",
+      "saveFailed": "Failed to save search",
+      "deleteFailed": "Failed to delete search",
+      "applyFailed": "Failed to apply search"
+    },
+    "shared": "Shared",
+    "popular": "Popular",
+    "usedTimes": "Used {{count}} time(s)",
+    "lastUsed": "Last used",
+    "apply": "Toepassen"
+  },
+  "watchList": {
+    "title": "Watchlist",
+    "subtitle": "Gebruikers monitoren die aan criteria voldoen",
+    "addButton": "Toevoegen aan watchlist",
+    "summary": {
+      "entriesLabel": "Watch List Entries",
+      "usersCurrentlyMatched": "Users Currently Matched",
+      "entriesWithActiveMatches": "Entries with Active Matches"
+    },
+    "alert": "{{count}} user(s) currently match your watch list criteria. Click the expand arrow or the icon to view details.",
+    "searchPlaceholder": "Zoeken op nick, IP, reden...",
+    "emptyMessage": "Geen gebruikers in de watchlist",
+    "messages": {
+      "added": "User added to watch list",
+      "addFailed": "Failed to add user",
+      "updated": "Watch list entry updated",
+      "updateFailed": "Failed to update entry",
+      "removed": "Removed from watch list",
+      "removeFailed": "Failed to remove entry",
+      "loadFailed": "Failed to load watch list: {{error}}"
+    },
+    "table": {
+      "criteria": "Match Criteria",
+      "reason": "Reason",
+      "addedBy": "Added By",
+      "addedAt": "Added",
+      "currentMatches": "Current Matches"
+    },
+    "labels": {
+      "nick": "Nick",
+      "ip": "IP",
+      "host": "Host",
+      "account": "Account",
+      "realname": "Realname",
+      "online": "online"
+    },
+    "tooltips": {
+      "viewMatched": "View matched users"
+    },
+    "addModal": {
+      "title": "Toevoegen aan watchlist",
+      "addButton": "Toevoegen aan watchlist"
+    },
+    "editModal": {
+      "title": "Edit Watch List Entry",
+      "saveButton": "Save Changes"
+    },
+    "deleteModal": {
+      "title": "Remove from Watch List",
+      "removeButton": "Verwijderen",
+      "confirm": "Are you sure you want to remove this entry from the watch list?"
+    }
+  },
+  "scheduledCommands": {
+    "title": "Geplande opdrachten",
+    "subtitle": "Plan IRC-opdrachten automatisch",
+    "createButton": "Schema aanmaken",
+    "searchPlaceholder": "Zoek opdrachten...",
+    "emptyMessage": "Geen geplande opdrachten",
+    "never": "Nooit",
+    "next": "Volgende",
+    "messages": {
+      "created": "Scheduled command created",
+      "createFailed": "Failed to create scheduled command",
+      "updated": "Scheduled command updated",
+      "updateFailed": "Failed to update scheduled command",
+      "deleted": "Scheduled command deleted",
+      "deleteFailed": "Failed to delete scheduled command",
+      "toggleFailed": "Failed to toggle scheduled command",
+      "commandExecuted": "Command executed",
+      "runFailed": "Failed to run command",
+      "loadFailed": "Failed to load scheduled commands: {{error}}"
+    },
+    "table": {
+      "status": "Status",
+      "name": "Name",
+      "command": "Opdracht",
+      "schedule": "Schema",
+      "lastRun": "Laatste uitvoering",
+      "runs": "Uitvoeringen"
+    },
+    "tooltips": {
+      "clickToDisable": "Klik om uit te schakelen",
+      "clickToEnable": "Klik om in te schakelen",
+      "runNow": "Nu uitvoeren"
+    },
+    "labels": {
+      "active": "Active",
+      "paused": "Paused"
+    },
+    "commandTypes": {
+      "kill": "Kill User",
+      "gline": "G-Line (Server Ban)",
+      "rehash": "Rehash Server",
+      "message": "Send Message"
+    },
+    "scheduleTypes": {
+      "once": "One Time",
+      "hourly": "Every Hour",
+      "daily": "Every Day",
+      "weekly": "Every Week",
+      "monthly": "Every Month"
+    },
+    "form": {
+      "nameLabel": "Name *",
+      "namePlaceholder": "e.g., Daily cleanup, Scheduled maintenance",
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "What does this scheduled command do?",
+      "commandTypeLabel": "Command Type *",
+      "targetLabel": "Target",
+      "reasonLabel": "Reason",
+      "durationLabel": "Duration",
+      "messageLabel": "Message",
+      "scheduleLabel": "Schedule *",
+      "enableLabel": "Enable this scheduled command"
+    },
+    "placeholders": {
+      "target": {
+        "kill": "Nickname",
+        "gline": "Host mask (e.g., *@*.bad.com)",
+        "rehash": "Server name",
+        "message": "Channel or nick",
+        "default": "Target"
+      },
+      "reason": "Reason for the action",
+      "duration": "e.g., 1d, 1w, 30m",
+      "message": "Message to send"
+    },
+    "createModal": {
+      "title": "Create Scheduled Command",
+      "createButton": "Schema aanmaken"
+    },
+    "editModal": {
+      "title": "Edit Scheduled Command",
+      "saveButton": "Save Changes"
+    },
+    "deleteModal": {
+      "title": "Delete Scheduled Command",
+      "confirm": "Are you sure you want to delete this scheduled command? This action cannot be undone."
+    }
+  },
+  "channelTemplates": {
+    "title": "Kanaalsjablonen",
+    "subtitle": "Sla kanaalconfiguraties op als herbruikbare sjablonen",
+    "fromChannel": "Van kanaal",
+    "createButton": "Sjabloon maken",
+    "empty": "No channel templates yet. Create one or import from an existing channel.",
+    "tooltips": {
+      "global": "Global template",
+      "private": "Private template",
+      "applyToChannel": "Apply to channel",
+      "duplicate": "Duplicate"
+    },
+    "labels": {
+      "modes": "Modes:",
+      "topic": "Topic:"
+    },
+    "used": "Gebruikt {{count}} keer",
+    "by": "by",
+    "deleteConfirm": "Delete this template?",
+    "form": {
+      "name": "Name",
+      "placeholders": {
+        "name": "Template name",
+        "description": "Optional description",
+        "modes": "+nts",
+        "topic": "Channel topic",
+        "selectChannel": "Select a channel..."
+      },
+      "description": "Description",
+      "modes": "Modes",
+      "topic": "Topic",
+      "makeGlobal": "Maak dit sjabloon beschikbaar voor alle gebruikers",
+      "updateButton": "Update",
+      "createButton": "Create",
+      "targetChannel": "Doelkanaal"
+    },
+    "editModal": {
+      "title": "Edit Template"
+    },
+    "createModal": {
+      "title": "Sjabloon maken"
+    },
+    "applyModal": {
+      "title": "Sjabloon toepassen",
+      "subtitle": "Apply template \"{{name}}\" to a channel:",
+      "applyButton": "Sjabloon toepassen"
+    },
+    "createFromChannel": {
+      "title": "Create from Channel",
+      "description": "Create a new template from an existing channel's configuration:"
+    }
+  },
+  "webhooks": {
+    "title": "Webhooks",
+    "subtitle": "Ontvang loggebeurtenissen via webhooks",
+    "createButton": "Webhook aanmaken",
+    "info": {
+      "paragraph1": "Webhooks allow UnrealIRCd to send log events directly to this panel. Each webhook has a unique token URL that you configure in your unrealircd.conf.",
+      "learnMore": "Meer over UnrealIRCd logblokken"
+    },
+    "tooltips": {
+      "viewConfig": "Configuratie bekijken",
+      "viewLogs": "Logs bekijken",
+      "disable": "Uitschakelen",
+      "enable": "Inschakelen",
+      "regenerate": "Token opnieuw genereren"
+    },
+    "emptyTokens": "Geen webhook-tokens geconfigureerd",
+    "tokens": {
+      "createModal": {
+        "title": "Create Webhook Token"
+      },
+      "deleteModal": {
+        "title": "Delete Webhook Token",
+        "confirm": "Are you sure you want to delete the webhook token \"{{name}}\"?",
+        "details": "UnrealIRCd will no longer be able to send log events to this URL."
+      }
+    },
+    "messages": {
+      "loadFailed": "Failed to load webhooks: {{error}}"
+    }
+  },
+  "themeSwitcher": {
+    "title": "Theme Settings",
+    "tabs": {
+      "presets": "Presets",
+      "customize": "Customize"
+    },
+    "customizeIntro": "Customize the current theme ({{name}}) with your own colors.",
+    "sections": {
+      "background": "Background",
+      "text": "Text"
+    },
+    "colors": {
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "tertiary": "Tertiary",
+      "textPrimary": "Primary",
+      "textMuted": "Muted",
+      "accent": "Accent",
+      "accentHover": "Accent (hover)",
+      "success": "Succes",
+      "error": "Fout"
+    },
+    "apply": "Apply Changes",
+    "reset": "Reset to Default"
+  },
+  "sidebar": {
+    "logout": "Uitloggen"
+  },
+  "userJourney": {
+    "searchModal": {
+      "title": "Search User Journey",
+      "description": "Enter at least one identifier to search for user activity:",
+      "nicknameLabel": "Nickname",
+      "nicknamePlaceholder": "Enter nickname",
+      "ipLabel": "IP Address",
+      "ipPlaceholder": "Enter IP address"
+    }
+  },
+  "userDetail": {
+    "killTitle": "Kill User: {{name}}",
+    "killButton": "Kill User",
+    "banTitle": "Ban User: {{name}}",
+    "banButton": "Ban User",
+    "vhostTitle": "Set Vhost: {{name}}",
+    "setVhostButton": "Set Vhost",
+    "modesTitle": "Set User Modes: {{name}}",
+    "applyModeChanges": "Apply Mode Changes"
+  }
+}

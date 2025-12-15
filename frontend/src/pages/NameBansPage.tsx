@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useNameBans, useAddNameBan, useDeleteNameBan } from '@/hooks'
 import { DataTable, Button, Modal, Input, Select, Alert, Badge } from '@/components/common'
 import { Plus, Trash2, Clock } from 'lucide-react'
@@ -21,10 +22,12 @@ export function NameBansPage() {
     duration: '1d',
   })
 
+  const { t } = useTranslation()
+
   const columns = [
     {
       key: 'type',
-      header: 'Type',
+      header: t('nameBans.table.type'),
       sortable: true,
       render: (ban: NameBan) => (
         <Badge variant={(ban.type || ban.type_string) === 'qline' ? 'error' : 'warning'}>
@@ -34,7 +37,7 @@ export function NameBansPage() {
     },
     {
       key: 'name',
-      header: 'Name/Pattern',
+      header: t('nameBans.table.name'),
       sortable: true,
       render: (ban: NameBan) => (
         <span className="text-[var(--text-primary)] font-mono">{ban.name}</span>
@@ -42,21 +45,21 @@ export function NameBansPage() {
     },
     {
       key: 'reason',
-      header: 'Reason',
+      header: t('nameBans.table.reason'),
       render: (ban: NameBan) => (
         <span className="text-[var(--text-muted)] truncate max-w-md block">{ban.reason}</span>
       ),
     },
     {
       key: 'set_by',
-      header: 'Set By',
+      header: t('nameBans.table.setBy'),
       render: (ban: NameBan) => (
         <span className="text-[var(--text-muted)]">{ban.set_by}</span>
       ),
     },
     {
       key: 'set_at',
-      header: 'Set At',
+      header: t('nameBans.table.setAt'),
       sortable: true,
       render: (ban: NameBan) => (
         <span className="text-[var(--text-muted)]">
@@ -66,13 +69,13 @@ export function NameBansPage() {
     },
     {
       key: 'expire_at',
-      header: 'Expires',
+      header: t('nameBans.table.expires'),
       sortable: true,
       render: (ban: NameBan) => (
         <div className="flex items-center gap-2 text-[var(--text-muted)]">
           <Clock size={14} />
           {!ban.expire_at || ban.expire_at === 0 ? (
-            <Badge variant="error" size="sm">Permanent</Badge>
+            <Badge variant="error" size="sm">{t('common.permanent')}</Badge>
           ) : (
             new Date(ban.expire_at * 1000).toLocaleDateString()
           )}
@@ -84,7 +87,7 @@ export function NameBansPage() {
   const handleAddBan = async () => {
     try {
       await addBan.mutateAsync(newBan)
-      toast.success('Name ban added successfully')
+      toast.success(t('nameBans.messages.added'))
       setShowAddModal(false)
       setNewBan({ type: 'qline', name: '', reason: '', duration: '1d' })
     } catch (err: unknown) {
@@ -97,7 +100,7 @@ export function NameBansPage() {
     if (!selectedBan) return
     try {
       await deleteBan.mutateAsync({ name: selectedBan.name, type: selectedBan.type || selectedBan.type_string || 'qline' })
-      toast.success('Name ban removed')
+      toast.success(t('nameBans.messages.removed'))
       setShowDeleteModal(false)
       setSelectedBan(null)
     } catch (err: unknown) {
@@ -109,7 +112,7 @@ export function NameBansPage() {
   if (error) {
     return (
       <Alert type="error">
-        Failed to load name bans: {error instanceof Error ? error.message : 'Unknown error'}
+        {t('nameBans.messages.loadFailed', { error: error instanceof Error ? error.message : 'Unknown error' })}
       </Alert>
     )
   }
@@ -118,11 +121,11 @@ export function NameBansPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[var(--text-primary)]">Name Bans</h1>
-          <p className="text-[var(--text-muted)] mt-1">Manage Q-Lines (reserved nicknames and channels)</p>
+          <h1 className="text-2xl font-bold text-[var(--text-primary)]">{t('nameBans.title')}</h1>
+          <p className="text-[var(--text-muted)] mt-1">{t('nameBans.description')}</p>
         </div>
         <Button leftIcon={<Plus size={18} />} onClick={() => setShowAddModal(true)}>
-          Add Name Ban
+          {t('nameBans.addButton')}
         </Button>
       </div>
 
@@ -131,7 +134,7 @@ export function NameBansPage() {
         columns={columns}
         keyField="name"
         isLoading={isLoading}
-        searchPlaceholder="Search name bans..."
+        searchPlaceholder={t('nameBans.searchPlaceholder')}
         actions={(ban) => (
           <Button
             variant="ghost"
@@ -151,38 +154,38 @@ export function NameBansPage() {
       <Modal
         isOpen={showAddModal}
         onClose={() => setShowAddModal(false)}
-        title="Add Name Ban"
+        title={t('nameBans.addModal.title')}
         footer={
           <>
             <Button variant="secondary" onClick={() => setShowAddModal(false)}>
-              Cancel
+              {t('common.cancel')}
             </Button>
             <Button onClick={handleAddBan} isLoading={addBan.isPending}>
-              Add Ban
+              {t('nameBans.addModal.addButton')}
             </Button>
           </>
         }
       >
         <div className="space-y-4">
           <Select
-            label="Ban Type"
+            label={t('nameBans.addModal.labels.banType')}
             value={newBan.type}
             onChange={(e) => setNewBan({ ...newBan, type: e.target.value })}
           >
-            <option value="qline">Q-Line (Nickname)</option>
+            <option value="qline">{t('nameBans.addModal.options.qline')}</option>
           </Select>
           <Input
-            label="Name/Pattern"
+            label={t('nameBans.addModal.labels.name')}
             value={newBan.name}
             onChange={(e) => setNewBan({ ...newBan, name: e.target.value })}
-            placeholder="e.g., Admin* or #official*"
-            helperText="Use * as wildcard"
+            placeholder={t('nameBans.addModal.placeholders.nameExample')}
+            helperText={t('nameBans.addModal.help.useWildcard')}
           />
           <Input
-            label="Reason"
+            label={t('nameBans.addModal.labels.reason')}
             value={newBan.reason}
             onChange={(e) => setNewBan({ ...newBan, reason: e.target.value })}
-            placeholder="Enter ban reason"
+            placeholder={t('nameBans.addModal.placeholders.reason')}
           />
           <Select
             label="Duration"
@@ -203,21 +206,20 @@ export function NameBansPage() {
       <Modal
         isOpen={showDeleteModal}
         onClose={() => setShowDeleteModal(false)}
-        title="Remove Name Ban"
+        title={t('nameBans.deleteModal.title')}
         footer={
           <>
             <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>
-              Cancel
+              {t('common.cancel')}
             </Button>
             <Button variant="danger" onClick={handleDeleteBan} isLoading={deleteBan.isPending}>
-              Remove Ban
+              {t('nameBans.deleteModal.removeButton')}
             </Button>
           </>
         }
       >
         <Alert type="warning">
-          Are you sure you want to remove this name ban for{' '}
-          <span className="font-mono">{selectedBan?.name}</span>?
+          {t('nameBans.deleteModal.confirm', { name: <span className="font-mono">{selectedBan?.name}</span> })}
         </Alert>
       </Modal>
     </div>

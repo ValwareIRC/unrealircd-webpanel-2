@@ -5,8 +5,10 @@ import { DataTable, Button, Modal, Input, Alert, Badge, SavedSearches } from '@/
 import { Eye, Users, MessageSquare, Settings, UserMinus } from 'lucide-react'
 import type { IRCChannel } from '@/types'
 import toast from 'react-hot-toast'
+import { useTranslation } from 'react-i18next'
 
 export function ChannelsPage() {
+  const { t } = useTranslation()
   const navigate = useNavigate()
   const { data: channels, isLoading, error } = useIRCChannels()
   const setTopic = useSetChannelTopic()
@@ -29,7 +31,7 @@ export function ChannelsPage() {
   const columns = [
     {
       key: 'name',
-      header: 'Channel',
+      header: t('channels.channel'),
       sortable: true,
       render: (channel: IRCChannel) => (
         <button
@@ -42,7 +44,7 @@ export function ChannelsPage() {
     },
     {
       key: 'num_users',
-      header: 'Users',
+      header: t('channels.users'),
       sortable: true,
       render: (channel: IRCChannel) => (
         <div className="flex items-center gap-2 text-[var(--text-secondary)]">
@@ -53,16 +55,16 @@ export function ChannelsPage() {
     },
     {
       key: 'topic',
-      header: 'Topic',
+      header: t('channels.topic'),
       render: (channel: IRCChannel) => (
         <span className="text-[var(--text-muted)] truncate max-w-md block">
-          {channel.topic || <span className="italic">No topic set</span>}
+          {channel.topic || <span className="italic">{t('channels.noTopicSet')}</span>}
         </span>
       ),
     },
     {
       key: 'modes',
-      header: 'Modes',
+      header: t('channels.modes'),
       render: (channel: IRCChannel) => (
         <span className="text-[var(--text-muted)] font-mono text-sm">
           +{channel.modes || 'nt'}
@@ -71,13 +73,13 @@ export function ChannelsPage() {
     },
     {
       key: 'creation_time',
-      header: 'Created',
+      header: t('channels.created'),
       sortable: true,
       render: (channel: IRCChannel) => (
         <span className="text-[var(--text-muted)]">
           {channel.creation_time
             ? new Date(channel.creation_time * 1000).toLocaleDateString()
-            : 'Unknown'}
+            : t('channels.unknown')}
         </span>
       ),
     },
@@ -90,11 +92,11 @@ export function ChannelsPage() {
         channel: selectedChannel.name,
         topic: newTopic,
       })
-      toast.success('Topic updated')
+      toast.success(t('channels.topicUpdated'))
       setShowTopicModal(false)
       setSelectedChannel(null)
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'Failed to set topic'
+      const message = err instanceof Error ? err.message : t('channels.topicUpdateFailed')
       toast.error(message)
     }
   }
@@ -107,11 +109,11 @@ export function ChannelsPage() {
         modes: modeData.modes,
         params: modeData.params || undefined,
       })
-      toast.success('Mode changed')
+      toast.success(t('channels.modeChanged'))
       setShowModeModal(false)
       setSelectedChannel(null)
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'Failed to set mode'
+      const message = err instanceof Error ? err.message : t('channels.modeChangeFailed')
       toast.error(message)
     }
   }
@@ -124,10 +126,10 @@ export function ChannelsPage() {
         nick: kickData.nick,
         reason: kickData.reason || undefined,
       })
-      toast.success(`Kicked ${kickData.nick} from ${selectedChannel.name}`)
+      toast.success(t('channels.userKicked', { nick: kickData.nick, channel: selectedChannel.name }))
       setShowKickModal(false)
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'Failed to kick user'
+      const message = err instanceof Error ? err.message : t('channels.kickFailed')
       toast.error(message)
     }
   }
@@ -135,7 +137,7 @@ export function ChannelsPage() {
   if (error) {
     return (
       <Alert type="error">
-        Failed to load channels: {error instanceof Error ? error.message : 'Unknown error'}
+        {t('channels.loadError', { error: error instanceof Error ? error.message : 'Unknown error' })}
       </Alert>
     )
   }
@@ -143,8 +145,8 @@ export function ChannelsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-[var(--text-primary)]">Channels</h1>
-        <p className="text-[var(--text-muted)] mt-1">Manage channels on the network</p>
+        <h1 className="text-2xl font-bold text-[var(--text-primary)]">{t('channels.title')}</h1>
+        <p className="text-[var(--text-muted)] mt-1">{t('channels.subtitle')}</p>
       </div>
 
       <DataTable
@@ -152,7 +154,7 @@ export function ChannelsPage() {
         columns={columns}
         keyField="name"
         isLoading={isLoading}
-        searchPlaceholder="Search channels by name, topic..."
+        searchPlaceholder={t('channels.searchPlaceholder')}
         searchValue={searchQuery}
         onSearchChange={setSearchQuery}
         searchExtra={
@@ -168,7 +170,7 @@ export function ChannelsPage() {
               variant="ghost"
               size="sm"
               onClick={() => navigate(`/channels/${encodeURIComponent(channel.name)}`)}
-              title="View Details"
+              title={t('channels.viewDetails')}
             >
               <Eye size={16} />
             </Button>
@@ -213,52 +215,55 @@ export function ChannelsPage() {
       <Modal
         isOpen={showDetails}
         onClose={() => setShowDetails(false)}
-        title={`Channel: ${selectedChannel?.name}`}
+        title={t('channels.channelDetails', { name: selectedChannel?.name })}
         size="lg"
       >
         {selectedChannel && (
           <div className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <p className="text-sm text-[var(--text-muted)]">Channel Name</p>
+                <p className="text-sm text-[var(--text-muted)]">{t('channels.channelName')}</p>
                 <p className="text-[var(--text-primary)]">{selectedChannel.name}</p>
               </div>
               <div>
-                <p className="text-sm text-[var(--text-muted)]">Users</p>
+                <p className="text-sm text-[var(--text-muted)]">{t('channels.users')}</p>
                 <p className="text-[var(--text-primary)]">{selectedChannel.num_users}</p>
               </div>
               <div>
-                <p className="text-sm text-[var(--text-muted)]">Modes</p>
+                <p className="text-sm text-[var(--text-muted)]">{t('channels.modes')}</p>
                 <p className="text-[var(--text-primary)] font-mono">+{selectedChannel.modes || 'nt'}</p>
               </div>
               <div>
-                <p className="text-sm text-[var(--text-muted)]">Created</p>
+                <p className="text-sm text-[var(--text-muted)]">{t('channels.created')}</p>
                 <p className="text-[var(--text-primary)]">
                   {selectedChannel.creation_time
                     ? new Date(selectedChannel.creation_time * 1000).toLocaleString()
-                    : 'Unknown'}
+                    : t('channels.unknown')}
                 </p>
               </div>
             </div>
 
             <div>
-              <p className="text-sm text-[var(--text-muted)] mb-1">Topic</p>
+              <p className="text-sm text-[var(--text-muted)] mb-1">{t('channels.topic')}</p>
               <p className="text-[var(--text-primary)] bg-[var(--bg-tertiary)] p-3 rounded-lg">
-                {selectedChannel.topic || <span className="text-[var(--text-muted)] italic">No topic set</span>}
+                {selectedChannel.topic || <span className="text-[var(--text-muted)] italic">{t('channels.noTopicSet')}</span>}
               </p>
               {selectedChannel.topic_set_by && (
                 <p className="text-sm text-[var(--text-muted)] mt-1">
-                  Set by {selectedChannel.topic_set_by}
-                  {selectedChannel.topic_set_at && (
-                    <> at {new Date(selectedChannel.topic_set_at * 1000).toLocaleString()}</>
-                  )}
+                  {selectedChannel.topic_set_at 
+                    ? t('channels.setByAt', { 
+                        user: selectedChannel.topic_set_by, 
+                        time: new Date(selectedChannel.topic_set_at * 1000).toLocaleString() 
+                      })
+                    : t('channels.setBy', { user: selectedChannel.topic_set_by })
+                  }
                 </p>
               )}
             </div>
 
             {selectedChannel.members && selectedChannel.members.length > 0 && (
               <div>
-                <p className="text-sm text-[var(--text-muted)] mb-2">Members</p>
+                <p className="text-sm text-[var(--text-muted)] mb-2">{t('channels.members')}</p>
                 <div className="flex flex-wrap gap-2 max-h-48 overflow-y-auto">
                   {selectedChannel.members.map((member) => (
                     <Badge
@@ -275,11 +280,11 @@ export function ChannelsPage() {
 
             {selectedChannel.bans && selectedChannel.bans.length > 0 && (
               <div>
-                <p className="text-sm text-[var(--text-muted)] mb-2">Bans</p>
+                <p className="text-sm text-[var(--text-muted)] mb-2">{t('channels.bans')}</p>
                 <div className="bg-[var(--bg-tertiary)] p-3 rounded-lg space-y-1 max-h-32 overflow-y-auto">
                   {selectedChannel.bans.map((ban, idx) => (
                     <p key={idx} className="text-[var(--text-secondary)] font-mono text-sm">
-                      {ban.name} <span className="text-[var(--text-muted)]">by {ban.set_by}</span>
+                      {t('channels.banEntry', { name: ban.name, setBy: ban.set_by })}
                     </p>
                   ))}
                 </div>
@@ -293,23 +298,23 @@ export function ChannelsPage() {
       <Modal
         isOpen={showTopicModal}
         onClose={() => setShowTopicModal(false)}
-        title={`Set Topic: ${selectedChannel?.name}`}
+        title={t('channels.setTopicTitle', { name: selectedChannel?.name })}
         footer={
           <>
             <Button variant="secondary" onClick={() => setShowTopicModal(false)}>
-              Cancel
+              {t('channels.cancel')}
             </Button>
             <Button onClick={handleSetTopic} isLoading={setTopic.isPending}>
-              Set Topic
+              {t('channels.setTopic')}
             </Button>
           </>
         }
       >
         <Input
-          label="Topic"
+          label={t('channels.topic')}
           value={newTopic}
           onChange={(e) => setNewTopic(e.target.value)}
-          placeholder="Enter new channel topic"
+          placeholder={t('channels.enterNewTopic')}
         />
       </Modal>
 
@@ -317,34 +322,34 @@ export function ChannelsPage() {
       <Modal
         isOpen={showModeModal}
         onClose={() => setShowModeModal(false)}
-        title={`Set Mode: ${selectedChannel?.name}`}
+        title={t('channels.setModeTitle', { name: selectedChannel?.name })}
         footer={
           <>
             <Button variant="secondary" onClick={() => setShowModeModal(false)}>
-              Cancel
+              {t('channels.cancel')}
             </Button>
             <Button onClick={handleSetMode} isLoading={setMode.isPending}>
-              Set Mode
+              {t('channels.setMode')}
             </Button>
           </>
         }
       >
         <div className="space-y-4">
           <Input
-            label="Modes"
+            label={t('channels.modes')}
             value={modeData.modes}
             onChange={(e) => setModeData({ ...modeData, modes: e.target.value })}
-            placeholder="e.g., +nt or -o"
+            placeholder={t('channels.modePlaceholder')}
           />
           <Input
-            label="Parameters (optional)"
+            label={t('channels.parametersOptional')}
             value={modeData.params}
             onChange={(e) => setModeData({ ...modeData, params: e.target.value })}
-            placeholder="e.g., nickname"
-            helperText="Parameters for modes that require them"
+            placeholder={t('channels.parametersPlaceholder')}
+            helperText={t('channels.parametersHelper')}
           />
           <div className="text-sm text-[var(--text-muted)]">
-            <p className="font-medium mb-2">Current modes:</p>
+            <p className="font-medium mb-2">{t('channels.currentModes')}</p>
             <p className="font-mono bg-[var(--bg-tertiary)] p-2 rounded">
               +{selectedChannel?.modes || 'nt'}
             </p>
@@ -356,30 +361,30 @@ export function ChannelsPage() {
       <Modal
         isOpen={showKickModal}
         onClose={() => setShowKickModal(false)}
-        title={`Kick User from ${selectedChannel?.name}`}
+        title={t('channels.kickUserTitle', { name: selectedChannel?.name })}
         footer={
           <>
             <Button variant="secondary" onClick={() => setShowKickModal(false)}>
-              Cancel
+              {t('channels.cancel')}
             </Button>
             <Button variant="danger" onClick={handleKickUser} isLoading={kickUser.isPending}>
-              Kick User
+              {t('channels.kickUser')}
             </Button>
           </>
         }
       >
         <div className="space-y-4">
           <Input
-            label="Nickname"
+            label={t('channels.nickname')}
             value={kickData.nick}
             onChange={(e) => setKickData({ ...kickData, nick: e.target.value })}
-            placeholder="Enter nickname to kick"
+            placeholder={t('channels.enterNickname')}
           />
           <Input
-            label="Reason (optional)"
+            label={t('channels.reasonOptional')}
             value={kickData.reason}
             onChange={(e) => setKickData({ ...kickData, reason: e.target.value })}
-            placeholder="Enter kick reason"
+            placeholder={t('channels.enterKickReason')}
           />
         </div>
       </Modal>

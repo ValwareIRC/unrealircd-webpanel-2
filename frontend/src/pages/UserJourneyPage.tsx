@@ -30,6 +30,7 @@ import {
   type EventTypeInfo,
 } from '@/services/journeyService'
 import { Button, Input, Modal, Select, Badge } from '@/components/common'
+import { useTranslation } from 'react-i18next'
 
 // Icon mapping
 const eventIcons: Record<string, React.ElementType> = {
@@ -50,6 +51,7 @@ const eventIcons: Record<string, React.ElementType> = {
 }
 
 export function UserJourneyPage() {
+  const { t } = useTranslation()
   const [searchParams, setSearchParams] = useSearchParams()
   const navigate = useNavigate()
   const [showSearchModal, setShowSearchModal] = useState(false)
@@ -313,27 +315,27 @@ export function UserJourneyPage() {
       )}
 
       {/* Search Modal */}
-      <Modal isOpen={showSearchModal} onClose={() => setShowSearchModal(false)} title="Search User Journey">
+      <Modal isOpen={showSearchModal} onClose={() => setShowSearchModal(false)} title={t('userJourney.searchModal.title')}>
         <div className="space-y-4">
           <p className="text-sm text-[var(--text-secondary)]">
-            Enter at least one identifier to search for user activity:
+            {t('userJourney.searchModal.description')}
           </p>
 
           <div>
-            <label className="block text-sm font-medium text-[var(--text-secondary)] mb-1">Nickname</label>
+            <label className="block text-sm font-medium text-[var(--text-secondary)] mb-1">{t('userJourney.searchModal.nicknameLabel')}</label>
             <Input
               value={searchNick}
               onChange={(e) => setSearchNick(e.target.value)}
-              placeholder="Enter nickname"
+              placeholder={t('userJourney.searchModal.nicknamePlaceholder')}
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-[var(--text-secondary)] mb-1">IP Address</label>
+            <label className="block text-sm font-medium text-[var(--text-secondary)] mb-1">{t('userJourney.searchModal.ipLabel')}</label>
             <Input
               value={searchIP}
               onChange={(e) => setSearchIP(e.target.value)}
-              placeholder="Enter IP address"
+              placeholder={t('userJourney.searchModal.ipPlaceholder')}
             />
           </div>
 

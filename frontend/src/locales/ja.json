@@ -1,0 +1,1203 @@
+{
+  "common": {
+    "save": "保存",
+    "cancel": "キャンセル",
+    "delete": "削除",
+    "edit": "編集",
+    "add": "追加",
+    "search": "検索",
+    "filter": "フィルター",
+    "loading": "読み込み中...",
+    "error": "エラー",
+    "success": "成功",
+    "warning": "警告",
+    "info": "情報",
+    "yes": "はい",
+    "no": "いいえ",
+    "ok": "確認",
+    "close": "閉じる",
+    "back": "戻る",
+    "next": "次へ",
+    "previous": "前へ",
+    "submit": "送信",
+    "reset": "リセット",
+    "confirm": "確認",
+    "logout": "ログアウト",
+    "login": "ログイン",
+    "username": "ユーザー名",
+    "password": "パスワード",
+    "email": "メール",
+    "name": "名前",
+    "description": "説明",
+    "status": "ステータス",
+    "active": "アクティブ",
+    "inactive": "非アクティブ",
+    "enabled": "有効",
+    "disabled": "無効"
+  },
+  "navigation": {
+    "dashboard": "ダッシュボード",
+    "servers": "サーバー",
+    "users": "ユーザー",
+    "settings": "設定",
+    "logs": "ログ",
+    "reports": "レポート",
+    "plugins": "プラグイン",
+    "statistics": "統計",
+    "liveMap": "ライブマップ",
+    "userJourney": "ユーザージャーニー",
+    "channels": "チャンネル",
+    "templates": "テンプレート",
+    "watchList": "監視リスト",
+    "serverList": "サーバー一覧",
+    "topology": "トポロジー",
+    "tlsStatistics": "TLS 統計",
+    "serverBans": "サーバー禁止",
+    "nameBans": "名前禁止",
+    "exceptions": "例外",
+    "spamfilters": "スパムフィルター",
+    "scheduled": "スケジュールされたコマンド",
+    "alertRules": "アラートルール",
+    "overview": "概要",
+    "irc": "IRC",
+    "bansFilters": "禁止とフィルター",
+    "tools": "ツール",
+    "community": "コミュニティ",
+    "admin": "管理",
+    "digest": "ダイジェスト",
+    "feedback": "フィードバック",
+    "panelUsers": "パネルユーザー",
+    "roles": "ロール",
+    "compliance": "コンプライアンス",
+    "rpcServers": "RPC サーバー",
+    "marketplace": "マーケットプレイス"
+  },
+  "dashboard": {
+    "title": "ダッシュボード",
+    "welcome": "UnrealIRCd Web Panelへようこそ",
+    "overview": "概要",
+    "statistics": "統計",
+    "recentActivity": "最近のアクティビティ",
+    "editLayout": "レイアウトを編集",
+    "addWidget": "ウィジェットを追加",
+    "saveLayout": "レイアウトを保存",
+    "resetLayout": "レイアウトをリセット",
+    "cancel": "キャンセル",
+    "save": "保存",
+    "saving": "保存中...",
+    "customize": "カスタマイズ",
+    "loading": "読み込み中...",
+    "error": "ダッシュボードの読み込み中にエラーが発生しました",
+    "noWidgets": "ウィジェットがありません",
+    "widgetConfig": "ウィジェット設定",
+    "configureWidget": "ウィジェットを設定",
+    "widgetType": "ウィジェットタイプ",
+    "description": "説明",
+    "configure": "設定",
+    "remove": "削除",
+    "dragToReorder": "ドラッグしてウィジェットを並べ替え",
+    "editModeHint": "編集モード: ウィジェットをドラッグして再配置し、エッジをドラッグしてサイズ変更します。Xをクリックしてウィジェットを削除します。",
+    "resetConfirm": "ダッシュボードをデフォルトのレイアウトにリセットしますか？この操作は元に戻せません。",
+    "pageDescription": "IRCネットワークの概要"
+  },
+  "auth": {
+    "loginTitle": "ログイン",
+    "loginButton": "サインイン",
+    "logoutConfirm": "ログアウトしてもよろしいですか？",
+    "invalidCredentials": "無効なユーザー名またはパスワード",
+    "sessionExpired": "セッションが期限切れです。再度ログインしてください。",
+    "panelTitle": "UnrealIRCdパネル",
+    "panelSubtitle": "IRCネットワークを管理するにはサインインしてください",
+    "twoFactorRequired": "2要素認証が必要です",
+    "usernameLabel": "ユーザー名",
+    "usernamePlaceholder": "ユーザー名を入力",
+    "passwordLabel": "パスワード",
+    "passwordPlaceholder": "パスワードを入力",
+    "signInButton": "サインイン",
+    "twoFactorDescription": "認証アプリの6桁コードを入力するか、バックアップコードを使用してください。",
+    "verificationCodeLabel": "確認コード",
+    "verificationCodePlaceholder": "確認コードを入力",
+    "verifyButton": "確認",
+    "backButton": "戻る",
+    "failedLogin": "ログインに失敗しました",
+    "invalidCode": "無効な確認コード"
+  },
+  "users": {
+    "title": "ユーザー",
+    "subtitle": "ネットワーク上の接続されたユーザーを管理",
+    "nickname": "ニックネーム",
+    "host": "ホスト",
+    "ip": "IP",
+    "channels": "チャンネル",
+    "idle": "アイドル",
+    "server": "サーバー",
+    "ircOp": "IRC-Op",
+    "tls": "TLS",
+    "hidden": "非表示",
+    "unknown": "不明",
+    "searchPlaceholder": "ニックネーム、ホスト、IPでユーザーを検索...",
+    "viewDetails": "詳細を表示",
+    "clearSelection": "選択をクリア",
+    "killAll": "すべてキル",
+    "banAll": "すべてBAN",
+    "selectedUsers": "{{count}} 人のユーザーが選択されました",
+    "userDetails": "ユーザー: {{name}}",
+    "killSuccess": "{{name}} をキルしました",
+    "killFailed": "ユーザーのキルに失敗しました",
+    "banSuccess": "{{name}} をBANしました",
+    "banFailed": "ユーザーのBANに失敗しました",
+    "vhostSuccess": "{{name}} のvhostを設定しました",
+    "vhostFailed": "vhostの設定に失敗しました",
+    "bulkBanSuccess": "{{count}} 人のユーザーを正常にBANしました",
+    "bulkBanPartial": "{{success}} 人のユーザーをBAN、{{failed}} 人が失敗しました",
+    "loadError": "ユーザーの読み込みに失敗しました: {{error}}",
+    "username": "ユーザー名",
+    "realName": "本名",
+    "hostname": "ホスト名",
+    "ipAddress": "IPアドレス",
+    "virtualHost": "仮想ホスト",
+    "vhostPlaceholder": "例: user.mynetwork.org",
+    "vhostHelperText": "現在のvhostを削除するには空のままにしてください",
+    "none": "なし",
+    "connectedSince": "接続開始",
+    "userModes": "ユーザーモード",
+    "banType": "BANタイプ",
+    "gline": "G-Line (グローバル)",
+    "kline": "K-Line (ローカル)",
+    "gzline": "GZ-Line (グローバルIP)",
+    "zline": "Z-Line (ローカルIP)",
+    "shun": "Shun",
+    "reason": "理由",
+    "enterBanReason": "BAN理由を入力",
+    "duration": "期間",
+    "oneHour": "1時間",
+    "sixHours": "6時間",
+    "oneDay": "1日",
+    "sevenDays": "7日",
+    "thirtyDays": "30日",
+    "permanent": "永久",
+    "setVhost": "Vhostを設定",
+    "setVhostTitle": "Vhostを設定: {{name}}",
+    "cancel": "キャンセル",
+    "enterKillReason": "キル理由を入力",
+    "banUsersTitle": "{{count}} 人のユーザーをBAN",
+    "banningProgress": "BAN中... ({{current}}/{{total}})",
+    "banUsersButton": "{{count}} 人のユーザーをBAN",
+    "bulkBanWarning": "これにより{{count}} 人のユーザーがネットワークからBANされます。",
+    "killUsersTitle": "{{count}} 人のユーザーをキル",
+    "killingProgress": "キル中... ({{current}}/{{total}})",
+    "killUsersButton": "{{count}} 人のユーザーをキル",
+    "bulkKillWarning": "これにより{{count}} 人のユーザーがネットワークから強制切断されます。",
+    "killUserTitle": "ユーザーをキル: {{name}}",
+    "killUserButton": "ユーザーをキル",
+    "banUserTitle": "ユーザーをBAN: {{name}}",
+    "banUserButton": "ユーザーをBAN",
+    "killUserWarning": "これにより{{name}}がネットワークから強制切断されます。",
+    "active": "アクティブ",
+    "seconds": "{{count}}秒",
+    "minutes": "{{count}}分",
+    "hours": "{{count}}時間",
+    "days": "{{count}}日"
+  },
+  "servers": {
+    "title": "サーバー",
+    "subtitle": "ネットワーク内のリンクされたサーバーを表示",
+    "server": "サーバー",
+    "users": "ユーザー",
+    "description": "説明",
+    "noDescription": "説明なし",
+    "version": "バージョン",
+    "unknown": "不明",
+    "uptime": "稼働時間",
+    "searchPlaceholder": "サーバーを検索...",
+    "viewDetails": "詳細を表示",
+    "rehash": "再読み込み",
+    "serverDetails": "サーバー: {{name}}",
+    "serverName": "サーバー名",
+    "serverFeatures": "サーバー機能",
+    "software": "ソフトウェア",
+    "protocol": "プロトコル",
+    "nickLength": "ニックネーム長",
+    "channelModes": "チャンネルモード",
+    "uLineServer": "これはU-Lineサーバーです（サービスサーバー）",
+    "rehashTitle": "再読み込み: {{name}}",
+    "cancel": "キャンセル",
+    "rehashServer": "サーバーを再読み込み",
+    "rehashWarning": "これにより{{name}}が設定を再読み込みします。続行してもよろしいですか？",
+    "rehashSuccess": "{{name}}に再読み込みを送信しました",
+    "rehashFailed": "サーバーの再読み込みに失敗しました",
+    "loadError": "サーバーの読み込みに失敗しました: {{error}}",
+    "uptimeFormat": "{{days}}日 {{hours}}時間 {{minutes}}分",
+    "uptimeHoursMinutes": "{{hours}}時間 {{minutes}}分",
+    "uptimeMinutes": "{{minutes}}分"
+  },
+  "channels": {
+    "title": "チャンネル",
+    "subtitle": "ネットワーク上のチャンネルを管理",
+    "channel": "チャンネル",
+    "users": "ユーザー",
+    "topic": "トピック",
+    "noTopicSet": "トピックが設定されていません",
+    "modes": "モード",
+    "created": "作成日",
+    "unknown": "不明",
+    "searchPlaceholder": "名前、トピックでチャンネルを検索...",
+    "viewDetails": "詳細を表示",
+    "setTopic": "トピックを設定",
+    "setMode": "モードを設定",
+    "kickUser": "ユーザーをキック",
+    "channelDetails": "チャンネル: {{name}}",
+    "channelName": "チャンネル名",
+    "members": "メンバー",
+    "bans": "バン",
+    "setBy": "{{user}}によって設定",
+    "setByAt": "{{user}}によって{{time}}に設定",
+    "banEntry": "{{name}} ({{setBy}}による)",
+    "setTopicTitle": "トピックを設定: {{name}}",
+    "cancel": "キャンセル",
+    "enterNewTopic": "新しいチャンネルトピックを入力",
+    "setModeTitle": "モードを設定: {{name}}",
+    "modePlaceholder": "例: +nt または -o",
+    "parametersOptional": "パラメータ（オプション）",
+    "parametersPlaceholder": "例: ニックネーム",
+    "parametersHelper": "必要なモードのパラメータ",
+    "currentModes": "現在のモード:",
+    "kickUserTitle": "{{name}}からユーザーをキック",
+    "nickname": "ニックネーム",
+    "enterNickname": "キックするニックネームを入力",
+    "reasonOptional": "理由（オプション）",
+    "enterKickReason": "キック理由を入力",
+    "topicUpdated": "トピックを更新しました",
+    "topicUpdateFailed": "トピックの設定に失敗しました",
+    "modeChanged": "モードを変更しました",
+    "modeChangeFailed": "モードの設定に失敗しました",
+    "userKicked": "{{nick}}を{{channel}}からキックしました",
+    "kickFailed": "ユーザーのキックに失敗しました",
+    "loadError": "チャンネルの読み込みに失敗しました: {{error}}"
+  },
+  "statistics": {
+    "title": "統計",
+    "subtitle": "ネットワークの履歴統計",
+    "currentUsers": "現在のユーザー",
+    "channels": "チャンネル",
+    "servers": "サーバー",
+    "activeBans": "アクティブなBAN",
+    "userActivity": "ユーザーアクティビティ",
+    "userActivityDesc": "時間の経過によるユーザー数",
+    "banDistribution": "BAN分布",
+    "banDistributionDesc": "BANタイプ別の内訳",
+    "noActiveBans": "アクティブなBANはありません",
+    "userDistribution": "ユーザー分布",
+    "userDistributionDesc": "ユーザータイプ別の内訳",
+    "noUsersConnected": "接続されたユーザーはいません",
+    "connectionStatistics": "接続統計",
+    "connectionStatisticsDesc": "認証と接続の指標",
+    "networkTraffic": "ネットワークトラフィック",
+    "networkTrafficDesc": "時間の経過によるデータ転送",
+    "bytesReceived": "受信バイト",
+    "bytesSent": "送信バイト",
+    "banHistory": "BAN履歴",
+    "banHistoryDesc": "時間の経過によるBAN数",
+    "gLines": "G-Lines",
+    "kLines": "K-Lines",
+    "zLines": "Z-Lines",
+    "gzLines": "GZ-Lines",
+    "shuns": "Shuns",
+    "spamfilters": "スパムフィルター",
+    "qLines": "Q-Lines",
+    "regularUsers": "通常ユーザー",
+    "operators": "オペレーター",
+    "invisible": "不可視",
+    "serverStatistics": "サーバー統計",
+    "serverStatisticsDesc": "時間の経過によるサーバー数",
+    "totalServers": "総サーバー数",
+    "uLinedServers": "U-Linedサーバー",
+    "showingSnapshots": "{{max}}個の利用可能なスナップショット中{{count}}個を表示（最大履歴：{{history}}）",
+    "lastSnapshot": "最後のスナップショット：{{timestamp}}"
+  },
+  "alertRules": {
+    "alertRulesPage": "アラートルール",
+    "description": "特定のイベントが発生したときにwebhookをトリガーするカスタムアラートルールを作成",
+    "createRule": "ルールを作成",
+    "noRulesConfigured": "アラートルールが設定されていません。開始するには1つ作成してください。"
+  },
+  "logs": {
+    "title": "ログビューア",
+    "subtitle": "UnrealIRCdからの履歴およびライブログエントリを表示（6.1.1+が必要）",
+    "startLive": "ライブ開始",
+    "stopLive": "ライブ停止",
+    "level": "レベル：",
+    "subsystem": "サブシステム：",
+    "searchPlaceholder": "ログを検索...",
+    "autoScroll": "自動スクロール：",
+    "on": "オン",
+    "off": "オフ",
+    "all": "すべて",
+    "entries": "エントリ",
+    "live": "ライブ",
+    "noEntries": "ログエントリが見つかりません",
+    "tableHeaders": {
+      "time": "時間",
+      "level": "レベル",
+      "subsystem": "サブシステム",
+      "event": "イベント",
+      "message": "メッセージ"
+    },
+    "modal": {
+      "title": "ログエントリの詳細",
+      "rawJson": "生JSON"
+    }
+  },
+  "marketplace": {
+    "title": "プラグインマーケットプレイス",
+    "subtitle": "UnrealIRCd Web Panelを拡張するためのプラグインを発見してインストールします",
+    "categories": {
+      "all": "すべてのプラグイン",
+      "security": "セキュリティ",
+      "integration": "統合",
+      "monitoring": "監視",
+      "management": "管理",
+      "utilities": "ユーティリティ",
+      "appearance": "外観"
+    },
+    "tabs": {
+      "browse": "マーケットプレイスを閲覧",
+      "installed": "インストール済み"
+    },
+    "searchPlaceholder": "プラグインを検索...",
+    "installed": "インストール済み",
+    "install": "インストール",
+    "uninstall": "アンインストール",
+    "update": "更新",
+    "updateTo": "{{version}}に更新",
+    "byAuthor": "{{author}}による",
+    "installedAgo": "{{time}}前にインストール",
+    "updatedAgo": "{{time}}前に更新",
+    "activePlugins": "アクティブなプラグイン",
+    "updatesAvailable": "利用可能な更新",
+    "disabled": "無効",
+    "noPlugins": "プラグインがインストールされていません",
+    "browseToFind": "プラグインを見つけるためにマーケットプレイスを閲覧してください",
+    "operationSuccess": "✓ 操作が正常に完了しました",
+    "rating": "({{count}})",
+    "version": "v{{version}}"
+  },
+  "livemap": {
+    "title": "ライブユーザーマップ",
+    "subtitle": "世界中のIRCユーザーのリアルタイム可視化",
+    "users": "ユーザー",
+    "countries": "国",
+    "loadingGlobe": "地球を読み込み中...",
+    "controls": {
+      "drag": "🖱️ ドラッグして回転",
+      "zoom": "🔍 スクロールしてズーム"
+    },
+    "topCountries": "トップ国",
+    "noGeoData": "地理位置データが利用できません",
+    "moreCountries": "+{{count}} 国追加",
+    "user": "ユーザー",
+    "usersPlural": "ユーザー"
+  },
+  "banExceptions": {
+    "title": "BAN例外",
+    "subtitle": "E-Linesを管理（BAN例外）",
+    "addException": "例外を追加",
+    "mask": "マスク",
+    "exceptionTypes": "例外タイプ",
+    "reason": "理由",
+    "setBy": "設定者",
+    "setAt": "設定日時",
+    "all": "すべて",
+    "noReason": "理由なし",
+    "unknown": "不明",
+    "searchPlaceholder": "例外を検索...",
+    "addModalTitle": "BAN例外を追加",
+    "removeModalTitle": "例外を削除",
+    "maskPlaceholder": "*@*.trusted.example.com",
+    "maskHelperText": "BANから除外するユーザー@ホストマスク",
+    "exceptionFor": "例外対象",
+    "reasonOptional": "理由（オプション）",
+    "reasonPlaceholder": "信頼できるネットワーク",
+    "gline": "G-Line（グローバル）",
+    "kline": "K-Line（ローカル）",
+    "gzline": "GZ-Line（グローバルIP）",
+    "zline": "Z-Line（ローカルIP）",
+    "shun": "Shun",
+    "allTypes": "すべてのタイプ",
+    "addSuccess": "例外が正常に追加されました",
+    "removeSuccess": "例外が正常に削除されました",
+    "removeException": "例外を削除",
+    "addFailed": "例外の追加に失敗しました",
+    "removeFailed": "例外の削除に失敗しました",
+    "loadError": "例外の読み込みに失敗しました: {{error}}",
+    "confirmRemove": "{{mask}} の例外を削除してもよろしいですか？このマスクに一致するユーザーはBANから除外されなくなります。"
+  },
+  "channelDetail": {
+    "backToChannels": "チャンネルに戻る",
+    "channelDetails": "チャンネル詳細",
+    "users": "ユーザー",
+    "refresh": "更新",
+    "setTopic": "トピックを設定",
+    "setMode": "モードを設定",
+    "topic": "トピック",
+    "noTopicSet": "トピックが設定されていません",
+    "setBy": "設定者",
+    "userList": "ユーザーリスト",
+    "noUsersInChannel": "チャンネルにユーザーがいません",
+    "channelSettings": "チャンネル設定",
+    "settingsModes": "設定 / モード",
+    "bans": "バン",
+    "invites": "招待",
+    "excepts": "例外",
+    "currentModes": "現在のモード：",
+    "defaultModesOnly": "デフォルトモードのみ",
+    "channelInfo": "チャンネル情報",
+    "created": "作成日時：",
+    "unknown": "不明",
+    "addBan": "BANを追加",
+    "maskRequired": "マスクを入力してください",
+    "noBansSet": "BANが設定されていません",
+    "addInvite": "招待を追加",
+    "noInviteExceptionsSet": "招待例外が設定されていません",
+    "addException": "例外を追加",
+    "noBanExceptionsSet": "BAN例外が設定されていません",
+    "setTopicTitle": "トピックを設定：{{channel}}",
+    "setChannelModesTitle": "チャンネルモードを設定：{{channel}}",
+    "kickUserTitle": "{{channel}} からユーザーをキック",
+    "addChannelBanTitle": "チャンネルBANを追加",
+    "addInviteExceptionTitle": "招待例外を追加",
+    "addBanExceptionTitle": "BAN例外を追加",
+    "applyModeChanges": "モード変更を適用",
+    "currentModesLabel": "現在のモード",
+    "enterModesManually": "またはモードを手動で入力：",
+    "parameters": "パラメータ",
+    "kickUser": "ユーザーをキック",
+    "nickname": "ニックネーム",
+    "enterNicknameToKick": "キックするニックネームを入力",
+    "reasonOptional": "理由（オプション）",
+    "enterKickReason": "キック理由を入力",
+    "mask": "マスク",
+    "nickUserHostOrExtended": "nick!user@host または拡張BAN",
+    "useExtendedBans": "~account:name や ~country:XX のような拡張BANを使用",
+    "durationMinutesOptional": "期間（分、オプション）",
+    "leaveEmptyForPermanent": "永久の場合は空のまま",
+    "topicUpdated": "トピックが更新されました",
+    "modeChanged": "モードが変更されました",
+    "banRemoved": "BANが削除されました",
+    "inviteRemoved": "招待が削除されました",
+    "exceptionRemoved": "例外が削除されました",
+    "mutedFor30Min": "{{user}} を30分間ミュートしました",
+    "bannedFor30Min": "{{user}} を30分間BANしました",
+    "failedToMute": "ユーザーのミュートに失敗しました",
+    "failedToBan": "ユーザーのBANに失敗しました",
+    "failedToRemoveBan": "BANの削除に失敗しました",
+    "failedToRemoveInvite": "招待の削除に失敗しました",
+    "failedToRemoveException": "例外の削除に失敗しました",
+    "failedToLoadChannel": "チャンネルの読み込みに失敗しました：{{error}}",
+    "channelNotFound": "チャンネルが見つかりません",
+    "muteTooltip": "ミュート（30分）",
+    "kickTooltip": "キック",
+    "banTooltip": "BAN（30分）",
+    "removeTooltip": "削除",
+    "setByAt": "{{user}} によって {{time}} に設定"
+  },
+  "header": {
+    "searchPlaceholder": "検索またはジャンプ...",
+    "refreshStats": "統計を更新",
+    "connected": "接続済み",
+    "disconnected": "切断済み",
+    "users": "ユーザー",
+    "channels": "チャンネル",
+    "servers": "サーバー"
+  },
+  "plugins": {
+    "pluginPage": "プラグインページ"
+  },
+  "widgets": {
+    "networkStats": "ネットワーク統計",
+    "topUsers": "上位ユーザー",
+    "recentChannels": "最近のチャンネル",
+    "serverStatus": "サーバーステータス",
+    "uptime": "稼働時間",
+    "version": "バージョン",
+    "users": "ユーザー",
+    "channels": "チャンネル",
+    "servers": "サーバー",
+    "operators": "オペレーター",
+    "invisible": "不可視",
+    "total": "合計",
+    "local": "ローカル",
+    "globalMax": "グローバル最大",
+    "online": "オンライン",
+    "offline": "オフライン",
+    "connecting": "接続中",
+    "unknown": "不明",
+    "viewAll": "すべて表示",
+    "noData": "データなし",
+    "loading": "読み込み中...",
+    "error": "データの読み込み中にエラーが発生しました",
+    "statsHistory": "統計履歴",
+    "last24Hours": "過去24時間",
+    "userActivity": "ユーザーのアクティビティ",
+    "channelActivity": "チャンネルのアクティビティ",
+    "serverActivity": "サーバーのアクティビティ",
+    "totalUsers": "合計ユーザー",
+    "connectedToNetwork": "ネットワークに接続済み",
+    "activeChannels": "アクティブチャンネル",
+    "withUsers": "ユーザーあり",
+    "linkedServers": "リンクされたサーバー",
+    "inNetwork": "ネットワーク内",
+    "onlineOperators": "オンラインIRCオペレーター",
+    "topChannels": "人気チャンネル",
+    "byUserCount": "ユーザー数順",
+    "noTopic": "トピックなし",
+    "noChannels": "チャンネルなし",
+    "networkServers": "ネットワークサーバー",
+    "server": "サーバー",
+    "status": "ステータス",
+    "ok": "確認",
+    "noServers": "サーバーがありません",
+    "hourOverview": "24時間の概要",
+    "quickLinks": "クイックリンク",
+    "navigateToSections": "セクションに移動",
+    "networkInfo": "ネットワーク情報",
+    "connectionDetails": "接続の詳細",
+    "recentBans": "最近のバン",
+    "serverBans": "サーバーバン",
+    "noRecentBans": "最近のバンはありません"
+  },
+  "panelUsers": {
+    "addModal": {
+      "title": "Add Panel User",
+      "createButton": "Create User"
+    },
+    "deleteModal": {
+      "title": "Delete User",
+      "confirm": "Are you sure you want to delete the user?"
+    }
+  },
+  "rpcServers": {
+    "title": "RPCサーバー",
+    "description": "UnrealIRCdのJSON-RPC接続を設定",
+    "addModal": {
+      "title": "RPCサーバーを追加",
+      "addButton": "Add Server"
+    },
+    "info": {
+      "description": "Configure which JSON-RPC server(s) the panel can connect to. You normally only need one server, but multiple servers can be useful for failover.",
+      "readDocs": "Read the UnrealIRCd setup instructions"
+    },
+    "default": "デフォルト",
+    "status": {
+      "connected": "接続済み",
+      "disconnected": "未接続"
+    },
+    "empty": "No RPC servers configured. Add one to connect to your UnrealIRCd server.",
+    "form": {
+      "name": {
+        "label": "表示名",
+        "placeholder": "e.g., Main Server",
+        "helper": "A short display name for the RPC server list"
+      },
+      "host": {
+        "label": "ホスト名またはIP",
+        "placeholder": "127.0.0.1",
+        "helper": "Use 127.0.0.1 for the same machine"
+      },
+      "port": {
+        "label": "ポート",
+        "placeholder": "8600",
+        "helper": "RPC port from unrealircd.conf"
+      },
+      "default": {
+        "label": "Default server",
+        "helper": "Make this the primary server for connections"
+      },
+      "tls": {
+        "label": "Verify SSL/TLS certificate",
+        "helper": "Only use with hostnames, not for 127.0.0.1"
+      },
+      "username": {
+        "label": "Username",
+        "placeholder": "rpc_username",
+        "helper": "The name of your rpc-user block in unrealircd.conf"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Enter RPC password",
+        "helper": "Leave empty to keep existing password"
+      }
+    },
+    "editModal": {
+      "title": "Edit Server: {{name}}"
+    },
+    "updateButton": "Save Changes",
+    "added": "RPC server added successfully",
+    "addFailed": "Failed to add server",
+    "updated": "RPC server updated successfully",
+    "updateFailed": "Failed to update server",
+    "deleted": "RPC server deleted",
+    "deleteFailed": "Failed to delete server",
+    "actions": {
+      "testConnection": "Test Connection",
+      "use": "Use"
+    },
+    "deleteModal": {
+      "title": "Delete Server",
+      "confirm": "Are you sure you want to delete the server <strong>{{name}}</strong>? This action cannot be undone.",
+      "deleteButton": "Delete Server"
+    },
+    "testSuccess": "Connection successful",
+    "testFailure": "Connection failed: {{message}}"
+  },
+  "nameBans": {
+    "title": "名前禁止",
+    "description": "Q-Line（予約されたニックネームとチャンネル）を管理",
+    "addButton": "名前禁止を追加",
+    "searchPlaceholder": "名前禁止を検索...",
+    "table": {
+      "type": "Type",
+      "name": "名前/パターン",
+      "reason": "Reason",
+      "setBy": "Set By",
+      "setAt": "Set At",
+      "expires": "Expires"
+    },
+    "addModal": {
+      "title": "名前禁止を追加",
+      "labels": {
+        "banType": "Ban Type",
+        "name": "名前/パターン",
+        "reason": "Reason",
+        "duration": "Duration"
+      },
+      "options": {
+        "qline": "Q-Line (Nickname)"
+      },
+      "placeholders": {
+        "nameExample": "e.g., Admin* or #official*",
+        "reason": "Enter ban reason"
+      },
+      "help": {
+        "useWildcard": "* をワイルドカードとして使用"
+      },
+      "addButton": "禁止を追加"
+    },
+    "deleteModal": {
+      "title": "Remove Name Ban",
+      "removeButton": "Remove Ban",
+      "confirm": "Are you sure you want to remove this name ban for {{name}}?"
+    },
+    "messages": {
+      "added": "Name ban added successfully",
+      "removed": "Name ban removed",
+      "loadFailed": "Failed to load name bans: {{error}}"
+    }
+  },
+  "serverBans": {
+    "title": "サーバー禁止",
+    "description": "G-Line、K-Line、Z-Line、Shunを管理",
+    "addButton": "禁止を追加",
+    "searchPlaceholder": "Search bans by mask, reason...",
+    "table": {
+      "type": "Type",
+      "mask": "マスク",
+      "reason": "Reason",
+      "setBy": "Set By",
+      "setAt": "Set At",
+      "expires": "Expires"
+    },
+    "spamfilters": {
+      "title": "Spamfilters",
+      "subtitle": "Manage content filters and spam protection",
+      "addButton": "Add Spamfilter",
+      "searchPlaceholder": "Search spamfilters...",
+      "table": {
+        "pattern": "Pattern",
+        "type": "Type",
+        "targets": "Targets",
+        "action": "Action",
+        "hits": "Hits",
+        "setBy": "Set By"
+      },
+      "detailsTitle": "Spamfilter Details",
+      "details": {
+        "matchType": "Match Type",
+        "action": "Action",
+        "hits": "Hits",
+        "setBy": "Set By",
+        "pattern": "Pattern",
+        "targets": "Targets",
+        "reason": "Reason",
+        "noReason": "No reason specified",
+        "actionDuration": "Action Duration"
+      },
+      "addModal": {
+        "title": "Add Spamfilter",
+        "labels": {
+          "matchType": "Match Type",
+          "match": "Pattern",
+          "targets": "Targets",
+          "action": "Action",
+          "duration": "Action Duration",
+          "reason": "Reason"
+        },
+        "options": {
+          "simple": "Simple (wildcards)",
+          "regex": "Regular Expression",
+          "posix": "POSIX Regex"
+        },
+        "actionOptions": {
+          "warn": "Warn",
+          "block": "Block",
+          "kill": "Kill",
+          "gline": "G-Line",
+          "gzline": "GZ-Line",
+          "shun": "Shun",
+          "viruschan": "Virus Channel"
+        },
+        "helper": {
+          "pattern": "Pattern to match against messages",
+          "duration": "Duration for ban action (e.g., 1h, 1d, 7d)"
+        },
+        "placeholders": {
+          "reason": "Spam is not allowed"
+        },
+        "addButton": "Add Spamfilter"
+      },
+      "deleteModal": {
+        "title": "Remove Spamfilter",
+        "removeButton": "Remove Spamfilter",
+        "confirm": "Are you sure you want to remove this spamfilter?"
+      },
+      "messages": {
+        "added": "Spamfilter added successfully",
+        "removed": "Spamfilter removed",
+        "loadFailed": "Failed to load spamfilters: {{error}}",
+        "removeFailed": "Failed to remove spamfilter"
+      }
+    },
+    "addModal": {
+      "title": "Add Server Ban",
+      "labels": {
+        "banType": "Ban Type",
+        "mask": "マスク",
+        "reason": "Reason",
+        "duration": "Duration"
+      },
+      "options": {
+        "gline": "G-Line（グローバル）",
+        "kline": "K-Line（ローカル）",
+        "gzline": "GZ-Line（グローバルIP）",
+        "zline": "Z-Line（ローカルIP）",
+        "shun": "Shun"
+      },
+      "placeholders": {
+        "maskExample": "*@*.example.com or 192.168.1.*",
+        "reason": "Enter ban reason"
+      },
+      "addButton": "禁止を追加"
+    },
+    "deleteModal": {
+      "title": "Remove Ban",
+      "removeButton": "Remove Ban",
+      "confirm": "Are you sure you want to remove this {{type}} for {{name}}?"
+    },
+    "messages": {
+      "added": "Ban added successfully",
+      "removed": "Ban removed",
+      "loadFailed": "Failed to load bans: {{error}}"
+    }
+  },
+  "commands": {
+    "nav": {
+      "dashboard": {
+        "title": "ダッシュボードへ",
+        "description": "ネットワークの概要を表示"
+      },
+      "users": {
+        "title": "ユーザーへ",
+        "description": "接続中のユーザーを表示"
+      },
+      "channels": {
+        "title": "チャンネルへ",
+        "description": "アクティブなチャンネルを表示"
+      },
+      "servers": {
+        "title": "サーバーへ",
+        "description": "リンクされたサーバーを表示"
+      },
+      "liveMap": {
+        "title": "ライブマップへ",
+        "description": "地理的分布を表示"
+      },
+      "statistics": {
+        "title": "統計へ",
+        "description": "詳細な統計を表示"
+      },
+      "logs": {
+        "title": "ログへ",
+        "description": "システムログを表示"
+      },
+      "serverBans": {
+        "title": "Go to Server Bans",
+        "description": "Manage K-Lines, G-Lines, etc."
+      },
+      "nameBans": {
+        "title": "Go to Name Bans",
+        "description": "Manage Q-Lines"
+      },
+      "banExceptions": {
+        "title": "Go to Ban Exceptions",
+        "description": "Manage E-Lines"
+      },
+      "spamfilters": {
+        "title": "Go to Spamfilters",
+        "description": "Manage spam filters"
+      },
+      "watchList": {
+        "title": "Go to Watch List",
+        "description": "Monitor flagged users"
+      },
+      "settings": {
+        "title": "Go to Settings",
+        "description": "Panel settings"
+      },
+      "twoFactor": {
+        "title": "Go to Two-Factor Auth",
+        "description": "Manage 2FA settings"
+      },
+      "panelUsers": {
+        "title": "Go to Panel Users",
+        "description": "Manage panel user accounts"
+      },
+      "webhooks": {
+        "title": "Go to Webhooks",
+        "description": "Manage webhook endpoints"
+      },
+      "smtp": {
+        "title": "Go to SMTP Settings",
+        "description": "Configure email server"
+      },
+      "notifications": {
+        "title": "Go to Notifications",
+        "description": "Configure notification preferences"
+      }
+    },
+    "theme": {
+      "switch": "Switch to {{name}} Theme",
+      "apply": "Apply {{name}} color scheme"
+    },
+    "action": {
+      "signOut": {
+        "title": "サインアウト",
+        "description": "パネルからログアウト"
+      }
+    }
+  },
+  "savedSearches": {
+    "tooltips": {
+      "saveCurrent": "現在の検索を保存",
+      "saveDisabled": "まず検索クエリを入力してください",
+      "view": "View saved searches"
+    },
+    "saveModal": {
+      "title": "Save Search"
+    },
+    "currentSearch": "現在の検索:",
+    "emptyPlaceholder": "(empty)",
+    "inputLabel": "Search Name",
+    "placeholders": {
+      "example": "e.g., TOR exit nodes, Suspicious IPs"
+    },
+    "shareWithAll": "すべてのユーザーと共有",
+    "listModal": {
+      "title": "保存された検索",
+      "emptyTitle": "保存された検索はありません",
+      "emptyDescription": "Save your current search to quickly access it later."
+    },
+    "messages": {
+      "saved": "Search saved",
+      "deleted": "Search deleted",
+      "saveFailed": "Failed to save search",
+      "deleteFailed": "Failed to delete search",
+      "applyFailed": "Failed to apply search"
+    },
+    "shared": "Shared",
+    "popular": "Popular",
+    "usedTimes": "Used {{count}} time(s)",
+    "lastUsed": "Last used",
+    "apply": "適用"
+  },
+  "watchList": {
+    "title": "監視リスト",
+    "subtitle": "特定の条件に合うユーザーを監視",
+    "addButton": "監視リストに追加",
+    "summary": {
+      "entriesLabel": "Watch List Entries",
+      "usersCurrentlyMatched": "Users Currently Matched",
+      "entriesWithActiveMatches": "Entries with Active Matches"
+    },
+    "alert": "{{count}} user(s) currently match your watch list criteria. Click the expand arrow or the icon to view details.",
+    "searchPlaceholder": "ニック、IP、理由で検索...",
+    "emptyMessage": "監視リストにユーザーがいません",
+    "messages": {
+      "added": "User added to watch list",
+      "addFailed": "Failed to add user",
+      "updated": "Watch list entry updated",
+      "updateFailed": "Failed to update entry",
+      "removed": "Removed from watch list",
+      "removeFailed": "Failed to remove entry",
+      "loadFailed": "Failed to load watch list: {{error}}"
+    },
+    "table": {
+      "criteria": "Match Criteria",
+      "reason": "Reason",
+      "addedBy": "Added By",
+      "addedAt": "Added",
+      "currentMatches": "Current Matches"
+    },
+    "labels": {
+      "nick": "Nick",
+      "ip": "IP",
+      "host": "Host",
+      "account": "Account",
+      "realname": "Realname",
+      "online": "online"
+    },
+    "tooltips": {
+      "viewMatched": "View matched users"
+    },
+    "addModal": {
+      "title": "監視リストに追加",
+      "addButton": "監視リストに追加"
+    },
+    "editModal": {
+      "title": "Edit Watch List Entry",
+      "saveButton": "Save Changes"
+    },
+    "deleteModal": {
+      "title": "Remove from Watch List",
+      "removeButton": "削除",
+      "confirm": "Are you sure you want to remove this entry from the watch list?"
+    }
+  },
+  "scheduledCommands": {
+    "title": "スケジュールされたコマンド",
+    "subtitle": "IRCコマンドを自動実行するようスケジュール",
+    "createButton": "スケジュールを作成",
+    "searchPlaceholder": "コマンドを検索...",
+    "emptyMessage": "スケジュールされたコマンドはありません",
+    "never": "なし",
+    "next": "次へ",
+    "messages": {
+      "created": "Scheduled command created",
+      "createFailed": "Failed to create scheduled command",
+      "updated": "Scheduled command updated",
+      "updateFailed": "Failed to update scheduled command",
+      "deleted": "Scheduled command deleted",
+      "deleteFailed": "Failed to delete scheduled command",
+      "toggleFailed": "Failed to toggle scheduled command",
+      "commandExecuted": "Command executed",
+      "runFailed": "Failed to run command",
+      "loadFailed": "Failed to load scheduled commands: {{error}}"
+    },
+    "table": {
+      "status": "状態",
+      "name": "Name",
+      "command": "コマンド",
+      "schedule": "スケジュール",
+      "lastRun": "最終実行",
+      "runs": "実行回数"
+    },
+    "tooltips": {
+      "clickToDisable": "クリックして無効化",
+      "clickToEnable": "クリックして有効化",
+      "runNow": "今すぐ実行"
+    },
+    "labels": {
+      "active": "Active",
+      "paused": "Paused"
+    },
+    "commandTypes": {
+      "kill": "Kill User",
+      "gline": "G-Line (Server Ban)",
+      "rehash": "Rehash Server",
+      "message": "Send Message"
+    },
+    "scheduleTypes": {
+      "once": "One Time",
+      "hourly": "Every Hour",
+      "daily": "Every Day",
+      "weekly": "Every Week",
+      "monthly": "Every Month"
+    },
+    "form": {
+      "nameLabel": "Name *",
+      "namePlaceholder": "e.g., Daily cleanup, Scheduled maintenance",
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "What does this scheduled command do?",
+      "commandTypeLabel": "Command Type *",
+      "targetLabel": "Target",
+      "reasonLabel": "Reason",
+      "durationLabel": "Duration",
+      "messageLabel": "Message",
+      "scheduleLabel": "Schedule *",
+      "enableLabel": "Enable this scheduled command"
+    },
+    "placeholders": {
+      "target": {
+        "kill": "Nickname",
+        "gline": "Host mask (e.g., *@*.bad.com)",
+        "rehash": "Server name",
+        "message": "Channel or nick",
+        "default": "Target"
+      },
+      "reason": "Reason for the action",
+      "duration": "e.g., 1d, 1w, 30m",
+      "message": "Message to send"
+    },
+    "createModal": {
+      "title": "Create Scheduled Command",
+      "createButton": "スケジュールを作成"
+    },
+    "editModal": {
+      "title": "Edit Scheduled Command",
+      "saveButton": "Save Changes"
+    },
+    "deleteModal": {
+      "title": "Delete Scheduled Command",
+      "confirm": "Are you sure you want to delete this scheduled command? This action cannot be undone."
+    }
+  },
+  "channelTemplates": {
+    "title": "チャンネルテンプレート",
+    "subtitle": "チャンネル設定をテンプレートとして保存・適用",
+    "fromChannel": "チャンネルから",
+    "createButton": "テンプレートを作成",
+    "empty": "No channel templates yet. Create one or import from an existing channel.",
+    "tooltips": {
+      "global": "Global template",
+      "private": "Private template",
+      "applyToChannel": "Apply to channel",
+      "duplicate": "Duplicate"
+    },
+    "labels": {
+      "modes": "Modes:",
+      "topic": "Topic:"
+    },
+    "used": "{{count}} 回使用",
+    "by": "by",
+    "deleteConfirm": "Delete this template?",
+    "form": {
+      "name": "Name",
+      "placeholders": {
+        "name": "Template name",
+        "description": "Optional description",
+        "modes": "+nts",
+        "topic": "Channel topic",
+        "selectChannel": "Select a channel..."
+      },
+      "description": "Description",
+      "modes": "Modes",
+      "topic": "Topic",
+      "makeGlobal": "このテンプレートを全ユーザーに公開",
+      "updateButton": "Update",
+      "createButton": "Create",
+      "targetChannel": "ターゲットチャンネル"
+    },
+    "editModal": {
+      "title": "Edit Template"
+    },
+    "createModal": {
+      "title": "テンプレートを作成"
+    },
+    "applyModal": {
+      "title": "テンプレートを適用",
+      "subtitle": "Apply template \"{{name}}\" to a channel:",
+      "applyButton": "テンプレートを適用"
+    },
+    "createFromChannel": {
+      "title": "Create from Channel",
+      "description": "Create a new template from an existing channel's configuration:"
+    }
+  },
+  "webhooks": {
+    "title": "Webhook",
+    "subtitle": "WebhookでUnrealIRCdのログイベントを受信",
+    "createButton": "Webhookを作成",
+    "info": {
+      "paragraph1": "Webhooks allow UnrealIRCd to send log events directly to this panel. Each webhook has a unique token URL that you configure in your unrealircd.conf.",
+      "learnMore": "Learn more about UnrealIRCd log blocks"
+    },
+    "tooltips": {
+      "viewConfig": "設定を表示",
+      "viewLogs": "ログを表示",
+      "disable": "無効",
+      "enable": "有効",
+      "regenerate": "トークンを再生成"
+    },
+    "emptyTokens": "Webhookトークンは設定されていません",
+    "tokens": {
+      "createModal": {
+        "title": "Create Webhook Token"
+      },
+      "deleteModal": {
+        "title": "Delete Webhook Token",
+        "confirm": "Are you sure you want to delete the webhook token \"{{name}}\"?",
+        "details": "UnrealIRCd will no longer be able to send log events to this URL."
+      }
+    },
+    "messages": {
+      "loadFailed": "Failed to load webhooks: {{error}}"
+    }
+  },
+  "themeSwitcher": {
+    "title": "Theme Settings",
+    "tabs": {
+      "presets": "Presets",
+      "customize": "Customize"
+    },
+    "customizeIntro": "Customize the current theme ({{name}}) with your own colors.",
+    "sections": {
+      "background": "Background",
+      "text": "Text"
+    },
+    "colors": {
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "tertiary": "Tertiary",
+      "textPrimary": "Primary",
+      "textMuted": "Muted",
+      "accent": "Accent",
+      "accentHover": "Accent (hover)",
+      "success": "成功",
+      "error": "エラー"
+    },
+    "apply": "Apply Changes",
+    "reset": "Reset to Default"
+  },
+  "sidebar": {
+    "logout": "サインアウト"
+  },
+  "userJourney": {
+    "searchModal": {
+      "title": "Search User Journey",
+      "description": "Enter at least one identifier to search for user activity:",
+      "nicknameLabel": "Nickname",
+      "nicknamePlaceholder": "Enter nickname",
+      "ipLabel": "IP Address",
+      "ipPlaceholder": "Enter IP address"
+    }
+  },
+  "userDetail": {
+    "killTitle": "Kill User: {{name}}",
+    "killButton": "Kill User",
+    "banTitle": "Ban User: {{name}}",
+    "banButton": "Ban User",
+    "vhostTitle": "Set Vhost: {{name}}",
+    "setVhostButton": "Set Vhost",
+    "modesTitle": "Set User Modes: {{name}}",
+    "applyModeChanges": "Apply Mode Changes"
+  }
+}

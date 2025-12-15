@@ -5,6 +5,7 @@ import * as THREE from 'three'
 import { Globe, Users, MapPin, Loader2 } from 'lucide-react'
 import { Alert } from '@/components/common'
 import { useIRCUsers } from '@/hooks'
+import { useTranslation } from 'react-i18next'
 
 // Country coordinates (lat, lng) for placing markers
 const countryCoordinates: Record<string, { lat: number; lng: number; name: string }> = {
@@ -183,6 +184,7 @@ function CountryMarker({
 }) {
   const [hovered, setHovered] = useState(false)
   const markerRef = useRef<THREE.Group>(null)
+  const { t } = useTranslation()
   const country = countryCoordinates[countryCode]
   
   // Scale based on user count
@@ -233,7 +235,7 @@ function CountryMarker({
                 {country?.name || countryCode}
               </div>
               <div className="text-sm text-[var(--accent)]">
-                {count} user{count !== 1 ? 's' : ''}
+                {count} {count === 1 ? t('livemap.user') : t('livemap.usersPlural')}
               </div>
             </div>
           </Html>
@@ -334,11 +336,12 @@ function GlobeScene({ countryData, maxCount }: { countryData: Map<string, number
 
 // Loading fallback
 function LoadingFallback() {
+  const { t } = useTranslation()
   return (
     <Html center>
       <div className="flex flex-col items-center gap-2 text-[var(--text-secondary)]">
         <Loader2 className="animate-spin" size={32} />
-        <span>Loading globe...</span>
+        <span>{t('livemap.loadingGlobe')}</span>
       </div>
     </Html>
   )
@@ -346,6 +349,7 @@ function LoadingFallback() {
 
 export default function LiveMapPage() {
   const { data: users, isLoading, error } = useIRCUsers()
+  const { t } = useTranslation()
 
   // Aggregate users by country
   const { countryData, totalUsers, uniqueCountries, sortedCountries } = useMemo(() => {
@@ -394,9 +398,9 @@ export default function LiveMapPage() {
               <Globe className="text-[var(--accent)]" size={24} />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-[var(--text-primary)]">Live Map</h1>
+              <h1 className="text-xl font-bold text-[var(--text-primary)]">{t('livemap.title')}</h1>
               <p className="text-sm text-[var(--text-secondary)]">
-                User distribution across the globe
+                {t('livemap.subtitle')}
               </p>
             </div>
           </div>
@@ -406,12 +410,12 @@ export default function LiveMapPage() {
             <div className="flex items-center gap-2 text-[var(--text-secondary)]">
               <Users size={18} />
               <span className="text-[var(--text-primary)] font-semibold">{totalUsers}</span>
-              <span>users</span>
+              <span>{t('livemap.users')}</span>
             </div>
             <div className="flex items-center gap-2 text-[var(--text-secondary)]">
               <MapPin size={18} />
               <span className="text-[var(--text-primary)] font-semibold">{uniqueCountries}</span>
-              <span>countries</span>
+              <span>{t('livemap.countries')}</span>
             </div>
           </div>
         </div>
@@ -438,8 +442,8 @@ export default function LiveMapPage() {
           
           {/* Controls overlay */}
           <div className="absolute bottom-4 left-4 text-xs text-[var(--text-muted)] bg-black/50 px-3 py-2 rounded-lg">
-            <div>🖱️ Drag to rotate</div>
-            <div>🔍 Scroll to zoom</div>
+            <div>{t('livemap.controls.drag')}</div>
+            <div>{t('livemap.controls.zoom')}</div>
           </div>
         </div>
 
@@ -448,12 +452,12 @@ export default function LiveMapPage() {
           <div className="p-4">
             <h2 className="font-semibold text-[var(--text-primary)] mb-4 flex items-center gap-2">
               <MapPin size={16} className="text-[var(--accent)]" />
-              Top Countries
+              {t('livemap.topCountries')}
             </h2>
             
             {sortedCountries.length === 0 ? (
               <p className="text-sm text-[var(--text-muted)]">
-                No geo-location data available
+                {t('livemap.noGeoData')}
               </p>
             ) : (
               <div className="space-y-2">
@@ -490,7 +494,7 @@ export default function LiveMapPage() {
             
             {sortedCountries.length > 15 && (
               <p className="text-xs text-[var(--text-muted)] mt-4 text-center">
-                +{sortedCountries.length - 15} more countries
+                {t('livemap.moreCountries', { count: sortedCountries.length - 15 })}
               </p>
             )}
           </div>

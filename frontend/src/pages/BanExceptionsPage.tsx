@@ -4,8 +4,10 @@ import { DataTable, Button, Modal, Input, Select, Alert, Badge } from '@/compone
 import { Plus, Trash2, Shield } from 'lucide-react'
 import type { BanException } from '@/types'
 import toast from 'react-hot-toast'
+import { useTranslation } from 'react-i18next'
 
 export function BanExceptionsPage() {
+  const { t } = useTranslation()
   const { data: exceptions, isLoading, error } = useBanExceptions()
   const addException = useAddBanException()
   const deleteException = useDeleteBanException()
@@ -23,7 +25,7 @@ export function BanExceptionsPage() {
   const columns = [
     {
       key: 'name',
-      header: 'Mask',
+      header: t('banExceptions.mask'),
       sortable: true,
       render: (exc: BanException) => (
         <div className="flex items-center gap-2">
@@ -34,7 +36,7 @@ export function BanExceptionsPage() {
     },
     {
       key: 'exception_types',
-      header: 'Exception Types',
+      header: t('banExceptions.exceptionTypes'),
       render: (exc: BanException) => (
         <div className="flex flex-wrap gap-1">
           {exc.exception_types && typeof exc.exception_types === 'string' ? (
@@ -48,32 +50,32 @@ export function BanExceptionsPage() {
               </Badge>
             ))
           ) : (
-            <span className="text-[var(--text-muted)]">All</span>
+            <span className="text-[var(--text-muted)]">{t('banExceptions.all')}</span>
           )}
         </div>
       ),
     },
     {
       key: 'reason',
-      header: 'Reason',
+      header: t('banExceptions.reason'),
       render: (exc: BanException) => (
-        <span className="text-[var(--text-muted)] truncate max-w-md block">{exc.reason || 'No reason'}</span>
+        <span className="text-[var(--text-muted)] truncate max-w-md block">{exc.reason || t('banExceptions.noReason')}</span>
       ),
     },
     {
       key: 'set_by',
-      header: 'Set By',
+      header: t('banExceptions.setBy'),
       render: (exc: BanException) => (
         <span className="text-[var(--text-muted)]">{exc.set_by}</span>
       ),
     },
     {
       key: 'set_at',
-      header: 'Set At',
+      header: t('banExceptions.setAt'),
       sortable: true,
       render: (exc: BanException) => (
         <span className="text-[var(--text-muted)]">
-          {exc.set_at ? new Date(exc.set_at * 1000).toLocaleDateString() : 'Unknown'}
+          {exc.set_at ? new Date(exc.set_at * 1000).toLocaleDateString() : t('banExceptions.unknown')}
         </span>
       ),
     },
@@ -82,11 +84,11 @@ export function BanExceptionsPage() {
   const handleAddException = async () => {
     try {
       await addException.mutateAsync(newException)
-      toast.success('Exception added successfully')
+      toast.success(t('banExceptions.addSuccess'))
       setShowAddModal(false)
       setNewException({ name: '', types: 'gline', reason: '' })
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'Failed to add exception'
+      const message = err instanceof Error ? err.message : t('banExceptions.addFailed')
       toast.error(message)
     }
   }
@@ -95,11 +97,11 @@ export function BanExceptionsPage() {
     if (!selectedException) return
     try {
       await deleteException.mutateAsync(selectedException.name)
-      toast.success('Exception removed')
+      toast.success(t('banExceptions.removeSuccess'))
       setShowDeleteModal(false)
       setSelectedException(null)
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'Failed to remove exception'
+      const message = err instanceof Error ? err.message : t('banExceptions.removeFailed')
       toast.error(message)
     }
   }
@@ -107,7 +109,7 @@ export function BanExceptionsPage() {
   if (error) {
     return (
       <Alert type="error">
-        Failed to load exceptions: {error instanceof Error ? error.message : 'Unknown error'}
+        {t('banExceptions.loadError', { error: error instanceof Error ? error.message : 'Unknown error' })}
       </Alert>
     )
   }
@@ -116,11 +118,11 @@ export function BanExceptionsPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[var(--text-primary)]">Ban Exceptions</h1>
-          <p className="text-[var(--text-muted)] mt-1">Manage E-Lines (ban exceptions)</p>
+          <h1 className="text-2xl font-bold text-[var(--text-primary)]">{t('banExceptions.title')}</h1>
+          <p className="text-[var(--text-muted)] mt-1">{t('banExceptions.subtitle')}</p>
         </div>
         <Button leftIcon={<Plus size={18} />} onClick={() => setShowAddModal(true)}>
-          Add Exception
+          {t('banExceptions.addException')}
         </Button>
       </div>
 
@@ -129,7 +131,7 @@ export function BanExceptionsPage() {
         columns={columns}
         keyField="name"
         isLoading={isLoading}
-        searchPlaceholder="Search exceptions..."
+        searchPlaceholder={t('banExceptions.searchPlaceholder')}
         actions={(exc) => (
           <Button
             variant="ghost"
@@ -149,43 +151,43 @@ export function BanExceptionsPage() {
       <Modal
         isOpen={showAddModal}
         onClose={() => setShowAddModal(false)}
-        title="Add Ban Exception"
+        title={t('banExceptions.addModalTitle')}
         footer={
           <>
             <Button variant="secondary" onClick={() => setShowAddModal(false)}>
-              Cancel
+              {t('common.cancel')}
             </Button>
             <Button onClick={handleAddException} isLoading={addException.isPending}>
-              Add Exception
+              {t('banExceptions.addException')}
             </Button>
           </>
         }
       >
         <div className="space-y-4">
           <Input
-            label="Mask"
+            label={t('banExceptions.mask')}
             value={newException.name}
             onChange={(e) => setNewException({ ...newException, name: e.target.value })}
-            placeholder="*@*.trusted.example.com"
-            helperText="User@host mask to exempt from bans"
+            placeholder={t('banExceptions.maskPlaceholder')}
+            helperText={t('banExceptions.maskHelperText')}
           />
           <Select
-            label="Exception For"
+            label={t('banExceptions.exceptionFor')}
             value={newException.types}
             onChange={(e) => setNewException({ ...newException, types: e.target.value })}
           >
-            <option value="gline">G-Line</option>
-            <option value="kline">K-Line</option>
-            <option value="gzline">GZ-Line</option>
-            <option value="zline">Z-Line</option>
-            <option value="shun">Shun</option>
-            <option value="all">All Types</option>
+            <option value="gline">{t('banExceptions.gline')}</option>
+            <option value="kline">{t('banExceptions.kline')}</option>
+            <option value="gzline">{t('banExceptions.gzline')}</option>
+            <option value="zline">{t('banExceptions.zline')}</option>
+            <option value="shun">{t('banExceptions.shun')}</option>
+            <option value="all">{t('banExceptions.allTypes')}</option>
           </Select>
           <Input
-            label="Reason (optional)"
+            label={t('banExceptions.reasonOptional')}
             value={newException.reason}
             onChange={(e) => setNewException({ ...newException, reason: e.target.value })}
-            placeholder="Trusted network"
+            placeholder={t('banExceptions.reasonPlaceholder')}
           />
         </div>
       </Modal>
@@ -194,22 +196,20 @@ export function BanExceptionsPage() {
       <Modal
         isOpen={showDeleteModal}
         onClose={() => setShowDeleteModal(false)}
-        title="Remove Exception"
+        title={t('banExceptions.removeModalTitle')}
         footer={
           <>
             <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>
-              Cancel
+              {t('common.cancel')}
             </Button>
             <Button variant="danger" onClick={handleDeleteException} isLoading={deleteException.isPending}>
-              Remove Exception
+              {t('banExceptions.removeException')}
             </Button>
           </>
         }
       >
         <Alert type="warning">
-          Are you sure you want to remove the exception for{' '}
-          <span className="font-mono">{selectedException?.name}</span>?
-          Users matching this mask will no longer be exempt from bans.
+          {t('banExceptions.confirmRemove', { mask: selectedException?.name })}
         </Alert>
       </Modal>
     </div>

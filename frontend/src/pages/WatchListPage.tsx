@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { useNavigate } from 'react-router-dom'
 import { 
@@ -15,6 +16,7 @@ import { Eye, Plus, Edit2, Trash2, Users, ExternalLink } from 'lucide-react'
 import toast from 'react-hot-toast'
 
 export function WatchListPage() {
+  const { t } = useTranslation()
   const queryClient = useQueryClient()
   const navigate = useNavigate()
   const { data: watchedUsers, isLoading, error } = useQuery({
@@ -41,38 +43,38 @@ export function WatchListPage() {
     mutationFn: addWatchedUser,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['watchlist'] })
-      toast.success('User added to watch list')
+      toast.success(t('watchList.messages.added'))
       setShowAddModal(false)
       resetForm()
     },
     onError: (err: Error) => {
-      toast.error(err.message || 'Failed to add user')
+      toast.error(err.message || t('watchList.messages.addFailed'))
     },
   })
 
   const updateMutation = useMutation({
     mutationFn: ({ id, data }: { id: number; data: WatchedUserRequest }) => updateWatchedUser(id, data),
-    onSuccess: () => {
+      onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['watchlist'] })
-      toast.success('Watch list entry updated')
+      toast.success(t('watchList.messages.updated'))
       setShowEditModal(false)
       resetForm()
     },
     onError: (err: Error) => {
-      toast.error(err.message || 'Failed to update entry')
+      toast.error(err.message || t('watchList.messages.updateFailed'))
     },
   })
 
   const deleteMutation = useMutation({
     mutationFn: deleteWatchedUser,
-    onSuccess: () => {
+      onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['watchlist'] })
-      toast.success('Removed from watch list')
+      toast.success(t('watchList.messages.removed'))
       setShowDeleteModal(false)
       setSelectedUser(null)
     },
     onError: (err: Error) => {
-      toast.error(err.message || 'Failed to remove entry')
+      toast.error(err.message || t('watchList.messages.removeFailed'))
     },
   })
 
@@ -104,36 +106,36 @@ export function WatchListPage() {
   const columns = [
     {
       key: 'criteria',
-      header: 'Match Criteria',
+      header: t('watchList.table.criteria'),
       render: (user: WatchedUser) => (
         <div className="space-y-1">
           {user.nick && (
             <div className="flex items-center gap-2">
-              <Badge variant="info" size="sm">Nick</Badge>
+              <Badge variant="info" size="sm">{t('watchList.labels.nick')}</Badge>
               <span className="font-mono text-sm">{user.nick}</span>
             </div>
           )}
           {user.ip && (
             <div className="flex items-center gap-2">
-              <Badge variant="warning" size="sm">IP</Badge>
+              <Badge variant="warning" size="sm">{t('watchList.labels.ip')}</Badge>
               <span className="font-mono text-sm">{user.ip}</span>
             </div>
           )}
           {user.host && (
             <div className="flex items-center gap-2">
-              <Badge variant="default" size="sm">Host</Badge>
+              <Badge variant="default" size="sm">{t('watchList.labels.host')}</Badge>
               <span className="font-mono text-sm">{user.host}</span>
             </div>
           )}
           {user.account && (
             <div className="flex items-center gap-2">
-              <Badge variant="success" size="sm">Account</Badge>
+              <Badge variant="success" size="sm">{t('watchList.labels.account')}</Badge>
               <span className="font-mono text-sm">{user.account}</span>
             </div>
           )}
           {user.realname && (
             <div className="flex items-center gap-2">
-              <Badge variant="default" size="sm">Realname</Badge>
+              <Badge variant="default" size="sm">{t('watchList.labels.realname')}</Badge>
               <span className="text-sm">{user.realname}</span>
             </div>
           )}
@@ -142,21 +144,21 @@ export function WatchListPage() {
     },
     {
       key: 'reason',
-      header: 'Reason',
+      header: t('watchList.table.reason'),
       render: (user: WatchedUser) => (
         <span className="text-[var(--text-secondary)]">{user.reason}</span>
       ),
     },
     {
       key: 'added_by',
-      header: 'Added By',
+      header: t('watchList.table.addedBy'),
       render: (user: WatchedUser) => (
         <span className="text-[var(--text-muted)]">{user.added_by_username}</span>
       ),
     },
     {
       key: 'created_at',
-      header: 'Added',
+      header: t('watchList.table.addedAt'),
       sortable: true,
       render: (user: WatchedUser) => (
         <span className="text-[var(--text-muted)] text-sm">
@@ -166,13 +168,13 @@ export function WatchListPage() {
     },
     {
       key: 'match_count',
-      header: 'Current Matches',
+      header: t('watchList.table.currentMatches'),
       render: (user: WatchedUser) => {
         const matchCount = user.current_matches?.length || 0
         return (
           <div className="flex items-center gap-2">
             <Badge variant={matchCount > 0 ? 'error' : 'default'}>
-              {matchCount} online
+              {matchCount} {t('watchList.labels.online')}
             </Badge>
             {matchCount > 0 && (
               <Button
@@ -182,7 +184,7 @@ export function WatchListPage() {
                   setSelectedUser(user)
                   setShowMatchesModal(true)
                 }}
-                title="View matched users"
+                title={t('watchList.tooltips.viewMatched')}
               >
                 <Users size={16} />
               </Button>
@@ -196,7 +198,7 @@ export function WatchListPage() {
   if (error) {
     return (
       <Alert type="error">
-        Failed to load watch list: {error instanceof Error ? error.message : 'Unknown error'}
+        {t('watchList.messages.loadFailed', { error: error instanceof Error ? error.message : 'Unknown error' })}
       </Alert>
     )
   }
@@ -209,16 +211,16 @@ export function WatchListPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[var(--text-primary)] flex items-center gap-2">
+            <h1 className="text-2xl font-bold text-[var(--text-primary)] flex items-center gap-2">
             <Eye size={28} />
-            Watch List
+            {t('watchList.title')}
           </h1>
           <p className="text-[var(--text-muted)] mt-1">
-            Monitor users matching specific criteria
+            {t('watchList.subtitle')}
           </p>
         </div>
         <Button leftIcon={<Plus size={18} />} onClick={() => setShowAddModal(true)}>
-          Add to Watch List
+          {t('watchList.addButton')}
         </Button>
       </div>
 
@@ -226,17 +228,17 @@ export function WatchListPage() {
       {watchedUsers && watchedUsers.length > 0 && (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-lg p-4">
-            <div className="text-sm text-[var(--text-muted)]">Watch List Entries</div>
+            <div className="text-sm text-[var(--text-muted)]">{t('watchList.summary.entriesLabel')}</div>
             <div className="text-2xl font-bold text-[var(--text-primary)]">{watchedUsers.length}</div>
           </div>
           <div className={`border rounded-lg p-4 ${totalMatches > 0 ? 'bg-red-500/10 border-red-500/50' : 'bg-[var(--bg-secondary)] border-[var(--border-color)]'}`}>
-            <div className="text-sm text-[var(--text-muted)]">Users Currently Matched</div>
+            <div className="text-sm text-[var(--text-muted)]">{t('watchList.summary.usersCurrentlyMatched')}</div>
             <div className={`text-2xl font-bold ${totalMatches > 0 ? 'text-red-400' : 'text-[var(--text-primary)]'}`}>
               {totalMatches}
             </div>
           </div>
           <div className="bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-lg p-4">
-            <div className="text-sm text-[var(--text-muted)]">Entries with Active Matches</div>
+            <div className="text-sm text-[var(--text-muted)]">{t('watchList.summary.entriesWithActiveMatches')}</div>
             <div className="text-2xl font-bold text-[var(--text-primary)]">{entriesWithMatches}</div>
           </div>
         </div>
@@ -245,8 +247,7 @@ export function WatchListPage() {
       {/* Alert if there are current matches */}
       {totalMatches > 0 && (
         <Alert type="warning">
-          <strong>{totalMatches} user{totalMatches !== 1 ? 's' : ''}</strong> currently online match{totalMatches === 1 ? 'es' : ''} your watch list criteria. 
-          Click the expand arrow or <Users size={14} className="inline mx-1" /> icon to view details.
+          {t('watchList.alert', { count: totalMatches })}
         </Alert>
       )}
 
@@ -255,15 +256,15 @@ export function WatchListPage() {
         columns={columns}
         keyField="id"
         isLoading={isLoading}
-        searchPlaceholder="Search by nick, IP, reason..."
-        emptyMessage="No users in watch list"
+        searchPlaceholder={t('watchList.searchPlaceholder')}
+        emptyMessage={t('watchList.emptyMessage')}
         actions={(user) => (
           <>
             <Button
               variant="ghost"
               size="sm"
               onClick={() => openEditModal(user)}
-              title="Edit"
+              title={t('common.edit')}
             >
               <Edit2 size={16} />
             </Button>
@@ -275,7 +276,7 @@ export function WatchListPage() {
                 setSelectedUser(user)
                 setShowDeleteModal(true)
               }}
-              title="Remove"
+              title={t('common.remove')}
             >
               <Trash2 size={16} />
             </Button>
@@ -290,21 +291,21 @@ export function WatchListPage() {
           setShowAddModal(false)
           resetForm()
         }}
-        title="Add to Watch List"
+        title={t('watchList.addModal.title')}
         footer={
           <>
             <Button variant="secondary" onClick={() => {
               setShowAddModal(false)
               resetForm()
             }}>
-              Cancel
+              {t('common.cancel')}
             </Button>
             <Button 
               onClick={() => addMutation.mutate(formData)}
               isLoading={addMutation.isPending}
               disabled={!formData.reason || (!formData.nick && !formData.ip && !formData.host && !formData.account && !formData.realname)}
             >
-              Add to Watch List
+              {t('watchList.addModal.addButton')}
             </Button>
           </>
         }
@@ -319,21 +320,21 @@ export function WatchListPage() {
           setShowEditModal(false)
           resetForm()
         }}
-        title="Edit Watch List Entry"
+        title={t('watchList.editModal.title')}
         footer={
           <>
             <Button variant="secondary" onClick={() => {
               setShowEditModal(false)
               resetForm()
             }}>
-              Cancel
+              {t('common.cancel')}
             </Button>
             <Button 
               onClick={() => selectedUser && updateMutation.mutate({ id: selectedUser.id, data: formData })}
               isLoading={updateMutation.isPending}
               disabled={!formData.reason || (!formData.nick && !formData.ip && !formData.host && !formData.account && !formData.realname)}
             >
-              Save Changes
+              {t('watchList.editModal.saveButton')}
             </Button>
           </>
         }
@@ -348,27 +349,27 @@ export function WatchListPage() {
           setShowDeleteModal(false)
           setSelectedUser(null)
         }}
-        title="Remove from Watch List"
+        title={t('watchList.deleteModal.title')}
         footer={
           <>
             <Button variant="secondary" onClick={() => {
               setShowDeleteModal(false)
               setSelectedUser(null)
             }}>
-              Cancel
+              {t('common.cancel')}
             </Button>
             <Button 
               variant="danger"
               onClick={() => selectedUser && deleteMutation.mutate(selectedUser.id)}
               isLoading={deleteMutation.isPending}
             >
-              Remove
+              {t('watchList.deleteModal.removeButton')}
             </Button>
           </>
         }
       >
         <Alert type="warning">
-          Are you sure you want to remove this entry from the watch list?
+          {t('watchList.deleteModal.confirm')}
         </Alert>
       </Modal>
 

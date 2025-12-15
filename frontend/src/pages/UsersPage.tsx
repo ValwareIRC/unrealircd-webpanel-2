@@ -5,9 +5,11 @@ import { DataTable, Button, Modal, Input, Select, Alert, Badge, SavedSearches } 
 import { Eye, Ban, Skull, ShieldCheck, Globe, CheckSquare, Square, Users } from 'lucide-react'
 import type { IRCUser } from '@/types'
 import toast from 'react-hot-toast'
+import { useTranslation } from 'react-i18next'
 
 export function UsersPage() {
   const navigate = useNavigate()
+  const { t } = useTranslation()
   const { data: users, isLoading, error } = useIRCUsers()
   const killUser = useKillUser()
   const banUser = useBanUser()
@@ -100,7 +102,7 @@ export function UsersPage() {
     },
     {
       key: 'name',
-      header: 'Nickname',
+      header: t('users.nickname'),
       sortable: true,
       render: (user: IRCUser) => (
         <div className="flex items-center gap-2">
@@ -113,18 +115,18 @@ export function UsersPage() {
           {user.oper_login && (
             <Badge variant="warning" size="sm">
               <ShieldCheck size={12} className="mr-1" />
-              IRCOp
+              {t('users.ircOp')}
             </Badge>
           )}
           {user.tls && (
-            <Badge variant="success" size="sm">TLS</Badge>
+            <Badge variant="success" size="sm">{t('users.tls')}</Badge>
           )}
         </div>
       ),
     },
     {
       key: 'hostname',
-      header: 'Host',
+      header: t('users.host'),
       sortable: true,
       render: (user: IRCUser) => (
         <span className="text-[var(--text-secondary)]">
@@ -134,15 +136,15 @@ export function UsersPage() {
     },
     {
       key: 'ip',
-      header: 'IP',
+      header: t('users.ip'),
       sortable: true,
       render: (user: IRCUser) => (
-        <span className="text-[var(--text-muted)] font-mono text-sm">{user.ip || 'Hidden'}</span>
+        <span className="text-[var(--text-muted)] font-mono text-sm">{user.ip || t('users.hidden')}</span>
       ),
     },
     {
       key: 'channels',
-      header: 'Channels',
+      header: t('users.channels'),
       render: (user: IRCUser) => (
         <span className="text-[var(--text-muted)]">
           {user.channels?.length || 0}
@@ -151,17 +153,17 @@ export function UsersPage() {
     },
     {
       key: 'idle',
-      header: 'Idle',
+      header: t('users.idle'),
       sortable: true,
       render: (user: IRCUser) => (
-        <span className="text-[var(--text-muted)]">{formatIdle(user.idle)}</span>
+        <span className="text-[var(--text-muted)]">{formatIdle(t, user.idle)}</span>
       ),
     },
     {
       key: 'server',
-      header: 'Server',
+      header: t('users.server'),
       render: (user: IRCUser) => (
-        <span className="text-[var(--text-muted)]">{user.server_name || user.server || 'Unknown'}</span>
+        <span className="text-[var(--text-muted)]">{user.server_name || user.server || t('users.unknown')}</span>
       ),
     },
   ]
@@ -170,11 +172,11 @@ export function UsersPage() {
     if (!selectedUser) return
     try {
       await killUser.mutateAsync({ nick: selectedUser.name, reason: killReason })
-      toast.success(`Killed ${selectedUser.name}`)
+      toast.success(t('users.killSuccess', { name: selectedUser.name }))
       setShowKillModal(false)
       setSelectedUser(null)
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'Failed to kill user'
+      const message = err instanceof Error ? err.message : t('users.killFailed')
       toast.error(message)
     }
   }
@@ -188,11 +190,11 @@ export function UsersPage() {
         reason: banData.reason,
         duration: banData.duration,
       })
-      toast.success(`Banned ${selectedUser.name}`)
+      toast.success(t('users.banSuccess', { name: selectedUser.name }))
       setShowBanModal(false)
       setSelectedUser(null)
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'Failed to ban user'
+      const message = err instanceof Error ? err.message : t('users.banFailed')
       toast.error(message)
     }
   }
@@ -201,11 +203,11 @@ export function UsersPage() {
     if (!selectedUser) return
     try {
       await setUserVhost.mutateAsync({ nick: selectedUser.name, vhost })
-      toast.success(`Set vhost for ${selectedUser.name}`)
+      toast.success(t('users.vhostSuccess', { name: selectedUser.name }))
       setShowVhostModal(false)
       setSelectedUser(null)
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'Failed to set vhost'
+      const message = err instanceof Error ? err.message : t('users.vhostFailed')
       toast.error(message)
     }
   }
@@ -266,16 +268,16 @@ export function UsersPage() {
     clearSelection()
 
     if (failCount === 0) {
-      toast.success(`Successfully banned ${successCount} users`)
+      toast.success(t('users.bulkBanSuccess', { count: successCount }))
     } else {
-      toast.error(`Banned ${successCount} users, ${failCount} failed`)
+      toast.error(t('users.bulkBanPartial', { success: successCount, failed: failCount }))
     }
   }
 
   if (error) {
     return (
       <Alert type="error">
-        Failed to load users: {error instanceof Error ? error.message : 'Unknown error'}
+        {t('users.loadError', { error: error instanceof Error ? error.message : 'Unknown error' })}
       </Alert>
     )
   }
@@ -283,8 +285,8 @@ export function UsersPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-[var(--text-primary)]">Users</h1>
-        <p className="text-[var(--text-muted)] mt-1">Manage connected users on the network</p>
+        <h1 className="text-2xl font-bold text-[var(--text-primary)]">{t('users.title')}</h1>
+        <p className="text-[var(--text-muted)] mt-1">{t('users.subtitle')}</p>
       </div>
 
       {/* Bulk Action Bar */}
@@ -293,7 +295,7 @@ export function UsersPage() {
           <div className="flex items-center gap-3">
             <Users size={20} className="text-[var(--accent)]" />
             <span className="text-[var(--text-primary)] font-medium">
-              {selectedUsers.size} user{selectedUsers.size !== 1 ? 's' : ''} selected
+              {t('users.selectedUsers', { count: selectedUsers.size })}
             </span>
           </div>
           <div className="flex items-center gap-2">
@@ -302,7 +304,7 @@ export function UsersPage() {
               size="sm"
               onClick={clearSelection}
             >
-              Clear Selection
+              {t('users.clearSelection')}
             </Button>
             <Button
               variant="secondary"
@@ -310,7 +312,7 @@ export function UsersPage() {
               leftIcon={<Skull size={16} />}
               onClick={() => setShowBulkKillModal(true)}
             >
-              Kill All
+              {t('users.killAll')}
             </Button>
             <Button
               variant="danger"
@@ -318,7 +320,7 @@ export function UsersPage() {
               leftIcon={<Ban size={16} />}
               onClick={() => setShowBulkBanModal(true)}
             >
-              Ban All
+              {t('users.banAll')}
             </Button>
           </div>
         </div>
@@ -329,7 +331,7 @@ export function UsersPage() {
         columns={columns}
         keyField="id"
         isLoading={isLoading}
-        searchPlaceholder="Search users by nick, host, IP..."
+        searchPlaceholder={t('users.searchPlaceholder')}
         searchValue={searchQuery}
         onSearchChange={setSearchQuery}
         searchExtra={
@@ -345,7 +347,7 @@ export function UsersPage() {
               variant="ghost"
               size="sm"
               onClick={() => navigate(`/users/${encodeURIComponent(user.name)}`)}
-              title="View Details"
+              title={t('users.viewDetails')}
             >
               <Eye size={16} />
             </Button>
@@ -389,53 +391,53 @@ export function UsersPage() {
       <Modal
         isOpen={showDetails}
         onClose={() => setShowDetails(false)}
-        title={`User: ${selectedUser?.name}`}
+        title={t('users.userDetails', { name: selectedUser?.name })}
         size="lg"
       >
         {selectedUser && (
           <div className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <p className="text-sm text-[var(--text-muted)]">Nickname</p>
+                <p className="text-sm text-[var(--text-muted)]">{t('users.nickname')}</p>
                 <p className="text-[var(--text-primary)]">{selectedUser.name}</p>
               </div>
               <div>
-                <p className="text-sm text-[var(--text-muted)]">Username</p>
+                <p className="text-sm text-[var(--text-muted)]">{t('users.username')}</p>
                 <p className="text-[var(--text-primary)]">{selectedUser.username || 'N/A'}</p>
               </div>
               <div>
-                <p className="text-sm text-[var(--text-muted)]">Real Name</p>
+                <p className="text-sm text-[var(--text-muted)]">{t('users.realName')}</p>
                 <p className="text-[var(--text-primary)]">{selectedUser.realname || 'N/A'}</p>
               </div>
               <div>
-                <p className="text-sm text-[var(--text-muted)]">Hostname</p>
+                <p className="text-sm text-[var(--text-muted)]">{t('users.hostname')}</p>
                 <p className="text-[var(--text-primary)] font-mono text-sm">{selectedUser.hostname}</p>
               </div>
               <div>
-                <p className="text-sm text-[var(--text-muted)]">IP Address</p>
-                <p className="text-[var(--text-primary)] font-mono text-sm">{selectedUser.ip || 'Hidden'}</p>
+                <p className="text-sm text-[var(--text-muted)]">{t('users.ipAddress')}</p>
+                <p className="text-[var(--text-primary)] font-mono text-sm">{selectedUser.ip || t('users.hidden')}</p>
               </div>
               <div>
-                <p className="text-sm text-[var(--text-muted)]">Virtual Host</p>
-                <p className="text-[var(--text-primary)] font-mono text-sm">{selectedUser.vhost || 'None'}</p>
+                <p className="text-sm text-[var(--text-muted)]">{t('users.virtualHost')}</p>
+                <p className="text-[var(--text-primary)] font-mono text-sm">{selectedUser.vhost || t('users.none')}</p>
               </div>
               <div>
-                <p className="text-sm text-[var(--text-muted)]">Server</p>
-                <p className="text-[var(--text-primary)]">{selectedUser.server_name || selectedUser.server || 'Unknown'}</p>
+                <p className="text-sm text-[var(--text-muted)]">{t('users.server')}</p>
+                <p className="text-[var(--text-primary)]">{selectedUser.server_name || selectedUser.server || t('users.unknown')}</p>
               </div>
               <div>
-                <p className="text-sm text-[var(--text-muted)]">Connected Since</p>
+                <p className="text-sm text-[var(--text-muted)]">{t('users.connectedSince')}</p>
                 <p className="text-[var(--text-primary)]">
                   {selectedUser.connected_since
                     ? new Date(selectedUser.connected_since * 1000).toLocaleString()
-                    : 'Unknown'}
+                    : t('users.unknown')}
                 </p>
               </div>
             </div>
 
             {selectedUser.channels && selectedUser.channels.length > 0 && (
               <div>
-                <p className="text-sm text-[var(--text-muted)] mb-2">Channels</p>
+                <p className="text-sm text-[var(--text-muted)] mb-2">{t('users.channels')}</p>
                 <div className="flex flex-wrap gap-2">
                   {selectedUser.channels.map((ch: string) => (
                     <Badge key={ch} variant="info">{ch}</Badge>
@@ -445,7 +447,7 @@ export function UsersPage() {
             )}
 
             <div>
-              <p className="text-sm text-[var(--text-muted)] mb-2">User Modes</p>
+              <p className="text-sm text-[var(--text-muted)] mb-2">{t('users.userModes')}</p>
               <p className="text-[var(--text-primary)] font-mono">+{selectedUser.modes || 'none'}</p>
             </div>
           </div>
@@ -456,27 +458,27 @@ export function UsersPage() {
       <Modal
         isOpen={showKillModal}
         onClose={() => setShowKillModal(false)}
-        title={`Kill User: ${selectedUser?.name}`}
+        title={t('users.killUserTitle', { name: selectedUser?.name })}
         footer={
           <>
             <Button variant="secondary" onClick={() => setShowKillModal(false)}>
-              Cancel
+              {t('users.cancel')}
             </Button>
             <Button variant="danger" onClick={handleKill} isLoading={killUser.isPending}>
-              Kill User
+              {t('users.killUserButton')}
             </Button>
           </>
         }
       >
         <div className="space-y-4">
           <Alert type="warning">
-            This will forcefully disconnect {selectedUser?.name} from the network.
+            {t('users.killUserWarning', { name: selectedUser?.name })}
           </Alert>
           <Input
-            label="Reason"
+            label={t('users.reason')}
             value={killReason}
             onChange={(e) => setKillReason(e.target.value)}
-            placeholder="Enter kill reason"
+            placeholder={t('users.enterKillReason')}
           />
         </div>
       </Modal>
@@ -485,47 +487,47 @@ export function UsersPage() {
       <Modal
         isOpen={showBanModal}
         onClose={() => setShowBanModal(false)}
-        title={`Ban User: ${selectedUser?.name}`}
+        title={t('users.banUserTitle', { name: selectedUser?.name })}
         footer={
           <>
             <Button variant="secondary" onClick={() => setShowBanModal(false)}>
-              Cancel
+              {t('users.cancel')}
             </Button>
             <Button variant="danger" onClick={handleBan} isLoading={banUser.isPending}>
-              Ban User
+              {t('users.banUserButton')}
             </Button>
           </>
         }
       >
         <div className="space-y-4">
           <Select
-            label="Ban Type"
+            label={t('users.banType')}
             value={banData.type}
             onChange={(e) => setBanData({ ...banData, type: e.target.value })}
           >
-            <option value="gline">G-Line (Global)</option>
-            <option value="kline">K-Line (Local)</option>
-            <option value="gzline">GZ-Line (Global IP)</option>
-            <option value="zline">Z-Line (Local IP)</option>
-            <option value="shun">Shun</option>
+            <option value="gline">{t('users.gline')}</option>
+            <option value="kline">{t('users.kline')}</option>
+            <option value="gzline">{t('users.gzline')}</option>
+            <option value="zline">{t('users.zline')}</option>
+            <option value="shun">{t('users.shun')}</option>
           </Select>
           <Input
-            label="Reason"
+            label={t('users.reason')}
             value={banData.reason}
             onChange={(e) => setBanData({ ...banData, reason: e.target.value })}
-            placeholder="Enter ban reason"
+            placeholder={t('users.enterBanReason')}
           />
           <Select
-            label="Duration"
+            label={t('users.duration')}
             value={banData.duration}
             onChange={(e) => setBanData({ ...banData, duration: e.target.value })}
           >
-            <option value="1h">1 Hour</option>
-            <option value="6h">6 Hours</option>
-            <option value="1d">1 Day</option>
-            <option value="7d">7 Days</option>
-            <option value="30d">30 Days</option>
-            <option value="0">Permanent</option>
+            <option value="1h">{t('users.oneHour')}</option>
+            <option value="6h">{t('users.sixHours')}</option>
+            <option value="1d">{t('users.oneDay')}</option>
+            <option value="7d">{t('users.sevenDays')}</option>
+            <option value="30d">{t('users.thirtyDays')}</option>
+            <option value="0">{t('users.permanent')}</option>
           </Select>
         </div>
       </Modal>
@@ -534,24 +536,24 @@ export function UsersPage() {
       <Modal
         isOpen={showVhostModal}
         onClose={() => setShowVhostModal(false)}
-        title={`Set Vhost: ${selectedUser?.name}`}
+        title={t('users.setVhostTitle', { name: selectedUser?.name })}
         footer={
           <>
             <Button variant="secondary" onClick={() => setShowVhostModal(false)}>
-              Cancel
+              {t('users.cancel')}
             </Button>
             <Button onClick={handleSetVhost} isLoading={setUserVhost.isPending}>
-              Set Vhost
+              {t('users.setVhost')}
             </Button>
           </>
         }
       >
         <Input
-          label="Virtual Host"
+          label={t('users.virtualHost')}
           value={vhost}
           onChange={(e) => setVhost(e.target.value)}
-          placeholder="e.g., user.mynetwork.org"
-          helperText="Leave empty to remove the current vhost"
+          placeholder={t('users.vhostPlaceholder')}
+          helperText={t('users.vhostHelperText')}
         />
       </Modal>
 
@@ -559,7 +561,7 @@ export function UsersPage() {
       <Modal
         isOpen={showBulkKillModal}
         onClose={() => !bulkActionProgress && setShowBulkKillModal(false)}
-        title={`Kill ${selectedUsers.size} Users`}
+        title={t('users.killUsersTitle', { count: selectedUsers.size })}
         footer={
           <>
             <Button 
@@ -567,7 +569,7 @@ export function UsersPage() {
               onClick={() => setShowBulkKillModal(false)}
               disabled={!!bulkActionProgress}
             >
-              Cancel
+              {t('users.cancel')}
             </Button>
             <Button 
               variant="danger" 
@@ -575,8 +577,8 @@ export function UsersPage() {
               isLoading={!!bulkActionProgress}
             >
               {bulkActionProgress 
-                ? `Killing... (${bulkActionProgress.current}/${bulkActionProgress.total})`
-                : `Kill ${selectedUsers.size} Users`
+                ? t('users.killingProgress', { current: bulkActionProgress.current, total: bulkActionProgress.total })
+                : t('users.killUsersButton', { count: selectedUsers.size })
               }
             </Button>
           </>
@@ -584,7 +586,7 @@ export function UsersPage() {
       >
         <div className="space-y-4">
           <Alert type="warning">
-            This will forcefully disconnect {selectedUsers.size} user{selectedUsers.size !== 1 ? 's' : ''} from the network.
+            {t('users.bulkKillWarning', { count: selectedUsers.size })}
           </Alert>
           <div className="max-h-32 overflow-y-auto bg-[var(--bg-tertiary)] rounded p-2">
             <div className="flex flex-wrap gap-1">
@@ -594,10 +596,10 @@ export function UsersPage() {
             </div>
           </div>
           <Input
-            label="Reason"
+            label={t('users.reason')}
             value={killReason}
             onChange={(e) => setKillReason(e.target.value)}
-            placeholder="Enter kill reason"
+            placeholder={t('users.enterKillReason')}
           />
         </div>
       </Modal>
@@ -606,7 +608,7 @@ export function UsersPage() {
       <Modal
         isOpen={showBulkBanModal}
         onClose={() => !bulkActionProgress && setShowBulkBanModal(false)}
-        title={`Ban ${selectedUsers.size} Users`}
+        title={t('users.banUsersTitle', { count: selectedUsers.size })}
         footer={
           <>
             <Button 
@@ -614,7 +616,7 @@ export function UsersPage() {
               onClick={() => setShowBulkBanModal(false)}
               disabled={!!bulkActionProgress}
             >
-              Cancel
+              {t('users.cancel')}
             </Button>
             <Button 
               variant="danger" 
@@ -622,8 +624,8 @@ export function UsersPage() {
               isLoading={!!bulkActionProgress}
             >
               {bulkActionProgress 
-                ? `Banning... (${bulkActionProgress.current}/${bulkActionProgress.total})`
-                : `Ban ${selectedUsers.size} Users`
+                ? t('users.banningProgress', { current: bulkActionProgress.current, total: bulkActionProgress.total })
+                : t('users.banUsersButton', { count: selectedUsers.size })
               }
             </Button>
           </>
@@ -631,7 +633,7 @@ export function UsersPage() {
       >
         <div className="space-y-4">
           <Alert type="error">
-            This will ban {selectedUsers.size} user{selectedUsers.size !== 1 ? 's' : ''} from the network.
+            {t('users.bulkBanWarning', { count: selectedUsers.size })}
           </Alert>
           <div className="max-h-32 overflow-y-auto bg-[var(--bg-tertiary)] rounded p-2">
             <div className="flex flex-wrap gap-1">
@@ -641,33 +643,33 @@ export function UsersPage() {
             </div>
           </div>
           <Select
-            label="Ban Type"
+            label={t('users.banType')}
             value={banData.type}
             onChange={(e) => setBanData({ ...banData, type: e.target.value })}
           >
-            <option value="gline">G-Line (Global)</option>
-            <option value="kline">K-Line (Local)</option>
-            <option value="gzline">GZ-Line (Global IP)</option>
-            <option value="zline">Z-Line (Local IP)</option>
-            <option value="shun">Shun</option>
+            <option value="gline">{t('users.gline')}</option>
+            <option value="kline">{t('users.kline')}</option>
+            <option value="gzline">{t('users.gzline')}</option>
+            <option value="zline">{t('users.zline')}</option>
+            <option value="shun">{t('users.shun')}</option>
           </Select>
           <Input
-            label="Reason"
+            label={t('users.reason')}
             value={banData.reason}
             onChange={(e) => setBanData({ ...banData, reason: e.target.value })}
-            placeholder="Enter ban reason"
+            placeholder={t('users.enterBanReason')}
           />
           <Select
-            label="Duration"
+            label={t('users.duration')}
             value={banData.duration}
             onChange={(e) => setBanData({ ...banData, duration: e.target.value })}
           >
-            <option value="1h">1 Hour</option>
-            <option value="6h">6 Hours</option>
-            <option value="1d">1 Day</option>
-            <option value="7d">7 Days</option>
-            <option value="30d">30 Days</option>
-            <option value="0">Permanent</option>
+            <option value="1h">{t('users.oneHour')}</option>
+            <option value="6h">{t('users.sixHours')}</option>
+            <option value="1d">{t('users.oneDay')}</option>
+            <option value="7d">{t('users.sevenDays')}</option>
+            <option value="30d">{t('users.thirtyDays')}</option>
+            <option value="0">{t('users.permanent')}</option>
           </Select>
         </div>
       </Modal>
@@ -675,11 +677,11 @@ export function UsersPage() {
   )
 }
 
-function formatIdle(seconds?: number): string {
-  if (!seconds) return 'Active'
+function formatIdle(t: any, seconds?: number): string {
+  if (!seconds) return t('users.active')
   
-  if (seconds < 60) return `${seconds}s`
-  if (seconds < 3600) return `${Math.floor(seconds / 60)}m`
-  if (seconds < 86400) return `${Math.floor(seconds / 3600)}h`
-  return `${Math.floor(seconds / 86400)}d`
+  if (seconds < 60) return t('users.seconds', { count: seconds })
+  if (seconds < 3600) return t('users.minutes', { count: Math.floor(seconds / 60) })
+  if (seconds < 86400) return t('users.hours', { count: Math.floor(seconds / 3600) })
+  return t('users.days', { count: Math.floor(seconds / 86400) })
 }

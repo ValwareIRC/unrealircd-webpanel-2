@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query'
 import { useAuth } from '@/hooks'
 import { useShouldShowMoon } from '@/components/common'
 import { useTheme } from '@/contexts/ThemeContext'
+import { useTranslation } from 'react-i18next'
 import marketplaceService, { PluginNavItem } from '@/services/marketplaceService'
 import {
   LayoutDashboard,
@@ -128,80 +129,80 @@ interface NavCategory {
 }
 
 // Organized navigation with categories
-const navCategories: NavCategory[] = [
+const getNavCategories = (t: (key: string) => string): NavCategory[] => [
   {
-    name: 'Overview',
+    name: t('navigation.overview'),
     icon: Gauge,
     defaultOpen: true,
     items: [
-      { name: 'Dashboard', href: '/', icon: LayoutDashboard },
-      { name: 'Statistics', href: '/statistics', icon: BarChart3 },
-      { name: 'Live Map', href: '/live-map', icon: Globe },
+      { name: t('navigation.dashboard'), href: '/', icon: LayoutDashboard },
+      { name: t('navigation.statistics'), href: '/statistics', icon: BarChart3 },
+      { name: t('navigation.liveMap'), href: '/live-map', icon: Globe },
     ],
   },
   {
-    name: 'IRC',
+    name: t('navigation.irc'),
     icon: Hash,
     defaultOpen: true,
     items: [
-      { name: 'Users', href: '/users', icon: Users, permission: 'view_users' },
-      { name: 'User Journey', href: '/journey', icon: History, permission: 'view_users' },
-      { name: 'Channels', href: '/channels', icon: Hash, permission: 'view_channels' },
-      { name: 'Templates', href: '/channel-templates', icon: FileBox, permission: 'view_channels' },
-      { name: 'Watch List', href: '/watchlist', icon: Eye, permission: 'view_users' },
+      { name: t('navigation.users'), href: '/users', icon: Users, permission: 'view_users' },
+      { name: t('navigation.userJourney'), href: '/journey', icon: History, permission: 'view_users' },
+      { name: t('navigation.channels'), href: '/channels', icon: Hash, permission: 'view_channels' },
+      { name: t('navigation.templates'), href: '/channel-templates', icon: FileBox, permission: 'view_channels' },
+      { name: t('navigation.watchList'), href: '/watchlist', icon: Eye, permission: 'view_users' },
     ],
   },
   {
-    name: 'Servers',
+    name: t('navigation.servers'),
     icon: Server,
     items: [
-      { name: 'Server List', href: '/servers', icon: Server, permission: 'view_servers' },
-      { name: 'Topology', href: '/topology', icon: Network, permission: 'view_servers' },
-      { name: 'TLS Statistics', href: '/tls', icon: Lock, permission: 'view_users' },
+      { name: t('navigation.serverList'), href: '/servers', icon: Server, permission: 'view_servers' },
+      { name: t('navigation.topology'), href: '/topology', icon: Network, permission: 'view_servers' },
+      { name: t('navigation.tlsStatistics'), href: '/tls', icon: Lock, permission: 'view_users' },
     ],
   },
   {
-    name: 'Bans & Filters',
+    name: t('navigation.bansFilters'),
     icon: Ban,
     items: [
-      { name: 'Server Bans', href: '/bans/server', icon: ServerOff, permission: 'view_bans' },
-      { name: 'Name Bans', href: '/bans/name', icon: ShieldX, permission: 'view_bans' },
-      { name: 'Exceptions', href: '/bans/exceptions', icon: FileText, permission: 'view_bans' },
-      { name: 'Spamfilters', href: '/spamfilters', icon: Filter, permission: 'view_spamfilters' },
+      { name: t('navigation.serverBans'), href: '/bans/server', icon: ServerOff, permission: 'view_bans' },
+      { name: t('navigation.nameBans'), href: '/bans/name', icon: ShieldX, permission: 'view_bans' },
+      { name: t('navigation.exceptions'), href: '/bans/exceptions', icon: FileText, permission: 'view_bans' },
+      { name: t('navigation.spamfilters'), href: '/spamfilters', icon: Filter, permission: 'view_spamfilters' },
     ],
   },
   {
-    name: 'Tools',
+    name: t('navigation.tools'),
     icon: Cog,
     items: [
-      { name: 'Scheduled', href: '/scheduled-commands', icon: Clock, permission: 'ban_users' },
-      { name: 'Alert Rules', href: '/alert-rules', icon: Bell, permission: 'manage_webhooks' },
-      { name: 'Reports', href: '/reports', icon: PieChart, permission: 'view_users' },
-      { name: 'Email Digest', href: '/digest', icon: Mail },
-      { name: 'Logs', href: '/logs', icon: ScrollText, permission: 'view_logs' },
+      { name: t('navigation.scheduled'), href: '/scheduled-commands', icon: Clock, permission: 'ban_users' },
+      { name: t('navigation.alertRules'), href: '/alert-rules', icon: Bell, permission: 'manage_webhooks' },
+      { name: t('navigation.reports'), href: '/reports', icon: PieChart, permission: 'view_users' },
+      { name: t('navigation.digest'), href: '/digest', icon: Mail },
+      { name: t('navigation.logs'), href: '/logs', icon: ScrollText, permission: 'view_logs' },
     ],
   },
   {
-    name: 'Community',
+    name: t('navigation.community'),
     icon: MessageSquare,
     items: [
-      { name: 'Feedback', href: '/feedback', icon: MessageSquare },
+      { name: t('navigation.feedback'), href: '/feedback', icon: MessageSquare },
     ],
   },
 ]
 
-const adminNavigation: NavCategory = {
-  name: 'Admin',
+const getAdminNavigation = (t: (key: string) => string): NavCategory => ({
+  name: t('navigation.admin'),
   icon: Shield,
   items: [
-    { name: 'Panel Users', href: '/settings/users', icon: Users, permission: 'manage_users' },
-    { name: 'Roles', href: '/settings/roles', icon: Shield, permission: 'manage_users' },
-    { name: 'Compliance', href: '/compliance', icon: ClipboardList, permission: 'manage_users' },
-    { name: 'RPC Servers', href: '/settings/rpc', icon: Server, permission: 'manage_settings' },
-    { name: 'Plugins', href: '/marketplace', icon: Puzzle, permission: 'manage_settings' },
-    { name: 'Settings', href: '/settings', icon: Settings, permission: 'manage_settings' },
+    { name: t('navigation.panelUsers'), href: '/settings/users', icon: Users, permission: 'manage_users' },
+    { name: t('navigation.roles'), href: '/settings/roles', icon: Shield, permission: 'manage_users' },
+    { name: t('navigation.compliance'), href: '/compliance', icon: ClipboardList, permission: 'manage_users' },
+    { name: t('navigation.rpcServers'), href: '/settings/rpc', icon: Server, permission: 'manage_settings' },
+    { name: t('navigation.plugins'), href: '/marketplace', icon: Puzzle, permission: 'manage_settings' },
+    { name: t('navigation.settings'), href: '/settings', icon: Settings, permission: 'manage_settings' },
   ],
-}
+})
 
 interface SidebarProps {
   collapsed: boolean
@@ -293,6 +294,10 @@ export function Sidebar({ collapsed, onToggle }: SidebarProps) {
   const { user, logout, hasPermission } = useAuth()
   const showMoon = useShouldShowMoon()
   const { theme } = useTheme()
+  const { t } = useTranslation()
+
+  const navCategories = useMemo(() => getNavCategories(t), [t])
+  const adminNavigation = useMemo(() => getAdminNavigation(t), [t])
 
   // Fetch plugin nav items
   const { data: pluginNavItems = [] } = useQuery({
@@ -466,7 +471,7 @@ export function Sidebar({ collapsed, onToggle }: SidebarProps) {
               <button
                 onClick={logout}
                 className="p-2 rounded-lg hover:bg-[var(--bg-hover)] text-[var(--text-muted)] hover:text-[var(--error)] transition-colors"
-                title="Logout"
+                title={t('sidebar.logout')}
               >
                 <LogOut size={18} />
               </button>

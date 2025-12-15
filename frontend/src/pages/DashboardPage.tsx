@@ -4,6 +4,7 @@ import { Responsive, WidthProvider, Layout } from 'react-grid-layout'
 import { Pencil, Plus, X, Save, RotateCcw, GripVertical, Puzzle } from 'lucide-react'
 import { DashboardWidget } from '@/components/dashboard/DashboardWidgets'
 import { PageLoading } from '@/components/common'
+import { useTranslation } from 'react-i18next'
 import api from '@/services/api'
 import marketplaceService, { PluginDashboardCard } from '@/services/marketplaceService'
 import 'react-grid-layout/css/styles.css'
@@ -170,6 +171,7 @@ export function DashboardPage() {
   } | null>(null)
   const [localLayout, setLocalLayout] = useState<DashboardLayoutItem[]>([])
   const [hasChanges, setHasChanges] = useState(false)
+  const { t } = useTranslation()
 
   // Fetch layout
   const { data: layoutData, isLoading } = useQuery<LayoutResponse>({
@@ -320,10 +322,10 @@ export function DashboardPage() {
 
   // Reset to default
   const handleReset = useCallback(() => {
-    if (confirm('Reset dashboard to default layout? This cannot be undone.')) {
+    if (confirm(t('dashboard.resetConfirm'))) {
       resetMutation.mutate()
     }
-  }, [resetMutation])
+  }, [resetMutation, t])
 
   if (isLoading) {
     return <PageLoading />
@@ -334,8 +336,8 @@ export function DashboardPage() {
       {/* Page header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-xl font-bold text-[var(--text-primary)]">Dashboard</h1>
-          <p className="text-sm text-[var(--text-muted)]">Overview of your IRC network</p>
+          <h1 className="text-xl font-bold text-[var(--text-primary)]">{t('dashboard.title')}</h1>
+          <p className="text-sm text-[var(--text-muted)]">{t('dashboard.pageDescription')}</p>
         </div>
         <div className="flex items-center gap-2">
           {isEditing ? (
@@ -345,7 +347,7 @@ export function DashboardPage() {
                 className="btn btn-secondary flex items-center gap-2"
               >
                 <Plus size={16} />
-                Add Widget
+                {t('dashboard.addWidget')}
               </button>
               <button
                 onClick={handleReset}
@@ -355,7 +357,7 @@ export function DashboardPage() {
                 <RotateCcw size={16} />
               </button>
               <button onClick={handleCancel} className="btn btn-secondary">
-                Cancel
+                {t('dashboard.cancel')}
               </button>
               <button
                 onClick={handleSave}
@@ -363,7 +365,7 @@ export function DashboardPage() {
                 className="btn btn-primary flex items-center gap-2"
               >
                 <Save size={16} />
-                {saveMutation.isPending ? 'Saving...' : 'Save'}
+                {saveMutation.isPending ? t('dashboard.saving') : t('dashboard.save')}
               </button>
             </>
           ) : (
@@ -372,7 +374,7 @@ export function DashboardPage() {
               className="btn btn-secondary flex items-center gap-2"
             >
               <Pencil size={16} />
-              Customize
+              {t('dashboard.customize')}
             </button>
           )}
         </div>
@@ -381,8 +383,7 @@ export function DashboardPage() {
       {/* Editing hint */}
       {isEditing && (
         <div className="p-3 bg-[var(--accent)]/10 border border-[var(--accent)]/30 rounded-lg text-sm text-[var(--text-secondary)]">
-          <strong>Edit Mode:</strong> Drag widgets to reposition, drag edges to resize. Click the X
-          to remove a widget.
+          <strong>Edit Mode:</strong> {t('dashboard.editModeHint')}
         </div>
       )}
 

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useServerBans, useAddServerBan, useDeleteServerBan } from '@/hooks'
 import { DataTable, Button, Modal, Input, Select, Alert, Badge } from '@/components/common'
 import { Plus, Trash2, Clock } from 'lucide-react'
@@ -20,11 +21,12 @@ export function ServerBansPage() {
     reason: '',
     duration: '1d',
   })
+  const { t } = useTranslation()
 
   const columns = [
     {
       key: 'type',
-      header: 'Type',
+      header: t('serverBans.table.type'),
       sortable: true,
       render: (ban: ServerBan) => (
         <Badge variant={getBanTypeVariant(ban.type)}>{ban.type.toUpperCase()}</Badge>
@@ -32,7 +34,7 @@ export function ServerBansPage() {
     },
     {
       key: 'name',
-      header: 'Mask',
+      header: t('serverBans.table.mask'),
       sortable: true,
       render: (ban: ServerBan) => (
         <span className="text-[var(--text-primary)] font-mono">{ban.name}</span>
@@ -40,21 +42,21 @@ export function ServerBansPage() {
     },
     {
       key: 'reason',
-      header: 'Reason',
+      header: t('serverBans.table.reason'),
       render: (ban: ServerBan) => (
         <span className="text-[var(--text-muted)] truncate max-w-md block">{ban.reason}</span>
       ),
     },
     {
       key: 'set_by',
-      header: 'Set By',
+      header: t('serverBans.table.setBy'),
       render: (ban: ServerBan) => (
         <span className="text-[var(--text-muted)]">{ban.set_by}</span>
       ),
     },
     {
       key: 'set_at',
-      header: 'Set At',
+      header: t('serverBans.table.setAt'),
       sortable: true,
       render: (ban: ServerBan) => (
         <span className="text-[var(--text-muted)]">
@@ -64,13 +66,13 @@ export function ServerBansPage() {
     },
     {
       key: 'expire_at',
-      header: 'Expires',
+      header: t('serverBans.table.expires'),
       sortable: true,
       render: (ban: ServerBan) => (
         <div className="flex items-center gap-2 text-[var(--text-muted)]">
           <Clock size={14} />
           {!ban.expire_at || ban.expire_at === 0 ? (
-            <Badge variant="error" size="sm">Permanent</Badge>
+            <Badge variant="error" size="sm">{t('common.permanent')}</Badge>
           ) : (
             new Date(ban.expire_at * 1000).toLocaleDateString()
           )}
@@ -82,7 +84,7 @@ export function ServerBansPage() {
   const handleAddBan = async () => {
     try {
       await addBan.mutateAsync(newBan)
-      toast.success('Ban added successfully')
+      toast.success(t('serverBans.messages.added'))
       setShowAddModal(false)
       setNewBan({ type: 'gline', name: '', reason: '', duration: '1d' })
     } catch (err: unknown) {
@@ -95,7 +97,7 @@ export function ServerBansPage() {
     if (!selectedBan) return
     try {
       await deleteBan.mutateAsync({ name: selectedBan.name, type: selectedBan.type })
-      toast.success('Ban removed')
+      toast.success(t('serverBans.messages.removed'))
       setShowDeleteModal(false)
       setSelectedBan(null)
     } catch (err: unknown) {
@@ -107,7 +109,7 @@ export function ServerBansPage() {
   if (error) {
     return (
       <Alert type="error">
-        Failed to load bans: {error instanceof Error ? error.message : 'Unknown error'}
+        {t('serverBans.messages.loadFailed', { error: error instanceof Error ? error.message : 'Unknown error' })}
       </Alert>
     )
   }
@@ -116,11 +118,11 @@ export function ServerBansPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-[var(--text-primary)]">Server Bans</h1>
-          <p className="text-[var(--text-muted)] mt-1">Manage G-Lines, K-Lines, Z-Lines, and Shuns</p>
+          <h1 className="text-2xl font-bold text-[var(--text-primary)]">{t('serverBans.title')}</h1>
+          <p className="text-[var(--text-muted)] mt-1">{t('serverBans.description')}</p>
         </div>
         <Button leftIcon={<Plus size={18} />} onClick={() => setShowAddModal(true)}>
-          Add Ban
+          {t('serverBans.addButton')}
         </Button>
       </div>
 
@@ -129,7 +131,7 @@ export function ServerBansPage() {
         columns={columns}
         keyField="name"
         isLoading={isLoading}
-        searchPlaceholder="Search bans by mask, reason..."
+        searchPlaceholder={t('serverBans.searchPlaceholder')}
         actions={(ban) => (
           <Button
             variant="ghost"
@@ -149,14 +151,14 @@ export function ServerBansPage() {
       <Modal
         isOpen={showAddModal}
         onClose={() => setShowAddModal(false)}
-        title="Add Server Ban"
+        title={t('serverBans.addModal.title')}
         footer={
           <>
             <Button variant="secondary" onClick={() => setShowAddModal(false)}>
-              Cancel
+              {t('common.cancel')}
             </Button>
             <Button onClick={handleAddBan} isLoading={addBan.isPending}>
-              Add Ban
+              {t('serverBans.addModal.addButton')}
             </Button>
           </>
         }
@@ -205,21 +207,20 @@ export function ServerBansPage() {
       <Modal
         isOpen={showDeleteModal}
         onClose={() => setShowDeleteModal(false)}
-        title="Remove Ban"
+        title={t('serverBans.deleteModal.title')}
         footer={
           <>
             <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>
-              Cancel
+              {t('common.cancel')}
             </Button>
             <Button variant="danger" onClick={handleDeleteBan} isLoading={deleteBan.isPending}>
-              Remove Ban
+              {t('serverBans.deleteModal.removeButton')}
             </Button>
           </>
         }
       >
         <Alert type="warning">
-          Are you sure you want to remove this {selectedBan?.type.toUpperCase()} for{' '}
-          <span className="font-mono">{selectedBan?.name}</span>?
+          {t('serverBans.deleteModal.confirm', { type: selectedBan?.type.toUpperCase(), name: <span className="font-mono">{selectedBan?.name}</span> })}
         </Alert>
       </Modal>
     </div>

@@ -1,0 +1,1203 @@
+{
+  "common": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "add": "Agregar",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "warning": "Advertencia",
+    "info": "Información",
+    "yes": "Sí",
+    "no": "No",
+    "ok": "Aceptar",
+    "close": "Cerrar",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "submit": "Enviar",
+    "reset": "Restablecer",
+    "confirm": "Confirmar",
+    "logout": "Cerrar sesión",
+    "login": "Iniciar sesión",
+    "username": "Nombre de usuario",
+    "password": "Contraseña",
+    "email": "Correo electrónico",
+    "name": "Nombre",
+    "description": "Descripción",
+    "status": "Estado",
+    "active": "Activo",
+    "inactive": "Inactivo",
+    "enabled": "Habilitado",
+    "disabled": "Deshabilitado"
+  },
+  "navigation": {
+    "dashboard": "Panel",
+    "servers": "Servidores",
+    "users": "Usuarios",
+    "settings": "Configuraciones",
+    "logs": "Registros",
+    "reports": "Informes",
+    "plugins": "Complementos",
+    "statistics": "Estadísticas",
+    "liveMap": "Mapa en vivo",
+    "userJourney": "Recorrido del usuario",
+    "channels": "Canales",
+    "templates": "Plantillas",
+    "watchList": "Lista de seguimiento",
+    "serverList": "Lista de servidores",
+    "topology": "Topología",
+    "tlsStatistics": "Estadísticas TLS",
+    "serverBans": "Bans de servidor",
+    "nameBans": "Bans de nombre",
+    "exceptions": "Excepciones",
+    "spamfilters": "Filtros de spam",
+    "scheduled": "Comandos programados",
+    "alertRules": "Reglas de alerta",
+    "overview": "Resumen",
+    "irc": "IRC",
+    "bansFilters": "Bans y filtros",
+    "tools": "Herramientas",
+    "community": "Comunidad",
+    "admin": "Administración",
+    "digest": "Resumen",
+    "feedback": "Comentarios",
+    "panelUsers": "Usuarios del panel",
+    "roles": "Funciones",
+    "compliance": "Cumplimiento",
+    "rpcServers": "Servidores RPC",
+    "marketplace": "Mercado"
+  },
+  "dashboard": {
+    "title": "Panel",
+    "welcome": "Bienvenido al Panel Web de UnrealIRCd",
+    "overview": "Resumen",
+    "statistics": "Estadísticas",
+    "recentActivity": "Actividad Reciente",
+    "editLayout": "Editar diseño",
+    "addWidget": "Agregar widget",
+    "saveLayout": "Guardar diseño",
+    "resetLayout": "Restablecer diseño",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "saving": "Guardando...",
+    "customize": "Personalizar",
+    "loading": "Cargando...",
+    "error": "Error al cargar el panel",
+    "noWidgets": "No hay widgets disponibles",
+    "widgetConfig": "Configuración de widget",
+    "configureWidget": "Configurar widget",
+    "widgetType": "Tipo de widget",
+    "description": "Descripción",
+    "configure": "Configurar",
+    "remove": "Eliminar",
+    "dragToReorder": "Arrastra para reordenar widgets",
+    "editModeHint": "Modo de edición: arrastra widgets para reposicionarlos, arrastra bordes para cambiar tamaño. Haz clic en X para eliminar un widget.",
+    "resetConfirm": "¿Restablecer el panel al diseño predeterminado? Esto no se puede deshacer.",
+    "pageDescription": "Descripción general de su red IRC"
+  },
+  "auth": {
+    "loginTitle": "Iniciar sesión",
+    "loginButton": "Iniciar sesión",
+    "logoutConfirm": "¿Estás seguro de que quieres cerrar sesión?",
+    "invalidCredentials": "Nombre de usuario o contraseña inválidos",
+    "sessionExpired": "Tu sesión ha expirado. Por favor inicia sesión de nuevo.",
+    "panelTitle": "Panel UnrealIRCd",
+    "panelSubtitle": "Inicia sesión para administrar tu red IRC",
+    "twoFactorRequired": "Autenticación de dos factores requerida",
+    "usernameLabel": "Nombre de usuario",
+    "usernamePlaceholder": "Ingresa tu nombre de usuario",
+    "passwordLabel": "Contraseña",
+    "passwordPlaceholder": "Ingresa tu contraseña",
+    "signInButton": "Iniciar sesión",
+    "twoFactorDescription": "Ingresa el código de 6 dígitos de tu aplicación de autenticación o usa un código de respaldo.",
+    "verificationCodeLabel": "Código de verificación",
+    "verificationCodePlaceholder": "Ingresa el código de verificación",
+    "verifyButton": "Verificar",
+    "backButton": "Atrás",
+    "failedLogin": "Error al iniciar sesión",
+    "invalidCode": "Código de verificación inválido"
+  },
+  "users": {
+    "title": "Usuarios",
+    "subtitle": "Gestionar usuarios conectados en la red",
+    "nickname": "Apodo",
+    "host": "Anfitrión",
+    "ip": "IP",
+    "channels": "Canales",
+    "idle": "Inactivo",
+    "server": "Servidor",
+    "ircOp": "IRC-Op",
+    "tls": "TLS",
+    "hidden": "Oculto",
+    "unknown": "Desconocido",
+    "searchPlaceholder": "Buscar usuarios por apodo, host, IP...",
+    "viewDetails": "Ver detalles",
+    "clearSelection": "Limpiar selección",
+    "killAll": "Matar todos",
+    "banAll": "Banear todos",
+    "selectedUsers": "{{count}} usuario{{count !== 1 ? 's' : ''}} seleccionado{{count !== 1 ? 's' : ''}}",
+    "userDetails": "Usuario: {{name}}",
+    "killSuccess": "{{name}} matado",
+    "killFailed": "Error al matar usuario",
+    "banSuccess": "{{name}} baneado",
+    "banFailed": "Error al banear usuario",
+    "vhostSuccess": "Vhost establecido para {{name}}",
+    "vhostFailed": "Error al establecer vhost",
+    "bulkBanSuccess": "{{count}} usuarios baneados exitosamente",
+    "bulkBanPartial": "{{success}} usuarios baneados, {{failed}} fallaron",
+    "loadError": "Error al cargar usuarios: {{error}}",
+    "username": "Nombre de usuario",
+    "realName": "Nombre real",
+    "hostname": "Nombre de host",
+    "ipAddress": "Dirección IP",
+    "virtualHost": "Host virtual",
+    "vhostPlaceholder": "ej. usuario.mired.org",
+    "vhostHelperText": "Dejar vacío para remover el vhost actual",
+    "none": "Ninguno",
+    "connectedSince": "Conectado desde",
+    "userModes": "Modos de usuario",
+    "banType": "Tipo de baneo",
+    "gline": "G-Line (global)",
+    "kline": "K-Line (local)",
+    "gzline": "GZ-Line (IP Global)",
+    "zline": "Z-Line (IP Local)",
+    "shun": "Shun",
+    "reason": "Razón",
+    "enterBanReason": "Ingresar razón del baneo",
+    "duration": "Duración",
+    "oneHour": "1 Hora",
+    "sixHours": "6 Horas",
+    "oneDay": "1 Día",
+    "sevenDays": "7 Días",
+    "thirtyDays": "30 Días",
+    "permanent": "Permanente",
+    "setVhost": "Establecer Vhost",
+    "setVhostTitle": "Establecer Vhost: {{name}}",
+    "cancel": "Cancelar",
+    "enterKillReason": "Ingresar razón del kill",
+    "banUsersTitle": "Banear {{count}} usuarios",
+    "banningProgress": "Baneando... ({{current}}/{{total}})",
+    "banUsersButton": "Banear {{count}} usuarios",
+    "bulkBanWarning": "Esto baneará {{count}} usuario{{count !== 1 ? 's' : ''}} de la red.",
+    "killUsersTitle": "Matar {{count}} usuarios",
+    "killingProgress": "Matando... ({{current}}/{{total}})",
+    "killUsersButton": "Matar {{count}} usuarios",
+    "bulkKillWarning": "Esto desconectará forzosamente {{count}} usuario{{count !== 1 ? 's' : ''}} de la red.",
+    "killUserTitle": "Matar usuario: {{name}}",
+    "killUserButton": "Matar usuario",
+    "banUserTitle": "Banear usuario: {{name}}",
+    "banUserButton": "Banear usuario",
+    "killUserWarning": "Esto desconectará forzosamente {{name}} de la red.",
+    "active": "Activo",
+    "seconds": "{{count}} s",
+    "minutes": "{{count}} min",
+    "hours": "{{count}} h",
+    "days": "{{count}} d"
+  },
+  "servers": {
+    "title": "Servidores",
+    "subtitle": "Ver servidores enlazados en la red",
+    "server": "Servidor",
+    "users": "Usuarios",
+    "description": "Descripción",
+    "noDescription": "Sin descripción",
+    "version": "Versión",
+    "unknown": "Desconocido",
+    "uptime": "Tiempo activo",
+    "searchPlaceholder": "Buscar servidores...",
+    "viewDetails": "Ver detalles",
+    "rehash": "Recargar",
+    "serverDetails": "Servidor: {{name}}",
+    "serverName": "Nombre del servidor",
+    "serverFeatures": "Características del servidor",
+    "software": "Programa",
+    "protocol": "Protocolo",
+    "nickLength": "Longitud del nick",
+    "channelModes": "Modos de canal",
+    "uLineServer": "Este es un servidor U-Line (servidor de servicios)",
+    "rehashTitle": "Recargar: {{name}}",
+    "cancel": "Cancelar",
+    "rehashServer": "Recargar servidor",
+    "rehashWarning": "Esto hará que {{name}} recargue su configuración. ¿Estás seguro de que quieres proceder?",
+    "rehashSuccess": "Recarga enviada a {{name}}",
+    "rehashFailed": "Error al recargar servidor",
+    "loadError": "Error al cargar servidores: {{error}}",
+    "uptimeFormat": "{{days}} d {{hours}} h {{minutes}} m",
+    "uptimeHoursMinutes": "{{hours}} h {{minutes}} m",
+    "uptimeMinutes": "{{minutes}} m"
+  },
+  "channels": {
+    "title": "Canales",
+    "subtitle": "Gestionar canales en la red",
+    "channel": "Canal",
+    "users": "Usuarios",
+    "topic": "Tema",
+    "noTopicSet": "Sin tema establecido",
+    "modes": "Modos",
+    "created": "Creado",
+    "unknown": "Desconocido",
+    "searchPlaceholder": "Buscar canales por nombre, tema...",
+    "viewDetails": "Ver detalles",
+    "setTopic": "Establecer tema",
+    "setMode": "Establecer modo",
+    "kickUser": "Expulsar usuario",
+    "channelDetails": "Canal: {{name}}",
+    "channelName": "Nombre del canal",
+    "members": "Miembros",
+    "bans": "Bloqueos",
+    "setBy": "Establecido por {{user}}",
+    "setByAt": "Establecido por {{user}} en {{time}}",
+    "banEntry": "{{name}} por {{setBy}}",
+    "setTopicTitle": "Establecer tema: {{name}}",
+    "cancel": "Cancelar",
+    "enterNewTopic": "Ingresar nuevo tema del canal",
+    "setModeTitle": "Establecer modo: {{name}}",
+    "modePlaceholder": "ej. +nt o -o",
+    "parametersOptional": "Parámetros (opcional)",
+    "parametersPlaceholder": "ej. apodo",
+    "parametersHelper": "Parámetros para modos que los requieren",
+    "currentModes": "Modos actuales:",
+    "kickUserTitle": "Expulsar usuario de {{name}}",
+    "nickname": "Apodo",
+    "enterNickname": "Ingresar apodo a expulsar",
+    "reasonOptional": "Razón (opcional)",
+    "enterKickReason": "Ingresar razón de expulsión",
+    "topicUpdated": "Tema actualizado",
+    "topicUpdateFailed": "Error al establecer tema",
+    "modeChanged": "Modo cambiado",
+    "modeChangeFailed": "Error al establecer modo",
+    "userKicked": "{{nick}} expulsado de {{channel}}",
+    "kickFailed": "Error al expulsar usuario",
+    "loadError": "Error al cargar canales: {{error}}"
+  },
+  "statistics": {
+    "title": "Estadísticas",
+    "subtitle": "Estadísticas históricas de la red",
+    "currentUsers": "Usuarios Actuales",
+    "channels": "Canales",
+    "servers": "Servidores",
+    "activeBans": "Baneos Activos",
+    "userActivity": "Actividad de Usuarios",
+    "userActivityDesc": "Conteo de usuarios a lo largo del tiempo",
+    "banDistribution": "Distribución de Baneos",
+    "banDistributionDesc": "Desglose por tipo de baneo",
+    "noActiveBans": "No hay baneos activos",
+    "userDistribution": "Distribución de Usuarios",
+    "userDistributionDesc": "Desglose por tipo de usuario",
+    "noUsersConnected": "No hay usuarios conectados",
+    "connectionStatistics": "Estadísticas de Conexión",
+    "connectionStatisticsDesc": "Métricas de autenticación y conexión",
+    "networkTraffic": "Tráfico de Red",
+    "networkTrafficDesc": "Transferencia de datos a lo largo del tiempo",
+    "bytesReceived": "Bytes Recibidos",
+    "bytesSent": "Bytes Enviados",
+    "banHistory": "Historial de Baneos",
+    "banHistoryDesc": "Conteo de baneos a lo largo del tiempo",
+    "gLines": "G-Lines",
+    "kLines": "K-Lines",
+    "zLines": "Z-Lines",
+    "gzLines": "GZ-Lines",
+    "shuns": "Shuns",
+    "spamfilters": "Filtros de Spam",
+    "qLines": "Q-Lines",
+    "regularUsers": "Usuarios Regulares",
+    "operators": "Operadores",
+    "invisible": "Invisible",
+    "serverStatistics": "Estadísticas de Servidores",
+    "serverStatisticsDesc": "Conteo de servidores a lo largo del tiempo",
+    "totalServers": "Servidores Totales",
+    "uLinedServers": "Servidores U-Lined",
+    "showingSnapshots": "Mostrando {{count}} de {{max}} instantáneas disponibles (historial máximo: {{history}})",
+    "lastSnapshot": "Última instantánea: {{timestamp}}"
+  },
+  "alertRules": {
+    "alertRulesPage": "Reglas de Alerta",
+    "description": "Crea reglas de alerta personalizadas que activen webhooks cuando ocurran eventos específicos",
+    "createRule": "Crear Regla",
+    "noRulesConfigured": "No hay reglas de alerta configuradas. Crea una para comenzar."
+  },
+  "logs": {
+    "title": "Visor de Registros",
+    "subtitle": "Ver entradas de registro históricas y en vivo desde UnrealIRCd (requiere 6.1.1+)",
+    "startLive": "Iniciar en Vivo",
+    "stopLive": "Detener en Vivo",
+    "level": "Nivel:",
+    "subsystem": "Subsistema:",
+    "searchPlaceholder": "Buscar registros...",
+    "autoScroll": "Auto-desplazamiento:",
+    "on": "Activado",
+    "off": "Desactivado",
+    "all": "Todos",
+    "entries": "entradas",
+    "live": "EN VIVO",
+    "noEntries": "No se encontraron entradas de registro",
+    "tableHeaders": {
+      "time": "Tiempo",
+      "level": "Nivel",
+      "subsystem": "Subsistema",
+      "event": "Evento",
+      "message": "Mensaje"
+    },
+    "modal": {
+      "title": "Detalles de Entrada de Registro",
+      "rawJson": "JSON Crudo"
+    }
+  },
+  "marketplace": {
+    "title": "Mercado de Plugins",
+    "subtitle": "Descubre e instala plugins para extender tu Panel Web de UnrealIRCd",
+    "categories": {
+      "all": "Todos los Plugins",
+      "security": "Seguridad",
+      "integration": "Integración",
+      "monitoring": "Monitoreo",
+      "management": "Gestión",
+      "utilities": "Utilidades",
+      "appearance": "Apariencia"
+    },
+    "tabs": {
+      "browse": "Explorar Mercado",
+      "installed": "Instalados"
+    },
+    "searchPlaceholder": "Buscar plugins...",
+    "installed": "Instalado",
+    "install": "Instalar",
+    "uninstall": "Desinstalar",
+    "update": "Actualizar",
+    "updateTo": "Actualizar a {{version}}",
+    "byAuthor": "por {{author}}",
+    "installedAgo": "Instalado hace {{time}}",
+    "updatedAgo": "Actualizado hace {{time}}",
+    "activePlugins": "Plugins Activos",
+    "updatesAvailable": "Actualizaciones Disponibles",
+    "disabled": "Deshabilitado",
+    "noPlugins": "No hay plugins instalados",
+    "browseToFind": "Explora el mercado para encontrar plugins",
+    "operationSuccess": "✓ Operación completada exitosamente",
+    "rating": "({{count}})",
+    "version": "v{{version}}"
+  },
+  "livemap": {
+    "title": "Mapa de Usuarios en Vivo",
+    "subtitle": "Visualización en tiempo real de usuarios IRC alrededor del mundo",
+    "users": "usuarios",
+    "countries": "países",
+    "loadingGlobe": "Cargando globo...",
+    "controls": {
+      "drag": "🖱️ Arrastrar para rotar",
+      "zoom": "🔍 Desplazar para hacer zoom"
+    },
+    "topCountries": "Países Principales",
+    "noGeoData": "No hay datos de geolocalización disponibles",
+    "moreCountries": "+{{count}} países más",
+    "user": "usuario",
+    "usersPlural": "usuarios"
+  },
+  "banExceptions": {
+    "title": "Excepciones de Baneo",
+    "subtitle": "Gestionar E-Lines (excepciones de baneo)",
+    "addException": "Agregar Excepción",
+    "mask": "Máscara",
+    "exceptionTypes": "Tipos de Excepción",
+    "reason": "Razón",
+    "setBy": "Establecido Por",
+    "setAt": "Establecido En",
+    "all": "Todos",
+    "noReason": "Sin razón",
+    "unknown": "Desconocido",
+    "searchPlaceholder": "Buscar excepciones...",
+    "addModalTitle": "Agregar Excepción de Baneo",
+    "removeModalTitle": "Remover Excepción",
+    "maskPlaceholder": "*@*.trusted.example.com",
+    "maskHelperText": "Máscara usuario@host para eximir de baneos",
+    "exceptionFor": "Excepción Para",
+    "reasonOptional": "Razón (opcional)",
+    "reasonPlaceholder": "Red confiable",
+    "gline": "G-Line",
+    "kline": "K-Line",
+    "gzline": "GZ-Line",
+    "zline": "Z-Line",
+    "shun": "Shun",
+    "allTypes": "Todos los Tipos",
+    "addSuccess": "Excepción agregada exitosamente",
+    "removeSuccess": "Excepción removida exitosamente",
+    "removeException": "Remover Excepción",
+    "addFailed": "Error al agregar excepción",
+    "removeFailed": "Error al remover excepción",
+    "loadError": "Error al cargar excepciones: {{error}}",
+    "confirmRemove": "¿Estás seguro de que quieres remover la excepción para {{mask}}? Los usuarios que coincidan con esta máscara ya no estarán exentos de baneos."
+  },
+  "channelDetail": {
+    "backToChannels": "Volver a Canales",
+    "channelDetails": "Detalles del Canal",
+    "users": "usuarios",
+    "refresh": "Actualizar",
+    "setTopic": "Establecer Tema",
+    "setMode": "Establecer Modo",
+    "topic": "Tema",
+    "noTopicSet": "No se ha establecido tema",
+    "setBy": "Establecido por",
+    "userList": "Lista de Usuarios",
+    "noUsersInChannel": "No hay usuarios en el canal",
+    "channelSettings": "Configuraciones del Canal",
+    "settingsModes": "Configuraciones / Modos",
+    "bans": "Bloqueos",
+    "invites": "Invitaciones",
+    "excepts": "Excepciones",
+    "currentModes": "Modos actuales:",
+    "defaultModesOnly": "Solo modos por defecto",
+    "channelInfo": "Información del Canal",
+    "created": "Creado:",
+    "unknown": "Desconocido",
+    "addBan": "Agregar Baneo",
+    "maskRequired": "Por favor ingrese una máscara",
+    "noBansSet": "No hay baneos establecidos",
+    "addInvite": "Agregar Invitación",
+    "noInviteExceptionsSet": "No hay excepciones de invitación establecidas",
+    "addException": "Agregar Excepción",
+    "noBanExceptionsSet": "No hay excepciones de baneo establecidas",
+    "setTopicTitle": "Establecer Tema: {{channel}}",
+    "setChannelModesTitle": "Establecer Modos del Canal: {{channel}}",
+    "kickUserTitle": "Expulsar Usuario de {{channel}}",
+    "addChannelBanTitle": "Agregar Baneo del Canal",
+    "addInviteExceptionTitle": "Agregar Excepción de Invitación",
+    "addBanExceptionTitle": "Agregar Excepción de Baneo",
+    "applyModeChanges": "Aplicar Cambios de Modo",
+    "currentModesLabel": "Modos actuales",
+    "enterModesManually": "O ingresar modos manualmente:",
+    "parameters": "Parámetros",
+    "kickUser": "Expulsar Usuario",
+    "nickname": "Apodo",
+    "enterNicknameToKick": "Ingresar apodo a expulsar",
+    "reasonOptional": "Razón (opcional)",
+    "enterKickReason": "Ingresar razón de expulsión",
+    "mask": "Máscara",
+    "nickUserHostOrExtended": "nick!user@host o baneo extendido",
+    "useExtendedBans": "Usar baneos extendidos como ~account:name o ~country:XX",
+    "durationMinutesOptional": "Duración (minutos, opcional)",
+    "leaveEmptyForPermanent": "Dejar vacío para permanente",
+    "topicUpdated": "Tema actualizado",
+    "modeChanged": "Modo cambiado",
+    "banRemoved": "Baneo removido",
+    "inviteRemoved": "Invitación removida",
+    "exceptionRemoved": "Excepción removida",
+    "mutedFor30Min": "{{user}} silenciado por 30 minutos",
+    "bannedFor30Min": "{{user}} baneado por 30 minutos",
+    "failedToMute": "Error al silenciar usuario",
+    "failedToBan": "Error al banear usuario",
+    "failedToRemoveBan": "Error al remover baneo",
+    "failedToRemoveInvite": "Error al remover invitación",
+    "failedToRemoveException": "Error al remover excepción",
+    "failedToLoadChannel": "Error al cargar canal: {{error}}",
+    "channelNotFound": "Canal no encontrado",
+    "muteTooltip": "Silenciar (30 min)",
+    "kickTooltip": "Expulsar",
+    "banTooltip": "Banear (30 min)",
+    "removeTooltip": "Remover",
+    "setByAt": "Establecido por {{user}} en {{time}}"
+  },
+  "header": {
+    "searchPlaceholder": "Buscar o saltar a...",
+    "refreshStats": "Actualizar estadísticas",
+    "connected": "Conectado",
+    "disconnected": "Desconectado",
+    "users": "usuarios",
+    "channels": "canales",
+    "servers": "servidores"
+  },
+  "plugins": {
+    "pluginPage": "Página del Plugin"
+  },
+  "widgets": {
+    "networkStats": "Estadísticas de la red",
+    "topUsers": "Usuarios destacados",
+    "recentChannels": "Canales recientes",
+    "serverStatus": "Estado del servidor",
+    "uptime": "Tiempo activo",
+    "version": "Versión",
+    "users": "Usuarios",
+    "channels": "Canales",
+    "servers": "Servidores",
+    "operators": "Operadores",
+    "invisible": "Oculto",
+    "total": "Total general",
+    "local": "Localidad",
+    "globalMax": "Máximo global",
+    "online": "En línea",
+    "offline": "Desconectado",
+    "connecting": "Conectando",
+    "unknown": "Desconocido",
+    "viewAll": "Ver todo",
+    "noData": "No hay datos disponibles",
+    "loading": "Cargando...",
+    "error": "Error al cargar datos",
+    "statsHistory": "Historial de estadísticas",
+    "last24Hours": "Últimas 24 horas",
+    "userActivity": "Actividad del usuario",
+    "channelActivity": "Actividad del canal",
+    "serverActivity": "Actividad del servidor",
+    "totalUsers": "Total de usuarios",
+    "connectedToNetwork": "Conectado a la red",
+    "activeChannels": "Canales activos",
+    "withUsers": "Con usuarios",
+    "linkedServers": "Servidores vinculados",
+    "inNetwork": "En la red",
+    "onlineOperators": "Operadores IRC en línea",
+    "topChannels": "Canales principales",
+    "byUserCount": "Por número de usuarios",
+    "noTopic": "Sin tema",
+    "noChannels": "Sin canales",
+    "networkServers": "Servidores de la red",
+    "server": "Servidor",
+    "status": "Estado",
+    "ok": "Aceptar",
+    "noServers": "Sin servidores",
+    "hourOverview": "Resumen de 24 horas",
+    "quickLinks": "Enlaces rápidos",
+    "navigateToSections": "Navegar por secciones",
+    "networkInfo": "Información de red",
+    "connectionDetails": "Detalles de conexión",
+    "recentBans": "Bans recientes",
+    "serverBans": "Bans de servidor",
+    "noRecentBans": "No hay bans recientes"
+  },
+  "panelUsers": {
+    "addModal": {
+      "title": "Add Panel User",
+      "createButton": "Create User"
+    },
+    "deleteModal": {
+      "title": "Delete User",
+      "confirm": "Are you sure you want to delete the user?"
+    }
+  },
+  "rpcServers": {
+    "title": "RPC Servers",
+    "description": "Configure UnrealIRCd JSON-RPC connections",
+    "addModal": {
+      "title": "Add RPC Server",
+      "addButton": "Add Server"
+    },
+    "info": {
+      "description": "Configure which JSON-RPC server(s) the panel can connect to. You normally only need one server, but multiple servers can be useful for failover.",
+      "readDocs": "Read the UnrealIRCd setup instructions"
+    },
+    "default": "Default",
+    "status": {
+      "connected": "Connected",
+      "disconnected": "Disconnected"
+    },
+    "empty": "No RPC servers configured. Add one to connect to your UnrealIRCd server.",
+    "form": {
+      "name": {
+        "label": "Display Name",
+        "placeholder": "e.g., Main Server",
+        "helper": "A short display name for the RPC server list"
+      },
+      "host": {
+        "label": "Hostname or IP",
+        "placeholder": "127.0.0.1",
+        "helper": "Use 127.0.0.1 for the same machine"
+      },
+      "port": {
+        "label": "Port",
+        "placeholder": "8600",
+        "helper": "RPC port from unrealircd.conf"
+      },
+      "default": {
+        "label": "Default server",
+        "helper": "Make this the primary server for connections"
+      },
+      "tls": {
+        "label": "Verify SSL/TLS certificate",
+        "helper": "Only use with hostnames, not for 127.0.0.1"
+      },
+      "username": {
+        "label": "Username",
+        "placeholder": "rpc_username",
+        "helper": "The name of your rpc-user block in unrealircd.conf"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Enter RPC password",
+        "helper": "Leave empty to keep existing password"
+      }
+    },
+    "editModal": {
+      "title": "Edit Server: {{name}}"
+    },
+    "updateButton": "Save Changes",
+    "added": "RPC server added successfully",
+    "addFailed": "Failed to add server",
+    "updated": "RPC server updated successfully",
+    "updateFailed": "Failed to update server",
+    "deleted": "RPC server deleted",
+    "deleteFailed": "Failed to delete server",
+    "actions": {
+      "testConnection": "Test Connection",
+      "use": "Use"
+    },
+    "deleteModal": {
+      "title": "Delete Server",
+      "confirm": "Are you sure you want to delete the server <strong>{{name}}</strong>? This action cannot be undone.",
+      "deleteButton": "Delete Server"
+    },
+    "testSuccess": "Connection successful",
+    "testFailure": "Connection failed: {{message}}"
+  },
+  "nameBans": {
+    "title": "Prohibiciones de nombre",
+    "description": "Manage Q-Lines (reserved nicknames and channels)",
+    "addButton": "Añadir prohibición de nombre",
+    "searchPlaceholder": "Search name bans...",
+    "table": {
+      "type": "Tipo",
+      "name": "Name/Pattern",
+      "reason": "Motivo",
+      "setBy": "Set By",
+      "setAt": "Set At",
+      "expires": "Caduca"
+    },
+    "addModal": {
+      "title": "Añadir prohibición de nombre",
+      "labels": {
+        "banType": "Ban Type",
+        "name": "Name/Pattern",
+        "reason": "Motivo",
+        "duration": "Duration"
+      },
+      "options": {
+        "qline": "Q-Line (Nickname)"
+      },
+      "placeholders": {
+        "nameExample": "e.g., Admin* or #official*",
+        "reason": "Introduzca el motivo de la prohibición"
+      },
+      "help": {
+        "useWildcard": "Use * as wildcard"
+      },
+      "addButton": "Añadir prohibición"
+    },
+    "deleteModal": {
+      "title": "Remove Name Ban",
+      "removeButton": "Remove Ban",
+      "confirm": "Are you sure you want to remove this name ban for {{name}}?"
+    },
+    "messages": {
+      "added": "Name ban added successfully",
+      "removed": "Name ban removed",
+      "loadFailed": "Failed to load name bans: {{error}}"
+    }
+  },
+  "serverBans": {
+    "title": "Prohibiciones del servidor",
+    "description": "Manage G-Lines, K-Lines, Z-Lines, and Shuns",
+    "addButton": "Añadir prohibición",
+    "searchPlaceholder": "Search bans by mask, reason...",
+    "table": {
+      "type": "Tipo",
+      "mask": "Máscara",
+      "reason": "Motivo",
+      "setBy": "Set By",
+      "setAt": "Set At",
+      "expires": "Caduca"
+    },
+    "spamfilters": {
+      "title": "Spamfilters",
+      "subtitle": "Manage content filters and spam protection",
+      "addButton": "Add Spamfilter",
+      "searchPlaceholder": "Search spamfilters...",
+      "table": {
+        "pattern": "Pattern",
+        "type": "Type",
+        "targets": "Targets",
+        "action": "Action",
+        "hits": "Hits",
+        "setBy": "Set By"
+      },
+      "detailsTitle": "Spamfilter Details",
+      "details": {
+        "matchType": "Match Type",
+        "action": "Action",
+        "hits": "Hits",
+        "setBy": "Set By",
+        "pattern": "Pattern",
+        "targets": "Targets",
+        "reason": "Reason",
+        "noReason": "No reason specified",
+        "actionDuration": "Action Duration"
+      },
+      "addModal": {
+        "title": "Add Spamfilter",
+        "labels": {
+          "matchType": "Match Type",
+          "match": "Pattern",
+          "targets": "Targets",
+          "action": "Action",
+          "duration": "Action Duration",
+          "reason": "Reason"
+        },
+        "options": {
+          "simple": "Simple (wildcards)",
+          "regex": "Regular Expression",
+          "posix": "POSIX Regex"
+        },
+        "actionOptions": {
+          "warn": "Warn",
+          "block": "Block",
+          "kill": "Kill",
+          "gline": "G-Line",
+          "gzline": "GZ-Line",
+          "shun": "Shun",
+          "viruschan": "Virus Channel"
+        },
+        "helper": {
+          "pattern": "Pattern to match against messages",
+          "duration": "Duration for ban action (e.g., 1h, 1d, 7d)"
+        },
+        "placeholders": {
+          "reason": "Spam is not allowed"
+        },
+        "addButton": "Add Spamfilter"
+      },
+      "deleteModal": {
+        "title": "Remove Spamfilter",
+        "removeButton": "Remove Spamfilter",
+        "confirm": "Are you sure you want to remove this spamfilter?"
+      },
+      "messages": {
+        "added": "Spamfilter added successfully",
+        "removed": "Spamfilter removed",
+        "loadFailed": "Failed to load spamfilters: {{error}}",
+        "removeFailed": "Failed to remove spamfilter"
+      }
+    },
+    "addModal": {
+      "title": "Add Server Ban",
+      "labels": {
+        "banType": "Ban Type",
+        "mask": "Máscara",
+        "reason": "Motivo",
+        "duration": "Duration"
+      },
+      "options": {
+        "gline": "G-Line (Global)",
+        "kline": "K-Line (Local)",
+        "gzline": "GZ-Line (Global IP)",
+        "zline": "Z-Line (Local IP)",
+        "shun": "Shun"
+      },
+      "placeholders": {
+        "maskExample": "*@*.example.com or 192.168.1.*",
+        "reason": "Introduzca el motivo de la prohibición"
+      },
+      "addButton": "Añadir prohibición"
+    },
+    "deleteModal": {
+      "title": "Remove Ban",
+      "removeButton": "Remove Ban",
+      "confirm": "¿Está seguro de que desea eliminar este {{type}} para {{name}}?"
+    },
+    "messages": {
+      "added": "Ban added successfully",
+      "removed": "Ban removed",
+      "loadFailed": "Failed to load bans: {{error}}"
+    }
+  },
+  "commands": {
+    "nav": {
+      "dashboard": {
+        "title": "Ir a Dashboard",
+        "description": "Ver network overview"
+      },
+      "users": {
+        "title": "Ir a Users",
+        "description": "Ver connected users"
+      },
+      "channels": {
+        "title": "Ir a Channels",
+        "description": "Ver active channels"
+      },
+      "servers": {
+        "title": "Ir a Servers",
+        "description": "Ver linked servers"
+      },
+      "liveMap": {
+        "title": "Ir a Live Map",
+        "description": "Ver geographic distribution"
+      },
+      "statistics": {
+        "title": "Ir a Statistics",
+        "description": "Ver detailed stats"
+      },
+      "logs": {
+        "title": "Ir a Logs",
+        "description": "Ver system logs"
+      },
+      "serverBans": {
+        "title": "Ir a Server Bans",
+        "description": "Manage K-Lines, G-Lines, etc."
+      },
+      "nameBans": {
+        "title": "Ir a Name Bans",
+        "description": "Manage Q-Lines"
+      },
+      "banExceptions": {
+        "title": "Ir a Ban Exceptions",
+        "description": "Manage E-Lines"
+      },
+      "spamfilters": {
+        "title": "Ir a Spamfilters",
+        "description": "Manage spam filters"
+      },
+      "watchList": {
+        "title": "Ir a Watch List",
+        "description": "Monitor flagged users"
+      },
+      "settings": {
+        "title": "Ir a Settings",
+        "description": "Panel settings"
+      },
+      "twoFactor": {
+        "title": "Ir a Two-Factor Auth",
+        "description": "Manage 2FA settings"
+      },
+      "panelUsers": {
+        "title": "Ir a Panel Users",
+        "description": "Manage panel user accounts"
+      },
+      "webhooks": {
+        "title": "Ir a Webhooks",
+        "description": "Manage webhook endpoints"
+      },
+      "smtp": {
+        "title": "Ir a SMTP Settings",
+        "description": "Configure email server"
+      },
+      "notifications": {
+        "title": "Ir a Notifications",
+        "description": "Configure notification preferences"
+      }
+    },
+    "theme": {
+      "switch": "Switch to {{name}} Theme",
+      "apply": "Apply {{name}} color scheme"
+    },
+    "action": {
+      "signOut": {
+        "title": "Sign Out",
+        "description": "Log out of the panel"
+      }
+    }
+  },
+  "savedSearches": {
+    "tooltips": {
+      "saveCurrent": "Save current search",
+      "saveDisabled": "Enter a search query first",
+      "view": "View saved searches"
+    },
+    "saveModal": {
+      "title": "Save Search"
+    },
+    "currentSearch": "Current Search:",
+    "emptyPlaceholder": "(empty)",
+    "inputLabel": "Search Name",
+    "placeholders": {
+      "example": "e.g., TOR exit nodes, Suspicious IPs"
+    },
+    "shareWithAll": "Share with all users",
+    "listModal": {
+      "title": "Saved Searches",
+      "emptyTitle": "No saved searches yet.",
+      "emptyDescription": "Save your current search to quickly access it later."
+    },
+    "messages": {
+      "saved": "Search saved",
+      "deleted": "Search deleted",
+      "saveFailed": "Failed to save search",
+      "deleteFailed": "Failed to delete search",
+      "applyFailed": "Failed to apply search"
+    },
+    "shared": "Shared",
+    "popular": "Popular",
+    "usedTimes": "Used {{count}} time(s)",
+    "lastUsed": "Last used",
+    "apply": "Uygula"
+  },
+  "watchList": {
+    "title": "Watch List",
+    "subtitle": "Monitor users matching specific criteria",
+    "addButton": "Add to Watch List",
+    "summary": {
+      "entriesLabel": "Watch List Entries",
+      "usersCurrentlyMatched": "Users Currently Matched",
+      "entriesWithActiveMatches": "Entries with Active Matches"
+    },
+    "alert": "{{count}} user(s) currently match your watch list criteria. Click the expand arrow or the icon to view details.",
+    "searchPlaceholder": "Search by nick, IP, reason...",
+    "emptyMessage": "No users in watch list",
+    "messages": {
+      "added": "User added to watch list",
+      "addFailed": "Failed to add user",
+      "updated": "Watch list entry updated",
+      "updateFailed": "Failed to update entry",
+      "removed": "Removed from watch list",
+      "removeFailed": "Failed to remove entry",
+      "loadFailed": "Failed to load watch list: {{error}}"
+    },
+    "table": {
+      "criteria": "Match Criteria",
+      "reason": "Reason",
+      "addedBy": "Added By",
+      "addedAt": "Added",
+      "currentMatches": "Current Matches"
+    },
+    "labels": {
+      "nick": "Nick",
+      "ip": "IP",
+      "host": "Host",
+      "account": "Account",
+      "realname": "Realname",
+      "online": "online"
+    },
+    "tooltips": {
+      "viewMatched": "View matched users"
+    },
+    "addModal": {
+      "title": "Add to Watch List",
+      "addButton": "Add to Watch List"
+    },
+    "editModal": {
+      "title": "Edit Watch List Entry",
+      "saveButton": "Save Changes"
+    },
+    "deleteModal": {
+      "title": "Remove from Watch List",
+      "removeButton": "Remove",
+      "confirm": "Are you sure you want to remove this entry from the watch list?"
+    }
+  },
+  "scheduledCommands": {
+    "title": "Comandos programados",
+    "subtitle": "Programar comandos IRC para que se ejecuten automáticamente",
+    "createButton": "Crear programación",
+    "searchPlaceholder": "Buscar comandos...",
+    "emptyMessage": "No hay comandos programados",
+    "never": "Nunca",
+    "next": "Siguiente",
+    "messages": {
+      "created": "Comando programado creado",
+      "createFailed": "Error al crear el comando programado",
+      "updated": "Comando programado actualizado",
+      "updateFailed": "Error al actualizar el comando programado",
+      "deleted": "Comando programado eliminado",
+      "deleteFailed": "Error al eliminar el comando programado",
+      "toggleFailed": "Error al alternar el comando programado",
+      "commandExecuted": "Comando ejecutado",
+      "runFailed": "Error al ejecutar el comando",
+      "loadFailed": "Error al cargar los comandos programados: {{error}}"
+    },
+    "table": {
+      "status": "Estado",
+      "name": "Nombre",
+      "command": "Comando",
+      "schedule": "Programación",
+      "lastRun": "Última ejecución",
+      "runs": "Ejecuciones"
+    },
+    "tooltips": {
+      "clickToDisable": "Haga clic para desactivar",
+      "clickToEnable": "Haga clic para activar",
+      "runNow": "Ejecutar ahora"
+    },
+    "labels": {
+      "active": "Activo",
+      "paused": "En pausa"
+    },
+    "commandTypes": {
+      "kill": "Matar usuario",
+      "gline": "G-Line",
+      "rehash": "Recargar servidor",
+      "message": "Enviar mensaje"
+    },
+    "scheduleTypes": {
+      "once": "Una vez",
+      "hourly": "Cada hora",
+      "daily": "Cada día",
+      "weekly": "Cada semana",
+      "monthly": "Cada mes"
+    },
+    "form": {
+      "nameLabel": "Nombre *",
+      "namePlaceholder": "ej. limpieza diaria, mantenimiento programado",
+      "descriptionLabel": "Descripción",
+      "descriptionPlaceholder": "¿Qué hace este comando programado?",
+      "commandTypeLabel": "Tipo de comando *",
+      "targetLabel": "Objetivo",
+      "reasonLabel": "Razón",
+      "durationLabel": "Duración",
+      "messageLabel": "Mensaje",
+      "scheduleLabel": "Programación *",
+      "enableLabel": "Habilitar este comando programado"
+    },
+    "placeholders": {
+      "target": {
+        "kill": "Apodo",
+        "gline": "Máscara de host (p.ej., *@*.bad.com)",
+        "rehash": "Nombre del servidor",
+        "message": "Canal o nick",
+        "default": "Objetivo"
+      },
+      "reason": "Razón de la acción",
+      "duration": "p.ej., 1d, 1w, 30m",
+      "message": "Mensaje a enviar"
+    },
+    "createModal": {
+      "title": "Crear Comando Programado",
+      "createButton": "Crear"
+    },
+    "editModal": {
+      "title": "Editar Comando Programado",
+      "saveButton": "Guardar cambios"
+    },
+    "deleteModal": {
+      "title": "Eliminar Comando Programado",
+      "confirm": "¿Está seguro de que desea eliminar este comando programado? Esta acción no se puede deshacer."
+    }
+  },
+  "channelTemplates": {
+    "title": "Plantillas de canal",
+    "subtitle": "Guardar y aplicar configuraciones de canal como plantillas reutilizables",
+    "fromChannel": "Desde canal",
+    "createButton": "Crear plantilla",
+    "empty": "No hay plantillas de canal todavía. Crea una o importa desde un canal existente.",
+    "tooltips": {
+      "global": "Plantilla global",
+      "private": "Plantilla privada",
+      "applyToChannel": "Aplicar al canal",
+      "duplicate": "Duplicar"
+    },
+    "labels": {
+      "modes": "Modos",
+      "topic": "Tema"
+    },
+    "used": "Usado {{count}} veces",
+    "by": "por",
+    "deleteConfirm": "¿Eliminar esta plantilla?",
+    "form": {
+      "name": "Nombre",
+      "placeholders": {
+        "name": "Nombre de plantilla",
+        "description": "Descripción opcional",
+        "modes": "+nts",
+        "topic": "Tema del canal",
+        "selectChannel": "Seleccionar un canal..."
+      },
+      "description": "Descripción",
+      "modes": "Modos",
+      "topic": "Tema",
+      "makeGlobal": "Hacer esta plantilla disponible para todos los usuarios",
+      "updateButton": "Actualizar",
+      "createButton": "Crear",
+      "targetChannel": "Canal objetivo"
+    },
+    "editModal": {
+      "title": "Editar plantilla"
+    },
+    "createModal": {
+      "title": "Crear plantilla"
+    },
+    "applyModal": {
+      "title": "Aplicar plantilla",
+      "subtitle": "Aplicar la plantilla \"{{name}}\" a un canal:",
+      "applyButton": "Aplicar plantilla"
+    },
+    "createFromChannel": {
+      "title": "Crear desde canal",
+      "description": "Crear una nueva plantilla a partir de la configuración de un canal existente:"
+    }
+  },
+  "webhooks": {
+    "title": "Webhooks",
+    "subtitle": "Recibir eventos de registro de UnrealIRCd vía webhooks",
+    "createButton": "Crear webhook",
+    "info": {
+      "paragraph1": "Los webhooks permiten a UnrealIRCd enviar eventos de registro directamente a este panel. Cada webhook tiene una URL con token único que configuras en tu unrealircd.conf.",
+      "learnMore": "Más información sobre los bloques de registro de UnrealIRCd"
+    },
+    "tooltips": {
+      "viewConfig": "Ver configuración",
+      "viewLogs": "Ver registros",
+      "disable": "Deshabilitar",
+      "enable": "Habilitar",
+      "regenerate": "Regenerar token"
+    },
+    "emptyTokens": "No hay tokens webhook configurados",
+    "tokens": {
+      "createModal": {
+        "title": "Crear token de webhook"
+      },
+      "deleteModal": {
+        "title": "Eliminar token de webhook",
+        "confirm": "¿Estás seguro de que deseas eliminar el token de webhook \"{{name}}\"?",
+        "details": "UnrealIRCd ya no podrá enviar eventos a esta URL."
+      }
+    },
+    "messages": {
+      "loadFailed": "Error al cargar webhooks: {{error}}"
+    }
+  },
+  "themeSwitcher": {
+    "title": "Tema Ayarları",
+    "tabs": {
+      "presets": "Presets",
+      "customize": "Customize"
+    },
+    "customizeIntro": "Customize the current theme ({{name}}) with your own colors.",
+    "sections": {
+      "background": "Background",
+      "text": "Text"
+    },
+    "colors": {
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "tertiary": "Tertiary",
+      "textPrimary": "Primary",
+      "textMuted": "Muted",
+      "accent": "Accent",
+      "accentHover": "Accent (hover)",
+      "success": "Success",
+      "error": "Error"
+    },
+    "apply": "Apply Changes",
+    "reset": "Reset to Default"
+  },
+  "sidebar": {
+    "logout": "Cerrar sesión"
+  },
+  "userJourney": {
+    "searchModal": {
+      "title": "Buscar Recorrido de Usuario",
+      "description": "Ingresa al menos un identificador para buscar la actividad del usuario:",
+      "nicknameLabel": "Apodo",
+      "nicknamePlaceholder": "Ingresa apodo",
+      "ipLabel": "Dirección IP",
+      "ipPlaceholder": "Ingresa IP"
+    }
+  },
+  "userDetail": {
+    "killTitle": "Matar usuario: {{name}}",
+    "killButton": "Matar usuario",
+    "banTitle": "Banear usuario: {{name}}",
+    "banButton": "Banear usuario",
+    "vhostTitle": "Establecer Vhost: {{name}}",
+    "setVhostButton": "Establecer Vhost",
+    "modesTitle": "Establecer modos de usuario: {{name}}",
+    "applyModeChanges": "Aplicar cambios de modo"
+  }
+}

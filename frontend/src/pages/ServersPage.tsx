@@ -4,8 +4,10 @@ import { DataTable, Button, Modal, Alert, Badge } from '@/components/common'
 import { Eye, RefreshCw, Server, Clock, Users } from 'lucide-react'
 import type { IRCServer } from '@/types'
 import toast from 'react-hot-toast'
+import { useTranslation } from 'react-i18next'
 
 export function ServersPage() {
+  const { t } = useTranslation()
   const { data: servers, isLoading, error } = useIRCServers()
   const rehashServer = useRehashServer()
 
@@ -16,7 +18,7 @@ export function ServersPage() {
   const columns = [
     {
       key: 'name',
-      header: 'Server',
+      header: t('servers.server'),
       sortable: true,
       render: (server: IRCServer) => (
         <div className="flex items-center gap-2">
@@ -30,7 +32,7 @@ export function ServersPage() {
     },
     {
       key: 'num_users',
-      header: 'Users',
+      header: t('servers.users'),
       sortable: true,
       render: (server: IRCServer) => (
         <div className="flex items-center gap-2 text-[var(--text-secondary)]">
@@ -41,30 +43,30 @@ export function ServersPage() {
     },
     {
       key: 'info',
-      header: 'Description',
+      header: t('servers.description'),
       render: (server: IRCServer) => (
         <span className="text-[var(--text-muted)] truncate max-w-xs block">
-          {server.server?.info || 'No description'}
+          {server.server?.info || t('servers.noDescription')}
         </span>
       ),
     },
     {
       key: 'version',
-      header: 'Version',
+      header: t('servers.version'),
       render: (server: IRCServer) => (
         <span className="text-[var(--text-muted)] font-mono text-sm">
-          {server.server?.features?.software || 'Unknown'}
+          {server.server?.features?.software || t('servers.unknown')}
         </span>
       ),
     },
     {
       key: 'uptime',
-      header: 'Uptime',
+      header: t('servers.uptime'),
       sortable: true,
       render: (server: IRCServer) => (
         <div className="flex items-center gap-2 text-[var(--text-secondary)]">
           <Clock size={14} className="text-[var(--text-muted)]" />
-          {formatUptime(server.server?.boot_time)}
+          {formatUptime(t, server.server?.boot_time)}
         </div>
       ),
     },
@@ -74,11 +76,11 @@ export function ServersPage() {
     if (!selectedServer) return
     try {
       await rehashServer.mutateAsync(selectedServer.name)
-      toast.success(`Rehash sent to ${selectedServer.name}`)
+      toast.success(t('servers.rehashSuccess', { name: selectedServer.name }))
       setShowRehashModal(false)
       setSelectedServer(null)
     } catch (err: unknown) {
-      const message = err instanceof Error ? err.message : 'Failed to rehash server'
+      const message = err instanceof Error ? err.message : t('servers.rehashFailed')
       toast.error(message)
     }
   }
@@ -86,7 +88,7 @@ export function ServersPage() {
   if (error) {
     return (
       <Alert type="error">
-        Failed to load servers: {error instanceof Error ? error.message : 'Unknown error'}
+        {t('servers.loadError', { error: error instanceof Error ? error.message : 'Unknown error' })}
       </Alert>
     )
   }
@@ -94,8 +96,8 @@ export function ServersPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-[var(--text-primary)]">Servers</h1>
-        <p className="text-[var(--text-muted)] mt-1">View linked servers in the network</p>
+        <h1 className="text-2xl font-bold text-[var(--text-primary)]">{t('servers.title')}</h1>
+        <p className="text-[var(--text-muted)] mt-1">{t('servers.subtitle')}</p>
       </div>
 
       <DataTable
@@ -103,7 +105,7 @@ export function ServersPage() {
         columns={columns}
         keyField="name"
         isLoading={isLoading}
-        searchPlaceholder="Search servers..."
+        searchPlaceholder={t('servers.searchPlaceholder')}
         actions={(server) => (
           <>
             <Button
@@ -134,49 +136,49 @@ export function ServersPage() {
       <Modal
         isOpen={showDetails}
         onClose={() => setShowDetails(false)}
-        title={`Server: ${selectedServer?.name}`}
+        title={t('servers.serverDetails', { name: selectedServer?.name })}
         size="lg"
       >
         {selectedServer && (
           <div className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <p className="text-sm text-[var(--text-muted)]">Server Name</p>
+                <p className="text-sm text-[var(--text-muted)]">{t('servers.serverName')}</p>
                 <p className="text-[var(--text-primary)]">{selectedServer.name}</p>
               </div>
               <div>
-                <p className="text-sm text-[var(--text-muted)]">Users</p>
+                <p className="text-sm text-[var(--text-muted)]">{t('servers.users')}</p>
                 <p className="text-[var(--text-primary)]">{selectedServer.num_users || 0}</p>
               </div>
               <div>
-                <p className="text-sm text-[var(--text-muted)]">Description</p>
-                <p className="text-[var(--text-primary)]">{selectedServer.server?.info || 'None'}</p>
+                <p className="text-sm text-[var(--text-muted)]">{t('servers.description')}</p>
+                <p className="text-[var(--text-primary)]">{selectedServer.server?.info || t('servers.unknown')}</p>
               </div>
               <div>
-                <p className="text-sm text-[var(--text-muted)]">Uptime</p>
-                <p className="text-[var(--text-primary)]">{formatUptime(selectedServer.server?.boot_time)}</p>
+                <p className="text-sm text-[var(--text-muted)]">{t('servers.uptime')}</p>
+                <p className="text-[var(--text-primary)]">{formatUptime(t, selectedServer.server?.boot_time)}</p>
               </div>
             </div>
 
             {selectedServer.server?.features && (
               <div>
-                <p className="text-sm text-[var(--text-muted)] mb-2">Server Features</p>
+                <p className="text-sm text-[var(--text-muted)] mb-2">{t('servers.serverFeatures')}</p>
                 <div className="bg-[var(--bg-tertiary)] p-3 rounded-lg space-y-2">
                   <div className="flex justify-between">
-                    <span className="text-[var(--text-muted)]">Software</span>
+                    <span className="text-[var(--text-muted)]">{t('servers.software')}</span>
                     <span className="text-[var(--text-primary)] font-mono">
-                      {selectedServer.server.features.software || 'Unknown'}
+                      {selectedServer.server.features.software || t('servers.unknown')}
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-[var(--text-muted)]">Protocol</span>
+                    <span className="text-[var(--text-muted)]">{t('servers.protocol')}</span>
                     <span className="text-[var(--text-primary)] font-mono">
-                      {selectedServer.server.features.protocol || 'Unknown'}
+                      {selectedServer.server.features.protocol || t('servers.unknown')}
                     </span>
                   </div>
                   {selectedServer.server.features.nicklen && (
                     <div className="flex justify-between">
-                      <span className="text-[var(--text-muted)]">Nick Length</span>
+                      <span className="text-[var(--text-muted)]">{t('servers.nickLength')}</span>
                       <span className="text-[var(--text-primary)]">
                         {selectedServer.server.features.nicklen}
                       </span>
@@ -184,7 +186,7 @@ export function ServersPage() {
                   )}
                   {selectedServer.server.features.chanmodes && (
                     <div className="flex justify-between">
-                      <span className="text-[var(--text-muted)]">Channel Modes</span>
+                      <span className="text-[var(--text-muted)]">{t('servers.channelModes')}</span>
                       <span className="text-[var(--text-primary)] font-mono text-sm">
                         {selectedServer.server.features.chanmodes}
                       </span>
@@ -196,7 +198,7 @@ export function ServersPage() {
 
             {selectedServer.server?.ulined && (
               <Alert type="info">
-                This is a U-Line server (services server)
+                {t('servers.uLineServer')}
               </Alert>
             )}
           </div>
@@ -207,29 +209,28 @@ export function ServersPage() {
       <Modal
         isOpen={showRehashModal}
         onClose={() => setShowRehashModal(false)}
-        title={`Rehash: ${selectedServer?.name}`}
+        title={t('servers.rehashTitle', { name: selectedServer?.name })}
         footer={
           <>
             <Button variant="secondary" onClick={() => setShowRehashModal(false)}>
-              Cancel
+              {t('servers.cancel')}
             </Button>
             <Button onClick={handleRehash} isLoading={rehashServer.isPending}>
-              Rehash Server
+              {t('servers.rehashServer')}
             </Button>
           </>
         }
       >
         <Alert type="warning">
-          This will cause {selectedServer?.name} to reload its configuration. 
-          Are you sure you want to proceed?
+          {t('servers.rehashWarning', { name: selectedServer?.name })}
         </Alert>
       </Modal>
     </div>
   )
 }
 
-function formatUptime(bootTime?: string | number): string {
-  if (!bootTime) return 'Unknown'
+function formatUptime(t: any, bootTime?: string | number): string {
+  if (!bootTime) return t('servers.unknown')
   
   // boot_time can be an ISO 8601 string (e.g. "2022-05-23T11:02:06.000Z") or a Unix timestamp
   let bootTimestamp: number
@@ -239,18 +240,18 @@ function formatUptime(bootTime?: string | number): string {
     bootTimestamp = bootTime
   }
   
-  if (isNaN(bootTimestamp)) return 'Unknown'
+  if (isNaN(bootTimestamp)) return t('servers.unknown')
   
   const now = Math.floor(Date.now() / 1000)
   const uptime = now - bootTimestamp
   
-  if (uptime < 0) return 'Unknown'
+  if (uptime < 0) return t('servers.unknown')
   
   const days = Math.floor(uptime / 86400)
   const hours = Math.floor((uptime % 86400) / 3600)
   const minutes = Math.floor((uptime % 3600) / 60)
   
-  if (days > 0) return `${days}d ${hours}h ${minutes}m`
-  if (hours > 0) return `${hours}h ${minutes}m`
-  return `${minutes}m`
+  if (days > 0) return t('servers.uptimeFormat', { days, hours, minutes })
+  if (hours > 0) return t('servers.uptimeHoursMinutes', { hours, minutes })
+  return t('servers.uptimeMinutes', { minutes })
 }

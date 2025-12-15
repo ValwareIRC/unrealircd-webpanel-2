@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { Bell, Plus, Trash2, Edit, ToggleLeft, ToggleRight, Webhook, MessageSquare, Send, FileText, Play } from 'lucide-react'
 import {
@@ -22,6 +23,7 @@ import {
 import { Button, Input, Modal, Select, Badge } from '@/components/common'
 
 export function AlertRulesPage() {
+  const { t } = useTranslation()
   const queryClient = useQueryClient()
   const [showCreateModal, setShowCreateModal] = useState(false)
   const [showTestModal, setShowTestModal] = useState(false)
@@ -214,13 +216,13 @@ export function AlertRulesPage() {
         <div className="flex items-center gap-3">
           <Bell className="text-[var(--accent)]" size={24} />
           <div>
-            <h1 className="text-2xl font-bold text-[var(--text-primary)]">Alert Rules</h1>
-            <p className="text-sm text-[var(--text-secondary)]">Create custom alert rules that trigger webhooks when specific events occur</p>
+            <h1 className="text-2xl font-bold text-[var(--text-primary)]">{t('alertRules.alertRulesPage')}</h1>
+            <p className="text-sm text-[var(--text-secondary)]">{t('alertRules.description')}</p>
           </div>
         </div>
         <Button onClick={() => setShowCreateModal(true)}>
           <Plus size={16} className="mr-2" />
-          Create Rule
+          {t('alertRules.createRule')}
         </Button>
       </div>
 
@@ -251,7 +253,7 @@ export function AlertRulesPage() {
         <div className="divide-y divide-[var(--border-primary)]">
           {rules.length === 0 ? (
             <div className="p-8 text-center text-[var(--text-secondary)]">
-              No alert rules configured. Create one to get started.
+              {t('alertRules.noRulesConfigured')}
             </div>
           ) : (
             rules.map((rule) => (
@@ -295,7 +297,7 @@ export function AlertRulesPage() {
                     variant="ghost"
                     size="sm"
                     onClick={() => {
-                      if (confirm('Delete this alert rule?')) {
+                      if (confirm(t('alertRules.deleteConfirm'))) {
                         deleteMutation.mutate(rule.id)
                       }
                     }}
@@ -317,7 +319,7 @@ export function AlertRulesPage() {
           setEditingRule(null)
           resetForm()
         }}
-        title={editingRule ? 'Edit Alert Rule' : 'Create Alert Rule'}
+        title={editingRule ? t('alertRules.createModal.editTitle') : t('alertRules.createModal.title')}
         size="lg"
       >
         <div className="space-y-4">
@@ -368,7 +370,7 @@ export function AlertRulesPage() {
             <div className="flex items-center justify-between mb-2">
               <label className="block text-sm font-medium text-[var(--text-secondary)]">Conditions</label>
               <Button variant="ghost" size="sm" onClick={addCondition}>
-                <Plus size={14} className="mr-1" /> Add Condition
+                <Plus size={14} className="mr-1" /> {t('alertRules.actions.addCondition')}
               </Button>
             </div>
             <div className="space-y-2">
@@ -415,16 +417,16 @@ export function AlertRulesPage() {
             <div className="flex items-center justify-between mb-2">
               <label className="block text-sm font-medium text-[var(--text-secondary)]">Actions</label>
               <div className="flex gap-1">
-                <Button variant="ghost" size="sm" onClick={() => addAction('webhook')} title="Add Webhook">
+                <Button variant="ghost" size="sm" onClick={() => addAction('webhook')} title={t('alertRules.actions.addWebhook')}>
                   <Webhook size={14} />
                 </Button>
-                <Button variant="ghost" size="sm" onClick={() => addAction('discord')} title="Add Discord">
+                <Button variant="ghost" size="sm" onClick={() => addAction('discord')} title={t('alertRules.actions.addDiscord')}>
                   <MessageSquare size={14} />
                 </Button>
-                <Button variant="ghost" size="sm" onClick={() => addAction('slack')} title="Add Slack">
+                <Button variant="ghost" size="sm" onClick={() => addAction('slack')} title={t('alertRules.actions.addSlack')}>
                   <Send size={14} />
                 </Button>
-                <Button variant="ghost" size="sm" onClick={() => addAction('log')} title="Add Log">
+                <Button variant="ghost" size="sm" onClick={() => addAction('log')} title={t('alertRules.actions.addLog')}>
                   <FileText size={14} />
                 </Button>
               </div>
@@ -454,10 +456,10 @@ export function AlertRulesPage() {
             </div>
           </div>
 
-          <div className="flex justify-between pt-4">
+            <div className="flex justify-between pt-4">
             <Button variant="ghost" onClick={() => openTestModal()}>
               <Play size={16} className="mr-2" />
-              Test
+              {t('alertRules.actions.test')}
             </Button>
             <div className="flex gap-2">
               <Button
@@ -468,10 +470,10 @@ export function AlertRulesPage() {
                   resetForm()
                 }}
               >
-                Cancel
+                {t('common.cancel')}
               </Button>
               <Button onClick={handleSubmit} disabled={!name || actions.length === 0}>
-                {editingRule ? 'Update' : 'Create'}
+                {editingRule ? t('common.update') : t('common.create')}
               </Button>
             </div>
           </div>
@@ -479,9 +481,9 @@ export function AlertRulesPage() {
       </Modal>
 
       {/* Test Modal */}
-      <Modal isOpen={showTestModal} onClose={() => setShowTestModal(false)} title="Test Alert Rule" size="md">
+      <Modal isOpen={showTestModal} onClose={() => setShowTestModal(false)} title={t('alertRules.testModal.title')} size="md">
         <div className="space-y-4">
-          <p className="text-sm text-[var(--text-secondary)]">Enter test data to check if conditions match:</p>
+          <p className="text-sm text-[var(--text-secondary)]">{t('alertRules.testModal.description')}</p>
 
           {conditionFields.map((field) => (
             <div key={field.value}>
@@ -497,7 +499,7 @@ export function AlertRulesPage() {
           {testResults && (
             <div className="mt-4 p-4 rounded bg-[var(--bg-tertiary)]">
               <div className={`font-medium mb-2 ${testResults.all_matched ? 'text-green-500' : 'text-red-500'}`}>
-                {testResults.all_matched ? '✓ All conditions matched!' : '✗ Some conditions did not match'}
+                {testResults.all_matched ? t('alertRules.testModal.allMatched') : t('alertRules.testModal.someFailed')}
               </div>
               <div className="space-y-1 text-sm">
                 {testResults.results.map((result, index) => (

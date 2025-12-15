@@ -1,0 +1,1291 @@
+{
+  "common": {
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "delete": "Sil",
+    "edit": "Düzenle",
+    "add": "Ekle",
+    "search": "Ara",
+    "filter": "Filtrele",
+    "loading": "Yükleniyor...",
+    "error": "Hata",
+    "success": "Başarılı",
+    "warning": "Uyarı",
+    "info": "Bilgi",
+    "yes": "Evet",
+    "no": "Hayır",
+    "ok": "Tamam",
+    "close": "Kapat",
+    "back": "Geri",
+    "next": "İleri",
+    "previous": "Önceki",
+    "submit": "Gönder",
+    "reset": "Sıfırla",
+    "confirm": "Onayla",
+    "logout": "Çıkış",
+    "login": "Giriş",
+    "username": "Kullanıcı adı",
+    "password": "Şifre",
+    "email": "E-posta",
+    "name": "Ad",
+    "description": "Açıklama",
+    "status": "Durum",
+    "active": "Aktif",
+    "inactive": "Pasif",
+    "enabled": "Etkin",
+    "disabled": "Devre dışı"
+  },
+  "navigation": {
+    "dashboard": "Pano",
+    "servers": "Sunucular",
+    "users": "Kullanıcılar",
+    "settings": "Ayarlar",
+    "logs": "Günlükler",
+    "reports": "Raporlar",
+    "plugins": "Eklentiler",
+    "statistics": "İstatistikler",
+    "liveMap": "Canlı Harita",
+    "userJourney": "Kullanıcı Yolculuğu",
+    "channels": "Kanallar",
+    "templates": "Şablonlar",
+    "watchList": "İzleme Listesi",
+    "serverList": "Sunucu Listesi",
+    "topology": "Topoloji",
+    "tlsStatistics": "TLS İstatistikleri",
+    "serverBans": "Sunucu Yasakları",
+    "nameBans": "İsim Yasakları",
+    "exceptions": "İstisnalar",
+    "spamfilters": "Spam Filtreleri",
+    "scheduled": "Zamanlanmış Komutlar",
+    "alertRules": "Uyarı Kuralları",
+    "overview": "Genel Bakış",
+    "irc": "IRC",
+    "bansFilters": "Yasaklar ve Filtreler",
+    "tools": "Araçlar",
+    "community": "Topluluk",
+    "admin": "Yönetici",
+    "digest": "Özet",
+    "feedback": "Geri bildirim",
+    "panelUsers": "Panel Kullanıcıları",
+    "roles": "Roller",
+    "compliance": "Uygunluk",
+    "rpcServers": "RPC Sunucuları",
+    "marketplace": "Pazar Yeri"
+  },
+  "dashboard": {
+    "title": "Kontrol Paneli",
+    "welcome": "UnrealIRCd Web Paneline Hoş Geldiniz",
+    "overview": "Genel Bakış",
+    "statistics": "İstatistikler",
+    "recentActivity": "Son Etkinlik",
+    "editLayout": "Düzeni Düzenle",
+    "addWidget": "Widget Ekle",
+    "saveLayout": "Düzeni Kaydet",
+    "resetLayout": "Düzeni Sıfırla",
+    "cancel": "İptal",
+    "save": "Kaydet",
+    "saving": "Kaydediliyor...",
+    "customize": "Özelleştir",
+    "loading": "Yükleniyor...",
+    "error": "Pano yüklenirken hata oluştu",
+    "noWidgets": "Kullanılabilir widget yok",
+    "widgetConfig": "Widget Yapılandırması",
+    "configureWidget": "Widget Yapılandır",
+    "widgetType": "Widget Türü",
+    "description": "Açıklama",
+    "configure": "Yapılandır",
+    "remove": "Kaldır",
+    "dragToReorder": "Sıralamak için sürükleyin",
+    "editModeHint": "Düzenleme modu: Yeniden konumlandırmak için widget'ları sürükleyin, yeniden boyutlandırmak için kenarları sürükleyin. Bir widget'ı kaldırmak için X'e tıklayın.",
+    "resetConfirm": "Paneli varsayılan düzene sıfırlamak istiyor musunuz? Bu işlem geri alınamaz.",
+    "pageDescription": "IRC ağınızın genel görünümü"
+  },
+  "auth": {
+    "loginTitle": "Giriş",
+    "loginButton": "Giriş Yap",
+    "logoutConfirm": "Çıkış yapmak istediğinizden emin misiniz?",
+    "invalidCredentials": "Geçersiz kullanıcı adı veya şifre",
+    "sessionExpired": "Oturumunuz sona erdi. Lütfen tekrar giriş yapın.",
+    "panelTitle": "UnrealIRCd Paneli",
+    "panelSubtitle": "IRC ağınızı yönetmek için giriş yapın",
+    "twoFactorRequired": "İki faktörlü kimlik doğrulama gerekli",
+    "usernameLabel": "Kullanıcı adı",
+    "usernamePlaceholder": "Kullanıcı adınızı girin",
+    "passwordLabel": "Parola",
+    "passwordPlaceholder": "Parolanızı girin",
+    "signInButton": "Giriş yap",
+    "twoFactorDescription": "Doğrulayıcı uygulamanızdaki 6 haneli kodu girin veya bir yedek kod kullanın.",
+    "verificationCodeLabel": "Doğrulama Kodu",
+    "verificationCodePlaceholder": "Doğrulama kodunu girin",
+    "verifyButton": "Doğrula",
+    "backButton": "Geri",
+    "failedLogin": "Giriş başarısız",
+    "invalidCode": "Geçersiz doğrulama kodu"
+  },
+  "users": {
+    "title": "Kullanıcılar",
+    "subtitle": "Ağdaki bağlı kullanıcıları yönet",
+    "nickname": "Takma ad",
+    "host": "Sunucu",
+    "ip": "IP",
+    "channels": "Kanallar",
+    "idle": "Boşta",
+    "server": "Sunucu",
+    "ircOp": "IRC-Op",
+    "tls": "TLS",
+    "hidden": "Gizli",
+    "unknown": "Bilinmiyor",
+    "searchPlaceholder": "Takma ad, host, IP ile kullanıcı ara...",
+    "viewDetails": "Detayları görüntüle",
+    "clearSelection": "Seçimi temizle",
+    "killAll": "Tümünü öldür",
+    "banAll": "Tümünü yasakla",
+    "selectedUsers": "{{count}} kullanıcı seçildi",
+    "userDetails": "Kullanıcı: {{name}}",
+    "killSuccess": "{{name}} öldürüldü",
+    "killFailed": "Kullanıcı öldürülemedi",
+    "banSuccess": "{{name}} yasaklandı",
+    "banFailed": "Kullanıcı yasaklanamadı",
+    "vhostSuccess": "{{name}} için vhost ayarlandı",
+    "vhostFailed": "Vhost ayarlanamadı",
+    "bulkBanSuccess": "{{count}} kullanıcı başarıyla yasaklandı",
+    "bulkBanPartial": "{{success}} kullanıcı yasaklandı, {{failed}} başarısız",
+    "loadError": "Kullanıcılar yüklenemedi: {{error}}",
+    "username": "Kullanıcı adı",
+    "realName": "Gerçek ad",
+    "hostname": "Host adı",
+    "ipAddress": "IP adresi",
+    "virtualHost": "Sanal host",
+    "vhostPlaceholder": "örn. kullanıcı.ağım.org",
+    "vhostHelperText": "Mevcut vhost'u kaldırmak için boş bırakın",
+    "none": "Yok",
+    "connectedSince": "Bağlandığı tarih",
+    "userModes": "Kullanıcı modları",
+    "banType": "Yasak türü",
+    "gline": "G-Line (Genel)",
+    "kline": "K-Line (Yerel)",
+    "gzline": "GZ-Line (Global IP)",
+    "zline": "Z-Line (Yerel IP)",
+    "shun": "Shun",
+    "reason": "Sebep",
+    "enterBanReason": "Yasaklama sebebi girin",
+    "duration": "Süre",
+    "oneHour": "1 saat",
+    "sixHours": "6 saat",
+    "oneDay": "1 gün",
+    "sevenDays": "7 gün",
+    "thirtyDays": "30 gün",
+    "permanent": "Kalıcı",
+    "setVhost": "Vhost Ayarla",
+    "setVhostTitle": "Vhost Ayarla: {{name}}",
+    "cancel": "İptal",
+    "enterKillReason": "Öldürme sebebi girin",
+    "banUsersTitle": "{{count}} kullanıcıyı yasakla",
+    "banningProgress": "Yasaklanıyor... ({{current}}/{{total}})",
+    "banUsersButton": "{{count}} kullanıcıyı yasakla",
+    "bulkBanWarning": "Bu, {{count}} kullanıcıyı ağdan yasaklayacak.",
+    "killUsersTitle": "{{count}} kullanıcıyı öldür",
+    "killingProgress": "Öldürülüyor... ({{current}}/{{total}})",
+    "killUsersButton": "{{count}} kullanıcıyı öldür",
+    "bulkKillWarning": "Bu, {{count}} kullanıcıyı ağdan zorla bağlantıyı kesecek.",
+    "killUserTitle": "Kullanıcıyı öldür: {{name}}",
+    "killUserButton": "Kullanıcıyı öldür",
+    "banUserTitle": "Kullanıcıyı yasakla: {{name}}",
+    "banUserButton": "Kullanıcıyı yasakla",
+    "killUserWarning": "Bu, {{name}}'i ağdan zorla bağlantıyı kesecek.",
+    "active": "Aktif",
+    "seconds": "{{count}} sn",
+    "minutes": "{{count}} dk",
+    "hours": "{{count}} sa",
+    "days": "{{count}} gün"
+  },
+  "servers": {
+    "title": "Sunucular",
+    "subtitle": "Ağdaki bağlı sunucuları görüntüle",
+    "server": "Sunucu",
+    "users": "Kullanıcılar",
+    "description": "Açıklama",
+    "noDescription": "Açıklama yok",
+    "version": "Sürüm",
+    "unknown": "Bilinmiyor",
+    "uptime": "Çalışma süresi",
+    "searchPlaceholder": "Sunucu ara...",
+    "viewDetails": "Detayları görüntüle",
+    "rehash": "Yeniden yükle",
+    "serverDetails": "Sunucu: {{name}}",
+    "serverName": "Sunucu adı",
+    "serverFeatures": "Sunucu özellikleri",
+    "software": "Yazılım",
+    "protocol": "Protokol",
+    "nickLength": "Takma ad uzunluğu",
+    "channelModes": "Kanal modları",
+    "uLineServer": "Bu bir U-Line sunucusu (hizmet sunucusu)",
+    "rehashTitle": "Yeniden yükle: {{name}}",
+    "cancel": "İptal",
+    "rehashServer": "Sunucuyu yeniden yükle",
+    "rehashWarning": "Bu, {{name}}'in yapılandırmasını yeniden yüklemesine neden olacak. Devam etmek istediğinizden emin misiniz?",
+    "rehashSuccess": "{{name}}'e yeniden yükleme gönderildi",
+    "rehashFailed": "Sunucu yeniden yüklenemedi",
+    "loadError": "Sunucular yüklenemedi: {{error}}",
+    "uptimeFormat": "{{days}} gün {{hours}} saat {{minutes}} dk",
+    "uptimeHoursMinutes": "{{hours}} saat {{minutes}} dk",
+    "uptimeMinutes": "{{minutes}} dk"
+  },
+  "channels": {
+    "title": "Kanallar",
+    "subtitle": "Ağdaki kanalları yönet",
+    "channel": "Kanal",
+    "users": "Kullanıcılar",
+    "topic": "Konu",
+    "noTopicSet": "Konu ayarlanmamış",
+    "modes": "Modlar",
+    "created": "Oluşturuldu",
+    "unknown": "Bilinmiyor",
+    "searchPlaceholder": "İsim, konu ile kanal ara...",
+    "viewDetails": "Detayları görüntüle",
+    "setTopic": "Konu ayarla",
+    "setMode": "Mod ayarla",
+    "kickUser": "Kullanıcıyı at",
+    "channelDetails": "Kanal: {{name}}",
+    "channelName": "Kanal adı",
+    "members": "Üyeler",
+    "bans": "Yasaklamalar",
+    "setBy": "{{user}} tarafından ayarlandı",
+    "setByAt": "{{user}} tarafından {{time}} tarihinde ayarlandı",
+    "banEntry": "{{name}} ({{setBy}} tarafından)",
+    "setTopicTitle": "Konu ayarla: {{name}}",
+    "cancel": "İptal",
+    "enterNewTopic": "Yeni kanal konusu girin",
+    "setModeTitle": "Mod ayarla: {{name}}",
+    "modePlaceholder": "örn. +nt veya -o",
+    "parametersOptional": "Parametreler (isteğe bağlı)",
+    "parametersPlaceholder": "örn. takma ad",
+    "parametersHelper": "İhtiyaç duyan modlar için parametreler",
+    "currentModes": "Mevcut modlar:",
+    "kickUserTitle": "{{name}}'den kullanıcıyı at",
+    "nickname": "Takma ad",
+    "enterNickname": "Atılacak takma adı girin",
+    "reasonOptional": "Sebep (isteğe bağlı)",
+    "enterKickReason": "Atma sebebi girin",
+    "topicUpdated": "Konu güncellendi",
+    "topicUpdateFailed": "Konu ayarlanamadı",
+    "modeChanged": "Mod değiştirildi",
+    "modeChangeFailed": "Mod ayarlanamadı",
+    "userKicked": "{{nick}}, {{channel}}'den atıldı",
+    "kickFailed": "Kullanıcı atılamadı",
+    "loadError": "Kanallar yüklenemedi: {{error}}"
+  },
+  "statistics": {
+    "title": "İstatistikler",
+    "subtitle": "Tarihsel ağ istatistikleri",
+    "currentUsers": "Mevcut Kullanıcılar",
+    "channels": "Kanallar",
+    "servers": "Sunucular",
+    "activeBans": "Aktif Yasaklar",
+    "userActivity": "Kullanıcı Etkinliği",
+    "userActivityDesc": "Zaman içindeki kullanıcı sayıları",
+    "banDistribution": "Yasak Dağılımı",
+    "banDistributionDesc": "Yasak türüne göre dağılım",
+    "noActiveBans": "Aktif yasak yok",
+    "userDistribution": "Kullanıcı Dağılımı",
+    "userDistributionDesc": "Kullanıcı türüne göre dağılım",
+    "noUsersConnected": "Bağlı kullanıcı yok",
+    "connectionStatistics": "Bağlantı İstatistikleri",
+    "connectionStatisticsDesc": "Kimlik doğrulama ve bağlantı metrikleri",
+    "networkTraffic": "Ağ Trafiği",
+    "networkTrafficDesc": "Zaman içindeki veri transferi",
+    "bytesReceived": "Alınan Bayt",
+    "bytesSent": "Gönderilen Bayt",
+    "banHistory": "Yasak Geçmişi",
+    "banHistoryDesc": "Zaman içindeki yasak sayıları",
+    "gLines": "G-Lines",
+    "kLines": "K-Lines",
+    "zLines": "Z-Lines",
+    "gzLines": "GZ-Lines",
+    "shuns": "Shuns",
+    "spamfilters": "Spam Filtreleri",
+    "qLines": "Q-Lines",
+    "regularUsers": "Normal Kullanıcılar",
+    "operators": "Operatörler",
+    "invisible": "Görünmez",
+    "serverStatistics": "Sunucu İstatistikleri",
+    "serverStatisticsDesc": "Zaman içindeki sunucu sayıları",
+    "totalServers": "Toplam Sunucu",
+    "uLinedServers": "U-Lined Sunucular",
+    "showingSnapshots": "{{max}} kullanılabilir anlık görüntüden {{count}} tanesi gösteriliyor (maks. geçmiş: {{history}})",
+    "lastSnapshot": "Son anlık görüntü: {{timestamp}}"
+  },
+  "alertRules": {
+    "alertRulesPage": "Uyarı Kuralları",
+    "description": "Belirli olaylar meydana geldiğinde webhook'ları tetikleyen özel uyarı kuralları oluşturun",
+    "createRule": "Kural Oluştur",
+    "noRulesConfigured": "Hiç uyarı kuralı yapılandırılmamış. Başlamak için bir tane oluşturun."
+  },
+  "logs": {
+    "title": "Log Görüntüleyici",
+    "subtitle": "UnrealIRCd'den tarihsel ve canlı log girişlerini görüntüle (6.1.1+ gerektirir)",
+    "startLive": "Canlı Başlat",
+    "stopLive": "Canlı Durdur",
+    "level": "Seviye:",
+    "subsystem": "Alt sistem:",
+    "searchPlaceholder": "Loglarda ara...",
+    "autoScroll": "Otomatik kaydırma:",
+    "on": "Açık",
+    "off": "Kapalı",
+    "all": "Tümü",
+    "entries": "girişler",
+    "live": "CANLI",
+    "noEntries": "Log girişi bulunamadı",
+    "tableHeaders": {
+      "time": "Zaman",
+      "level": "Seviye",
+      "subsystem": "Alt sistem",
+      "event": "Olay",
+      "message": "Mesaj"
+    },
+    "modal": {
+      "title": "Log Girişi Ayrıntıları",
+      "rawJson": "Ham JSON"
+    }
+  },
+  "marketplace": {
+    "title": "Plugin Pazarı",
+    "subtitle": "UnrealIRCd Web Panel'inizi genişletmek için plugin'leri keşfedin ve yükleyin",
+    "categories": {
+      "all": "Tüm Plugin'ler",
+      "security": "Güvenlik",
+      "integration": "Entegrasyon",
+      "monitoring": "İzleme",
+      "management": "Yönetim",
+      "utilities": "Araçlar",
+      "appearance": "Görünüm"
+    },
+    "tabs": {
+      "browse": "Pazarı Gözat",
+      "installed": "Yüklü"
+    },
+    "searchPlaceholder": "Plugin'leri ara...",
+    "installed": "Yüklü",
+    "install": "Yükle",
+    "uninstall": "Kaldır",
+    "update": "Güncelle",
+    "updateTo": "{{version}} sürümüne güncelle",
+    "byAuthor": "{{author}} tarafından",
+    "installedAgo": "{{time}} önce yüklendi",
+    "updatedAgo": "{{time}} önce güncellendi",
+    "activePlugins": "Aktif Plugin'ler",
+    "updatesAvailable": "Mevcut Güncellemeler",
+    "disabled": "Devre Dışı",
+    "noPlugins": "Hiç plugin yüklenmemiş",
+    "browseToFind": "Plugin'leri bulmak için pazarı gözatın",
+    "operationSuccess": "✓ İşlem başarıyla tamamlandı",
+    "rating": "({{count}})",
+    "version": "v{{version}}"
+  },
+  "livemap": {
+    "title": "Canlı Kullanıcı Haritası",
+    "subtitle": "Dünya çapında IRC kullanıcılarının gerçek zamanlı görselleştirmesi",
+    "users": "kullanıcılar",
+    "countries": "ülkeler",
+    "loadingGlobe": "Küre yükleniyor...",
+    "controls": {
+      "drag": "🖱️ Döndürmek için sürükle",
+      "zoom": "🔍 Yakınlaştırmak için kaydır"
+    },
+    "topCountries": "En İyi Ülkeler",
+    "noGeoData": "Coğrafi konum verisi mevcut değil",
+    "moreCountries": "+{{count}} ülke daha",
+    "user": "kullanıcı",
+    "usersPlural": "kullanıcılar"
+  },
+  "banExceptions": {
+    "title": "Yasaklama İstisnaları",
+    "subtitle": "E-Lines'ı yönet (yasaklama istisnaları)",
+    "addException": "İstisna Ekle",
+    "mask": "Maske",
+    "exceptionTypes": "İstisna Türleri",
+    "reason": "Sebep",
+    "setBy": "Tarafından Ayarlandı",
+    "setAt": "Ayarlanma Tarihi",
+    "all": "Tümü",
+    "noReason": "Sebep yok",
+    "unknown": "Bilinmiyor",
+    "searchPlaceholder": "İstisnaları ara...",
+    "addModalTitle": "Yasaklama İstisnası Ekle",
+    "removeModalTitle": "İstisnayı Kaldır",
+    "maskPlaceholder": "*@*.trusted.example.com",
+    "maskHelperText": "Yasaklamalardan muaf tutmak için kullanıcı@host maskesi",
+    "exceptionFor": "İstisna İçin",
+    "reasonOptional": "Sebep (isteğe bağlı)",
+    "reasonPlaceholder": "Güvenilir ağ",
+    "gline": "G-Line (Genel)",
+    "kline": "K-Line (Yerel)",
+    "gzline": "GZ-Line (Genel IP)",
+    "zline": "Z-Line (Yerel IP)",
+    "shun": "Shun",
+    "allTypes": "Tüm Türler",
+    "addSuccess": "İstisna başarıyla eklendi",
+    "removeSuccess": "İstisna başarıyla kaldırıldı",
+    "removeException": "İstisnayı Kaldır",
+    "addFailed": "İstisna eklenemedi",
+    "removeFailed": "İstisna kaldırılamadı",
+    "loadError": "İstisnalar yüklenemedi: {{error}}",
+    "confirmRemove": "{{mask}} için istisnayı kaldırmak istediğinizden emin misiniz? Bu maskeye uyan kullanıcılar artık yasaklamalardan muaf tutulmayacak."
+  },
+  "header": {
+    "searchPlaceholder": "Ara veya atla...",
+    "refreshStats": "İstatistikleri yenile",
+    "connected": "Bağlandı",
+    "disconnected": "Bağlantı kesildi",
+    "users": "kullanıcılar",
+    "channels": "kanallar",
+    "servers": "sunucular"
+  },
+  "channelDetail": {
+    "title": "{{channel}} Kanal Detayları",
+    "loading": "Kanal bilgileri yükleniyor...",
+    "error": "Kanal bilgileri yüklenemedi: {{error}}",
+    "notFound": "Kanal bulunamadı",
+    "tabs": {
+      "settings": "Ayarlar",
+      "modes": "Modlar",
+      "bans": "Yasaklamalar",
+      "invites": "Davetiyeler",
+      "excepts": "İstisnalar"
+    },
+    "settings": {
+      "title": "Kanal Ayarları",
+      "topic": "Konu",
+      "topicPlaceholder": "Kanal konusunu girin...",
+      "setTopic": "Konuyu Ayarla",
+      "topicSetSuccess": "Konu başarıyla ayarlandı",
+      "topicSetError": "Konu ayarlanamadı: {{error}}",
+      "key": "Anahtar",
+      "keyPlaceholder": "Kanal anahtarını girin...",
+      "setKey": "Anahtarı Ayarla",
+      "removeKey": "Anahtarı Kaldır",
+      "keySetSuccess": "Anahtar başarıyla ayarlandı",
+      "keyRemovedSuccess": "Anahtar başarıyla kaldırıldı",
+      "keySetError": "Anahtar ayarlanamadı: {{error}}",
+      "limit": "Limit",
+      "limitPlaceholder": "Maksimum kullanıcı sayısı...",
+      "setLimit": "Limiti Ayarla",
+      "removeLimit": "Limiti Kaldır",
+      "limitSetSuccess": "Limit başarıyla ayarlandı",
+      "limitRemovedSuccess": "Limit başarıyla kaldırıldı",
+      "limitSetError": "Limit ayarlanamadı: {{error}}"
+    },
+    "modes": {
+      "title": "Kanal Modları",
+      "currentModes": "Mevcut Modlar",
+      "availableModes": "Mevcut Modlar",
+      "setMode": "Modu Ayarla",
+      "removeMode": "Modu Kaldır",
+      "modeSetSuccess": "Mod başarıyla ayarlandı",
+      "modeRemovedSuccess": "Mod başarıyla kaldırıldı",
+      "modeSetError": "Mod ayarlanamadı: {{error}}",
+      "modeDescription": {
+        "i": "Davetiye gerekli - Sadece davet edilen kullanıcılar katılabilir",
+        "m": "Moderasyonlu - Sadece operatörler ve sesli kullanıcılar konuşabilir",
+        "n": "Dış mesajlar yasak - Kanal dışından mesaj gönderilemez",
+        "p": "Gizli kanal - /list komutunda görünmez",
+        "s": "Gizli kanal - /whois komutunda görünmez",
+        "t": "Konu koruması - Sadece operatörler konu değiştirebilir",
+        "r": "Kayıtlı kanal - Sadece kayıtlı kullanıcılar katılabilir",
+        "z": "SSL gerekli - Sadece SSL bağlantısı olan kullanıcılar katılabilir",
+        "O": "Operatör gerekli - Sadece IRC operatörleri katılabilir"
+      }
+    },
+    "bans": "Yasaklamalar",
+    "invites": "Invites",
+    "excepts": "Excepts",
+    "users": "users",
+    "modals": {
+      "setTopic": {
+        "title": "Konuyu Ayarla",
+        "newTopic": "Yeni Konu",
+        "topicPlaceholder": "Kanalın yeni konusunu girin..."
+      },
+      "setKey": {
+        "title": "Kanal Anahtarını Ayarla",
+        "newKey": "Yeni Anahtar",
+        "keyPlaceholder": "Kanal anahtarını girin..."
+      },
+      "setLimit": {
+        "title": "Kanal Limitini Ayarla",
+        "newLimit": "Yeni Limit",
+        "limitPlaceholder": "Maksimum kullanıcı sayısı..."
+      },
+      "addBan": {
+        "title": "Yasaklama Ekle",
+        "maskLabel": "Maske",
+        "reasonLabel": "Sebep"
+      },
+      "addInvite": {
+        "title": "Davetiye Ekle",
+        "maskLabel": "Maske"
+      },
+      "addExcept": {
+        "title": "İstisna Ekle",
+        "maskLabel": "Maske"
+      },
+      "kickUser": {
+        "title": "{{user}} kullanıcısını at",
+        "reasonLabel": "Sebep"
+      }
+    },
+    "backToChannels": "Back to Channels",
+    "channelDetails": "Channel Details",
+    "refresh": "Refresh",
+    "setTopic": "Set Topic",
+    "setMode": "Set Mode",
+    "topic": "Topic",
+    "noTopicSet": "No topic set",
+    "setBy": "Set by",
+    "userList": "User List",
+    "noUsersInChannel": "No users in channel",
+    "channelSettings": "Channel Settings",
+    "settingsModes": "Settings / Modes",
+    "currentModes": "Current modes:",
+    "defaultModesOnly": "Default modes only",
+    "channelInfo": "Channel Info",
+    "created": "Created:",
+    "unknown": "Unknown",
+    "addBan": "Add Ban",
+    "maskRequired": "Please enter a mask",
+    "noBansSet": "No bans set",
+    "addInvite": "Add Invite",
+    "noInviteExceptionsSet": "No invite exceptions set",
+    "addException": "Add Exception",
+    "noBanExceptionsSet": "No ban exceptions set",
+    "setTopicTitle": "Set Topic: {{channel}}",
+    "setChannelModesTitle": "Set Channel Modes: {{channel}}",
+    "kickUserTitle": "Kick User from {{channel}}",
+    "addChannelBanTitle": "Add Channel Ban",
+    "addInviteExceptionTitle": "Add Invite Exception",
+    "addBanExceptionTitle": "Add Ban Exception",
+    "applyModeChanges": "Apply Mode Changes",
+    "currentModesLabel": "Current modes",
+    "enterModesManually": "Or enter modes manually:",
+    "parameters": "Parameters",
+    "kickUser": "Kick User",
+    "nickname": "Nickname",
+    "enterNicknameToKick": "Enter nickname to kick",
+    "reasonOptional": "Reason (optional)",
+    "enterKickReason": "Enter kick reason",
+    "mask": "Mask",
+    "nickUserHostOrExtended": "nick!user@host or extended ban",
+    "useExtendedBans": "Use extended bans like ~account:name or ~country:XX",
+    "durationMinutesOptional": "Duration (minutes, optional)",
+    "leaveEmptyForPermanent": "Leave empty for permanent",
+    "topicUpdated": "Topic updated",
+    "modeChanged": "Mode changed",
+    "banRemoved": "Ban removed",
+    "inviteRemoved": "Invite removed",
+    "exceptionRemoved": "Exception removed",
+    "mutedFor30Min": "Muted {{user}} for 30 minutes",
+    "bannedFor30Min": "Banned {{user}} for 30 minutes",
+    "failedToMute": "Failed to mute user",
+    "failedToBan": "Failed to ban user",
+    "failedToRemoveBan": "Failed to remove ban",
+    "failedToRemoveInvite": "Failed to remove invite",
+    "failedToRemoveException": "Failed to remove exception",
+    "failedToLoadChannel": "Failed to load channel: {{error}}",
+    "channelNotFound": "Channel not found",
+    "muteTooltip": "Mute (30 min)",
+    "kickTooltip": "Kick",
+    "banTooltip": "Ban (30 min)",
+    "removeTooltip": "Remove",
+    "setByAt": "Set by {{user}} at {{time}}"
+  },
+  "plugins": {
+    "pluginPage": "Eklenti Sayfası"
+  },
+  "widgets": {
+    "networkStats": "Ağ İstatistikleri",
+    "topUsers": "En İyi Kullanıcılar",
+    "recentChannels": "Son Kanallar",
+    "serverStatus": "Sunucu Durumu",
+    "uptime": "Çalışma Süresi",
+    "version": "Sürüm",
+    "users": "Kullanıcılar",
+    "channels": "Kanallar",
+    "servers": "Sunucular",
+    "operators": "Operatörler",
+    "invisible": "Görünmez",
+    "total": "Toplam",
+    "local": "Yerel",
+    "globalMax": "Genel Maksimum",
+    "online": "Çevrimiçi",
+    "offline": "Çevrimdışı",
+    "connecting": "Bağlanıyor",
+    "unknown": "Bilinmiyor",
+    "viewAll": "Tümünü Gör",
+    "noData": "Veri yok",
+    "loading": "Yükleniyor...",
+    "error": "Veriler yüklenirken hata oluştu",
+    "statsHistory": "İstatistik Geçmişi",
+    "last24Hours": "Son 24 Saat",
+    "userActivity": "Kullanıcı Etkinliği",
+    "channelActivity": "Kanal Etkinliği",
+    "serverActivity": "Sunucu Etkinliği",
+    "totalUsers": "Toplam Kullanıcı",
+    "connectedToNetwork": "Ağa bağlı",
+    "activeChannels": "Aktif Kanallar",
+    "withUsers": "Kullanıcılarla",
+    "linkedServers": "Bağlı Sunucular",
+    "inNetwork": "Ağ içi",
+    "onlineOperators": "Çevrimiçi IRC Operatörleri",
+    "topChannels": "Öne Çıkan Kanallar",
+    "byUserCount": "Kullanıcı sayısına göre",
+    "noTopic": "Konu yok",
+    "noChannels": "Kanal yok",
+    "networkServers": "Ağ Sunucuları",
+    "server": "Sunucu",
+    "status": "Durum",
+    "ok": "Tamam",
+    "noServers": "Sunucu yok",
+    "hourOverview": "24 saatlik genel bakış",
+    "quickLinks": "Hızlı bağlantılar",
+    "navigateToSections": "Bölümlere git",
+    "networkInfo": "Ağ Bilgileri",
+    "connectionDetails": "Bağlantı ayrıntıları",
+    "recentBans": "Son Yasaklamalar",
+    "serverBans": "Sunucu Yasaklamaları",
+    "noRecentBans": "Son yasaklama yok"
+  },
+  "panelUsers": {
+    "addModal": {
+      "title": "Add Panel User",
+      "createButton": "Create User"
+    },
+    "deleteModal": {
+      "title": "Delete User",
+      "confirm": "Are you sure you want to delete the user?"
+    }
+  },
+  "rpcServers": {
+    "title": "RPC Servers",
+    "description": "Configure UnrealIRCd JSON-RPC connections",
+    "addModal": {
+      "title": "Add RPC Server",
+      "addButton": "Add Server"
+    },
+    "info": {
+      "description": "Configure which JSON-RPC server(s) the panel can connect to. You normally only need one server, but multiple servers can be useful for failover.",
+      "readDocs": "Read the UnrealIRCd setup instructions"
+    },
+    "default": "Default",
+    "status": {
+      "connected": "Connected",
+      "disconnected": "Disconnected"
+    },
+    "empty": "No RPC servers configured. Add one to connect to your UnrealIRCd server.",
+    "form": {
+      "name": {
+        "label": "Display Name",
+        "placeholder": "e.g., Main Server",
+        "helper": "A short display name for the RPC server list"
+      },
+      "host": {
+        "label": "Hostname or IP",
+        "placeholder": "127.0.0.1",
+        "helper": "Use 127.0.0.1 for the same machine"
+      },
+      "port": {
+        "label": "Port",
+        "placeholder": "8600",
+        "helper": "RPC port from unrealircd.conf"
+      },
+      "default": {
+        "label": "Default server",
+        "helper": "Make this the primary server for connections"
+      },
+      "tls": {
+        "label": "Verify SSL/TLS certificate",
+        "helper": "Only use with hostnames, not for 127.0.0.1"
+      },
+      "username": {
+        "label": "Username",
+        "placeholder": "rpc_username",
+        "helper": "The name of your rpc-user block in unrealircd.conf"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "Enter RPC password",
+        "helper": "Leave empty to keep existing password"
+      }
+    },
+    "editModal": {
+      "title": "Edit Server: {{name}}"
+    },
+    "updateButton": "Save Changes",
+    "added": "RPC server added successfully",
+    "addFailed": "Failed to add server",
+    "updated": "RPC server updated successfully",
+    "updateFailed": "Failed to update server",
+    "deleted": "RPC server deleted",
+    "deleteFailed": "Failed to delete server",
+    "actions": {
+      "testConnection": "Test Connection",
+      "use": "Use"
+    },
+    "deleteModal": {
+      "title": "Delete Server",
+      "confirm": "Are you sure you want to delete the server <strong>{{name}}</strong>? This action cannot be undone.",
+      "deleteButton": "Delete Server"
+    },
+    "testSuccess": "Connection successful",
+    "testFailure": "Connection failed: {{message}}"
+  },
+  "nameBans": {
+    "title": "Name Bans",
+    "description": "Manage Q-Lines (reserved nicknames and channels)",
+    "addButton": "Add Name Ban",
+    "searchPlaceholder": "Search name bans...",
+    "table": {
+      "type": "Type",
+      "name": "Name/Pattern",
+      "reason": "Reason",
+      "setBy": "Set By",
+      "setAt": "Set At",
+      "expires": "Expires"
+    },
+    "addModal": {
+      "title": "Add Name Ban",
+      "labels": {
+        "banType": "Ban Type",
+        "name": "Name/Pattern",
+        "reason": "Reason",
+        "duration": "Duration"
+      },
+      "options": {
+        "qline": "Q-Line (Nickname)"
+      },
+      "placeholders": {
+        "nameExample": "e.g., Admin* or #official*",
+        "reason": "Enter ban reason"
+      },
+      "help": {
+        "useWildcard": "Use * as wildcard"
+      },
+      "addButton": "Add Ban"
+    },
+    "deleteModal": {
+      "title": "Remove Name Ban",
+      "removeButton": "Remove Ban",
+      "confirm": "Are you sure you want to remove this name ban for {{name}}?"
+    },
+    "messages": {
+      "added": "Name ban added successfully",
+      "removed": "Name ban removed",
+      "loadFailed": "Failed to load name bans: {{error}}"
+    }
+  },
+  "serverBans": {
+    "title": "Server Bans",
+    "description": "Manage G-Lines, K-Lines, Z-Lines, and Shuns",
+    "addButton": "Add Ban",
+    "searchPlaceholder": "Search bans by mask, reason...",
+    "table": {
+      "type": "Type",
+      "mask": "Mask",
+      "reason": "Reason",
+      "setBy": "Set By",
+      "setAt": "Set At",
+      "expires": "Expires"
+    },
+    "spamfilters": {
+      "title": "Spamfilters",
+      "subtitle": "Manage content filters and spam protection",
+      "addButton": "Add Spamfilter",
+      "searchPlaceholder": "Search spamfilters...",
+      "table": {
+        "pattern": "Pattern",
+        "type": "Type",
+        "targets": "Targets",
+        "action": "Action",
+        "hits": "Hits",
+        "setBy": "Set By"
+      },
+      "detailsTitle": "Spamfilter Details",
+      "details": {
+        "matchType": "Match Type",
+        "action": "Action",
+        "hits": "Hits",
+        "setBy": "Set By",
+        "pattern": "Pattern",
+        "targets": "Targets",
+        "reason": "Reason",
+        "noReason": "No reason specified",
+        "actionDuration": "Action Duration"
+      },
+      "addModal": {
+        "title": "Add Spamfilter",
+        "labels": {
+          "matchType": "Match Type",
+          "match": "Pattern",
+          "targets": "Targets",
+          "action": "Action",
+          "duration": "Action Duration",
+          "reason": "Reason"
+        },
+        "options": {
+          "simple": "Simple (wildcards)",
+          "regex": "Regular Expression",
+          "posix": "POSIX Regex"
+        },
+        "actionOptions": {
+          "warn": "Warn",
+          "block": "Block",
+          "kill": "Kill",
+          "gline": "G-Line",
+          "gzline": "GZ-Line",
+          "shun": "Shun",
+          "viruschan": "Virus Channel"
+        },
+        "helper": {
+          "pattern": "Pattern to match against messages",
+          "duration": "Duration for ban action (e.g., 1h, 1d, 7d)"
+        },
+        "placeholders": {
+          "reason": "Spam is not allowed"
+        },
+        "addButton": "Add Spamfilter"
+      },
+      "deleteModal": {
+        "title": "Remove Spamfilter",
+        "removeButton": "Remove Spamfilter",
+        "confirm": "Are you sure you want to remove this spamfilter?"
+      },
+      "messages": {
+        "added": "Spamfilter added successfully",
+        "removed": "Spamfilter removed",
+        "loadFailed": "Failed to load spamfilters: {{error}}",
+        "removeFailed": "Failed to remove spamfilter"
+      }
+    },
+    "addModal": {
+      "title": "Add Server Ban",
+      "labels": {
+        "banType": "Ban Type",
+        "mask": "Mask",
+        "reason": "Reason",
+        "duration": "Duration"
+      },
+      "options": {
+        "gline": "G-Line (Global)",
+        "kline": "K-Line (Local)",
+        "gzline": "GZ-Line (Global IP)",
+        "zline": "Z-Line (Local IP)",
+        "shun": "Shun"
+      },
+      "placeholders": {
+        "maskExample": "*@*.example.com or 192.168.1.*",
+        "reason": "Enter ban reason"
+      },
+      "addButton": "Add Ban"
+    },
+    "deleteModal": {
+      "title": "Remove Ban",
+      "removeButton": "Remove Ban",
+      "confirm": "Are you sure you want to remove this {{type}} for {{name}}?"
+    },
+    "messages": {
+      "added": "Ban added successfully",
+      "removed": "Ban removed",
+      "loadFailed": "Failed to load bans: {{error}}"
+    }
+  },
+  "commands": {
+    "nav": {
+      "dashboard": {
+        "title": "Go to Dashboard",
+        "description": "View network overview"
+      },
+      "users": {
+        "title": "Go to Users",
+        "description": "View connected users"
+      },
+      "channels": {
+        "title": "Go to Channels",
+        "description": "View active channels"
+      },
+      "servers": {
+        "title": "Go to Servers",
+        "description": "View linked servers"
+      },
+      "liveMap": {
+        "title": "Go to Live Map",
+        "description": "View geographic distribution"
+      },
+      "statistics": {
+        "title": "Go to Statistics",
+        "description": "View detailed stats"
+      },
+      "logs": {
+        "title": "Go to Logs",
+        "description": "View system logs"
+      },
+      "serverBans": {
+        "title": "Go to Server Bans",
+        "description": "Manage K-Lines, G-Lines, etc."
+      },
+      "nameBans": {
+        "title": "Go to Name Bans",
+        "description": "Manage Q-Lines"
+      },
+      "banExceptions": {
+        "title": "Go to Ban Exceptions",
+        "description": "Manage E-Lines"
+      },
+      "spamfilters": {
+        "title": "Go to Spamfilters",
+        "description": "Manage spam filters"
+      },
+      "watchList": {
+        "title": "Go to Watch List",
+        "description": "Monitor flagged users"
+      },
+      "settings": {
+        "title": "Go to Settings",
+        "description": "Panel settings"
+      },
+      "twoFactor": {
+        "title": "Go to Two-Factor Auth",
+        "description": "Manage 2FA settings"
+      },
+      "panelUsers": {
+        "title": "Go to Panel Users",
+        "description": "Manage panel user accounts"
+      },
+      "webhooks": {
+        "title": "Go to Webhooks",
+        "description": "Manage webhook endpoints"
+      },
+      "smtp": {
+        "title": "Go to SMTP Settings",
+        "description": "Configure email server"
+      },
+      "notifications": {
+        "title": "Go to Notifications",
+        "description": "Configure notification preferences"
+      }
+    },
+    "theme": {
+      "switch": "Switch to {{name}} Theme",
+      "apply": "Apply {{name}} color scheme"
+    },
+    "action": {
+      "signOut": {
+        "title": "Sign Out",
+        "description": "Log out of the panel"
+      }
+    }
+  },
+  "savedSearches": {
+    "tooltips": {
+      "saveCurrent": "Save current search",
+      "saveDisabled": "Enter a search query first",
+      "view": "View saved searches"
+    },
+    "saveModal": {
+      "title": "Save Search"
+    },
+    "currentSearch": "Current Search:",
+    "emptyPlaceholder": "(empty)",
+    "inputLabel": "Search Name",
+    "placeholders": {
+      "example": "e.g., TOR exit nodes, Suspicious IPs"
+    },
+    "shareWithAll": "Share with all users",
+    "listModal": {
+      "title": "Saved Searches",
+      "emptyTitle": "No saved searches yet.",
+      "emptyDescription": "Save your current search to quickly access it later."
+    },
+    "messages": {
+      "saved": "Search saved",
+      "deleted": "Search deleted",
+      "saveFailed": "Failed to save search",
+      "deleteFailed": "Failed to delete search",
+      "applyFailed": "Failed to apply search"
+    },
+    "shared": "Shared",
+    "popular": "Popular",
+    "usedTimes": "Used {{count}} time(s)",
+    "lastUsed": "Last used",
+    "apply": "Uygula"
+  },
+  "watchList": {
+    "title": "Watch List",
+    "subtitle": "Monitor users matching specific criteria",
+    "addButton": "Add to Watch List",
+    "summary": {
+      "entriesLabel": "Watch List Entries",
+      "usersCurrentlyMatched": "Users Currently Matched",
+      "entriesWithActiveMatches": "Entries with Active Matches"
+    },
+    "alert": "{{count}} user(s) currently match your watch list criteria. Click the expand arrow or the icon to view details.",
+    "searchPlaceholder": "Search by nick, IP, reason...",
+    "emptyMessage": "No users in watch list",
+    "messages": {
+      "added": "User added to watch list",
+      "addFailed": "Failed to add user",
+      "updated": "Watch list entry updated",
+      "updateFailed": "Failed to update entry",
+      "removed": "Removed from watch list",
+      "removeFailed": "Failed to remove entry",
+      "loadFailed": "Failed to load watch list: {{error}}"
+    },
+    "table": {
+      "criteria": "Match Criteria",
+      "reason": "Reason",
+      "addedBy": "Added By",
+      "addedAt": "Added",
+      "currentMatches": "Current Matches"
+    },
+    "labels": {
+      "nick": "Nick",
+      "ip": "IP",
+      "host": "Host",
+      "account": "Account",
+      "realname": "Realname",
+      "online": "online"
+    },
+    "tooltips": {
+      "viewMatched": "View matched users"
+    },
+    "addModal": {
+      "title": "Add to Watch List",
+      "addButton": "Add to Watch List"
+    },
+    "editModal": {
+      "title": "Edit Watch List Entry",
+      "saveButton": "Save Changes"
+    },
+    "deleteModal": {
+      "title": "Remove from Watch List",
+      "removeButton": "Remove",
+      "confirm": "Are you sure you want to remove this entry from the watch list?"
+    }
+  },
+  "scheduledCommands": {
+    "title": "Scheduled Commands",
+    "subtitle": "Schedule IRC commands to run automatically",
+    "createButton": "Create Schedule",
+    "searchPlaceholder": "Search commands...",
+    "emptyMessage": "No scheduled commands",
+    "never": "Never",
+    "next": "Next",
+    "messages": {
+      "created": "Scheduled command created",
+      "createFailed": "Failed to create scheduled command",
+      "updated": "Scheduled command updated",
+      "updateFailed": "Failed to update scheduled command",
+      "deleted": "Scheduled command deleted",
+      "deleteFailed": "Failed to delete scheduled command",
+      "toggleFailed": "Failed to toggle scheduled command",
+      "commandExecuted": "Command executed",
+      "runFailed": "Failed to run command",
+      "loadFailed": "Failed to load scheduled commands: {{error}}"
+    },
+    "table": {
+      "status": "Status",
+      "name": "Name",
+      "command": "Command",
+      "schedule": "Schedule",
+      "lastRun": "Last Run",
+      "runs": "Runs"
+    },
+    "tooltips": {
+      "clickToDisable": "Click to disable",
+      "clickToEnable": "Click to enable",
+      "runNow": "Run now"
+    },
+    "labels": {
+      "active": "Active",
+      "paused": "Paused"
+    },
+    "commandTypes": {
+      "kill": "Kill User",
+      "gline": "G-Line (Server Ban)",
+      "rehash": "Rehash Server",
+      "message": "Send Message"
+    },
+    "scheduleTypes": {
+      "once": "One Time",
+      "hourly": "Every Hour",
+      "daily": "Every Day",
+      "weekly": "Every Week",
+      "monthly": "Every Month"
+    },
+    "form": {
+      "nameLabel": "Name *",
+      "namePlaceholder": "e.g., Daily cleanup, Scheduled maintenance",
+      "descriptionLabel": "Açıklama",
+      "descriptionPlaceholder": "What does this scheduled command do?",
+      "commandTypeLabel": "Command Type *",
+      "targetLabel": "Target",
+      "reasonLabel": "Reason",
+      "durationLabel": "Duration",
+      "messageLabel": "Message",
+      "scheduleLabel": "Schedule *",
+      "enableLabel": "Enable this scheduled command"
+    },
+    "placeholders": {
+      "target": {
+        "kill": "Nickname",
+        "gline": "Host mask (e.g., *@*.bad.com)",
+        "rehash": "Server name",
+        "message": "Channel or nick",
+        "default": "Target"
+      },
+      "reason": "Reason for the action",
+      "duration": "e.g., 1d, 1w, 30m",
+      "message": "Message to send"
+    },
+    "createModal": {
+      "title": "Create Scheduled Command",
+      "createButton": "Create Schedule"
+    },
+    "editModal": {
+      "title": "Edit Scheduled Command",
+      "saveButton": "Save Changes"
+    },
+    "deleteModal": {
+      "title": "Delete Scheduled Command",
+      "confirm": "Are you sure you want to delete this scheduled command? This action cannot be undone."
+    }
+  },
+  "channelTemplates": {
+    "title": "Kanal Şablonları",
+    "subtitle": "Kanal yapılandırmalarını şablon olarak kaydedip uygulayın",
+    "fromChannel": "Kanal'dan",
+    "createButton": "Şablon Oluştur",
+    "empty": "Henüz kanal şablonu yok. Oluşturun veya mevcut bir kanaldan içe aktarın.",
+    "tooltips": {
+      "global": "Genel şablon",
+      "private": "Özel",
+      "applyToChannel": "Kanala uygula",
+      "duplicate": "Çoğalt"
+    },
+    "labels": {
+      "modes": "Modlar:",
+      "topic": "Konu:"
+    },
+    "used": "Kullanım sayısı: {{count}}",
+    "by": "tarafından",
+    "deleteConfirm": "Bu şablonu silmek istediğinize emin misiniz?",
+    "form": {
+      "name": "Ad",
+      "placeholders": {
+        "name": "Örn. Destek Kanalı Şablonu",
+        "description": "Opsiyonel açıklama",
+        "modes": "Örn. +nt",
+        "topic": "Kanal konusu",
+        "selectChannel": "Bir kanal seçin..."
+      },
+      "description": "Açıklama",
+      "modes": "Modlar",
+      "topic": "Konu",
+      "makeGlobal": "Bu şablonu tüm kullanıcılar için kullanılabilir yap",
+      "updateButton": "Güncelle",
+      "createButton": "Oluştur",
+      "targetChannel": "Hedef Kanal"
+    },
+    "editModal": {
+      "title": "Şablonu Düzenle"
+    },
+    "createModal": {
+      "title": "Şablon Oluştur"
+    },
+    "applyModal": {
+      "title": "Şablonu Uygula",
+      "subtitle": "\"{{name}}\" şablonunu bir kanala uygula:",
+      "applyButton": "Şablonu Uygula"
+    },
+    "createFromChannel": {
+      "title": "Kanalden Oluştur",
+      "description": "Mevcut bir kanalın yapılandırmasından yeni bir şablon oluşturun:"
+    }
+  },
+  "webhooks": {
+    "title": "Webhooks",
+    "subtitle": "Receive log events from UnrealIRCd via webhooks",
+    "createButton": "Create Webhook",
+    "info": {
+      "paragraph1": "Webhooks allow UnrealIRCd to send log events directly to this panel. Each webhook has a unique token URL that you configure in your unrealircd.conf.",
+      "learnMore": "Learn more about UnrealIRCd log blocks"
+    },
+    "tooltips": {
+      "viewConfig": "View Configuration",
+      "viewLogs": "View Logs",
+      "disable": "Disable",
+      "enable": "Enable",
+      "regenerate": "Regenerate Token"
+    },
+    "emptyTokens": "No webhook tokens configured",
+    "tokens": {
+      "createModal": {
+        "title": "Create Webhook Token"
+      },
+      "deleteModal": {
+        "title": "Delete Webhook Token",
+        "confirm": "Are you sure you want to delete the webhook token \"{{name}}\"?",
+        "details": "UnrealIRCd will no longer be able to send log events to this URL."
+      }
+    },
+    "messages": {
+      "loadFailed": "Failed to load webhooks: {{error}}"
+    }
+  },
+  "themeSwitcher": {
+    "title": "Tema Ayarları",
+    "tabs": {
+      "presets": "Presets",
+      "customize": "Customize"
+    },
+    "customizeIntro": "Customize the current theme ({{name}}) with your own colors.",
+    "sections": {
+      "background": "Background",
+      "text": "Text"
+    },
+    "colors": {
+      "primary": "Primary",
+      "secondary": "Secondary",
+      "tertiary": "Tertiary",
+      "textPrimary": "Primary",
+      "textMuted": "Muted",
+      "accent": "Accent",
+      "accentHover": "Accent (hover)",
+      "success": "Success",
+      "error": "Error"
+    },
+    "apply": "Apply Changes",
+    "reset": "Reset to Default"
+  },
+  "sidebar": {
+    "logout": "Çıkış Yap"
+  },
+  "userJourney": {
+    "searchModal": {
+      "title": "Search User Journey",
+      "description": "Enter at least one identifier to search for user activity:",
+      "nicknameLabel": "Nickname",
+      "nicknamePlaceholder": "Enter nickname",
+      "ipLabel": "IP Address",
+      "ipPlaceholder": "Enter IP address"
+    }
+  },
+  "userDetail": {
+    "killTitle": "Kill User: {{name}}",
+    "killButton": "Kill User",
+    "banTitle": "Ban User: {{name}}",
+    "banButton": "Ban User",
+    "vhostTitle": "Set Vhost: {{name}}",
+    "setVhostButton": "Set Vhost",
+    "modesTitle": "Set User Modes: {{name}}",
+    "applyModeChanges": "Apply Mode Changes"
+  }
+}

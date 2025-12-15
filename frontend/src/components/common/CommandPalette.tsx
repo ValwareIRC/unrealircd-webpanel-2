@@ -27,6 +27,7 @@ import {
 } from 'lucide-react'
 import { useAuth } from '@/hooks'
 import { useTheme } from '@/contexts/ThemeContext'
+import { useTranslation } from 'react-i18next'
 
 interface CommandItem {
   id: string
@@ -52,13 +53,15 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
   const { logout } = useAuth()
   const { setTheme, availableThemes } = useTheme()
 
+  const { t } = useTranslation()
+
   const commands = useMemo<CommandItem[]>(() => {
     const items: CommandItem[] = [
       // Navigation
       {
         id: 'nav-dashboard',
-        title: 'Go to Dashboard',
-        description: 'View network overview',
+        title: t('commands.nav.dashboard.title'),
+        description: t('commands.nav.dashboard.description'),
         icon: <Home size={18} />,
         action: () => navigate('/'),
         category: 'navigation',
@@ -66,8 +69,8 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
       },
       {
         id: 'nav-users',
-        title: 'Go to Users',
-        description: 'View connected users',
+        title: t('commands.nav.users.title'),
+        description: t('commands.nav.users.description'),
         icon: <Users size={18} />,
         action: () => navigate('/users'),
         category: 'navigation',
@@ -102,8 +105,8 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
       },
       {
         id: 'nav-statistics',
-        title: 'Go to Statistics',
-        description: 'View detailed stats',
+        title: t('commands.nav.statistics.title'),
+        description: t('commands.nav.statistics.description'),
         icon: <BarChart3 size={18} />,
         action: () => navigate('/statistics'),
         category: 'navigation',
@@ -120,8 +123,8 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
       },
       {
         id: 'nav-server-bans',
-        title: 'Go to Server Bans',
-        description: 'Manage K-Lines, G-Lines, etc.',
+        title: t('commands.nav.serverBans.title'),
+        description: t('commands.nav.serverBans.description'),
         icon: <Ban size={18} />,
         action: () => navigate('/bans/server'),
         category: 'navigation',
@@ -129,8 +132,8 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
       },
       {
         id: 'nav-name-bans',
-        title: 'Go to Name Bans',
-        description: 'Manage Q-Lines',
+        title: t('commands.nav.nameBans.title'),
+        description: t('commands.nav.nameBans.description'),
         icon: <ShieldX size={18} />,
         action: () => navigate('/bans/name'),
         category: 'navigation',
@@ -147,8 +150,8 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
       },
       {
         id: 'nav-spamfilters',
-        title: 'Go to Spamfilters',
-        description: 'Manage spam filters',
+        title: t('commands.nav.spamfilters.title'),
+        description: t('commands.nav.spamfilters.description'),
         icon: <Filter size={18} />,
         action: () => navigate('/spamfilters'),
         category: 'navigation',
@@ -221,23 +224,23 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
     ]
 
     // Theme commands
-    availableThemes.forEach(t => {
+    availableThemes.forEach((themeItem) => {
       items.push({
-        id: `theme-${t.id}`,
-        title: `Switch to ${t.name} Theme`,
-        description: `Apply ${t.name} color scheme`,
-        icon: t.colors.bgPrimary.includes('0a0') || t.colors.bgPrimary.includes('000') ? <Moon size={18} /> : <Sun size={18} />,
-        action: () => setTheme(t.id),
+        id: `theme-${themeItem.id}`,
+        title: t('commands.theme.switch', { name: themeItem.name }),
+        description: t('commands.theme.apply', { name: themeItem.name }),
+        icon: themeItem.colors.bgPrimary.includes('0a0') || themeItem.colors.bgPrimary.includes('000') ? <Moon size={18} /> : <Sun size={18} />,
+        action: () => setTheme(themeItem.id),
         category: 'settings',
-        keywords: ['theme', 'color', 'dark', 'light', t.name.toLowerCase()]
+        keywords: ['theme', 'color', 'dark', 'light', themeItem.name.toLowerCase()]
       })
     })
 
     // Actions
     items.push({
       id: 'action-logout',
-      title: 'Sign Out',
-      description: 'Log out of the panel',
+      title: t('commands.action.signOut.title'),
+      description: t('commands.action.signOut.description'),
       icon: <LogOut size={18} />,
       action: () => logout(),
       category: 'action',

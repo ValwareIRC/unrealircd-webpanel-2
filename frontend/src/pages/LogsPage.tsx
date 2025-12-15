@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { useLogs } from '@/hooks'
 import { Alert, Badge, Button, Modal, LoadingSpinner } from '@/components/common'
 import { FileText, Play, Pause, Trash2, RefreshCw } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 import type { LogEntry } from '@/types'
 
 // Default log sources to filter (matching the PHP webpanel)
@@ -72,6 +73,7 @@ function formatFullTimestamp(timestamp: string): string {
 
 export function LogsPage() {
   const { data: initialLogs, isLoading, error, refetch } = useLogs(DEFAULT_SOURCES)
+  const { t } = useTranslation()
   const [logs, setLogs] = useState<LogEntry[]>([])
   const [isStreaming, setIsStreaming] = useState(false)
   const [selectedLog, setSelectedLog] = useState<LogEntry | null>(null)
@@ -252,9 +254,9 @@ export function LogsPage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h1 className="text-2xl font-bold text-[var(--text-primary)]">Log Viewer</h1>
+          <h1 className="text-2xl font-bold text-[var(--text-primary)]">{t('logs.title')}</h1>
           <p className="text-[var(--text-muted)] mt-1">
-            View historical and live log entries from UnrealIRCd (requires 6.1.1+)
+            {t('logs.subtitle')}
           </p>
         </div>
         <div className="flex items-center gap-2">
@@ -272,7 +274,7 @@ export function LogsPage() {
             onClick={isStreaming ? stopStreaming : startStreaming}
             leftIcon={isStreaming ? <Pause size={16} /> : <Play size={16} />}
           >
-            {isStreaming ? 'Stop Live' : 'Start Live'}
+            {isStreaming ? t('logs.stopLive') : t('logs.startLive')}
           </Button>
           <Button
             variant="ghost"
@@ -288,13 +290,13 @@ export function LogsPage() {
       {/* Filters */}
       <div className="flex flex-wrap items-center gap-3 mb-4 p-3 bg-[var(--bg-secondary)] rounded-lg border border-[var(--border-primary)]">
         <div className="flex items-center gap-2">
-          <label className="text-sm text-[var(--text-muted)]">Level:</label>
+          <label className="text-sm text-[var(--text-muted)]">{t('logs.level')}</label>
           <select
             value={filterLevel}
             onChange={(e) => setFilterLevel(e.target.value)}
             className="bg-[var(--bg-tertiary)] border border-[var(--border-primary)] rounded px-2 py-1 text-sm text-[var(--text-primary)]"
           >
-            <option value="">All</option>
+            <option value="">{t('logs.all')}</option>
             {levels.map((level) => (
               <option key={level} value={level}>
                 {level}
@@ -303,13 +305,13 @@ export function LogsPage() {
           </select>
         </div>
         <div className="flex items-center gap-2">
-          <label className="text-sm text-[var(--text-muted)]">Subsystem:</label>
+          <label className="text-sm text-[var(--text-muted)]">{t('logs.subsystem')}</label>
           <select
             value={filterSubsystem}
             onChange={(e) => setFilterSubsystem(e.target.value)}
             className="bg-[var(--bg-tertiary)] border border-[var(--border-primary)] rounded px-2 py-1 text-sm text-[var(--text-primary)]"
           >
-            <option value="">All</option>
+            <option value="">{t('logs.all')}</option>
             {subsystems.map((sub) => (
               <option key={sub} value={sub}>
                 {sub}
@@ -320,14 +322,14 @@ export function LogsPage() {
         <div className="flex-1">
           <input
             type="text"
-            placeholder="Search logs..."
+            placeholder={t('logs.searchPlaceholder')}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full bg-[var(--bg-tertiary)] border border-[var(--border-primary)] rounded px-3 py-1 text-sm text-[var(--text-primary)] placeholder:text-[var(--text-muted)]"
           />
         </div>
         <div className="flex items-center gap-2">
-          <label className="text-sm text-[var(--text-muted)]">Auto-scroll:</label>
+          <label className="text-sm text-[var(--text-muted)]">{t('logs.autoScroll')}</label>
           <button
             onClick={() => setAutoScroll(!autoScroll)}
             className={`px-2 py-1 rounded text-sm ${
@@ -336,11 +338,11 @@ export function LogsPage() {
                 : 'bg-[var(--bg-tertiary)] text-[var(--text-muted)]'
             }`}
           >
-            {autoScroll ? 'On' : 'Off'}
+            {autoScroll ? t('logs.on') : t('logs.off')}
           </button>
         </div>
         <div className="text-sm text-[var(--text-muted)]">
-          {filteredLogs.length} / {logs.length} entries
+          {filteredLogs.length} / {logs.length} {t('logs.entries')}
           {isStreaming && (
             <Badge variant="success" size="sm" className="ml-2">
               LIVE
@@ -361,17 +363,17 @@ export function LogsPage() {
         ) : filteredLogs.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-full text-[var(--text-muted)]">
             <FileText size={48} className="mb-2 opacity-50" />
-            <p>No log entries found</p>
+            <p>{t('logs.noEntries')}</p>
           </div>
         ) : (
           <table className="w-full text-sm">
             <thead className="sticky top-0 bg-[var(--bg-tertiary)] border-b border-[var(--border-primary)]">
               <tr>
-                <th className="text-left px-3 py-2 text-[var(--text-muted)] font-medium w-24">Time</th>
-                <th className="text-left px-3 py-2 text-[var(--text-muted)] font-medium w-20">Level</th>
-                <th className="text-left px-3 py-2 text-[var(--text-muted)] font-medium w-32">Subsystem</th>
-                <th className="text-left px-3 py-2 text-[var(--text-muted)] font-medium w-40">Event</th>
-                <th className="text-left px-3 py-2 text-[var(--text-muted)] font-medium">Message</th>
+                <th className="text-left px-3 py-2 text-[var(--text-muted)] font-medium w-24">{t('logs.tableHeaders.time')}</th>
+                <th className="text-left px-3 py-2 text-[var(--text-muted)] font-medium w-20">{t('logs.tableHeaders.level')}</th>
+                <th className="text-left px-3 py-2 text-[var(--text-muted)] font-medium w-32">{t('logs.tableHeaders.subsystem')}</th>
+                <th className="text-left px-3 py-2 text-[var(--text-muted)] font-medium w-40">{t('logs.tableHeaders.event')}</th>
+                <th className="text-left px-3 py-2 text-[var(--text-muted)] font-medium">{t('logs.tableHeaders.message')}</th>
               </tr>
             </thead>
             <tbody>
@@ -409,7 +411,7 @@ export function LogsPage() {
       <Modal
         isOpen={showJsonModal}
         onClose={() => setShowJsonModal(false)}
-        title="Log Entry Details"
+        title={t('logs.modal.title')}
         size="lg"
       >
         {selectedLog && (
@@ -419,13 +421,13 @@ export function LogsPage() {
               <table className="w-full text-sm">
                 <tbody>
                   <tr className="border-b border-[var(--border-primary)]">
-                    <td className="py-2 text-[var(--text-muted)] w-32">Time</td>
+                    <td className="py-2 text-[var(--text-muted)] w-32">{t('logs.tableHeaders.time')}</td>
                     <td className="py-2 font-mono text-[var(--text-primary)]">
                       {formatFullTimestamp(selectedLog.timestamp)}
                     </td>
                   </tr>
                   <tr className="border-b border-[var(--border-primary)]">
-                    <td className="py-2 text-[var(--text-muted)]">Level</td>
+                    <td className="py-2 text-[var(--text-muted)]">{t('logs.tableHeaders.level')}</td>
                     <td className="py-2">
                       <Badge variant={getLevelBadgeVariant(selectedLog.level)}>
                         {selectedLog.level}
@@ -433,19 +435,19 @@ export function LogsPage() {
                     </td>
                   </tr>
                   <tr className="border-b border-[var(--border-primary)]">
-                    <td className="py-2 text-[var(--text-muted)]">Subsystem</td>
+                    <td className="py-2 text-[var(--text-muted)]">{t('logs.tableHeaders.subsystem')}</td>
                     <td className="py-2 font-mono text-[var(--text-primary)]">
                       {selectedLog.subsystem || '-'}
                     </td>
                   </tr>
                   <tr className="border-b border-[var(--border-primary)]">
-                    <td className="py-2 text-[var(--text-muted)]">Event</td>
+                    <td className="py-2 text-[var(--text-muted)]">{t('logs.tableHeaders.event')}</td>
                     <td className="py-2 font-mono text-[var(--text-primary)]">
                       {selectedLog.event_id || '-'}
                     </td>
                   </tr>
                   <tr>
-                    <td className="py-2 text-[var(--text-muted)]">Message</td>
+                    <td className="py-2 text-[var(--text-muted)]">{t('logs.tableHeaders.message')}</td>
                     <td className="py-2 text-[var(--text-primary)] whitespace-pre-wrap break-words">
                       {selectedLog.msg}
                     </td>
@@ -456,7 +458,7 @@ export function LogsPage() {
 
             {/* Raw JSON */}
             <div>
-              <h4 className="text-sm font-medium text-[var(--text-muted)] mb-2">Raw JSON</h4>
+              <h4 className="text-sm font-medium text-[var(--text-muted)] mb-2">{t('logs.modal.rawJson')}</h4>
               <pre className="bg-[var(--bg-primary)] border border-[var(--border-primary)] rounded-lg p-4 text-xs font-mono text-[var(--text-secondary)] overflow-auto max-h-64">
                 {JSON.stringify(selectedLog.raw || selectedLog, null, 2)}
               </pre>

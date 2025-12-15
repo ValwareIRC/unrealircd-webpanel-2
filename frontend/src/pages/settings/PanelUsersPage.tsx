@@ -4,8 +4,10 @@ import { DataTable, Button, Modal, Input, Select, Alert, Badge } from '@/compone
 import { Plus, Edit, Trash2, Shield, Mail, Clock, User as UserIcon } from 'lucide-react'
 import type { User } from '@/types'
 import toast from 'react-hot-toast'
+import { useTranslation } from 'react-i18next'
 
 export function PanelUsersPage() {
+  const { t } = useTranslation()
   const { data: users, isLoading, error } = usePanelUsers()
   const { data: roles } = useRoles()
   const createUser = useCreatePanelUser()
@@ -309,15 +311,15 @@ export function PanelUsersPage() {
       <Modal
         isOpen={showAddModal}
         onClose={() => setShowAddModal(false)}
-        title="Add Panel User"
+        title={t('panelUsers.addModal.title')}
         size="lg"
         footer={
           <>
             <Button variant="secondary" onClick={() => setShowAddModal(false)}>
-              Cancel
+              {t('common.cancel')}
             </Button>
             <Button onClick={handleCreate} isLoading={createUser.isPending}>
-              Create User
+              {t('panelUsers.addModal.createButton')}
             </Button>
           </>
         }
@@ -471,7 +473,7 @@ export function PanelUsersPage() {
       <Modal
         isOpen={showDeleteModal}
         onClose={() => setShowDeleteModal(false)}
-        title="Delete User"
+          title={t('panelUsers.deleteModal.title')}
         footer={
           <>
             <Button variant="secondary" onClick={() => setShowDeleteModal(false)}>
@@ -484,7 +486,7 @@ export function PanelUsersPage() {
         }
       >
         <Alert type="error">
-          Are you sure you want to delete the user <strong>{selectedUser?.username}</strong>?
+            {t('panelUsers.deleteModal.confirm')}
           This action cannot be undone.
         </Alert>
       </Modal>

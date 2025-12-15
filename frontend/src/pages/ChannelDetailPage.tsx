@@ -17,6 +17,7 @@ import { Button, Badge, Modal, Input, Alert, PageLoading, ChannelModeEditor } fr
 import { channelsService } from '@/services/irc'
 import type { ChannelMember, ChannelListEntry } from '@/types'
 import toast from 'react-hot-toast'
+import { useTranslation } from 'react-i18next'
 
 // Hook to track new items for animation
 function useAnimatedMembers(members: ChannelMember[] | undefined) {
@@ -68,35 +69,13 @@ const CHANNEL_LEVELS: Record<string, { name: string; color: string; symbol: stri
   Y: { name: 'OJOIN', color: 'bg-gray-500/20 text-gray-400 border-gray-500/30', symbol: '!', order: 5 },
 }
 
-// Common channel mode descriptions
-const CHANNEL_MODES: Record<string, { name: string; description: string; hasParam?: boolean }> = {
-  n: { name: 'No External Messages', description: 'Only channel members can send messages' },
-  t: { name: 'Topic Protection', description: 'Only ops can change the topic' },
-  s: { name: 'Secret', description: 'Channel is hidden from /LIST and /WHOIS' },
-  p: { name: 'Private', description: 'Channel is private' },
-  m: { name: 'Moderated', description: 'Only voiced users and ops can speak' },
-  i: { name: 'Invite Only', description: 'Users must be invited to join' },
-  k: { name: 'Key', description: 'Channel requires a password to join', hasParam: true },
-  l: { name: 'Limit', description: 'Maximum number of users allowed', hasParam: true },
-  r: { name: 'Registered', description: 'Channel is registered with services' },
-  c: { name: 'No Colors', description: 'Color codes are stripped from messages' },
-  C: { name: 'No CTCPs', description: 'CTCP messages are blocked' },
-  N: { name: 'No Nickname Changes', description: 'Users cannot change nicks while in channel' },
-  O: { name: 'Opers Only', description: 'Only IRC operators can join' },
-  Q: { name: 'No Kicks', description: 'Kicks are disabled' },
-  R: { name: 'Registered Only', description: 'Only registered users can join' },
-  S: { name: 'Strip Colors', description: 'Color codes are stripped' },
-  T: { name: 'No Notices', description: 'Channel notices are blocked' },
-  z: { name: 'Secure Only', description: 'Only TLS users can join' },
-  Z: { name: 'All Secure', description: 'All users in channel are using TLS' },
-}
-
 type TabType = 'settings' | 'bans' | 'invites' | 'excepts'
 
 export default function ChannelDetailPage() {
   const { name } = useParams<{ name: string }>()
   const navigate = useNavigate()
   const queryClient = useQueryClient()
+  const { t } = useTranslation()
 
   const [activeTab, setActiveTab] = useState<TabType>('settings')
   const [showTopicModal, setShowTopicModal] = useState(false)
@@ -130,18 +109,18 @@ export default function ChannelDetailPage() {
     mutationFn: (data: { channel: string; topic: string }) =>
       channelsService.setTopic(data.channel, data.topic),
     onSuccess: () => {
-      toast.success('Topic updated')
+      toast.success(t('channelDetail.settings.topicSetSuccess'))
       setShowTopicModal(false)
       queryClient.invalidateQueries({ queryKey: ['channel', name] })
     },
-    onError: (err: Error) => toast.error(err.message),
+    onError: (err: Error) => toast.error(t('channelDetail.settings.topicSetError', { error: err.message })),
   })
 
   const setModeMutation = useMutation({
     mutationFn: (data: { channel: string; modes: string; params?: string }) =>
       channelsService.setMode(data.channel, data.modes, data.params),
     onSuccess: () => {
-      toast.success('Mode changed')
+      toast.success(t('channelDetail.modes.modeSetSuccess'))
       setShowModeModal(false)
       setShowAddBanModal(false)
       setShowAddInviteModal(false)
@@ -155,12 +134,12 @@ export default function ChannelDetailPage() {
     mutationFn: (data: { channel: string; nick: string; reason?: string }) =>
       channelsService.kick(data.channel, data.nick, data.reason),
     onSuccess: () => {
-      toast.success(`Kicked ${kickData.nick}`)
+      toast.success(t('channelDetail.users.kickSuccess', { user: kickData.nick }))
       setShowKickModal(false)
       setKickData({ nick: '', reason: '' })
       queryClient.invalidateQueries({ queryKey: ['channel', name] })
     },
-    onError: (err: Error) => toast.error(err.message),
+    onError: (err: Error) => toast.error(t('channelDetail.users.kickError', { error: err.message })),
   })
 
   // Sort members by level
@@ -184,9 +163,10 @@ export default function ChannelDetailPage() {
     const modes = channel.modes.split('')
     return modes.map(mode => ({
       mode,
-      ...CHANNEL_MODES[mode],
-    })).filter(m => m.name)
-  }, [channel?.modes])
+      name: mode.toUpperCase(),
+      description: t(`channelDetail.modes.modeDescription.${mode}`, { defaultValue: `Mode ${mode}` }),
+    })).filter(m => m.description !== `Mode ${m.mode}`)
+  }, [channel?.modes, t])
 
   const handleKickUser = (member: ChannelMember) => {
     setKickData({ nick: member.name, reason: '' })
@@ -210,9 +190,9 @@ export default function ChannelDetailPage() {
           reason: 'Banned by admin',
         })
       }
-      toast.success(mute ? `Muted ${member.name} for 30 minutes` : `Banned ${member.name} for 30 minutes`)
+      toast.success(mute ? t('channelDetail.users.modeChangeSuccess') : t('channelDetail.users.banSuccess', { user: member.name }))
     } catch (err) {
-      toast.error(`Failed to ${mute ? 'mute' : 'ban'} user`)
+      toast.error(t('channelDetail.users.modeChangeError', { error: err instanceof Error ? err.message : 'Unknown error' }))
     }
   }
 
@@ -223,9 +203,9 @@ export default function ChannelDetailPage() {
         modes: '-b',
         params: ban.name,
       })
-      toast.success('Ban removed')
+      toast.success(t('channelDetail.bans.banRemovedSuccess'))
     } catch (err) {
-      toast.error('Failed to remove ban')
+      toast.error(t('channelDetail.bans.banRemovedError', { error: err instanceof Error ? err.message : 'Unknown error' }))
     }
   }
 
@@ -236,9 +216,9 @@ export default function ChannelDetailPage() {
         modes: '-I',
         params: invite.name,
       })
-      toast.success('Invite removed')
+      toast.success(t('channelDetail.invites.inviteRemovedSuccess'))
     } catch (err) {
-      toast.error('Failed to remove invite')
+      toast.error(t('channelDetail.invites.inviteRemovedError', { error: err instanceof Error ? err.message : 'Unknown error' }))
     }
   }
 
@@ -249,15 +229,15 @@ export default function ChannelDetailPage() {
         modes: '-e',
         params: except.name,
       })
-      toast.success('Exception removed')
+      toast.success(t('channelDetail.excepts.exceptRemovedSuccess'))
     } catch (err) {
-      toast.error('Failed to remove exception')
+      toast.error(t('channelDetail.excepts.exceptRemovedError', { error: err instanceof Error ? err.message : 'Unknown error' }))
     }
   }
 
   const handleAddBan = async () => {
     if (!newBan.mask) {
-      toast.error('Please enter a mask')
+      toast.error(t('channelDetail.bans.maskRequired'))
       return
     }
     let mask = newBan.mask
@@ -321,10 +301,10 @@ export default function ChannelDetailPage() {
     return (
       <div className="space-y-6">
         <Button variant="ghost" onClick={() => navigate('/channels')} leftIcon={<ArrowLeft size={16} />}>
-          Back to Channels
+          {t('channelDetail.backToChannels')}
         </Button>
         <Alert type="error">
-          {error ? `Failed to load channel: ${error instanceof Error ? error.message : 'Unknown error'}` : 'Channel not found'}
+          {error ? t('channelDetail.error', { error: error instanceof Error ? error.message : 'Unknown error' }) : t('channelDetail.notFound')}
         </Alert>
       </div>
     )
@@ -336,17 +316,17 @@ export default function ChannelDetailPage() {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
           <Button variant="ghost" onClick={() => navigate('/channels')} leftIcon={<ArrowLeft size={16} />}>
-            Back
+            {t('common.back')}
           </Button>
           <div>
             <div className="flex items-center gap-3">
               <h1 className="text-2xl font-bold text-[var(--text-primary)]">{channel.name}</h1>
               <Badge variant="default">
                 <Users size={12} className="mr-1" />
-                {channel.num_users} users
+                {channel.num_users} {t('channelDetail.users')}
               </Badge>
             </div>
-            <p className="text-[var(--text-muted)] mt-1">Channel Details</p>
+            <p className="text-[var(--text-muted)] mt-1">{t('channelDetail.title', { channel: channel.name })}</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
@@ -356,7 +336,7 @@ export default function ChannelDetailPage() {
             leftIcon={<RefreshCw size={16} className={isFetching ? 'animate-spin' : ''} />}
             disabled={isFetching}
           >
-            Refresh
+            {t('channelDetail.refresh')}
           </Button>
           <Button
             variant="secondary"
@@ -366,7 +346,7 @@ export default function ChannelDetailPage() {
             }}
             leftIcon={<MessageSquare size={16} />}
           >
-            Set Topic
+            {t('channelDetail.settings.setTopic')}
           </Button>
           <Button
             variant="secondary"
@@ -376,7 +356,7 @@ export default function ChannelDetailPage() {
             }}
             leftIcon={<Settings size={16} />}
           >
-            Set Mode
+            {t('channelDetail.settings.setMode')}
           </Button>
         </div>
       </div>
@@ -385,17 +365,17 @@ export default function ChannelDetailPage() {
       <div className="card">
         <div className="flex items-center gap-3 mb-4">
           <MessageSquare size={20} className="text-[var(--accent)]" />
-          <h3 className="text-lg font-semibold text-[var(--text-primary)]">Topic</h3>
+          <h3 className="text-lg font-semibold text-[var(--text-primary)]">{t('channelDetail.settings.topic')}</h3>
         </div>
         <div className="bg-[var(--bg-tertiary)] p-4 rounded-lg">
           <p className="text-[var(--text-primary)]">
-            {channel.topic || <span className="text-[var(--text-muted)] italic">No topic set</span>}
+            {channel.topic || <span className="text-[var(--text-muted)] italic">{t('channelDetail.settings.noTopicSet')}</span>}
           </p>
           {channel.topic_set_by && (
             <p className="text-sm text-[var(--text-muted)] mt-2">
-              Set by <span className="text-[var(--text-secondary)]">{channel.topic_set_by}</span>
+              {t('channelDetail.settings.setBy')} <span className="text-[var(--text-secondary)]">{channel.topic_set_by}</span>
               {channel.topic_set_at && (
-                <> at {new Date(channel.topic_set_at * 1000).toLocaleString()}</>
+                <> {t('common.at')} {new Date(channel.topic_set_at * 1000).toLocaleString()}</>
               )}
             </p>
           )}
@@ -407,7 +387,7 @@ export default function ChannelDetailPage() {
         <div className="card">
           <div className="flex items-center gap-3 mb-4">
             <Users size={20} className="text-[var(--accent)]" />
-            <h3 className="text-lg font-semibold text-[var(--text-primary)]">User List</h3>
+            <h3 className="text-lg font-semibold text-[var(--text-primary)]">{t('channelDetail.users.title')}</h3>
             <Badge variant="default" className="ml-auto">{sortedMembers.length}</Badge>
           </div>
           <div className="space-y-1 max-h-96 overflow-y-auto">
@@ -439,21 +419,21 @@ export default function ChannelDetailPage() {
                     <button
                       onClick={() => handleQuickBan(member, true)}
                       className="p-1 rounded hover:bg-[var(--bg-tertiary)] text-[var(--text-muted)] hover:text-yellow-400"
-                      title="Mute (30 min)"
+                      title={t('channelDetail.users.muteTooltip')}
                     >
                       <VolumeX size={14} />
                     </button>
                     <button
                       onClick={() => handleKickUser(member)}
                       className="p-1 rounded hover:bg-[var(--bg-tertiary)] text-[var(--text-muted)] hover:text-orange-400"
-                      title="Kick"
+                      title={t('channelDetail.users.kickTooltip')}
                     >
                       <UserMinus size={14} />
                     </button>
                     <button
                       onClick={() => handleQuickBan(member, false)}
                       className="p-1 rounded hover:bg-[var(--bg-tertiary)] text-[var(--text-muted)] hover:text-red-400"
-                      title="Ban (30 min)"
+                      title={t('channelDetail.users.banTooltip')}
                     >
                       <Ban size={14} />
                     </button>
@@ -462,7 +442,7 @@ export default function ChannelDetailPage() {
               )
             })}
             {sortedMembers.length === 0 && (
-              <p className="text-[var(--text-muted)] text-center py-4">No users in channel</p>
+              <p className="text-[var(--text-muted)] text-center py-4">{t('channelDetail.users.noUsers')}</p>
             )}
           </div>
         </div>
@@ -471,7 +451,7 @@ export default function ChannelDetailPage() {
         <div className="card lg:col-span-2">
           <div className="flex items-center gap-3 mb-4">
             <Settings size={20} className="text-[var(--accent)]" />
-            <h3 className="text-lg font-semibold text-[var(--text-primary)]">Channel Settings</h3>
+            <h3 className="text-lg font-semibold text-[var(--text-primary)]">{t('channelDetail.settings.title')}</h3>
           </div>
 
           {/* Tabs */}
@@ -486,10 +466,10 @@ export default function ChannelDetailPage() {
                     : 'border-transparent text-[var(--text-muted)] hover:text-[var(--text-primary)]'
                 }`}
               >
-                {tab === 'settings' && 'Settings / Modes'}
-                {tab === 'bans' && `Bans (${channel.bans?.length || 0})`}
-                {tab === 'invites' && `Invites (${channel.invites?.length || 0})`}
-                {tab === 'excepts' && `Excepts (${channel.excepts?.length || 0})`}
+                {tab === 'settings' && t('channelDetail.tabs.settings')}
+                {tab === 'bans' && `${t('channelDetail.tabs.bans')} (${channel.bans?.length || 0})`}
+                {tab === 'invites' && `${t('channelDetail.tabs.invites')} (${channel.invites?.length || 0})`}
+                {tab === 'excepts' && `${t('channelDetail.tabs.excepts')} (${channel.excepts?.length || 0})`}
               </button>
             ))}
           </div>
@@ -499,7 +479,7 @@ export default function ChannelDetailPage() {
             {activeTab === 'settings' && (
               <div className="space-y-4">
                 <div className="flex items-center gap-2 mb-4">
-                  <span className="text-sm text-[var(--text-muted)]">Current modes:</span>
+                  <span className="text-sm text-[var(--text-muted)]">{t('channelDetail.settings.currentModes')}</span>
                   <code className="text-[var(--text-primary)] bg-[var(--bg-tertiary)] px-2 py-1 rounded">
                     +{channel.modes || 'nt'}
                   </code>
@@ -517,17 +497,17 @@ export default function ChannelDetailPage() {
                     ))}
                   </div>
                 ) : (
-                  <p className="text-[var(--text-muted)]">Default modes only</p>
+                  <p className="text-[var(--text-muted)]">{t('channelDetail.settings.defaultModesOnly')}</p>
                 )}
                 <div className="pt-4 border-t border-[var(--border-primary)]">
-                  <p className="text-sm text-[var(--text-muted)] mb-2">Channel Info</p>
+                  <p className="text-sm text-[var(--text-muted)] mb-2">{t('channelDetail.settings.channelInfo')}</p>
                   <div className="grid grid-cols-2 gap-4 text-sm">
                     <div>
-                      <span className="text-[var(--text-muted)]">Created:</span>
+                      <span className="text-[var(--text-muted)]">{t('channelDetail.settings.created')}</span>
                       <span className="text-[var(--text-primary)] ml-2">
                         {channel.creation_time
                           ? new Date(channel.creation_time * 1000).toLocaleString()
-                          : 'Unknown'}
+                          : t('channelDetail.settings.unknown')}
                       </span>
                     </div>
                   </div>
@@ -543,7 +523,7 @@ export default function ChannelDetailPage() {
                     onClick={() => setShowAddBanModal(true)}
                     leftIcon={<Plus size={14} />}
                   >
-                    Add Ban
+                    {t('channelDetail.bans.addBan')}
                   </Button>
                 </div>
                 {channel.bans && channel.bans.length > 0 ? (
@@ -557,7 +537,7 @@ export default function ChannelDetailPage() {
                     ))}
                   </div>
                 ) : (
-                  <p className="text-[var(--text-muted)] text-center py-8">No bans set</p>
+                  <p className="text-[var(--text-muted)] text-center py-8">{t('channelDetail.bans.noBansSet')}</p>
                 )}
               </div>
             )}
@@ -570,7 +550,7 @@ export default function ChannelDetailPage() {
                     onClick={() => setShowAddInviteModal(true)}
                     leftIcon={<Plus size={14} />}
                   >
-                    Add Invite
+                    {t('channelDetail.invites.addInvite')}
                   </Button>
                 </div>
                 {channel.invites && channel.invites.length > 0 ? (
@@ -584,7 +564,7 @@ export default function ChannelDetailPage() {
                     ))}
                   </div>
                 ) : (
-                  <p className="text-[var(--text-muted)] text-center py-8">No invite exceptions set</p>
+                  <p className="text-[var(--text-muted)] text-center py-8">{t('channelDetail.invites.noInvitesSet')}</p>
                 )}
               </div>
             )}
@@ -597,7 +577,7 @@ export default function ChannelDetailPage() {
                     onClick={() => setShowAddExceptModal(true)}
                     leftIcon={<Plus size={14} />}
                   >
-                    Add Exception
+                    {t('channelDetail.excepts.addExcept')}
                   </Button>
                 </div>
                 {channel.excepts && channel.excepts.length > 0 ? (
@@ -611,7 +591,7 @@ export default function ChannelDetailPage() {
                     ))}
                   </div>
                 ) : (
-                  <p className="text-[var(--text-muted)] text-center py-8">No ban exceptions set</p>
+                  <p className="text-[var(--text-muted)] text-center py-8">{t('channelDetail.excepts.noExceptsSet')}</p>
                 )}
               </div>
             )}
@@ -623,24 +603,24 @@ export default function ChannelDetailPage() {
       <Modal
         isOpen={showTopicModal}
         onClose={() => setShowTopicModal(false)}
-        title={`Set Topic: ${channel.name}`}
+        title={t('channelDetail.modals.setTopic.title', { channel: channel.name })}
         footer={
           <>
-            <Button variant="secondary" onClick={() => setShowTopicModal(false)}>Cancel</Button>
+            <Button variant="secondary" onClick={() => setShowTopicModal(false)}>{t('common.cancel')}</Button>
             <Button
               onClick={() => setTopicMutation.mutate({ channel: channel.name, topic: newTopic })}
               isLoading={setTopicMutation.isPending}
             >
-              Set Topic
+              {t('channelDetail.settings.setTopic')}
             </Button>
           </>
         }
       >
         <Input
-          label="Topic"
+          label={t('channelDetail.settings.topic')}
           value={newTopic}
           onChange={(e) => setNewTopic(e.target.value)}
-          placeholder="Enter new channel topic"
+          placeholder={t('channelDetail.settings.topicPlaceholder')}
         />
       </Modal>
 
@@ -648,11 +628,11 @@ export default function ChannelDetailPage() {
       <Modal
         isOpen={showModeModal}
         onClose={() => setShowModeModal(false)}
-        title={`Set Channel Modes: ${channel.name}`}
+        title={t('channelDetail.modals.setMode.title', { channel: channel.name })}
         size="lg"
         footer={
           <>
-            <Button variant="secondary" onClick={() => setShowModeModal(false)}>Cancel</Button>
+            <Button variant="secondary" onClick={() => setShowModeModal(false)}>{t('common.cancel')}</Button>
             <Button
               onClick={() => setModeMutation.mutate({
                 channel: channel.name,
@@ -662,14 +642,14 @@ export default function ChannelDetailPage() {
               isLoading={setModeMutation.isPending}
               disabled={!modeData.modes}
             >
-              Apply Mode Changes
+              {t('channelDetail.modals.setMode.applyModeChanges')}
             </Button>
           </>
         }
       >
         <div className="space-y-4">
           <div className="bg-[var(--bg-tertiary)] rounded-lg p-3 mb-4">
-            <p className="text-xs text-[var(--text-muted)] mb-1">Current modes</p>
+            <p className="text-xs text-[var(--text-muted)] mb-1">{t('channelDetail.modals.setMode.currentModesLabel')}</p>
             <p className="font-mono text-sm text-[var(--text-primary)]">+{channel.modes || 'nt'}</p>
           </div>
           
@@ -681,7 +661,7 @@ export default function ChannelDetailPage() {
           </div>
           
           <div className="border-t border-[var(--border-primary)] pt-4 mt-4">
-            <p className="text-xs text-[var(--text-muted)] mb-2">Or enter modes manually:</p>
+            <p className="text-xs text-[var(--text-muted)] mb-2">{t('channelDetail.modals.setMode.enterModesManually')}</p>
             <div className="flex gap-2">
               <Input
                 value={modeData.modes}
@@ -692,7 +672,7 @@ export default function ChannelDetailPage() {
               <Input
                 value={modeData.params}
                 onChange={(e) => setModeData({ ...modeData, params: e.target.value })}
-                placeholder="Parameters"
+                placeholder={t('channelDetail.modals.setMode.parameters')}
                 className="flex-1"
               />
             </div>
@@ -704,10 +684,10 @@ export default function ChannelDetailPage() {
       <Modal
         isOpen={showKickModal}
         onClose={() => setShowKickModal(false)}
-        title={`Kick User from ${channel.name}`}
+        title={t('channelDetail.modals.kickUser.title', { user: kickData.nick, channel: channel.name })}
         footer={
           <>
-            <Button variant="secondary" onClick={() => setShowKickModal(false)}>Cancel</Button>
+            <Button variant="secondary" onClick={() => setShowKickModal(false)}>{t('common.cancel')}</Button>
             <Button
               variant="danger"
               onClick={() => kickMutation.mutate({
@@ -717,23 +697,23 @@ export default function ChannelDetailPage() {
               })}
               isLoading={kickMutation.isPending}
             >
-              Kick User
+              {t('channelDetail.modals.kickUser.kickUser')}
             </Button>
           </>
         }
       >
         <div className="space-y-4">
           <Input
-            label="Nickname"
+            label={t('channelDetail.modals.kickUser.nickname')}
             value={kickData.nick}
             onChange={(e) => setKickData({ ...kickData, nick: e.target.value })}
-            placeholder="Enter nickname to kick"
+            placeholder={t('channelDetail.modals.kickUser.enterNicknameToKick')}
           />
           <Input
-            label="Reason (optional)"
+            label={t('channelDetail.modals.kickUser.reasonOptional')}
             value={kickData.reason}
             onChange={(e) => setKickData({ ...kickData, reason: e.target.value })}
-            placeholder="Enter kick reason"
+            placeholder={t('channelDetail.modals.kickUser.enterKickReason')}
           />
         </div>
       </Modal>
@@ -742,33 +722,33 @@ export default function ChannelDetailPage() {
       <Modal
         isOpen={showAddBanModal}
         onClose={() => setShowAddBanModal(false)}
-        title="Add Channel Ban"
+        title={t('channelDetail.modals.addBan.title')}
         footer={
           <>
-            <Button variant="secondary" onClick={() => setShowAddBanModal(false)}>Cancel</Button>
+            <Button variant="secondary" onClick={() => setShowAddBanModal(false)}>{t('common.cancel')}</Button>
             <Button
               variant="danger"
               onClick={handleAddBan}
               isLoading={setModeMutation.isPending}
             >
-              Add Ban
+              {t('channelDetail.bans.addBan')}
             </Button>
           </>
         }
       >
         <div className="space-y-4">
           <Input
-            label="Mask"
+            label={t('channelDetail.bans.mask')}
             value={newBan.mask}
             onChange={(e) => setNewBan({ ...newBan, mask: e.target.value })}
-            placeholder="nick!user@host or extended ban"
-            helperText="Use extended bans like ~account:name or ~country:XX"
+            placeholder={t('channelDetail.bans.maskPlaceholder')}
+            helperText={t('channelDetail.bans.useExtendedBans')}
           />
           <Input
-            label="Duration (minutes, optional)"
+            label={t('channelDetail.bans.durationMinutesOptional')}
             value={newBan.expiry}
             onChange={(e) => setNewBan({ ...newBan, expiry: e.target.value })}
-            placeholder="Leave empty for permanent"
+            placeholder={t('channelDetail.bans.leaveEmptyForPermanent')}
             type="number"
           />
         </div>
@@ -778,31 +758,31 @@ export default function ChannelDetailPage() {
       <Modal
         isOpen={showAddInviteModal}
         onClose={() => setShowAddInviteModal(false)}
-        title="Add Invite Exception"
+        title={t('channelDetail.modals.addInvite.title')}
         footer={
           <>
-            <Button variant="secondary" onClick={() => setShowAddInviteModal(false)}>Cancel</Button>
+            <Button variant="secondary" onClick={() => setShowAddInviteModal(false)}>{t('common.cancel')}</Button>
             <Button
               onClick={handleAddInvite}
               isLoading={setModeMutation.isPending}
             >
-              Add Invite
+              {t('channelDetail.invites.addInvite')}
             </Button>
           </>
         }
       >
         <div className="space-y-4">
           <Input
-            label="Mask"
+            label={t('channelDetail.invites.mask')}
             value={newInvite.mask}
             onChange={(e) => setNewInvite({ ...newInvite, mask: e.target.value })}
-            placeholder="nick!user@host or extended ban"
+            placeholder={t('channelDetail.invites.maskPlaceholder')}
           />
           <Input
-            label="Duration (minutes, optional)"
+            label={t('channelDetail.invites.durationMinutesOptional')}
             value={newInvite.expiry}
             onChange={(e) => setNewInvite({ ...newInvite, expiry: e.target.value })}
-            placeholder="Leave empty for permanent"
+            placeholder={t('channelDetail.invites.leaveEmptyForPermanent')}
             type="number"
           />
         </div>
@@ -812,63 +792,63 @@ export default function ChannelDetailPage() {
       <Modal
         isOpen={showAddExceptModal}
         onClose={() => setShowAddExceptModal(false)}
-        title="Add Ban Exception"
+        title={t('channelDetail.modals.addExcept.title')}
         footer={
           <>
-            <Button variant="secondary" onClick={() => setShowAddExceptModal(false)}>Cancel</Button>
+            <Button variant="secondary" onClick={() => setShowAddExceptModal(false)}>{t('common.cancel')}</Button>
             <Button
               onClick={handleAddExcept}
               isLoading={setModeMutation.isPending}
             >
-              Add Exception
+              {t('channelDetail.excepts.addExcept')}
             </Button>
           </>
         }
       >
         <div className="space-y-4">
           <Input
-            label="Mask"
+            label={t('channelDetail.excepts.mask')}
             value={newExcept.mask}
             onChange={(e) => setNewExcept({ ...newExcept, mask: e.target.value })}
-            placeholder="nick!user@host or extended ban"
+            placeholder={t('channelDetail.excepts.maskPlaceholder')}
           />
           <Input
-            label="Duration (minutes, optional)"
+            label={t('channelDetail.excepts.durationMinutesOptional')}
             value={newExcept.expiry}
             onChange={(e) => setNewExcept({ ...newExcept, expiry: e.target.value })}
-            placeholder="Leave empty for permanent"
+            placeholder={t('channelDetail.excepts.leaveEmptyForPermanent')}
             type="number"
           />
         </div>
       </Modal>
     </div>
   )
-}
 
-// List Entry Component for bans/invites/excepts
-function ListEntry({
-  entry,
-  onRemove,
-}: {
-  entry: ChannelListEntry
-  onRemove: () => void
-}) {
-  return (
-    <div className="flex items-center justify-between p-3 bg-[var(--bg-tertiary)] rounded-lg group">
-      <div className="flex-1 min-w-0">
-        <code className="text-[var(--text-primary)] text-sm break-all">{entry.name}</code>
-        <p className="text-xs text-[var(--text-muted)] mt-1">
-          Set by {entry.set_by}
-          {entry.set_at && <> at {new Date(entry.set_at * 1000).toLocaleString()}</>}
-        </p>
+  // List Entry Component for bans/invites/excepts
+  function ListEntry({
+    entry,
+    onRemove,
+  }: {
+    entry: ChannelListEntry
+    onRemove: () => void
+  }) {
+    return (
+      <div className="flex items-center justify-between p-3 bg-[var(--bg-tertiary)] rounded-lg group">
+        <div className="flex-1 min-w-0">
+          <code className="text-[var(--text-primary)] text-sm break-all">{entry.name}</code>
+          <p className="text-xs text-[var(--text-muted)] mt-1">
+            {t('channelDetail.users.setBy', { user: entry.set_by })}
+            {entry.set_at && <> {t('common.at')} {new Date(entry.set_at * 1000).toLocaleString()}</>}
+          </p>
+        </div>
+        <button
+          onClick={onRemove}
+          className="p-2 rounded hover:bg-[var(--bg-hover)] text-[var(--text-muted)] hover:text-red-400 opacity-0 group-hover:opacity-100 transition-all"
+          title={t('channelDetail.users.removeTooltip')}
+        >
+          <Trash2 size={16} />
+        </button>
       </div>
-      <button
-        onClick={onRemove}
-        className="p-2 rounded hover:bg-[var(--bg-hover)] text-[var(--text-muted)] hover:text-red-400 opacity-0 group-hover:opacity-100 transition-all"
-        title="Remove"
-      >
-        <Trash2 size={16} />
-      </button>
-    </div>
-  )
+    )
+  }
 }
